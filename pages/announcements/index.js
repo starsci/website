@@ -11,7 +11,6 @@ import CardHeading from "@/components/CardHeading";
 export async function getStaticProps() {
     // Get all files in the '_posts' directory
     const files = fs.readdirSync(path.join(process.cwd(), 'static', 'announcements'))
-    console.log(files)
 
     // Map each file to an object containing front matter and slug
     const posts = files.map(filename => {

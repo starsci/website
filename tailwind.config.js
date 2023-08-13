@@ -29,6 +29,9 @@ module.exports = {
                         light: 'rgb(255, 11, 11)',
                         dark: 'rgb(182, 8, 11)',
                         darker: 'rgb(157, 7, 10)'
+                    },
+                    dark: {
+                        default: 'rgb(8, 9, 10)'
                     }
                 }
             },

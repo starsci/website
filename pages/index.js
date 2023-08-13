@@ -1,14 +1,14 @@
 import Image from "next/image";
-import {useEffect, useRef, useState} from "react";
-import {useElementSize} from "usehooks-ts";
+import { useEffect, useRef, useState } from "react";
+import { useElementSize } from "usehooks-ts";
 import ButtonLink from "@/components/ButtonLink";
 import Page from "@/components/Page";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faBullhorn} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBullhorn, faHandshake } from "@fortawesome/free-solid-svg-icons";
 
 export default function Home() {
     const subheadingRef = useRef(null);
-    const [headingRef, {width}] = useElementSize();
+    const [headingRef, { width }] = useElementSize();
 
     return (
         <Page>
@@ -21,12 +21,12 @@ export default function Home() {
                         className="flex flex-grow items-center justify-center">
                         <div className="h-32 w-32 relative">
                             <Image src="/logo.png" alt="logo" fill
-                                   objectFit="cover"/>
+                                objectFit="cover" />
                         </div>
                     </div>
                     {/* vertical line */}
                     <div className="hidden lg:flex flex-col flex-grow">
-                        <div className="flex-grow w-[2px] bg-white"/>
+                        <div className="flex-grow w-[2px] bg-white" />
                     </div>
                     {/* text */}
                     <div className="text-center sm:text-left">
@@ -34,8 +34,8 @@ export default function Home() {
                             ref={headingRef}>Empowering
                             Tomorrow&apos;s Innovators</h1>
                         <p className="text-lg mt-2 leading-tight"
-                           style={{maxWidth: width}}
-                           ref={subheadingRef}>Discover boundless
+                            style={{ maxWidth: width }}
+                            ref={subheadingRef}>Discover boundless
                             opportunities for growth and exploration at
                             Santa Rosa Science and Technology High
                             School. Our institution in Santa Rosa,
@@ -46,11 +46,16 @@ export default function Home() {
                             possibilities are limitless.</p>
                     </div>
                     <div
-                        className="flex justify-center lg:justify-start col-start-3">
+                        className="flex justify-center flex-col lg:flex-row lg:justify-start col-start-3 lg:space-x-2 space-y-1">
                         <ButtonLink href="/announcements">
                             <FontAwesomeIcon icon={faBullhorn}
-                                             className="mr-2"/>
+                                className="mr-2" />
                             Read Announcements
+                        </ButtonLink>
+                        <ButtonLink href="/contact">
+                            <FontAwesomeIcon icon={faHandshake}
+                                className="mr-2" />
+                            Connect with Us
                         </ButtonLink>
                     </div>
 
