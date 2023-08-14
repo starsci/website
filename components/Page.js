@@ -32,10 +32,10 @@ function Page(props) {
                         </div>
                     </main>
                 </div>
-                <BouncingScrollDownIndicator />
-
             </div >
-            <Footer />
+            <Footer id="footer" />
+
+            <BouncingScrollDownIndicator bottomId="footer" />
         </>
     )
 }
