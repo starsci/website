@@ -11,9 +11,26 @@ export default function Home() {
     const [headingRef, { width }] = useElementSize();
 
     return (
-        <Page>
+        <Page noPadding extra={
+            <div className="flex flex-col items-center p-6 justify-center space-y-4 bg-white text-black dark:bg-brand-dark-default dark:text-white">
+                <h2 className="text-3xl font-bold mb-4">Our Administrators</h2>
+                {/* 2 columns on desktop, 1 column 2 rows on mobile */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="flex flex-col items-center space-y-2">
+                        <Image src="/principal.jpg" alt="Principal" width={200} height={200} className="rounded-full object-cover" />
+                        <h3 className="text-xl font-bold">Sylvia L. Marquez, EdD</h3>
+                        <p className="text-lg">Principal</p>
+                    </div>
+                    <div className="flex flex-col items-center space-y-2">
+                        <Image src="/asst-principal.jpg" alt="Assistant Principal" width={200} height={200} className="rounded-full object-cover" />
+                        <h3 className="text-xl font-bold">Philips T. Monterola</h3>
+                        <p className="text-lg">Assistant Principal</p>
+                    </div>
+                </div>
+            </div>
+        }>
             <div
-                className="relative flex flex-grow items-center justify-center pb-6 text-white">
+                className="relative flex flex-grow items-center justify-center p-6 text-white">
                 <div
                     className="lg:grid grid-flow-row auto-cols-max flex flex-col space-y-4 lg:space-x-4">
                     {/* logo */}

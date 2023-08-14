@@ -24,7 +24,7 @@ function Page(props) {
                     <main
                         className={`flex mx-auto flex-grow ${props.isContent ? `lg:container lg:bg-white lg:dark:bg-brand-dark-default lg:dark:text-white shadow-2xl` : `bg-none`} relative`}>
 
-                        <div className="flex flex-grow flex-col p-6 transition-opacity duration-400"
+                        <div className={`flex flex-grow flex-col transition-opacity duration-400 ${props.noPadding ? `` : `p-6`}`}
                             style={{
                                 opacity: domLoaded ? 1 : 0,
                             }}>
@@ -33,6 +33,10 @@ function Page(props) {
                     </main>
                 </div>
             </div >
+            {props.extra &&
+                <section>
+                    {props.extra}
+                </section>}
             <Footer id="footer" />
 
             <BouncingScrollDownIndicator bottomId="footer" />
