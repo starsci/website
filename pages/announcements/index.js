@@ -1,5 +1,4 @@
 import Page from "@/components/Page";
-import Link from "next/link";
 import fs from 'fs'
 import path from 'path'
 import Card from "@/components/Card";
@@ -8,6 +7,7 @@ import CardBody from "@/components/CardBody";
 import CardHeading from "@/components/CardHeading";
 
 import loadMdx from "@/helpers/loadMdx";
+import CardLink from "@/components/CardLink";
 
 export async function getStaticProps() {
     // Get all files in the '_posts' directory
@@ -27,29 +27,27 @@ export async function getStaticProps() {
     }
 }
 
-function Announcements({posts}) {
+function Announcements({ posts }) {
     return (
         <Page isContent>
             <h1 className="text-4xl font-bold">Announcements</h1>
             {posts.map((post, index) => (
                 <div key={index} className="mt-4">
                     <Card>
-                        {
-                            post.thumbnail &&
+                        {post.thumbnail &&
                             <CardImage src={post.thumbnail}
-                                       alt={post.frontMatter.title}/>
-                        }
+                                alt={post.frontMatter.title} />}
                         <CardBody>
                             <CardHeading>
                                 <h1 className="text-2xl font-bold">
-                                    <Link href={`/announcements/${post.slug}`}>
-                                        {post.frontMatter.title}
-                                    </Link>
+                                    {post.frontMatter.title}
                                 </h1>
                                 <span
                                     className="text-sm font-gray-500">{post.frontMatter.date}</span>
                             </CardHeading>
                             <p>{post.frontMatter.description}</p>
+
+                            <CardLink href={`/announcements/${post.slug}`} />
                         </CardBody>
                     </Card>
                 </div>
