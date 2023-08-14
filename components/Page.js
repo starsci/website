@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import { useEffect, useState } from "react";
 import $ from "jquery";
 import Footer from "./Footer";
+import BouncingScrollDownIndicator from "./BouncingScrollIndicator";
 
 function Page(props) {
     const [domLoaded, setDomLoaded] = useState(false);
@@ -31,6 +32,8 @@ function Page(props) {
                         </div>
                     </main>
                 </div>
+                <BouncingScrollDownIndicator />
+
             </div >
             <Footer />
         </>
