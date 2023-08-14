@@ -4,7 +4,7 @@ import { useElementSize } from "usehooks-ts";
 import ButtonLink from "@/components/ButtonLink";
 import Page from "@/components/Page";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBullhorn, faHandshake } from "@fortawesome/free-solid-svg-icons";
+import { faBullhorn, faHandshake, faTools } from "@fortawesome/free-solid-svg-icons";
 
 export default function Home() {
     const subheadingRef = useRef(null);
@@ -47,21 +47,24 @@ export default function Home() {
                     </div>
                     <div
                         className="flex col-start-3 justify-center lg:justify-start">
-                        <div className="flex flex-col lg:flex-row lg:space-x-2 lg:space-y-0 space-y-1">
-                            <ButtonLink href="/announcements">
+                        <div className="flex flex-col sm:flex-row sm:space-x-2 sm:space-y-0 space-y-1">
+                            <ButtonLink href="/services" className="transition duration-200 bg-gradient-to-br from-brand-blue-dark via-brand-red-dark to-brand-yellow-dark hover:from-brand-blue-default hover:via-brand-red-default hover:to-brand-yellow-default border-none">
+                                <FontAwesomeIcon icon={faTools}
+                                    className="mr-2" />
+                                    Explore Our Services
+                            </ButtonLink>
+                            <ButtonLink href="/contact" className="transition duration-200 bg-gradient-to-r bg-brand-yellow-darker hover:bg-brand-yellow-dark border-none">
+                                <FontAwesomeIcon icon={faHandshake}
+                                    className="mr-2" />
+                                Get in Touch
+                            </ButtonLink>
+                            <ButtonLink href="/announcements" className="border-none">
                                 <FontAwesomeIcon icon={faBullhorn}
                                     className="mr-2" />
                                 Read Announcements
                             </ButtonLink>
-                            <ButtonLink href="/contact">
-                                <FontAwesomeIcon icon={faHandshake}
-                                    className="mr-2" />
-                                Connect with Us
-                            </ButtonLink>
                         </div>
-
                     </div>
-
                 </div>
             </div>
         </Page>
