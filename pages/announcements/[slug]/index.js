@@ -37,7 +37,7 @@ function Announcement({frontMatter: {title, date}, source}) {
     return (
         <Page isContent>
             <h1 className="text-4xl font-bold">{title}</h1>
-            <p className="text-sm text-gray-700">Released on {date}</p>
+            <p className="text-sm text-gray-700 dark:text-gray-300">Released on {date}</p>
             <div className="mt-4 markdown-source">
                 <MDXRemote {...source} />
             </div>

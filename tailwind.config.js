@@ -31,7 +31,9 @@ module.exports = {
                         darker: 'rgb(157, 7, 10)'
                     },
                     dark: {
-                        default: 'rgb(8, 9, 10)'
+                        default: 'rgb(28, 29, 30)',
+                        lighter: 'rgb(40, 41, 42)',
+                        light: 'rgb(33, 34, 35)',
                     }
                 }
             },
@@ -41,4 +43,5 @@ module.exports = {
         },
     },
     plugins: [],
+    darkMode: 'class',
 }

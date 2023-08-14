@@ -19,7 +19,7 @@ function NavbarDropdown(props) {
                 </button>
             </div>
             <div
-                className={`transition ease-out duration-100 transform ${props.isExpanded ? `opacity-100` : `opacity-0 pointer-events-none`} absolute lg:right-0 lg:left-auto left-0 right-auto z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none`}
+                className={`transition ease-out duration-100 transform ${props.isExpanded ? `opacity-100` : `opacity-0 pointer-events-none`} absolute lg:right-0 lg:left-auto left-0 right-auto z-10 mt-2 w-56 origin-top-right rounded-md bg-white dark:bg-brand-dark-default dark:text-white text-black shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none`}
                 role="menu"
                 aria-orientation="vertical"
                 aria-labelledby="options-menu"

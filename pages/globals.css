@@ -2,8 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+html.light, html.dark {
+    @apply transition-colors duration-200 ease-in-out;
+}
+
+html {
+    width: 100vw;
+    box-sizing: border-box;
+    padding-right: calc(100% - 100vw);
+    overflow-x: hidden;
+}
+
 .navbar-link-text {
-    @apply block lg:inline-block hover:font-bold transition-all duration-200 ease-in-out;
+    @apply block lg:inline-block hover:font-bold transition-all duration-200 ease-in-out text-sm;
 }
 
 .navbar-link-container {
