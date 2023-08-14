@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import { useElementSize } from "usehooks-ts";
 import ButtonLink from "@/components/ButtonLink";
 import Page from "@/components/Page";

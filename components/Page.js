@@ -1,5 +1,5 @@
 import Header from "@/components/Header";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import $ from "jquery";
 
 function Page(props) {

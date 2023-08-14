@@ -39,6 +39,10 @@ module.exports = {
             },
             backgroundImage: {
                 hero: "url('/hero.jpg')",
+            },
+            fontFamily: {
+                nunito: "var(--font-nunito)",
+                oswald: "var(--font-oswald)",
             }
         },
     },
