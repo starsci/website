@@ -46,17 +46,20 @@ export default function Home() {
                             possibilities are limitless.</p>
                     </div>
                     <div
-                        className="flex justify-center flex-col lg:flex-row lg:justify-start col-start-3 lg:space-x-2 space-y-1">
-                        <ButtonLink href="/announcements">
-                            <FontAwesomeIcon icon={faBullhorn}
-                                className="mr-2" />
-                            Read Announcements
-                        </ButtonLink>
-                        <ButtonLink href="/contact">
-                            <FontAwesomeIcon icon={faHandshake}
-                                className="mr-2" />
-                            Connect with Us
-                        </ButtonLink>
+                        className="flex col-start-3 justify-center lg:justify-start">
+                        <div className="flex flex-col lg:flex-row lg:space-x-2 lg:space-y-0 space-y-1">
+                            <ButtonLink href="/announcements">
+                                <FontAwesomeIcon icon={faBullhorn}
+                                    className="mr-2" />
+                                Read Announcements
+                            </ButtonLink>
+                            <ButtonLink href="/contact">
+                                <FontAwesomeIcon icon={faHandshake}
+                                    className="mr-2" />
+                                Connect with Us
+                            </ButtonLink>
+                        </div>
+
                     </div>
 
                 </div>
