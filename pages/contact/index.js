@@ -2,6 +2,7 @@ import Page from "@/components/Page";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome, faPhone } from "@fortawesome/free-solid-svg-icons";
 import { faFacebook } from "@fortawesome/free-brands-svg-icons";
+import Link from "next/link";
 
 export default function Contact() {
     return (
@@ -18,15 +19,15 @@ export default function Contact() {
                     <ul className="list-none list-inside [&>*]:mb-2 text-left">
                         <li>
                             <FontAwesomeIcon icon={faHome} className="mr-2" />
-                            LM Subdivision, Brgy. Market Area, Santa Rosa City, 4026 Laguna, Philippines
+                            <Link href="https://goo.gl/maps/WpM6ZuczECRqCZdp7" className="normal-link">LM Subdivision, Brgy. Market Area, Santa Rosa City, 4026 Laguna, Philippines</Link>
                         </li>
                         <li>
                             <FontAwesomeIcon icon={faPhone} className="mr-2" />
-                            <a href="tel:+6349440067" className="normal-link">(049) 544 0067</a>
+                            <Link href="tel:+6349440067" className="normal-link">(049) 544 0067</Link>
                         </li>
                         <li className="mb-2">
                             <FontAwesomeIcon icon={faFacebook} className="mr-2" />
-                            <a href="https://www.facebook.com/DepEdTayoSRSTHS307902" className="normal-link">DepEd Tayo Santa Rosa Science and Technology HS - Santa Rosa City</a>
+                            <Link href="https://www.facebook.com/DepEdTayoSRSTHS307902" className="normal-link">DepEd Tayo Santa Rosa Science and Technology HS - Santa Rosa City</Link>
                         </li>
                     </ul>
                 </div>

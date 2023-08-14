@@ -17,12 +17,8 @@ export default function Home() {
                 <div
                     className="lg:grid grid-flow-row auto-cols-max flex flex-col space-y-4 lg:space-x-4">
                     {/* logo */}
-                    <div
-                        className="flex flex-grow items-center justify-center">
-                        <div className="h-32 w-32 relative">
-                            <Image src="/logo.png" alt="logo" fill
-                                objectFit="cover" />
-                        </div>
+                    <div className="flex flex-grow items-center justify-center">
+                        <Image width={0} height={0} sizes="100vw" src="/logo.png" alt="logo" className="h-32 w-32 object-cover" />
                     </div>
                     {/* vertical line */}
                     <div className="hidden lg:flex flex-col flex-grow">
@@ -51,7 +47,7 @@ export default function Home() {
                             <ButtonLink href="/services" className="transition duration-200 bg-gradient-to-br from-brand-blue-dark via-brand-red-dark to-brand-yellow-dark hover:from-brand-blue-default hover:via-brand-red-default hover:to-brand-yellow-default border-none">
                                 <FontAwesomeIcon icon={faTools}
                                     className="mr-2" />
-                                    Explore Our Services
+                                Explore Our Services
                             </ButtonLink>
                             <ButtonLink href="/contact" className="transition duration-200 bg-gradient-to-r bg-brand-yellow-darker hover:bg-brand-yellow-dark border-none">
                                 <FontAwesomeIcon icon={faHandshake}
