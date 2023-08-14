@@ -1,5 +1,4 @@
 import Page from "@/components/Page";
-import matter from "gray-matter";
 import Link from "next/link";
 import fs from 'fs'
 import path from 'path'
@@ -8,38 +7,14 @@ import CardImage from "@/components/CardImage";
 import CardBody from "@/components/CardBody";
 import CardHeading from "@/components/CardHeading";
 
+import loadMdx from "@/helpers/loadMdx";
+
 export async function getStaticProps() {
     // Get all files in the '_posts' directory
     const files = fs.readdirSync(path.join(process.cwd(), 'static', 'announcements'))
 
     // Map each file to an object containing front matter and slug
-    const posts = files.map(filename => {
-        // Read the contents of the file
-        const mdWithFrontMatter = fs.readFileSync(path.join(process.cwd(), 'static', 'announcements', filename), 'utf-8')
-
-        // Extract the front matter from the file contents
-        const {data: frontMatter} = matter(mdWithFrontMatter)
-
-        frontMatter.date = new Date(frontMatter.date).toLocaleDateString('en-US', {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric'
-        })
-
-        // Extract the slug from the filename
-        const slug = filename.split('.')[0]
-
-        // get first image with file name starting with slug from
-        // static/announcements/thumbnails
-        const files = fs.readdirSync(path.join(process.cwd(), 'public', 'announcements', 'thumbnails'))
-        const thumbnail = files.find(filename => filename.startsWith(slug))
-
-        return {
-            frontMatter,
-            slug,
-            thumbnail: thumbnail ? `/announcements/thumbnails/${thumbnail}` : null
-        }
-    })
+    const posts = files.map(loadMdx)
 
     // sort posts by date
     posts.sort((a, b) => new Date(b.frontMatter.date) - new Date(a.frontMatter.date))
