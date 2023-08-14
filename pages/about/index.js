@@ -18,7 +18,7 @@ export default function About() {
                 by Mayor Leon C. Arcillas.
             </p>
 
-            <hr className="w-full bg-gray-700 my-4"/>
+            <hr className="w-full bg-gray-700 my-4" />
 
             <div
                 className="block lg:grid auto-cols-auto items-center gap-4">
@@ -54,7 +54,7 @@ export default function About() {
                     Makakalikasan, Makabansa community in a highly developed
                     country.</p>
 
-                <hr className="hidden lg:block w-full bg-gray-700 my-2 col-span-2"/>
+                <hr className="hidden lg:block w-full bg-gray-700 my-2 col-span-2" />
 
                 <h2 className="text-2xl font-bold mb-2 col-span-2">DepEd
                     Mission, Vision, and Core Values</h2>
@@ -83,16 +83,14 @@ export default function About() {
                     share responsibility for developing life-long learners.</p>
 
                 <h3 className="text-xl font-bold mb-2">DepEd Core Values</h3>
-                <p className="col-start-2 mb-4 lg:mb-0">
-                    <ul>
-                        <li>Maka-Diyos</li>
-                        <li>Maka-tao</li>
-                        <li>Makakalikasan</li>
-                        <li>Makabansa</li>
-                    </ul>
-                </p>
+                <ul className="col-start-2 mb-4 lg:mb-0">
+                    <li>Maka-Diyos</li>
+                    <li>Maka-tao</li>
+                    <li>Makakalikasan</li>
+                    <li>Makabansa</li>
+                </ul>
 
-                <hr className="hidden lg:block w-full bg-gray-700 my-2 col-span-2"/>
+                <hr className="hidden lg:block w-full bg-gray-700 my-2 col-span-2" />
 
                 <h3 className="text-xl font-bold mb-2">DepEd Quality Policy
                     Statement</h3>
@@ -120,7 +118,7 @@ export default function About() {
                     <p>
                         The Department upholds the highest standards of
                         conduct and
-                        performance to fulfill stakeholders’ needs and
+                        performance to fulfill stakeholders' needs and
                         expectations
                         by adhering to constitutional mandates, statutory,
                         and
@@ -132,78 +130,74 @@ export default function About() {
                     </p>
                 </div>
 
-                <hr className="hidden lg:block w-full bg-gray-700 my-2 col-span-2"/>
+                <hr className="hidden lg:block w-full bg-gray-700 my-2 col-span-2" />
 
                 <h2 className="text-2xl font-bold mb-2 col-span-2">Rights,
                     Duties, and Responsibilities of the Students</h2>
 
                 <h3 className="text-xl font-bold mb-2">Rights and Duties</h3>
-                <p className="col-start-2 mb-4 lg:mb-0">
-                    <ul>
-                        <li>To have a meaningful education that adequately meets
-                            the needs of the individual students within the
-                            capabilities of the school
-                        </li>
-                        <li>To express an opinion and provide input in the
-                            development of the school in a respectful and polite
-                            manner
-                        </li>
-                        <li>To have adequate and timely notice of all rules and
-                            regulations, policies, and penalties to which they
-                            are subject to
-                        </li>
-                        <li>To have a free and honest election of their peers in
-                            the classroom and the student government
-                            organization
-                        </li>
-                        <li>To present complaints or grievances to school
-                            authorities and to receive a prompt reply from the
-                            school officials
-                        </li>
-                        <li>To access and use school facilities</li>
-                    </ul>
-                </p>
+                <ul className="col-start-2 mb-4 lg:mb-0">
+                    <li>To have a meaningful education that adequately meets
+                        the needs of the individual students within the
+                        capabilities of the school
+                    </li>
+                    <li>To express an opinion and provide input in the
+                        development of the school in a respectful and polite
+                        manner
+                    </li>
+                    <li>To have adequate and timely notice of all rules and
+                        regulations, policies, and penalties to which they
+                        are subject to
+                    </li>
+                    <li>To have a free and honest election of their peers in
+                        the classroom and the student government
+                        organization
+                    </li>
+                    <li>To present complaints or grievances to school
+                        authorities and to receive a prompt reply from the
+                        school officials
+                    </li>
+                    <li>To access and use school facilities</li>
+                </ul>
 
                 <h3 className="text-xl font-bold mb-2">Duties and
                     Responsibilities</h3>
-                <p className="col-start-2 mb-4 lg:mb-0">
-                    <ul>
-                        <li>To obey and observe all rules, regulations,
-                            policies, and codes of conduct in the school
-                        </li>
-                        <li>To uphold the mission and vision, ideals, and
-                            integrity of the school; to give honor and glory to
-                            the school, community, family, and the country, and
-                            show respect for God
-                        </li>
-                        <li>To give proper time and devotion to studies and
-                            achieve the standard grade requirements of the
-                            school
-                        </li>
-                        <li>To respect and maintain a good relationship with
-                            peers, teachers, staff, parents, family members, and
-                            the proper authorities in and outside the school
-                        </li>
-                        <li>To maintain orderliness, and cleanliness, and take
-                            care of school and facility
-                        </li>
-                    </ul>
-                </p>
+                <ul className="col-start-2 mb-4 lg:mb-0">
+                    <li>To obey and observe all rules, regulations,
+                        policies, and codes of conduct in the school
+                    </li>
+                    <li>To uphold the mission and vision, ideals, and
+                        integrity of the school; to give honor and glory to
+                        the school, community, family, and the country, and
+                        show respect for God
+                    </li>
+                    <li>To give proper time and devotion to studies and
+                        achieve the standard grade requirements of the
+                        school
+                    </li>
+                    <li>To respect and maintain a good relationship with
+                        peers, teachers, staff, parents, family members, and
+                        the proper authorities in and outside the school
+                    </li>
+                    <li>To maintain orderliness, and cleanliness, and take
+                        care of school and facility
+                    </li>
+                </ul>
             </div>
 
-            <hr className="w-full bg-gray-700 my-4"/>
+            <hr className="w-full bg-gray-700 my-4" />
 
             <h2 className="text-2xl font-bold mb-2">School Curriculum</h2>
             <p>Santa Rosa Science and Technology High School adopts a Science,
                 Technology, and Engineering (STE) Curriculum anchored with the
                 SHS Academic Track STEM (Science, Technology, Engineering, and
-                Mathematics) Strand of the Philippines’ K to 12 Educational
-                Program. It focused on pure science and its application to
+                Mathematics) Strand of the Philippines' K to 12 Educational
+                Program. It is focused on pure science and its application to
                 industry using the latest technologies, Computer rooms are to be
                 linked to the internet, including multi-media classrooms.
                 Instruction shall be supplemented with visits to known science
                 institutions, laboratories & plants. The school shall maintain a
-                well-stock library, and subscribe to professional, scientific,
+                well-stocked library, and subscribe to professional, scientific,
                 and technological magazines and manuals.
             </p>
         </Page>
