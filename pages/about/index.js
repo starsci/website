@@ -118,7 +118,7 @@ export default function About() {
                     <p>
                         The Department upholds the highest standards of
                         conduct and
-                        performance to fulfill stakeholders' needs and
+                        performance to fulfill stakeholders&apos; needs and
                         expectations
                         by adhering to constitutional mandates, statutory,
                         and
@@ -191,7 +191,7 @@ export default function About() {
             <p>Santa Rosa Science and Technology High School adopts a Science,
                 Technology, and Engineering (STE) Curriculum anchored with the
                 SHS Academic Track STEM (Science, Technology, Engineering, and
-                Mathematics) Strand of the Philippines' K to 12 Educational
+                Mathematics) Strand of the Philippines&apos; K to 12 Educational
                 Program. It is focused on pure science and its application to
                 industry using the latest technologies, Computer rooms are to be
                 linked to the internet, including multi-media classrooms.
