@@ -31,31 +31,31 @@ html {
 .markdown-source h4,
 .markdown-source h5,
 .markdown-source h6 {
-    @apply mb-4;
+    @apply mb-4 font-bold;
 }
 
 .markdown-source h1 {
-    @apply text-4xl font-bold;
+    @apply text-4xl;
 }
 
 .markdown-source h2 {
-    @apply text-3xl font-bold;
+    @apply text-3xl;
 }
 
 .markdown-source h3 {
-    @apply text-2xl font-bold;
+    @apply text-2xl;
 }
 
 .markdown-source h4 {
-    @apply text-xl font-bold;
+    @apply text-xl;
 }
 
 .markdown-source h5 {
-    @apply text-lg font-bold;
+    @apply text-lg;
 }
 
 .markdown-source h6 {
-    @apply text-base font-bold;
+    @apply text-base;
 }
 
 .markdown-source p {
