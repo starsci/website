@@ -12,7 +12,7 @@ export default function Clubs() {
   }
   return (
     <Page isContent>
-      <div className="grid grid-cols-12 lg:grid-cols-8 md:grid-cols-5 sm:grid-cols-3 gap-4">
+      <div className="grid grid-cols-3 lg:grid-cols-8 md:grid-cols-5 gap-4">
         {clubs.map((club, index) => (
           <div
             key={index}
@@ -23,7 +23,7 @@ export default function Clubs() {
               alt={club.name}
               width={150}
               height={150}
-              className="h-32 w-32 object-cover rounded-full"
+              className="h-auto object-cover rounded-full"
             />
             <h2 className="text-xl font-bold">{club.name}</h2>
           </div>
