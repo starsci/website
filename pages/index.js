@@ -74,19 +74,16 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row sm:space-x-2 sm:space-y-0 space-y-1">
               <ButtonLink
                 href="/services"
-                className="transition duration-200 bg-gradient-to-br from-brand-blue-dark via-brand-red-dark to-brand-yellow-dark hover:from-brand-blue-default hover:via-brand-red-default hover:to-brand-yellow-default border-none"
+                className=" text-brand-dark-default bg-brand-yellow-default hover:bg-brand-yellow-darker"
               >
                 <FontAwesomeIcon icon={faTools} className="mr-2" />
                 Explore Our Services
               </ButtonLink>
-              <ButtonLink
-                href="/contact"
-                className="transition duration-200 bg-gradient-to-r bg-brand-yellow-darker hover:bg-brand-yellow-dark border-none"
-              >
+              <ButtonLink href="/contact">
                 <FontAwesomeIcon icon={faHandshake} className="mr-2" />
                 Get in Touch
               </ButtonLink>
-              <ButtonLink href="/announcements" className="border-none">
+              <ButtonLink href="/announcements">
                 <FontAwesomeIcon icon={faBullhorn} className="mr-2" />
                 Read Announcements
               </ButtonLink>
