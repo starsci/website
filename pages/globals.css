@@ -124,5 +124,5 @@ table > tbody > tr > td {
 }
 
 .normal-link {
-    @apply text-blue-500 underline;
+    @apply text-white underline;
 }
