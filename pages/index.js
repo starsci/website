@@ -19,7 +19,7 @@ export default function Home() {
       noPadding
       extra={
         <div className="flex flex-col items-center p-6 justify-center space-y-4 bg-white text-black dark:bg-brand-dark-default dark:text-white">
-          <h2 className="text-3xl font-bold mb-4">Our Administrators</h2>
+          <h2 className="text-3xl font-bold mb-4">School Head</h2>
           {/* 2 columns on desktop, 1 column 2 rows on mobile */}
           <div className="flex flex-col items-center space-y-2">
             <Image
