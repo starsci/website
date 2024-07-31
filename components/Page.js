@@ -25,7 +25,7 @@ function Page(props) {
           } bg-cover bg-fixed relative`}
         >
           <div
-            className={`absolute inset-0 bg-gradient-to-br from-brand-blue-darker via-brand-red-darker to-brand-yellow-darker opacity-70 ${
+            className={`absolute inset-0 bg-brand-dark-default dark:opacity-70 opacity-50 ${
               isContent ? `lg:block hidden` : `block`
             }`}
           />
@@ -33,7 +33,7 @@ function Page(props) {
             className={`flex mx-auto flex-grow ${
               isContent
                 ? `lg:container bg-gray-100 dark:bg-brand-dark-default shadow-2xl`
-                : `bg-none`
+                : `bg-none text-white`
             } relative`}
           >
             <div
