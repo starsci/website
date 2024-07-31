@@ -10,7 +10,7 @@ module.exports = {
             colors: {
                 brand: {
                     blue: {
-                        default: 'rgb(8, 9, 117)',
+                        default: '#023e8a',
                         lighter: 'rgb(15, 16, 231)',
                         light: 'rgb(13, 14, 193)',
                         dark: 'rgb(10, 10, 154)',
