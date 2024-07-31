@@ -22,7 +22,7 @@ function Page(props) {
                     <div
                         className={`absolute inset-0 bg-gradient-to-br from-brand-blue-darker via-brand-red-darker to-brand-yellow-darker opacity-70 ${props.isContent ? `lg:block hidden` : `block`}`} />
                     <main
-                        className={`flex mx-auto flex-grow ${props.isContent ? `lg:container lg:bg-white lg:dark:bg-brand-dark-default lg:dark:text-white shadow-2xl` : `bg-none`} relative`}>
+                        className={`flex mx-auto flex-grow ${props.isContent ? `lg:container bg-gray-100 dark:bg-brand-dark-default shadow-2xl` : `bg-none`} relative`}>
 
                         <div className={`flex flex-grow flex-col transition-opacity duration-400 ${props.noPadding ? `` : `p-6`}`}
                             style={{
