@@ -41,7 +41,7 @@ function NavbarCollapsible(props) {
                     title="Toggle Navigation"
                     type="button"
                     onClick={toggleNav}
-                    className="flex items-center px-3 py-2 border rounded border-brand-dark-default dark:border-white hover:bg-brand-dark-default hover:dark:bg-white hover:dark:text-brand-dark-default hover:text-white transition-all duration-100">
+                    className="flex items-center px-3 py-2 border rounded border-white hover:bg-white hover:text-brand-dark-default transition-all duration-100">
                     {/* animate faBars spin to its side when toggle */}
                     <FontAwesomeIcon icon={faBars}
                                      className={`${isExpanded1 ? `transform rotate-90` : ``} transition-all ease-in-out duration-150`}/>
@@ -49,7 +49,7 @@ function NavbarCollapsible(props) {
             </div>
             <div
                 ref={parentRef}
-                className={`w-full dark:bg-brand-dark-default bg-gray-100 absolute block top-full -mt-6 lg:bg-none lg:static lg:mt-0 lg:flex-grow lg:flex lg:items-center lg:w-auto lg:-ms-6`}>
+                className={`w-full bg-brand-blue-default absolute block top-full -mt-6 lg:bg-none lg:static lg:mt-0 lg:flex-grow lg:flex lg:items-center lg:w-auto lg:-ms-6`}>
                 {props.children}
             </div>
         </>
