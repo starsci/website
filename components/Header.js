@@ -9,7 +9,6 @@ import NavbarLink from "@/components/NavbarLink";
 import NavbarDropdown from "@/components/NavbarDropdown";
 import NavbarDropdownLink from "@/components/NavbarDropdownLink";
 import NavbarLinks from "@/components/NavbarLinks";
-import ThemeToggleButton from "./ThemeToggleButton";
 
 function Header() {
     const [isServicesExpanded, toggleServicesExpansion] = useState(false);
@@ -44,7 +43,6 @@ function Header() {
                 <NavbarLinks alignLinks="right">
                     <NavbarLink href="/about">About</NavbarLink>
                     <NavbarLink href="/contact">Contact</NavbarLink>
-                    <ThemeToggleButton />
                 </NavbarLinks>
             </NavbarCollapsible>
         </Navbar>
