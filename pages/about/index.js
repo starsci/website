@@ -2,9 +2,7 @@ import Page from "@/components/Page";
 
 export default function About() {
     return (
-        <Page isContent>
-            <h1 className="text-4xl font-bold mb-4">About Us</h1>
-
+        <Page isContent title="About Us">
             <h2 className="text-2xl font-bold mb-2">Our History</h2>
             <p>President Gloria Macapagal-Arroyo signed into
                 law the Republic Act 9083, creating Santa Rosa Science and

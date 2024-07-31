@@ -29,8 +29,7 @@ export async function getStaticProps() {
 
 function Announcements({ posts }) {
     return (
-        <Page isContent>
-            <h1 className="text-4xl font-bold">Announcements</h1>
+        <Page isContent title="Announcements">
             {posts.map((post, index) => (
                 <div key={index} className="mt-4">
                     <Card>

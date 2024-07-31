@@ -31,9 +31,7 @@ const clubs = [
 
 export default function Clubs() {
   return (
-    <Page isContent>
-      <h1 className="text-4xl font-bold mb-4">Club Directory</h1>
-
+    <Page isContent title="Club Directory">
       <div className="grid grid-cols-3 lg:grid-cols-8 md:grid-cols-5 gap-4">
         {clubs.map((club, index) => (
           <div key={index} className="flex flex-col items-center">

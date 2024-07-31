@@ -5,8 +5,7 @@ import {faExternalLink} from "@fortawesome/free-solid-svg-icons";
 
 export default function Registrar() {
     return (
-        <Page isContent>
-            <h1 className="text-4xl font-bold mb-4">Registrar Services</h1>
+        <Page isContent title="Registrar Services">
             <h2 className="text-2xl font-bold mb-2">Available Documents for
                 Request</h2>
             <ul className="mb-4">
