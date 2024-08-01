@@ -74,7 +74,7 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row sm:space-x-2 sm:space-y-0 space-y-1">
               <ButtonLink
                 href="/services"
-                className=" text-brand-dark-default bg-brand-yellow-default hover:bg-brand-yellow-darker"
+                className="!text-brand-dark-default bg-brand-yellow-default hover:bg-brand-yellow-darker"
               >
                 <FontAwesomeIcon icon={faTools} className="mr-2" />
                 Explore Our Services
