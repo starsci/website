@@ -10,31 +10,30 @@ import {
   faTools,
 } from "@fortawesome/free-solid-svg-icons";
 
+const homeHero = (
+  <div className="flex flex-col items-center p-6 justify-center space-y-4 bg-white text-black dark:bg-brand-dark-default dark:text-white">
+    <h2 className="text-3xl font-bold mb-4">School Head</h2>
+    {/* 2 columns on desktop, 1 column 2 rows on mobile */}
+    <div className="flex flex-col items-center space-y-2">
+      <Image
+        src="/principal.jpg"
+        alt="Principal"
+        width={200}
+        height={200}
+        className="rounded-full object-cover"
+      />
+      <h3 className="text-xl font-bold">Alvin D. Sta. Maria, EdD</h3>
+      <p className="text-lg">Principal III</p>
+    </div>
+  </div>
+);
+
 export default function Home() {
   const subheadingRef = useRef(null);
   const [headingRef, { width }] = useElementSize();
 
   return (
-    <Page
-      noPadding
-      extra={
-        <div className="flex flex-col items-center p-6 justify-center space-y-4 bg-white text-black dark:bg-brand-dark-default dark:text-white">
-          <h2 className="text-3xl font-bold mb-4">School Head</h2>
-          {/* 2 columns on desktop, 1 column 2 rows on mobile */}
-          <div className="flex flex-col items-center space-y-2">
-            <Image
-              src="/principal.jpg"
-              alt="Principal"
-              width={200}
-              height={200}
-              className="rounded-full object-cover"
-            />
-            <h3 className="text-xl font-bold">Alvin D. Sta. Maria, EdD</h3>
-            <p className="text-lg">Principal III</p>
-          </div>
-        </div>
-      }
-    >
+    <Page noPadding extra={homeHero}>
       <div className="relative flex flex-grow items-center justify-center p-6 text-white">
         <div className="lg:grid grid-flow-row auto-cols-max flex flex-col space-y-4 lg:space-x-4">
           {/* logo */}
