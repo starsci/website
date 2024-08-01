@@ -32,7 +32,7 @@ function Page(props) {
           <main
             className={`flex mx-auto flex-grow ${
               isContent
-                ? `lg:container bg-gray-100 dark:bg-brand-dark-default shadow-2xl`
+                ? `lg:container bg-gray-100 dark:bg-brand-dark-default text-black dark:text-white shadow-2xl`
                 : `bg-none text-white`
             } relative`}
           >
