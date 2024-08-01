@@ -27,7 +27,7 @@ function Header() {
            desktop */
     <Navbar>
       <Brand
-        src="/logo.png"
+        src="/assets/logo.png"
         title="Santa Rosa Science and Technology High School"
       />
       <NavbarCollapsible>

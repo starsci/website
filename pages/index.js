@@ -16,7 +16,7 @@ const homeHero = (
     {/* 2 columns on desktop, 1 column 2 rows on mobile */}
     <div className="flex flex-col items-center space-y-2">
       <Image
-        src="/principal.jpg"
+        src="/assets/principal.jpg"
         alt="Principal"
         width={200}
         height={200}
