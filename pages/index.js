@@ -42,7 +42,7 @@ export default function Home() {
               width={0}
               height={0}
               sizes="100vw"
-              src="/logo.png"
+              src="/assets/logo.png"
               alt="logo"
               className="h-32 w-32 object-cover"
             />
