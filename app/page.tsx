@@ -61,16 +61,16 @@ export default function Home() {
                     </div>
                 </main>
             </div>
-            <section className="w-full px-4 py-8 container bg-white dark:bg-slate-800 text-black dark:text-white flex">
-                <div className="grid grid-cols-1 md:grid-cols-3">
-                    <div className="flex flex-col gap-4 items-center">
-                        <h2 className="text-2xl font-semibold">Announcements</h2>
-                        <p className="text-lg text-center">To provide a nurturing environment that empowers students to
-                            become
-                            innovative thinkers, creative problem solvers, and inspired learners prepared to thrive in
-                            the
-                            twenty-first century.</p>
-                    </div>
+            <section className="w-full px-4 py-8 container bg-white dark:bg-slate-800 text-black dark:text-white flex flex-col gap-8">
+                <div className="flex flex-col items-center gap-4">
+                    <h2 className="text-2xl font-semibold">Announcements</h2>
+                    <p className="text-lg text-center">To provide a nurturing environment that empowers students to
+                        become
+                        innovative thinkers, creative problem solvers, and inspired learners prepared to thrive in
+                        the
+                        twenty-first century.</p>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2">
                     <div className="flex flex-col gap-4 items-center">
                         <h2 className="text-2xl font-semibold">The Satellite</h2>
                         <p className="text-lg text-center">To be a premier educational institution that nurtures and
