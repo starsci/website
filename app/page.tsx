@@ -1,5 +1,19 @@
 import {Header} from "@/components/Header";
 import {Logo} from "@/components/Logo";
+import {Button} from "@/components/ui/button";
+
+type HeroButtonProps = {
+    children: React.ReactNode;
+}
+
+function HeroButton({children}: HeroButtonProps) {
+    return (
+        <Button variant="outline" size="lg"
+                className="w-full bg-transparent hover:bg-brand-blue-default hover:border-brand-blue-default hover:text-white">
+            {children}
+        </Button>
+    );
+}
 
 export default function Home() {
     return (
@@ -17,7 +31,14 @@ export default function Home() {
                         minds to become the trailblazers of the future in science and technology. Join us in shaping a
                         world
                         where possibilities are limitless.</p>
-                    <hr className="border-t border-white w-full lg:w-1/2"/>
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <Button size="lg"
+                                className="w-full text-white transition-colors bg-brand-blue-default hover:bg-brand-blue-darker">
+                            Explore Our Services
+                        </Button>
+                        <HeroButton>Get In Touch</HeroButton>
+                        <HeroButton>About Us</HeroButton>
+                    </div>
                 </div>
             </div>
         </div>
