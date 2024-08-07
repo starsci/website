@@ -6,7 +6,7 @@ export default function Home() {
         <div className="flex flex-col min-h-screen">
             <Header/>
             <div
-                className="flex flex-col flex-1 gap-4 bg-gradient-to-tr from-brand-blue-darker to-brand-red-darker justify-center items-center text-white p-4">
+                className="flex flex-col flex-1 gap-4 bg-gradient-to-tr from-brand-blue-darker to-brand-red-darker justify-center items-center text-white p-10">
                 <Logo/>
                 <h1 className="text-4xl md:text-6xl text-center">Empowering Tomorrow&apos;s Leaders</h1>
                 <p className="text-lg md:text-2xl text-center">Discover boundless opportunities for growth and
