@@ -4,11 +4,28 @@ import {Button} from "@/components/ui/button";
 import Link from "next/link";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faClockRotateLeft, faHandshake, faScrewdriverWrench} from "@fortawesome/free-solid-svg-icons";
+import Image from "next/image";
+import {Card, CardContent} from "@/components/ui/card";
 
 type HeroButtonProps = {
     children: React.ReactNode;
     href: string;
 }
+
+const announcements = [
+    {
+        "title": "Lorem Ipsum",
+        "excerpt": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus nec nunc ultricies ultricies.",
+    },
+    {
+        "title": "Dolor Sit Amet",
+        "excerpt": "Dolor sit amet, consectetur adipiscing elit. Nullam nec purus nec nunc ultricies ultricies.",
+    },
+    {
+        "title": "Consectetur Adipiscing",
+        "excerpt": "Consectetur adipiscing elit. Nullam nec purus nec nunc ultricies ultricies.",
+    },
+]
 
 function HeroButton({children, href}: HeroButtonProps) {
     return (
@@ -61,14 +78,26 @@ export default function Home() {
                     </div>
                 </main>
             </div>
-            <section className="w-full px-4 py-8 container bg-white dark:bg-slate-800 text-black dark:text-white flex flex-col gap-8">
+            <section
+                className="w-full px-4 py-8 container bg-white dark:bg-slate-800 text-black dark:text-white flex flex-col gap-8">
                 <div className="flex flex-col items-center gap-4">
                     <h2 className="text-2xl font-semibold">Announcements</h2>
-                    <p className="text-lg text-center">To provide a nurturing environment that empowers students to
-                        become
-                        innovative thinkers, creative problem solvers, and inspired learners prepared to thrive in
-                        the
-                        twenty-first century.</p>
+                    <div className="flex flex-col gap-4 w-full">
+                        {announcements.map((announcement, index) => (
+                            <Card key={index} className="p-4">
+                                    <div className="flex flex-col md:flex-row gap-4">
+                                        <div className="flex justify-center">
+                                            <Image src="/assets/logo.png" alt="Placeholder" objectFit="cover"
+                                                   className="h-32 w-auto md:h-24" width={0} height={0} sizes="100vw"/>
+                                        </div>
+                                        <div className="flex flex-col gap-2">
+                                            <h3 className="text-xl font-semibold text-center md:text-left">{announcement.title}</h3>
+                                            <p className="text-center md:text-left">{announcement.excerpt}</p>
+                                        </div>
+                                    </div>
+                            </Card>
+                        ))}
+                    </div>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2">
                     <div className="flex flex-col gap-4 items-center">
