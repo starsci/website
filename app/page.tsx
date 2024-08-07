@@ -1,16 +1,20 @@
 import {Header} from "@/components/Header";
 import {Logo} from "@/components/Logo";
 import {Button} from "@/components/ui/button";
+import Link from "next/link";
 
 type HeroButtonProps = {
     children: React.ReactNode;
+    href: string;
 }
 
-function HeroButton({children}: HeroButtonProps) {
+function HeroButton({children, href}: HeroButtonProps) {
     return (
         <Button variant="outline" size="lg"
                 className="w-full bg-transparent hover:bg-brand-blue-default hover:border-brand-blue-default hover:text-white">
-            {children}
+            <Link href={href}>
+                {children}
+            </Link>
         </Button>
     );
 }
@@ -34,10 +38,12 @@ export default function Home() {
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                         <Button size="lg"
                                 className="w-full text-white transition-colors bg-brand-blue-default hover:bg-brand-blue-darker">
-                            Explore Our Services
+                            <Link href="/services">
+                                Explore Our Services
+                            </Link>
                         </Button>
-                        <HeroButton>Get In Touch</HeroButton>
-                        <HeroButton>About Us</HeroButton>
+                        <HeroButton href="/contact">Get In Touch</HeroButton>
+                        <HeroButton href="/about">About Us</HeroButton>
                     </div>
                 </div>
             </div>
