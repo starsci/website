@@ -1,6 +1,12 @@
 import Image from "next/image";
 
-export function Logo() {
-    return <Image src="/assets/logo.png" alt="Santa Rosa Science and Technology High School" width={0} height={0}
-                  className="rounded-full h-10 w-10" sizes="100vw"/>;
+export type LogoProps = {
+    height?: number;
+    width?: number;
+}
+
+export function Logo({height = 40, width = 40}: LogoProps) {
+
+    return <Image src="/assets/logo.png" alt="Santa Rosa Science and Technology High School" width={width} height={height}
+                  className="rounded-full" sizes="100vw"/>;
 }

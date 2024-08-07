@@ -7,7 +7,7 @@ export default function Home() {
             <Header/>
             <div
                 className="flex flex-col flex-1 gap-4 bg-gradient-to-tr from-brand-blue-darker to-brand-red-darker justify-center items-center text-white p-10">
-                <Logo/>
+                <Logo height={128} width={128}/>
                 <h1 className="text-4xl md:text-6xl text-center">Empowering Tomorrow&apos;s Leaders</h1>
                 <p className="text-lg md:text-2xl text-center">Discover boundless opportunities for growth and
                     exploration at Santa
