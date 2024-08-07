@@ -2,6 +2,8 @@ import {Header} from "@/components/Header";
 import {Logo} from "@/components/Logo";
 import {Button} from "@/components/ui/button";
 import Link from "next/link";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faClockRotateLeft, faHandshake, faScrewdriverWrench} from "@fortawesome/free-solid-svg-icons";
 
 type HeroButtonProps = {
     children: React.ReactNode;
@@ -12,7 +14,7 @@ function HeroButton({children, href}: HeroButtonProps) {
     return (
         <Button variant="outline" size="lg"
                 className="w-full bg-transparent hover:bg-brand-blue-default hover:border-brand-blue-default hover:text-white">
-            <Link href={href}>
+            <Link href={href} className="flex items-center">
                 {children}
             </Link>
         </Button>
@@ -38,12 +40,19 @@ export default function Home() {
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                         <Button size="lg"
                                 className="w-full text-white transition-colors bg-brand-blue-default hover:bg-brand-blue-darker">
-                            <Link href="/services">
+                            <Link href="/services" className="flex items-center">
+                                <FontAwesomeIcon icon={faScrewdriverWrench} className="mr-3 h-6 w-6"/>
                                 Explore Our Services
                             </Link>
                         </Button>
-                        <HeroButton href="/contact">Get In Touch</HeroButton>
-                        <HeroButton href="/about">About Us</HeroButton>
+                        <HeroButton href="/contact">
+                            <FontAwesomeIcon icon={faHandshake} className="mr-3 h-6 w-6"/>
+                            Get in Touch
+                        </HeroButton>
+                        <HeroButton href="/about">
+                            <FontAwesomeIcon icon={faClockRotateLeft} className="mr-3 h-6 w-6"/>
+                            About Us
+                        </HeroButton>
                     </div>
                 </div>
             </div>
