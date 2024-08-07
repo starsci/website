@@ -1,6 +1,7 @@
 import {NavProps} from "@/components/types/NavProps";
 import Link from "next/link";
 import Image from "next/image";
+import {Logo} from "@/components/Logo";
 
 function NavLink(props: { name: string, href: string }) {
     const {name, href} = props;
@@ -11,11 +12,6 @@ function NavLink(props: { name: string, href: string }) {
             {name}
         </Link>
     );
-}
-
-export function Logo() {
-    return <Image src="/assets/logo.png" alt="Santa Rosa Science and Technology High School" width={0} height={0}
-                  className="rounded-full h-10 w-10" sizes="100vw"/>;
 }
 
 export function MainNav(props: NavProps) {
