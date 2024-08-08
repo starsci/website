@@ -2,15 +2,15 @@ import {MobileNav} from "@/components/MobileNav";
 import {MainNav} from "@/components/MainNav";
 
 const leftLinks = [
-    {name: "Home", href: "#"},
-    {name: "News", href: "#"},
-    {name: "Club Directory", href: "#"},
-    {name: "Services", href: "#"},
+    {name: "Home", href: "/"},
+    {name: "News", href: "/news"},
+    {name: "Club Directory", href: "/clubs"},
+    {name: "Services", href: "/services"},
 ];
 
 const rightLinks = [
-    {name: "About", href: "#"},
-    {name: "Contact", href: "#"},
+    {name: "About", href: "/about"},
+    {name: "Contact", href: "/contact"},
 ];
 
 export function Header() {
