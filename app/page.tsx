@@ -6,10 +6,11 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faClockRotateLeft, faHandshake, faScrewdriverWrench} from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
 import {Card, CardContent} from "@/components/ui/card";
+import {UrlObject} from "node:url";
 
 type HeroButtonProps = {
     children: React.ReactNode;
-    href: string;
+    href: string | UrlObject;
 }
 
 const announcements = [
@@ -79,43 +80,19 @@ export default function Home() {
                 </main>
             </div>
             <section
-                className="w-full px-4 py-8 container bg-white dark:bg-slate-800 text-black dark:text-white flex flex-col gap-8">
-                <div className="flex flex-col items-center gap-4">
-                    <h2 className="text-2xl font-semibold">Announcements</h2>
-                    <div className="flex flex-col gap-4 w-full">
-                        {announcements.map((announcement, index) => (
-                            <Card key={index} className="p-4">
-                                    <div className="flex flex-col md:flex-row gap-4">
-                                        <div className="flex justify-center">
-                                            <Image src="/assets/logo.png" alt="Placeholder" objectFit="cover"
-                                                   className="h-32 w-auto md:h-24" width={0} height={0} sizes="100vw"/>
-                                        </div>
-                                        <div className="flex flex-col gap-2">
-                                            <h3 className="text-xl font-semibold text-center md:text-left">{announcement.title}</h3>
-                                            <p className="text-center md:text-left">{announcement.excerpt}</p>
-                                        </div>
-                                    </div>
-                            </Card>
-                        ))}
+                className="w-full px-8 py-14 container bg-white dark:bg-slate-800 text-black dark:text-white flex flex-col gap-8">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
+                    <div className="flex flex-col gap-4">
+                        <h2 className="text-2xl">Announcements</h2>
+                        <hr className="border-t border-gray-200 dark:border-gray-700"/>
                     </div>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-2">
-                    <div className="flex flex-col gap-4 items-center">
-                        <h2 className="text-2xl font-semibold">The Satellite</h2>
-                        <p className="text-lg text-center">To be a premier educational institution that nurtures and
-                            empowers
-                            students to become responsible, productive, and ethical citizens with the skills and
-                            knowledge
-                            to
-                            meet the challenges of a rapidly changing world.</p>
+                    <div className="flex flex-col gap-4">
+                        <h2 className="text-2xl">The Satellite</h2>
+                        <hr className="border-t border-gray-200 dark:border-gray-700"/>
                     </div>
-                    <div className="flex flex-col gap-4 items-center">
-                        <h2 className="text-2xl font-semibold">Pararayos</h2>
-                        <p className="text-lg text-center">We value academic excellence, creativity, innovation,
-                            integrity,
-                            leadership, and teamwork. We are committed to providing a safe, supportive, and inclusive
-                            environment that fosters intellectual curiosity, social responsibility, and lifelong
-                            learning.</p>
+                    <div className="flex flex-col gap-4">
+                        <h2 className="text-2xl">Ang Pararayos</h2>
+                        <hr className="border-t border-gray-200 dark:border-gray-700"/>
                     </div>
                 </div>
             </section>
