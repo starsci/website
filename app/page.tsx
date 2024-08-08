@@ -7,6 +7,7 @@ import {faClockRotateLeft, faHandshake, faScrewdriverWrench} from "@fortawesome/
 import Image from "next/image";
 import {Card, CardContent} from "@/components/ui/card";
 import {UrlObject} from "node:url";
+import {Footer} from "@/components/Footer";
 
 type HeroButtonProps = {
     children: React.ReactNode;
@@ -98,6 +99,7 @@ export default function Home() {
                     </div>
                 </div>
             </section>
+            <Footer/>
         </>
     );
 }
