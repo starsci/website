@@ -16,9 +16,9 @@ export function Footer() {
 
     return (
         <footer className="flex flex-col md:flex-row items-center bg-gray-800 text-white text-sm p-6 justify-center space-y-2">
-            <div className="flex justify-center w-full md:w-auto space-x-2 border-b pb-4 md:pb-0 md:pr-4 md:border-r md:border-b-0 border-white">
-                <Image width={0} height={0} sizes="100vw" src="/assets/logo.png" alt="SRSTHS Logo" className="w-32 h-32 md:w-40 md:h-40 object-cover rounded-full" />
-                <Image width={0} height={0} sizes="100vw" src="/assets/system.png" alt="SYSTEM Logo" className="w-32 h-32 md:w-40 md:h-40 object-cover rounded-full" />
+            <div className="flex justify-center w-full md:w-auto space-x-2 border-b pb-8 mb-8 md:pb-0 md:mb-0 md:pr-4 md:border-r md:border-b-0 border-white">
+                <Image width={0} height={0} sizes="100vw" src="/assets/logo.png" alt="SRSTHS Logo" className="w-16 h-16 object-cover rounded-full" />
+                <Image width={0} height={0} sizes="100vw" src="/assets/system.png" alt="SYSTEM Logo" className="w-16 h-16 object-cover rounded-full" />
             </div>
             <div className="flex flex-col md:pl-4 space-y-4 text-center md:text-left">
                 {/* SSLG Links */}
@@ -40,7 +40,6 @@ export function Footer() {
                 <div>
                     <span className="font-bold">&copy; {year} Made with ❤️ by the SYSTEM Club</span>
                 </div>
-
             </div>
         </footer>
     )

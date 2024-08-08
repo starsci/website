@@ -5,10 +5,10 @@ const leftLinks = [
     {name: "Home", href: "/"},
     {name: "News", href: "/news"},
     {name: "Club Directory", href: "/clubs"},
-    {name: "Services", href: "/services"},
 ];
 
 const rightLinks = [
+    {name: "Services", href: "/services"},
     {name: "About", href: "/about"},
     {name: "Contact", href: "/contact"},
 ];
