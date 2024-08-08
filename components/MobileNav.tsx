@@ -26,15 +26,15 @@ export function MobileNav(props: NavProps) {
                     <span className="sr-only">Toggle navigation menu</span>
                 </Button>
             </SheetTrigger>
-            <SheetContent side="left">
+            <SheetContent side="left" className="bg-neutral-800">
                 <Link href="#" className="mr-6 lg:flex" prefetch={false}>
                     <Logo/>
                 </Link>
-                <div className="grid gap-2 py-6">
+                <div className="grid gap-2 py-6 text-white">
                     {leftLinks.map((link) => (
                         <NavLink name={link.name} href={link.href} key={link.name}/>
                     ))}
-                    <hr className="border-t border-gray-200 dark:border-gray-700"/>
+                    <hr className="border-t border-neutral-500"/>
                     {rightLinks.map((link) => (
                         <NavLink name={link.name} href={link.href} key={link.name}/>
                     ))}

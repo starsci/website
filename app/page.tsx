@@ -80,19 +80,21 @@ export default function Home() {
                 </main>
             </div>
             <section
-                className="w-full px-8 py-14 container bg-white dark:bg-slate-800 text-black dark:text-white flex flex-col gap-8">
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
-                    <div className="flex flex-col gap-4">
-                        <h2 className="text-2xl">Announcements</h2>
-                        <hr className="border-t border-gray-200 dark:border-gray-700"/>
-                    </div>
-                    <div className="flex flex-col gap-4">
-                        <h2 className="text-2xl">The Satellite</h2>
-                        <hr className="border-t border-gray-200 dark:border-gray-700"/>
-                    </div>
-                    <div className="flex flex-col gap-4">
-                        <h2 className="text-2xl">Ang Pararayos</h2>
-                        <hr className="border-t border-gray-200 dark:border-gray-700"/>
+                className="bg-neutral-800">
+                <div className="px-8 py-14 w-full text-white flex flex-col gap-8">
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 container">
+                        <div className="flex flex-col gap-4">
+                            <h2 className="text-2xl">Announcements</h2>
+                            <hr className="border-t border-neutral-500"/>
+                        </div>
+                        <div className="flex flex-col gap-4">
+                            <h2 className="text-2xl">The Satellite</h2>
+                            <hr className="border-t border-neutral-500"/>
+                        </div>
+                        <div className="flex flex-col gap-4">
+                            <h2 className="text-2xl">Ang Pararayos</h2>
+                            <hr className="border-t border-neutral-500"/>
+                        </div>
                     </div>
                 </div>
             </section>
