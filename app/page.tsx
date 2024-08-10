@@ -12,10 +12,20 @@ import {
 import Link from "next/link";
 
 import {UrlObject} from "node:url";
+import {ScrollArea} from "@/components/ui/scroll-area";
+import {
+    getAngPararayos,
+    getAnnouncements,
+    getTheSatellite, News, NewsWithoutThumbnail
+} from "@/functions/news";
 
 type HeroButtonProps = {
     children: React.ReactNode;
     href: string | UrlObject;
+}
+
+type NewsListProps = {
+    news: NewsWithoutThumbnail[];
 }
 
 function HeroButton({children, href}: HeroButtonProps) {
@@ -29,7 +39,31 @@ function HeroButton({children, href}: HeroButtonProps) {
     );
 }
 
+function NewsList({news}: NewsListProps) {
+    return (
+        <ScrollArea className="h-80">
+            {news.map((news, index) => (
+                <div key={index} className="flex flex-col mb-4">
+                    <h3 className="text-lg leading-6">
+                        <Link className="hover:underline" href={`/news/${news.slug}`}>
+                            {news.title}
+                        </Link>
+                    </h3>
+                    <h4 className="text-sm text-neutral-400">{news.date.toLocaleDateString()}</h4>
+                    <p className="text-sm line-clamp-2">
+                        {news.body}
+                    </p>
+                </div>
+            ))}
+        </ScrollArea>
+    );
+}
+
 export default function Home() {
+    const announcements = getAnnouncements();
+    const theSatellite = getTheSatellite();
+    const angPararayos = getAngPararayos();
+
     return (
         <Page>
             <main
@@ -83,14 +117,17 @@ export default function Home() {
                         <div className="flex flex-col gap-4">
                             <h2 className="text-2xl">Announcements</h2>
                             <hr className="border-t border-neutral-500"/>
+                            <NewsList news={announcements}/>
                         </div>
                         <div className="flex flex-col gap-4">
                             <h2 className="text-2xl">The Satellite</h2>
                             <hr className="border-t border-neutral-500"/>
+                            <NewsList news={theSatellite}/>
                         </div>
                         <div className="flex flex-col gap-4">
                             <h2 className="text-2xl">Ang Pararayos</h2>
                             <hr className="border-t border-neutral-500"/>
+                            <NewsList news={angPararayos}/>
                         </div>
                     </div>
                 </div>
