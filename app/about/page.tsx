@@ -4,7 +4,8 @@ export default function About() {
     return (
         <Page>
             <div className="container py-8 flex-1">
-                <h1 className="text-left lg:text-center text-5xl font-semibold mb-6">About Us</h1>
+                <h1 className="text-left lg:text-center text-5xl font-semibold mb-6">About
+                    Us</h1>
                 <h2 className="text-2xl font-semibold mb-2">Our History</h2>
                 <p>President Gloria Macapagal-Arroyo signed into
                     law the Republic Act 9083, creating Santa Rosa Science and
@@ -26,16 +27,22 @@ export default function About() {
                         Vision, and Values</h2>
 
                     <h3 className="text-xl font-semibold mb-2">Our Vision</h3>
-                    <p className="col-start-2 mb-4 lg:mb-0">Santa Rosa Science and
+                    <p className="col-start-2 mb-4 lg:mb-0">Santa Rosa Science
+                        and
                         Technology
                         High School envisions
                         students
-                        who are globally competitive with high morals, responsible,
-                        diligent, smart, innovative, adaptive, flexible, confident,
-                        patriotic future leaders of our nation produced by highly
-                        motivated and committed 21st century professional teachers
+                        who are globally competitive with high morals,
+                        responsible,
+                        diligent, smart, innovative, adaptive, flexible,
+                        confident,
+                        patriotic future leaders of our nation produced by
+                        highly
+                        motivated and committed 21st century professional
+                        teachers
                         and
-                        school personnel who are spurring growth in character and
+                        school personnel who are spurring growth in character
+                        and
                         intelligence through the generous support of dynamic,
                         dedicated,
                         goal-driven, value-oriented external stakeholders.</p>
@@ -44,7 +51,8 @@ export default function About() {
                     <p className="col-start-2 mb-4 lg:mb-0">Through the
                         collaborative effort of
                         all the
-                        internal and external stakeholders, Santa Rosa Science and
+                        internal and external stakeholders, Santa Rosa Science
+                        and
                         Technology High School will become a child-friendly,
                         gender-sensitive, world-class, world-class,
                         state-of-the-art,
@@ -60,29 +68,38 @@ export default function About() {
                         Mission, Vision, and Core Values</h2>
 
                     <h3 className="text-xl font-semibold mb-2">DepEd Vision</h3>
-                    <p className="col-start-2 mb-4 lg:mb-0">We dream of Filipinos
+                    <p className="col-start-2 mb-4 lg:mb-0">We dream of
+                        Filipinos
                         who
                         passionately love their country and whose values and
-                        competencies enable them to realize their full potential and
+                        competencies enable them to realize their full potential
+                        and
                         contribute meaningfully to building the nation. As a
                         learner-centered public institution, the Department of
-                        Education continuously improves itself to better serve its
+                        Education continuously improves itself to better serve
+                        its
                         stakeholders.</p>
 
-                    <h3 className="text-xl font-semibold mb-2">DepEd Mission</h3>
-                    <p className="col-start-2 mb-4 lg:mb-0">To protect and promote
+                    <h3 className="text-xl font-semibold mb-2">DepEd
+                        Mission</h3>
+                    <p className="col-start-2 mb-4 lg:mb-0">To protect and
+                        promote
                         the right of
                         every Filipino to quality, equitable, culture-based, and
                         complete basic education where: Students learn in a
                         child-friendly, gender-sensitive, safe, and motivating
                         environment. Teachers facilitate learning and constantly
-                        nurture every learner. Administrators and staff, as stewards
+                        nurture every learner. Administrators and staff, as
+                        stewards
                         of the institution, ensure an enabling and supportive
                         environment for effective learning to happen. Family,
-                        community and other stakeholders are actively engaged and
-                        share responsibility for developing life-long learners.</p>
+                        community and other stakeholders are actively engaged
+                        and
+                        share responsibility for developing life-long
+                        learners.</p>
 
-                    <h3 className="text-xl font-semibold mb-2">DepEd Core Values</h3>
+                    <h3 className="text-xl font-semibold mb-2">DepEd Core
+                        Values</h3>
                     <ul className="col-start-2 mb-4 lg:mb-0 list-disc list-inside">
                         <li>Maka-Diyos</li>
                         <li>Maka-tao</li>
@@ -92,11 +109,13 @@ export default function About() {
 
                     <hr className="hidden lg:block w-full bg-gray-700 my-2 col-span-2"/>
 
-                    <h3 className="text-xl font-semibold mb-2">DepEd Quality Policy
+                    <h3 className="text-xl font-semibold mb-2">DepEd Quality
+                        Policy
                         Statement</h3>
                     <div className="col-start-2 mb-4 lg:mb-0">
                         <p className="mb-2">The Department of
-                            Education is committed to provide learners with quality
+                            Education is committed to provide learners with
+                            quality
                             basic education that is accessible, inclusive,
                             liberating
                             through:</p>
@@ -135,7 +154,8 @@ export default function About() {
                     <h2 className="text-left lg:text-center text-2xl font-semibold mb-2 col-span-2">Rights,
                         Duties, and Responsibilities of the Students</h2>
 
-                    <h3 className="text-xl font-semibold mb-2">Rights and Duties</h3>
+                    <h3 className="text-xl font-semibold mb-2">Rights and
+                        Duties</h3>
                     <ul className="col-start-2 mb-4 lg:mb-0 list-disc list-inside">
                         <li>To have a meaningful education that adequately meets
                             the needs of the individual students within the
@@ -187,17 +207,27 @@ export default function About() {
 
                 <hr className="w-full bg-gray-700 my-4"/>
 
-                <h2 className="text-left lg:text-center text-2xl font-semibold mb-2">School Curriculum</h2>
-                <p>Santa Rosa Science and Technology High School adopts a Science,
-                    Technology, and Engineering (STE) Curriculum anchored with the
-                    SHS Academic Track STEM (Science, Technology, Engineering, and
-                    Mathematics) Strand of the Philippines&apos; K to 12 Educational
-                    Program. It is focused on pure science and its application to
-                    industry using the latest technologies, Computer rooms are to be
+                <h2 className="text-left lg:text-center text-2xl font-semibold mb-2">School
+                    Curriculum</h2>
+                <p>Santa Rosa Science and Technology High School adopts a
+                    Science,
+                    Technology, and Engineering (STE) Curriculum anchored with
+                    the
+                    SHS Academic Track STEM (Science, Technology, Engineering,
+                    and
+                    Mathematics) Strand of the Philippines&apos; K to 12
+                    Educational
+                    Program. It is focused on pure science and its application
+                    to
+                    industry using the latest technologies, Computer rooms are
+                    to be
                     linked to the internet, including multi-media classrooms.
-                    Instruction shall be supplemented with visits to known science
-                    institutions, laboratories & plants. The school shall maintain a
-                    well-stocked library, and subscribe to professional, scientific,
+                    Instruction shall be supplemented with visits to known
+                    science
+                    institutions, laboratories & plants. The school shall
+                    maintain a
+                    well-stocked library, and subscribe to professional,
+                    scientific,
                     and technological magazines and manuals.
                 </p>
             </div>

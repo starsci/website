@@ -21,7 +21,8 @@ export function MobileNav(props: NavProps) {
     return (
         <Sheet>
             <SheetTrigger asChild>
-                <Button variant="outline" size="icon" className="md:hidden ml-auto bg-brand-blue-default text-white">
+                <Button variant="outline" size="icon"
+                        className="md:hidden ml-auto bg-brand-blue-default text-white">
                     <MenuIcon className="h-6 w-6"/>
                     <span className="sr-only">Toggle navigation menu</span>
                 </Button>
@@ -32,11 +33,13 @@ export function MobileNav(props: NavProps) {
                 </Link>
                 <div className="grid gap-2 py-6 text-white">
                     {leftLinks.map((link) => (
-                        <NavLink name={link.name} href={link.href} key={link.name}/>
+                        <NavLink name={link.name} href={link.href}
+                                 key={link.name}/>
                     ))}
                     <hr className="border-t border-neutral-500"/>
                     {rightLinks.map((link) => (
-                        <NavLink name={link.name} href={link.href} key={link.name}/>
+                        <NavLink name={link.name} href={link.href}
+                                 key={link.name}/>
                     ))}
                 </div>
             </SheetContent>
