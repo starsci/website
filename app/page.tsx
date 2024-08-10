@@ -4,6 +4,7 @@ import {Page} from "@/components/Page";
 
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {
+    faArrowRight,
     faClockRotateLeft,
     faHandshake,
     faScrewdriverWrench
@@ -22,12 +23,13 @@ import Image from "next/image";
 
 type HeroButtonProps = {
     children: React.ReactNode;
-    href: string | UrlObject;
+    href: string;
 }
 
 type NewsListProps = {
     news: (News | NewsWithoutThumbnail)[];
     withThumbnail?: boolean;
+    href: string;
 }
 
 function HeroButton({children, href}: HeroButtonProps) {
@@ -41,32 +43,39 @@ function HeroButton({children, href}: HeroButtonProps) {
     );
 }
 
-function NewsList({news, withThumbnail = true}: NewsListProps) {
+function NewsList({news, withThumbnail = true, href}: NewsListProps) {
     return (
-        <ScrollArea className="h-80">
-            {news.map((news, index) => (
-                <div key={index}
-                     className="flex flex-col lg:flex-row gap-4 mb-4">
-                    {withThumbnail && 'thumbnail' in news &&
-                        <Image src={news.thumbnail} alt={news.title}
-                               width={0} height={0}
-                               className="object-contain w-full lg:w-1/3 h-auto mb-auto"
-                               sizes="100vw"/>}
-                    <div className="flex flex-col">
-                        <h3 className="text-lg leading-6">
-                            <Link className="hover:underline"
-                                  href={`/news/${news.slug}`}>
-                                {news.title}
-                            </Link>
-                        </h3>
-                        <h4 className="text-sm text-neutral-400">{news.date.toLocaleDateString()}</h4>
-                        <p className="text-sm line-clamp-2 md:line-clamp-3">
-                            {news.body}
-                        </p>
+        <div>
+            <ScrollArea className="h-80 mb-4">
+                {news.map((news, index) => (
+                    <div key={index}
+                         className="flex flex-col lg:flex-row gap-4 mb-4">
+                        {withThumbnail && 'thumbnail' in news &&
+                            <Image src={news.thumbnail} alt={news.title}
+                                   width={0} height={0}
+                                   className="object-contain w-full lg:w-1/3 h-auto mb-auto"
+                                   sizes="100vw"/>}
+                        <div className="flex flex-col">
+                            <h3 className="text-lg leading-6">
+                                <Link className="hover:underline"
+                                      href={`/news/${news.slug}`}>
+                                    {news.title}
+                                </Link>
+                            </h3>
+                            <h4 className="text-sm text-neutral-400">{news.date.toLocaleDateString()}</h4>
+                            <p className="text-sm line-clamp-2 md:line-clamp-3">
+                                {news.body}
+                            </p>
+                        </div>
                     </div>
-                </div>
-            ))}
-        </ScrollArea>
+                ))}
+            </ScrollArea>
+            <Link href={href}
+                  className="text-md hover:underline text-semibold gap-x-2 flex items-center">
+                Read More
+                <FontAwesomeIcon icon={faArrowRight}/>
+            </Link>
+        </div>
     );
 }
 
@@ -129,17 +138,20 @@ export default function Home() {
                             <h2 className="text-2xl">Announcements</h2>
                             <hr className="border-t border-neutral-500"/>
                             <NewsList news={announcements}
+                                      href="/news/announcements"
                                       withThumbnail={false}/>
                         </div>
                         <div className="flex flex-col gap-4">
                             <h2 className="text-2xl">The Satellite</h2>
                             <hr className="border-t border-neutral-500"/>
-                            <NewsList news={theSatellite}/>
+                            <NewsList news={theSatellite}
+                                      href="/news/the-satellite"/>
                         </div>
                         <div className="flex flex-col gap-4">
                             <h2 className="text-2xl">Ang Pararayos</h2>
                             <hr className="border-t border-neutral-500"/>
-                            <NewsList news={angPararayos}/>
+                            <NewsList news={angPararayos}
+                                      href="/news/ang-pararayos"/>
                         </div>
                     </div>
                 </div>
