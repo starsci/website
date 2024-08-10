@@ -6,7 +6,7 @@ export type News = {
     date: Date,
     slug: string,
     body: string,
-    thumbnail: string | UrlObject
+    thumbnail: string
 }
 
 export type NewsWithoutThumbnail = Omit<News, "thumbnail">;
@@ -18,7 +18,7 @@ function generateNews(length: number): News[] {
         date: new Date(),
         slug: "#",
         body: paragraph(),
-        thumbnail: `https://picsum.photos/seed/${Math.random()}/800/600`
+        thumbnail: `https://picsum.photos/seed/${Math.random()}/384/256`
     }));
 }
 

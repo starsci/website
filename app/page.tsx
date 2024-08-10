@@ -18,6 +18,7 @@ import {
     getAnnouncements,
     getTheSatellite, News, NewsWithoutThumbnail
 } from "@/functions/news";
+import Image from "next/image";
 
 type HeroButtonProps = {
     children: React.ReactNode;
@@ -25,7 +26,8 @@ type HeroButtonProps = {
 }
 
 type NewsListProps = {
-    news: NewsWithoutThumbnail[];
+    news: (News | NewsWithoutThumbnail)[];
+    withThumbnail?: boolean;
 }
 
 function HeroButton({children, href}: HeroButtonProps) {
@@ -39,20 +41,29 @@ function HeroButton({children, href}: HeroButtonProps) {
     );
 }
 
-function NewsList({news}: NewsListProps) {
+function NewsList({news, withThumbnail = true}: NewsListProps) {
     return (
         <ScrollArea className="h-80">
             {news.map((news, index) => (
-                <div key={index} className="flex flex-col mb-4">
-                    <h3 className="text-lg leading-6">
-                        <Link className="hover:underline" href={`/news/${news.slug}`}>
-                            {news.title}
-                        </Link>
-                    </h3>
-                    <h4 className="text-sm text-neutral-400">{news.date.toLocaleDateString()}</h4>
-                    <p className="text-sm line-clamp-2">
-                        {news.body}
-                    </p>
+                <div key={index}
+                     className="flex flex-col lg:flex-row gap-4 mb-4">
+                    {withThumbnail && 'thumbnail' in news &&
+                        <Image src={news.thumbnail} alt={news.title}
+                               width={0} height={0}
+                               className="object-contain w-full lg:w-1/3 h-auto mb-auto"
+                               sizes="100vw"/>}
+                    <div className="flex flex-col">
+                        <h3 className="text-lg leading-6">
+                            <Link className="hover:underline"
+                                  href={`/news/${news.slug}`}>
+                                {news.title}
+                            </Link>
+                        </h3>
+                        <h4 className="text-sm text-neutral-400">{news.date.toLocaleDateString()}</h4>
+                        <p className="text-sm line-clamp-2 md:line-clamp-3">
+                            {news.body}
+                        </p>
+                    </div>
                 </div>
             ))}
         </ScrollArea>
@@ -117,7 +128,8 @@ export default function Home() {
                         <div className="flex flex-col gap-4">
                             <h2 className="text-2xl">Announcements</h2>
                             <hr className="border-t border-neutral-500"/>
-                            <NewsList news={announcements}/>
+                            <NewsList news={announcements}
+                                      withThumbnail={false}/>
                         </div>
                         <div className="flex flex-col gap-4">
                             <h2 className="text-2xl">The Satellite</h2>
