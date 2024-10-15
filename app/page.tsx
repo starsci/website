@@ -15,7 +15,6 @@ import {
 
 import Link from 'next/link'
 
-import {UrlObject} from 'node:url'
 import {ScrollArea} from '@/app/components/ui/scroll-area'
 import {
   getAngPararayos,
@@ -23,7 +22,7 @@ import {
   getTheSatellite,
   News,
   NewsWithoutThumbnail
-} from '@/functions/news'
+} from '@/app/functions/news'
 import Image from 'next/image'
 
 type HeroButtonProps = {
