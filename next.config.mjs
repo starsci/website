@@ -4,10 +4,7 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        hostname: 'picsum.photos'
-      },
-      {
-        hostname: 'example.com'
+        hostname: 'cloudinary.com'
       }
     ]
   }
