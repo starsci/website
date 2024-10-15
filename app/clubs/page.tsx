@@ -1,10 +1,9 @@
-import {Page} from "@/components/Page";
+import {Page} from '@/app/components/Page'
 
 export default function ClubDirectory() {
-    return (
-        <Page>
-            <>
-            </>
-        </Page>
-    )
+  return (
+    <Page>
+      <></>
+    </Page>
+  )
 }
