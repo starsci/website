@@ -1,9 +1,9 @@
-import {Sheet, SheetContent, SheetTrigger} from '@/app/components/ui/sheet'
-import {Button} from '@/app/components/ui/button'
+import {Sheet, SheetContent, SheetTrigger} from '@/components/ui/sheet'
+import {Button} from '@/components/ui/button'
 import {MenuIcon} from 'lucide-react'
 import Link from 'next/link'
-import {Logo} from '@/app/components/Logo'
-import {NavProps} from '@/app/components/types/NavProps'
+import {Logo} from '@/components/Logo'
+import {NavProps} from '@/components/types/NavProps'
 
 function NavLink(props: {name: string; href: string}) {
   const {name, href} = props

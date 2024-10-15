@@ -1,5 +1,5 @@
-import {MobileNav} from '@/app/components/MobileNav'
-import {MainNav} from '@/app/components/MainNav'
+import {MobileNav} from '@/components/MobileNav'
+import {MainNav} from '@/components/MainNav'
 
 const leftLinks = [
   {name: 'Home', href: '/'},

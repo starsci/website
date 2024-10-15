@@ -1,7 +1,7 @@
-import {NavProps} from '@/app/components/types/NavProps'
+import {NavProps} from '@/components/types/NavProps'
 import Link from 'next/link'
 import Image from 'next/image'
-import {Logo} from '@/app/components/Logo'
+import {Logo} from '@/components/Logo'
 
 function NavLink(props: {name: string; href: string}) {
   const {name, href} = props

@@ -4,7 +4,14 @@ import {setupDevPlatform} from '@cloudflare/next-on-pages/next-dev'
 const nextConfig = {
   // configure picsum.photos as a domain
   images: {
-    domains: ['picsum.photos']
+    remotePatterns: [
+      {
+        hostname: 'picsum.photos'
+      },
+      {
+        hostname: 'example.com'
+      }
+    ]
   }
 }
 

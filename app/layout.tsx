@@ -1,6 +1,8 @@
-import type {Metadata} from 'next'
+import {Metadata} from 'next'
 import {Nunito} from 'next/font/google'
 import './globals.css'
+
+import { Page } from '@/components/Page'
 
 const nextFont = Nunito({subsets: ['latin']})
 
@@ -16,7 +18,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={nextFont.className}>{children}</body>
+      <body className={nextFont.className}>
+        <Page>
+          {children}
+        </Page>
+      </body>
     </html>
   )
 }

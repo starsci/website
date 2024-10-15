@@ -1,4 +1,4 @@
-import {Page} from '@/app/components/Page'
+import {Page} from '@/components/Page'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faHome, faPhone} from '@fortawesome/free-solid-svg-icons'
 import Link from 'next/link'
