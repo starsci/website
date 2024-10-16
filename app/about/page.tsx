@@ -21,34 +21,6 @@ export default function About() {
 
       <div className="block lg:grid auto-cols-auto items-center gap-x-8 gap-y-4">
         <h2 className="text-left lg:text-center text-2xl font-semibold mb-2 col-span-2">
-          Mission, Vision, and Values
-        </h2>
-
-        <Subtitle>Our Vision</Subtitle>
-        <p className="col-start-2 mb-4 lg:mb-0">
-          Santa Rosa Science and Technology High School envisions students who
-          are globally competitive with high morals, responsible, diligent,
-          smart, innovative, adaptive, flexible, confident, patriotic future
-          leaders of our nation produced by highly motivated and committed 21st
-          century professional teachers and school personnel who are spurring
-          growth in character and intelligence through the generous support of
-          dynamic, dedicated, goal-driven, value-oriented external stakeholders.
-        </p>
-
-        <Subtitle>Our Mission</Subtitle>
-        <p className="col-start-2 mb-4 lg:mb-0">
-          Through the collaborative effort of all the internal and external
-          stakeholders, Santa Rosa Science and Technology High School will
-          become a child-friendly, gender-sensitive, world-class, world-class,
-          state-of-the-art, green school responsive to the science and
-          technology educational needs of the society towards a Maka-Diyos,
-          Makatao, Makakalikasan, Makabansa community in a highly developed
-          country.
-        </p>
-
-        <hr className="hidden lg:block w-full bg-gray-700 my-2 col-span-2" />
-
-        <h2 className="text-left lg:text-center text-2xl font-semibold mb-2 col-span-2">
           DepEd Mission, Vision, and Core Values
         </h2>
 
@@ -80,6 +52,34 @@ export default function About() {
           <li>Makakalikasan</li>
           <li>Makabansa</li>
         </ul>
+
+        <hr className="hidden lg:block w-full bg-gray-700 my-2 col-span-2" />
+
+        <h2 className="text-left lg:text-center text-2xl font-semibold mb-2 col-span-2">
+          Mission, Vision, and Values
+        </h2>
+
+        <Subtitle>Our Vision</Subtitle>
+        <p className="col-start-2 mb-4 lg:mb-0">
+          Santa Rosa Science and Technology High School envisions students who
+          are globally competitive with high morals, responsible, diligent,
+          smart, innovative, adaptive, flexible, confident, patriotic future
+          leaders of our nation produced by highly motivated and committed 21st
+          century professional teachers and school personnel who are spurring
+          growth in character and intelligence through the generous support of
+          dynamic, dedicated, goal-driven, value-oriented external stakeholders.
+        </p>
+
+        <Subtitle>Our Mission</Subtitle>
+        <p className="col-start-2 mb-4 lg:mb-0">
+          Through the collaborative effort of all the internal and external
+          stakeholders, Santa Rosa Science and Technology High School will
+          become a child-friendly, gender-sensitive, world-class, world-class,
+          state-of-the-art, green school responsive to the science and
+          technology educational needs of the society towards a Maka-Diyos,
+          Makatao, Makakalikasan, Makabansa community in a highly developed
+          country.
+        </p>
 
         <hr className="hidden lg:block w-full bg-gray-700 my-2 col-span-2" />
 
