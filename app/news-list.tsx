@@ -33,7 +33,7 @@ export function NewsList({news, href}: NewsListProps) {
                 </Link>
               </h3>
               <h4 className="text-sm text-neutral-400">
-                {news.created_at.toLocaleString()}
+                {new Date(news.created_at).toLocaleDateString()}
               </h4>
               <p className="text-sm line-clamp-2 md:line-clamp-3">
                 {news.body}
