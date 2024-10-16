@@ -9,14 +9,20 @@ export type News = {
   thumbnail_url: string | null
 }
 
-async function getNews(length: number, table: string) {
+function newsPromise(table: string, maxLength: number) {
   const supabase = createClient()
   // get length most recent news from public.announcements
-  const {data, error} = await supabase
+  const promise = supabase
     .from(table)
     .select('*')
     .order('created_at', {ascending: false})
-    .limit(length)
+
+  return maxLength > 0 ? promise.limit(maxLength) : promise
+}
+
+async function getNews(maxLength: number, table: string) {
+  const promise = newsPromise(table, maxLength) // get length most recent news from public.announcements
+  const {data, error} = await promise
 
   if (error) {
     throw error
@@ -35,4 +41,18 @@ export async function getTheSatellite(maxLength: number = 5) {
 
 export async function getAngPararayos(maxLength: number = 5) {
   return getNews(maxLength, 'news_pararayos')
+}
+
+export async function getClubAnnouncements(
+  clubId: number,
+  maxLength: number = 5
+) {
+  const promise = newsPromise('club_announcements', maxLength)
+  const {data, error} = await promise.eq('club_id', clubId)
+
+  if (error) {
+    throw error
+  }
+
+  return data as News[]
 }
