@@ -32,9 +32,15 @@ export function NewsList({news, href}: NewsListProps) {
                   {news.title}
                 </Link>
               </h3>
-              <h4 className="text-sm text-neutral-400">
-                {new Date(news.created_at).toLocaleDateString()}
-              </h4>
+              <small className="text-sm font-semibold text-neutral-400">
+                {
+                  // join the array of authors with a comma and a space
+                  news.authors.join(', ')
+                }
+              </small>
+              <small className="text-sm text-neutral-400">
+                {new Date(news.created_at).toLocaleString()}
+              </small>
               <p className="text-sm line-clamp-2 md:line-clamp-3">
                 {news.body}
               </p>
