@@ -5,7 +5,7 @@ import {faFacebook} from '@fortawesome/free-brands-svg-icons'
 
 export default function Contact() {
   return (
-    <main className="container flex justify-center items-center flex-col flex-1 p-8">
+    <div className="container flex justify-center items-center flex-col flex-1 p-8">
       <h1 className="text-5xl font-semibold text-center mb-6">Get In Touch</h1>
       <p className="mb-4 text-lg text-center">
         If you have any questions, please contact us at{' '}
@@ -44,6 +44,6 @@ export default function Contact() {
           </Link>
         </li>
       </ul>
-    </main>
+    </div>
   )
 }

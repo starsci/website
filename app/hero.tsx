@@ -1,13 +1,10 @@
-import {Button} from '@/ui/button'
-import {Logo} from './logo'
 import {HeroButton} from './hero-button'
+import {Logo} from './logo'
 import {
   faScrewdriverWrench,
   faHandshake,
   faClockRotateLeft
 } from '@fortawesome/free-solid-svg-icons'
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import Link from 'next/link'
 
 export function HeroSection() {
   return (
@@ -23,7 +20,7 @@ export function HeroSection() {
             science and technology high school in Santa Rosa, Laguna.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <HeroButton href="/services" main icon={faScrewdriverWrench}>
+            <HeroButton href="/services" icon={faScrewdriverWrench} main>
               Explore Our Services
             </HeroButton>
             <HeroButton href="/contact" icon={faHandshake}>

@@ -3,8 +3,8 @@ import {
   getTheSatellite,
   getAnnouncements
 } from '@/functions/news'
-import {Section} from './section'
 import {NewsSection} from './news-section'
+import {Section} from './section'
 
 export async function AnnouncementsSection() {
   const announcements = await getAnnouncements()
