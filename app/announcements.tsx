@@ -4,6 +4,7 @@ import {
   getAnnouncements
 } from '@/functions/news'
 import {NewsSection} from './news-section'
+import {Section} from './section'
 
 export async function AnnouncementsSection() {
   const announcements = await getAnnouncements()
@@ -11,7 +12,7 @@ export async function AnnouncementsSection() {
   const angPararayos = await getAngPararayos()
 
   return (
-    <section className="px-4 lg:px-8 py-8 lg:py-14 w-full text-white flex flex-col gap-8">
+    <Section>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 container">
         <NewsSection
           title="Announcements"
@@ -29,6 +30,6 @@ export async function AnnouncementsSection() {
           href="/ang-pararayos"
         />
       </div>
-    </section>
+    </Section>
   )
 }
