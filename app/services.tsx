@@ -14,7 +14,7 @@ export function ServicesSection() {
         Discover the wide range of services we offer to support our
         students&apos; academic and personal growth.
       </p>
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-x-4 gap-y-8 mt-8 place-items-center">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-x-4 gap-y-8 mt-4 place-items-center">
         <ServiceCard icon={faFileSignature} title="Registrar Services">
           Learn more about our registrar services, including enrollment,
           records, and more.
