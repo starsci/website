@@ -1,13 +1,14 @@
 import {Button} from '@/app/ui/button'
 import {Card, CardContent} from '@/app/ui/card'
 import {Input} from '@/app/ui/input'
-import {Textarea} from '../ui/textarea'
+import {Textarea} from '@/app/ui/textarea'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {
   faEnvelope,
   faMapMarkerAlt,
   faPhone
 } from '@fortawesome/free-solid-svg-icons'
+import {submitForm} from './actions'
 
 export default function Contact() {
   return (
@@ -64,14 +65,14 @@ export default function Contact() {
         <Card>
           <CardContent className="p-6">
             <h3 className="text-xl font-semibold mb-4">Send us a Message</h3>
-            <form className="space-y-4">
+            <form className="space-y-4" action={submitForm}>
               <div>
                 <label
                   htmlFor="name"
                   className="block text-sm font-medium text-gray-700 mb-1">
                   Name
                 </label>
-                <Input id="name" placeholder="Your Name" />
+                <Input name="name" placeholder="Your Name" required />
               </div>
               <div>
                 <label
@@ -79,7 +80,20 @@ export default function Contact() {
                   className="block text-sm font-medium text-gray-700 mb-1">
                   Email
                 </label>
-                <Input id="email" type="email" placeholder="your@email.com" />
+                <Input
+                  name="email"
+                  type="email"
+                  placeholder="your@email.com"
+                  required
+                />
+              </div>
+              <div>
+                <label
+                  htmlFor="subject"
+                  className="block text-sm font-medium text-gray-700 mb-1">
+                  Subject
+                </label>
+                <Input name="subject" placeholder="Subject" required />
               </div>
               <div>
                 <label
@@ -88,9 +102,10 @@ export default function Contact() {
                   Message
                 </label>
                 <Textarea
-                  id="message"
+                  name="message"
                   placeholder="Your message here"
                   rows={4}
+                  required
                 />
               </div>
               <Button type="submit" className="w-full">
