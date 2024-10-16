@@ -40,7 +40,7 @@ export function Footer() {
                 width={96}
                 alt="Santa Rosa Science and Technology High School"
               />
-              <Logo publicId="system" height={96} width={96} alt="SYSTEM" />
+              <Logo publicId="logos/1" height={96} width={96} alt="SYSTEM" />
             </div>
           </div>
           <div>

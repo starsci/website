@@ -27,8 +27,8 @@ export async function getClubLogoUrl(
   width = 100,
   height = 100
 ) {
-  // retrieve cloudinary/clubs/club.id from the club id
-  return v2.url(`clubs/${clubId}`, {
+  // retrieve cloudinary/logos/club.id from the club id
+  return v2.url(`logos/${clubId}`, {
     width,
     height,
     format: 'webp',
