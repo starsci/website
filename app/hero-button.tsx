@@ -1,4 +1,4 @@
-import {Button} from './ui/button'
+import {Button} from '../components/ui/button'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {cn} from '@/lib/utils'
 import Link from 'next/link'

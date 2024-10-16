@@ -1,13 +1,10 @@
-import {HeroButton} from '@/components/hero-button'
-import {Logo} from '@/components/logo'
-import {Button} from '@/components/ui/button'
+import {HeroButton} from './hero-button'
+import {Logo} from './logo'
 import {
   faScrewdriverWrench,
   faHandshake,
   faClockRotateLeft
 } from '@fortawesome/free-solid-svg-icons'
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import Link from 'next/link'
 
 export function HeroSection() {
   return (

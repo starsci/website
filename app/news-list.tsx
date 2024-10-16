@@ -1,7 +1,7 @@
 import {faArrowRight} from '@fortawesome/free-solid-svg-icons'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {News} from '@/functions/news'
-import {ScrollArea} from './ui/scroll-area'
+import {ScrollArea} from '../components/ui/scroll-area'
 import Image from 'next/image'
 import Link from 'next/link'
 
