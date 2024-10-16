@@ -3,17 +3,8 @@ import {
   faHandHoldingHand,
   faGraduationCap
 } from '@fortawesome/free-solid-svg-icons'
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {Card} from '@/ui/card'
 import {Section} from './section'
-
-function ServiceCard({children}: {children: React.ReactNode}) {
-  return (
-    <Card className="px-4 py-8 bg-transparent border-neutral-600 text-white flex flex-col gap-2 w-full">
-      {children}
-    </Card>
-  )
-}
+import {ServiceCard} from './service-card'
 
 export function ServicesSection() {
   return (
@@ -24,44 +15,17 @@ export function ServicesSection() {
         students&apos; academic and personal growth.
       </p>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-x-4 gap-y-8 mt-8 place-items-center">
-        <ServiceCard>
-          <FontAwesomeIcon
-            className="h-12 w-12 mx-auto"
-            icon={faFileSignature}
-          />
-          <h3 className="text-xl font-semibold text-center">
-            Registrar Services
-          </h3>
-          <p className="text-center">
-            Learn more about our registrar services, including enrollment,
-            records, and more.
-          </p>
+        <ServiceCard icon={faFileSignature} title="Registrar Services">
+          Learn more about our registrar services, including enrollment,
+          records, and more.
         </ServiceCard>
-        <ServiceCard>
-          <FontAwesomeIcon
-            className="h-12 w-12 mx-auto"
-            icon={faHandHoldingHand}
-          />
-          <h3 className="text-xl font-semibold text-center">
-            Counseling Services
-          </h3>
-          <p className="text-center">
-            Explore our counseling services, including guidance, mental health,
-            and more.
-          </p>
+        <ServiceCard icon={faHandHoldingHand} title="Counseling Services">
+          Explore our counseling services, including guidance, mental health,
+          and more.
         </ServiceCard>
-        <ServiceCard>
-          <FontAwesomeIcon
-            className="h-12 w-12 mx-auto"
-            icon={faGraduationCap}
-          />
-          <h3 className="text-xl font-semibold text-center">
-            Academic Services
-          </h3>
-          <p className="text-center">
-            Discover our academic services, including tutoring, scholarships,
-            and more.
-          </p>
+        <ServiceCard icon={faGraduationCap} title="Academic Services">
+          Discover our academic services, including tutoring, scholarships, and
+          more.
         </ServiceCard>
       </div>
     </Section>
