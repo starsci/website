@@ -5,42 +5,88 @@ import {faFacebook} from '@fortawesome/free-brands-svg-icons'
 import {faPhone, faEnvelope} from '@fortawesome/free-solid-svg-icons'
 import {Logo} from './logo'
 
-export function Footer() {
-  // get the current year
-  const year = new Date().getFullYear()
+const links = [
+  {
+    title: 'About Us',
+    href: '/about'
+  },
+  {
+    title: 'Services',
+    href: '/services'
+  },
+  {
+    title: 'Announcements',
+    href: '/announcements'
+  },
+  {
+    title: 'The Satellite',
+    href: '/news/the-satellite'
+  },
+  {
+    title: 'Ang Pararayos',
+    href: '/news/ang-pararayos'
+  }
+]
 
+export function Footer() {
   return (
-    <footer className="flex flex-col md:flex-row items-center bg-gray-800 text-white text-sm p-6 justify-center space-y-2">
-      <div className="flex justify-center w-full md:w-auto space-x-2 border-b pb-8 mb-8 md:pb-0 md:mb-0 md:pr-4 md:border-r md:border-b-0 border-white">
-        <Logo
-          publicId="srsths"
-          alt="Santa Rosa Science and Technology High School"
-          height={64}
-          width={64}
-        />
-        <Logo publicId="system" alt="SYSTEM" height={64} width={64} />
-      </div>
-      <div className="flex flex-col md:pl-4 space-y-4 text-center md:text-left">
-        {/* SSLG Links */}
-        <div className="space-y-2">
-          <span className="font-bold">Contact SRSTHS</span>
-          <div className="flex flex-row space-x-2 justify-center md:justify-start">
-            <Link href="https://www.facebook.com/starsciSSLG">
-              <FontAwesomeIcon icon={faFacebook} className="w-6 h-6" />
-            </Link>
-            <Link href="tel:+639087051053">
-              <FontAwesomeIcon icon={faPhone} className="w-6 h-6" />
-            </Link>
-            <Link href="mailto:307902@deped.gov.ph">
-              <FontAwesomeIcon icon={faEnvelope} className="w-6 h-6" />
-            </Link>
+    <footer className="bg-primary text-primary-foreground">
+      <div className="container mx-auto px-4 py-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="space-y-4 md:mx-auto my-auto">
+            <div className="flex gap-4">
+              <Logo
+                height={96}
+                width={96}
+                alt="Santa Rosa Science and Technology High School"
+              />
+              <Logo publicId="system" height={96} width={96} alt="SYSTEM" />
+            </div>
+          </div>
+          <div>
+            <h3 className="text-lg font-bold mb-4">Quick Links</h3>
+            <ul className="space-y-2">
+              {links.map((link, index) => (
+                <li key={index} className="hover:underline">
+                  <Link href={link.href}>{link.title}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h3 className="text-lg font-bold mb-4">Contact Us</h3>
+            <ul className="space-y-2">
+              <li>LM Subd., Brgy. Market Area</li>
+              <li>City of Santa Rosa, Laguna, Philippines</li>
+              <li className="flex gap-2">
+                <FontAwesomeIcon icon={faPhone} className="h-5 w-5" />
+                0908 705 1083
+              </li>
+              <li className="flex gap-2">
+                <FontAwesomeIcon icon={faEnvelope} className="h-5 w-5" />
+                info@srsths.edu.ph
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="text-lg font-bold mb-4">Follow Us</h3>
+            <div className="flex space-x-4">
+              <a
+                href="https://facebook.com/DepEdTayoSRSTHS307902"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-gray-300">
+                <FontAwesomeIcon icon={faFacebook} className="h-6 w-6" />
+                <span className="sr-only">Facebook</span>
+              </a>
+            </div>
           </div>
         </div>
-        {/* Contact */}
-        <div>
-          <span className="font-bold">
-            &copy; {year} Made with ❤️ by the SYSTEM Club
-          </span>
+        <div className="mt-8 pt-8 border-t border-primary-foreground/10 text-center text-sm">
+          <p>
+            &copy; {new Date().getFullYear()} Santa Rosa Science and Technology
+            High School. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>
