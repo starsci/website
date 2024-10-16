@@ -1,38 +1,24 @@
-'use client'
-
 import Link from 'next/link'
 import Image from 'next/image'
-import {useEffect, useState} from 'react'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faFacebook} from '@fortawesome/free-brands-svg-icons'
 import {faPhone, faEnvelope} from '@fortawesome/free-solid-svg-icons'
+import {Logo} from './logo'
 
 export function Footer() {
   // get the current year
-  const [year, setYear] = useState(0)
-  useEffect(() => {
-    setYear(new Date().getFullYear())
-  }, [])
+  const year = new Date().getFullYear()
 
   return (
     <footer className="flex flex-col md:flex-row items-center bg-gray-800 text-white text-sm p-6 justify-center space-y-2">
       <div className="flex justify-center w-full md:w-auto space-x-2 border-b pb-8 mb-8 md:pb-0 md:mb-0 md:pr-4 md:border-r md:border-b-0 border-white">
-        <Image
-          width={0}
-          height={0}
-          sizes="100vw"
-          src="/assets/logo.png"
-          alt="SRSTHS Logo"
-          className="w-16 h-16 object-cover rounded-full"
+        <Logo
+          publicId="srsths"
+          alt="Santa Rosa Science and Technology High School"
+          height={64}
+          width={64}
         />
-        <Image
-          width={0}
-          height={0}
-          sizes="100vw"
-          src="/assets/system.png"
-          alt="SYSTEM Logo"
-          className="w-16 h-16 object-cover rounded-full"
-        />
+        <Logo publicId="system" alt="SYSTEM" height={64} width={64} />
       </div>
       <div className="flex flex-col md:pl-4 space-y-4 text-center md:text-left">
         {/* SSLG Links */}

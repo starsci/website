@@ -32,7 +32,7 @@ export function MobileNav(props: NavProps) {
       </SheetTrigger>
       <SheetContent side="left" className="bg-neutral-800">
         <Link href="#" className="mr-6 lg:flex" prefetch={false}>
-          <Logo />
+          <Logo alt="Santa Rosa Science and Technology High School" />
         </Link>
         <div className="grid gap-2 py-6 text-white">
           {leftLinks.map(link => (
