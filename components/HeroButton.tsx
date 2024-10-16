@@ -1,6 +1,6 @@
-import {Link} from 'lucide-react'
 import {Button} from './ui/button'
 import {HeroButtonProps} from './types/HeroButtonProps'
+import Link from 'next/link'
 
 export function HeroButton({children, href}: HeroButtonProps) {
   return (

@@ -7,7 +7,7 @@ import {
   faClockRotateLeft
 } from '@fortawesome/free-solid-svg-icons'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {Link} from 'lucide-react'
+import Link from 'next/link'
 
 export function HeroSection() {
   return (

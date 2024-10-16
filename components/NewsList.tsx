@@ -1,9 +1,9 @@
 import {faArrowRight} from '@fortawesome/free-solid-svg-icons'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {ScrollArea} from '@radix-ui/react-scroll-area'
-import {Link} from 'lucide-react'
-import { NewsListProps } from './types/NewsListProps'
+import {ScrollArea} from './ui/scroll-area'
+import {NewsListProps} from './types/NewsListProps'
 import Image from 'next/image'
+import Link from 'next/link'
 
 export function NewsList({news, href}: NewsListProps) {
   return (
