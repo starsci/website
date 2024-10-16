@@ -2,7 +2,7 @@ import {Sheet, SheetContent, SheetTrigger} from '@/components/ui/sheet'
 import {Button} from '@/components/ui/button'
 import {MenuIcon} from 'lucide-react'
 import Link from 'next/link'
-import {Logo} from '@/components/Logo'
+import {Logo} from '@/components/logo'
 import {NavProps} from '@/components/types/NavProps'
 
 function NavLink(props: {name: string; href: string}) {

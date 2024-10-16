@@ -1,4 +1,4 @@
-import { NewsList } from '@/components/NewsList'
+import { NewsList } from '@/components/news-list'
 import {
   getAngPararayos,
   getTheSatellite,
