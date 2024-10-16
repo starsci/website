@@ -1,8 +1,14 @@
 import {Button} from './ui/button'
-import {HeroButtonProps} from './types/HeroButtonProps'
-import Link from 'next/link'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {cn} from '@/lib/utils'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Link from 'next/link'
+
+type HeroButtonProps = {
+  children: React.ReactNode
+  href: string
+  icon: any
+  main?: boolean
+}
 
 export function HeroButton({
   children,

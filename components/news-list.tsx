@@ -1,9 +1,14 @@
 import {faArrowRight} from '@fortawesome/free-solid-svg-icons'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {News} from '@/functions/news'
 import {ScrollArea} from './ui/scroll-area'
-import {NewsListProps} from './types/NewsListProps'
 import Image from 'next/image'
 import Link from 'next/link'
+
+type NewsListProps = {
+  news: News[]
+  href: string
+}
 
 export function NewsList({news, href}: NewsListProps) {
   return (

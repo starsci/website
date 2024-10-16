@@ -1,9 +1,9 @@
 import {Sheet, SheetContent, SheetTrigger} from '@/components/ui/sheet'
 import {Button} from '@/components/ui/button'
+import {Logo} from '@/components/logo'
+import {NavProps} from './main-nav'
 import {MenuIcon} from 'lucide-react'
 import Link from 'next/link'
-import {Logo} from '@/components/logo'
-import {NavProps} from '@/components/types/NavProps'
 
 function NavLink(props: {name: string; href: string}) {
   const {name, href} = props
@@ -11,8 +11,7 @@ function NavLink(props: {name: string; href: string}) {
     <Link
       href={href}
       className="flex w-full items-center py-2 text-lg font-semibold hover:underline"
-      prefetch={false}
-    >
+      prefetch={false}>
       {name}
     </Link>
   )
@@ -26,8 +25,7 @@ export function MobileNav(props: NavProps) {
         <Button
           variant="outline"
           size="icon"
-          className="md:hidden ml-auto bg-brand-blue-default text-white"
-        >
+          className="md:hidden ml-auto bg-brand-blue-default text-white">
           <MenuIcon className="h-6 w-6" />
           <span className="sr-only">Toggle navigation menu</span>
         </Button>
