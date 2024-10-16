@@ -22,8 +22,8 @@ export function MainNav(props: NavProps) {
   const {leftLinks, rightLinks} = props
   return (
     <>
-      <Link href="#" className="mr-6 flex" prefetch={false}>
-        <Logo />
+      <Link href="/" className="mr-6 flex" prefetch={false}>
+        <Logo alt="Santa Rosa Science and Technology High School" />
       </Link>
       <nav className="mr-auto hidden md:flex gap-4">
         {leftLinks.map(link => (
