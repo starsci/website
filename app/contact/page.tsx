@@ -1,49 +1,105 @@
+import {Button} from '@/app/ui/button'
+import {Card, CardContent} from '@/app/ui/card'
+import {Input} from '@/app/ui/input'
+import {Textarea} from '../ui/textarea'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faHome, faPhone} from '@fortawesome/free-solid-svg-icons'
-import Link from 'next/link'
-import {faFacebook} from '@fortawesome/free-brands-svg-icons'
+import {
+  faEnvelope,
+  faMapMarkerAlt,
+  faPhone
+} from '@fortawesome/free-solid-svg-icons'
 
 export default function Contact() {
   return (
-    <div className="container flex justify-center items-center flex-col flex-1 p-8">
-      <h1 className="text-5xl font-semibold text-center mb-6">Get In Touch</h1>
-      <p className="mb-4 text-lg text-center">
-        If you have any questions, please contact us at{' '}
-        <Link
-          href="mailto:scitech.santarosa@deped.gov.ph"
-          className="hover:underline">
-          scitech.santarosa@deped.gov.ph
-        </Link>
-        .
-      </p>
-      <p className="mb-4 text-lg text-center">
-        If you wish, you may connect with us through:
-      </p>
-      <ul className="list-none list-inside [&>*]:mb-2 text-left text-lg">
-        <li>
-          <FontAwesomeIcon icon={faHome} className="mr-2" />
-          <Link
-            href="https://goo.gl/maps/WpM6ZuczECRqCZdp7"
-            className="hover:underline">
-            LM Subdivision, Brgy. Market Area, Santa Rosa City, 4026 Laguna,
-            Philippines
-          </Link>
-        </li>
-        <li>
-          <FontAwesomeIcon icon={faPhone} className="mr-2" />
-          <Link href="tel:+6349440067" className="hover:underline">
-            (049) 544 0067
-          </Link>
-        </li>
-        <li className="mb-2">
-          <FontAwesomeIcon icon={faFacebook} className="mr-2" />
-          <Link
-            href="https://www.facebook.com/DepEdTayoSRSTHS307902"
-            className="hover:underline">
-            DepEd Tayo Santa Rosa Science and Technology HS - Santa Rosa City
-          </Link>
-        </li>
-      </ul>
-    </div>
+    <main className="flex flex-col container p-6">
+      <h1 className="text-4xl font-bold mb-6">Contact Us</h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div>
+          <Card>
+            <CardContent className="p-6">
+              <h3 className="text-xl font-semibold mb-4">
+                Contact Information
+              </h3>
+              <div className="space-y-4">
+                <div className="flex items-center">
+                  <FontAwesomeIcon
+                    icon={faPhone}
+                    className="mr-2 h-5 w-5 text-primary"
+                  />
+                  <span>0908 705 1083</span>
+                </div>
+                <div className="flex items-center">
+                  <FontAwesomeIcon
+                    icon={faEnvelope}
+                    className="mr-2 h-5 w-5 text-primary"
+                  />
+                  <span>info@srsths.edu.ph</span>
+                </div>
+                <div className="flex items-center">
+                  <FontAwesomeIcon
+                    icon={faMapMarkerAlt}
+                    className="mr-2 h-5 w-5 text-primary"
+                  />
+                  <span>
+                    LM Subd., Brgy. Market Area, City of Santa Rosa, Laguna,
+                    Philippines
+                  </span>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="mt-6">
+            <CardContent className="p-6">
+              <h3 className="text-xl font-semibold mb-4">Location</h3>
+              <div className="aspect-video bg-gray-200 rounded-lg overflow-hidden">
+                <iframe
+                  className="w-full h-full"
+                  src="https://www.openstreetmap.org/export/embed.html?bbox=121.11022353172304%2C14.315657860748427%2C121.11227810382844%2C14.317180823631066&amp;layer=mapnik&amp;marker=14.316419343481115%2C121.11125081777573"></iframe>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+
+        <Card>
+          <CardContent className="p-6">
+            <h3 className="text-xl font-semibold mb-4">Send us a Message</h3>
+            <form className="space-y-4">
+              <div>
+                <label
+                  htmlFor="name"
+                  className="block text-sm font-medium text-gray-700 mb-1">
+                  Name
+                </label>
+                <Input id="name" placeholder="Your Name" />
+              </div>
+              <div>
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium text-gray-700 mb-1">
+                  Email
+                </label>
+                <Input id="email" type="email" placeholder="your@email.com" />
+              </div>
+              <div>
+                <label
+                  htmlFor="message"
+                  className="block text-sm font-medium text-gray-700 mb-1">
+                  Message
+                </label>
+                <Textarea
+                  id="message"
+                  placeholder="Your message here"
+                  rows={4}
+                />
+              </div>
+              <Button type="submit" className="w-full">
+                Send Message
+              </Button>
+            </form>
+          </CardContent>
+        </Card>
+      </div>
+    </main>
   )
 }
