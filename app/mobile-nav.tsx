@@ -17,6 +17,19 @@ function NavLink(props: {name: string; href: string}) {
   )
 }
 
+function LinkMap(props: {links: {name: string; href: string}[]}) {
+  const {links} = props
+  return (
+    <ul>
+      {links.map(link => (
+        <li key={link.name}>
+          <NavLink name={link.name} href={link.href} />
+        </li>
+      ))}
+    </ul>
+  )
+}
+
 export function MobileNav(props: NavProps) {
   const {leftLinks, rightLinks} = props
   return (
@@ -34,15 +47,11 @@ export function MobileNav(props: NavProps) {
         <Link href="#" className="mr-6 lg:flex" prefetch={false}>
           <Logo alt="Santa Rosa Science and Technology High School" />
         </Link>
-        <div className="grid gap-2 py-6 text-white">
-          {leftLinks.map(link => (
-            <NavLink name={link.name} href={link.href} key={link.name} />
-          ))}
+        <nav className="grid gap-2 py-6 text-white">
+          <LinkMap links={leftLinks} />
           <hr className="border-t border-neutral-500" />
-          {rightLinks.map(link => (
-            <NavLink name={link.name} href={link.href} key={link.name} />
-          ))}
-        </div>
+          <LinkMap links={rightLinks} />
+        </nav>
       </SheetContent>
     </Sheet>
   )

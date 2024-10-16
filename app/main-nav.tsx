@@ -18,23 +18,35 @@ function NavLink(props: {name: string; href: string}) {
   )
 }
 
+function LinkMap(props: {
+  className: string
+  links: {name: string; href: string}[]
+}) {
+  const {className, links} = props
+  return (
+    <nav className={className}>
+      <ul className="hidden md:flex gap-4">
+        {links.map(link => (
+          <li key={link.name}>
+            <NavLink name={link.name} href={link.href} />
+          </li>
+        ))}
+      </ul>
+    </nav>
+  )
+}
+
 export function MainNav(props: NavProps) {
   const {leftLinks, rightLinks} = props
   return (
-    <>
+    <section className="flex-grow flex">
       <Link href="/" className="mr-6 flex" prefetch={false}>
         <Logo alt="Santa Rosa Science and Technology High School" />
       </Link>
-      <nav className="mr-auto hidden md:flex gap-4">
-        {leftLinks.map(link => (
-          <NavLink key={link.name} name={link.name} href={link.href} />
-        ))}
-      </nav>
-      <nav className="ml-auto hidden md:flex gap-4">
-        {rightLinks.map(link => (
-          <NavLink key={link.name} name={link.name} href={link.href} />
-        ))}
-      </nav>
-    </>
+      <div className="flex-grow flex justify-between">
+        <LinkMap links={leftLinks} className="mr-auto" />
+        <LinkMap links={rightLinks} className="ml-auto" />
+      </div>
+    </section>
   )
 }
