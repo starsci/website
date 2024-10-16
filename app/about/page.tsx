@@ -3,7 +3,7 @@ import {Subtitle} from './subtitle'
 
 export default function About() {
   return (
-    <div className="container py-8 flex-1">
+    <main className="container py-8 flex-1">
       <h1 className="text-left lg:text-center text-5xl font-semibold mb-6">
         About Us
       </h1>
@@ -19,7 +19,7 @@ export default function About() {
 
       <HR />
 
-      <div className="block lg:grid auto-cols-auto items-center gap-x-8 gap-y-4">
+      <section className="block lg:grid auto-cols-auto items-center gap-x-8 gap-y-4">
         <h2 className="text-left lg:text-center text-2xl font-semibold mb-2 col-span-2">
           DepEd Mission, Vision, and Core Values
         </h2>
@@ -168,7 +168,7 @@ export default function About() {
             and facility
           </li>
         </ul>
-      </div>
+      </section>
 
       <HR />
 
@@ -187,6 +187,6 @@ export default function About() {
         maintain a well-stocked library, and subscribe to professional,
         scientific, and technological magazines and manuals.
       </p>
-    </div>
+    </main>
   )
 }
