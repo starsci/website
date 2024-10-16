@@ -1,7 +1,7 @@
+import {cn} from '@/lib/utils'
 import {Button} from '@/ui/button'
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import clsx from 'clsx'
+import {IconDefinition} from '@fortawesome/fontawesome-svg-core'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import Link from 'next/link'
 
 export type HeroButtonProps = {
@@ -11,12 +11,17 @@ export type HeroButtonProps = {
   icon: IconDefinition
 }
 
-export function HeroButton({children, href, main = false, icon}: HeroButtonProps) {
+export function HeroButton({
+  children,
+  href,
+  main = false,
+  icon
+}: HeroButtonProps) {
   return (
     <Button
       variant="outline"
       size="lg"
-      className={clsx('w-full transition-colors', {
+      className={cn('w-full transition-colors px-4 py-3', {
         'bg-transparent hover:bg-brand-blue-default hover:border-brand-blue-default hover:text-white':
           !main,
         'bg-brand-blue-default hover:bg-brand-blue-darker': main
