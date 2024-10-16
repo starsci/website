@@ -23,26 +23,13 @@ export function HeroSection() {
             science and technology high school in Santa Rosa, Laguna.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <Button
-              size="lg"
-              className="w-full text-white transition-colors bg-brand-blue-default hover:bg-brand-blue-darker">
-              <Link href="/services" className="flex items-center">
-                <FontAwesomeIcon
-                  icon={faScrewdriverWrench}
-                  className="mr-3 h-6 w-6"
-                />
-                Explore Our Services
-              </Link>
-            </Button>
-            <HeroButton href="/contact">
-              <FontAwesomeIcon icon={faHandshake} className="mr-3 h-6 w-6" />
+            <HeroButton href="/services" icon={faScrewdriverWrench} main>
+              Explore Our Services
+            </HeroButton>
+            <HeroButton href="/contact" icon={faHandshake}>
               Get in Touch
             </HeroButton>
-            <HeroButton href="/about">
-              <FontAwesomeIcon
-                icon={faClockRotateLeft}
-                className="mr-3 h-6 w-6"
-              />
+            <HeroButton href="/about" icon={faClockRotateLeft}>
               About Us
             </HeroButton>
           </div>
