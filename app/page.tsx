@@ -7,7 +7,7 @@ export default async function Home() {
     <div>
       <HeroSection />
       <ServicesSection />
-      <hr className="border-t border-neutral-700" />
+      <hr className="border-t border-gray-300" />
       <AnnouncementsSection />
     </div>
   )

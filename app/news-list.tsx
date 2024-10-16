@@ -13,7 +13,7 @@ type NewsListProps = {
 export function NewsList({news, href}: NewsListProps) {
   return (
     <div>
-      <ScrollArea className="h-80 mb-4">
+      <ScrollArea className="h-[25rem] mb-4 transition-shadow hover:shadow-xl rounded-md">
         {news.map((news, index) => (
           <div key={index} className="flex flex-col lg:flex-row gap-4 mb-4">
             {news.thumbnail_url && (
@@ -46,7 +46,7 @@ export function NewsList({news, href}: NewsListProps) {
         href={href}
         className="text-md hover:underline font-semibold gap-x-2 flex items-center">
         Read More
-        <FontAwesomeIcon icon={faArrowRight} />
+        <FontAwesomeIcon icon={faArrowRight} className="h-4 w-4" />
       </Link>
     </div>
   )
