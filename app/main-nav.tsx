@@ -1,7 +1,10 @@
-import {NavProps} from '@/components/types/NavProps'
 import Link from 'next/link'
-import Image from 'next/image'
-import {Logo} from '@/components/Logo'
+import {Logo} from '@/app/logo'
+
+export type NavProps = {
+  leftLinks: {name: string; href: string}[]
+  rightLinks: {name: string; href: string}[]
+}
 
 function NavLink(props: {name: string; href: string}) {
   const {name, href} = props
@@ -9,8 +12,7 @@ function NavLink(props: {name: string; href: string}) {
     <Link
       href={href}
       className="group inline-flex h-9 w-max items-center justify-center rounded-md text-white px-4 py-2 text-sm font-medium hover:underline"
-      prefetch={false}
-    >
+      prefetch={false}>
       {name}
     </Link>
   )

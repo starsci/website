@@ -2,7 +2,8 @@ import {Metadata} from 'next'
 import {Nunito} from 'next/font/google'
 import './globals.css'
 
-import { Page } from '@/components/Page'
+import {Header} from './header'
+import {Footer} from './footer'
 
 const nextFont = Nunito({subsets: ['latin']})
 
@@ -19,9 +20,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={nextFont.className}>
-        <Page>
+        <div className="flex flex-col min-h-screen bg-neutral-800 text-white">
+          <Header />
           {children}
-        </Page>
+          <Footer />
+        </div>
       </body>
     </html>
   )

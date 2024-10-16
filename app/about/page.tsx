@@ -1,11 +1,7 @@
-import {ReactNode} from 'react'
+import {HR} from './hr'
+import {Subtitle} from './subtitle'
 
 export default function About() {
-  const HR = () => <hr className="w-full bg-gray-700 my-4" />
-  const Subtitle = ({children}: {children: ReactNode}) => (
-    <h3 className="text-xl font-semibold mb-2">{children}</h3>
-  )
-
   return (
     <div className="container py-8 flex-1">
       <h1 className="text-left lg:text-center text-5xl font-semibold mb-6">

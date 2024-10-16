@@ -1,3 +1,3 @@
 export default function ClubDirectory() {
-  return <></>
+  return <main></main>
 }

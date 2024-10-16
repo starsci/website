@@ -1,10 +1,11 @@
-import {Card} from '@/components/ui/card'
 import {
   faFileSignature,
   faHandHoldingHand,
   faGraduationCap
 } from '@fortawesome/free-solid-svg-icons'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {Card} from '@/ui/card'
+import {Section} from './section'
 
 function ServiceCard({children}: {children: React.ReactNode}) {
   return (
@@ -16,7 +17,7 @@ function ServiceCard({children}: {children: React.ReactNode}) {
 
 export function ServicesSection() {
   return (
-    <section className="px-4 lg:px-8 py-8 lg:py-14 w-full text-white flex flex-col gap-4">
+    <Section>
       <h2 className="text-2xl text-center font-semibold">School Services</h2>
       <p className="text-lg text-center lg:w-1/2 md:mx-auto">
         Discover the wide range of services we offer to support our
@@ -63,6 +64,6 @@ export function ServicesSection() {
           </p>
         </ServiceCard>
       </div>
-    </section>
+    </Section>
   )
 }

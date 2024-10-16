@@ -1,6 +1,6 @@
-import {HeroButton} from '@/components/HeroButton'
-import {Logo} from '@/components/Logo'
-import {Button} from '@/components/ui/button'
+import {Button} from '@/ui/button'
+import {Logo} from './logo'
+import {HeroButton} from './hero-button'
 import {
   faScrewdriverWrench,
   faHandshake,
@@ -11,7 +11,7 @@ import Link from 'next/link'
 
 export function HeroSection() {
   return (
-    <section className="flex-grow flex-shrink-0 flex bg-gradient-to-tr from-brand-blue-darker to-brand-red-darker">
+    <main className="flex-grow flex-shrink-0 flex bg-gradient-to-tr from-brand-blue-darker to-brand-red-darker">
       <div className="flex-grow">
         <div className="flex flex-col gap-4 mx-auto justify-center items-center text-white p-10 w-full lg:w-2/3">
           <Logo height={128} width={128} />
@@ -23,17 +23,13 @@ export function HeroSection() {
             science and technology high school in Santa Rosa, Laguna.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <Button
-              size="lg"
-              className="w-full text-white transition-colors bg-brand-blue-default hover:bg-brand-blue-darker">
-              <Link href="/services" className="flex items-center">
+            <HeroButton href="/services" main>
                 <FontAwesomeIcon
                   icon={faScrewdriverWrench}
                   className="mr-3 h-6 w-6"
                 />
                 Explore Our Services
-              </Link>
-            </Button>
+            </HeroButton>
             <HeroButton href="/contact">
               <FontAwesomeIcon icon={faHandshake} className="mr-3 h-6 w-6" />
               Get in Touch
@@ -48,6 +44,6 @@ export function HeroSection() {
           </div>
         </div>
       </div>
-    </section>
+    </main>
   )
 }
