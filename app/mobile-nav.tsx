@@ -1,5 +1,5 @@
-import {Sheet, SheetContent, SheetTrigger} from '@/components/ui/sheet'
-import {Button} from '@/components/ui/button'
+import {Sheet, SheetContent, SheetTrigger} from '@/app/ui/sheet'
+import {Button} from '@/app/ui/button'
 import {Logo} from './logo'
 import {NavProps} from './main-nav'
 import {MenuIcon} from 'lucide-react'
