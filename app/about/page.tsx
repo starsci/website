@@ -3,7 +3,7 @@ import {Subtitle} from './subtitle'
 
 export default function About() {
   return (
-    <main className="container py-8 flex-1">
+    <main className="container p-6">
       <h1 className="text-left lg:text-center text-5xl font-semibold mb-6">
         About Us
       </h1>
