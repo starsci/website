@@ -1,6 +1,11 @@
 import {HR} from './hr'
 import {Subtitle} from './subtitle'
 
+export const metadata = {
+  title: 'About Us | Santa Rosa Science and Technology High School',
+  description: 'Learn about Santa Rosa Science and Technology High School'
+}
+
 export default function About() {
   return (
     <main>

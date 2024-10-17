@@ -6,7 +6,7 @@ export type News = {
   authors: string[]
   created_at: string
   body: string
-  thumbnail_url: string | null
+  thumbnailId: string
 }
 
 function newsPromise(table: string, maxLength: number) {

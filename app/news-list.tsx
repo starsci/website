@@ -4,10 +4,21 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {ScrollArea} from './ui/scroll-area'
 import Image from 'next/image'
 import Link from 'next/link'
+import {v2} from 'cloudinary'
 
 type NewsListProps = {
   news: News[]
   href: string
+}
+
+function getUrl(id: string) {
+  return v2.url(id, {
+    width: 300,
+    height: 250,
+    crop: 'fill',
+    gravity: 'face',
+    format: 'webp'
+  })
 }
 
 export function NewsList({news, href}: NewsListProps) {
@@ -16,13 +27,13 @@ export function NewsList({news, href}: NewsListProps) {
       <ScrollArea className="h-[25rem] mb-4 transition-shadow hover:shadow-xl rounded-md">
         {news.map((news, index) => (
           <div key={index} className="flex flex-col lg:flex-row gap-4 mb-4">
-            {news.thumbnail_url && (
+            {news.thumbnailId && (
               <Image
-                src={news.thumbnail_url}
-                alt={news.title}
-                width={0}
-                height={0}
-                className="object-contain w-full lg:w-1/3 h-auto mb-auto"
+                src={getUrl(news.thumbnailId)}
+                alt={`${news.title} logo`}
+                width={300}
+                height={250}
+                className="object-contain mb-auto"
                 sizes="100vw"
               />
             )}

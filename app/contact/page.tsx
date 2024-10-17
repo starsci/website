@@ -2,6 +2,12 @@ import {ContactInfo} from './info'
 import {Map} from './map'
 import {ContactForm} from './contact-form'
 
+export const metadata = {
+  title: 'Contact Us | Santa Rosa Science and Technology High School',
+  description:
+    'Send us a message or visit us at LM Subd., Brgy. Market Area, City of Santa Rosa, Laguna, Philippines'
+}
+
 export default function Contact() {
   return (
     <main className="flex flex-col">

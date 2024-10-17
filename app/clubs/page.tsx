@@ -3,6 +3,12 @@ import {Card, CardContent, CardHeader} from '../ui/card'
 import {getClubLogoUrl, getClubs} from './actions'
 import Image from 'next/image'
 
+export const metadata = {
+  title:
+    'Clubs and Organizations | Santa Rosa Science and Technology High School',
+  description: 'List of clubs and organizations in the school'
+}
+
 export default async function ClubDirectory() {
   const clubs = await getClubs()
 
