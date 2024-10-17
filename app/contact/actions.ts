@@ -27,7 +27,10 @@ async function sendEmail(email: string, subject: string, message: string) {
   return transporter.sendMail(mailOptions)
 }
 
-export async function submitForm(formData: FormData) {
+export async function submitForm(
+  prevState: boolean | null,
+  formData: FormData
+) {
   // Get the form data
   const name = formData.get('name') as string
   const subject = formData.get('subject') as string
@@ -36,4 +39,6 @@ export async function submitForm(formData: FormData) {
 
   // Send the email
   await sendEmail(email, `(${name}) ${subject}`, message)
+
+  return true
 }

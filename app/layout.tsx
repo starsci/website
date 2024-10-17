@@ -4,6 +4,7 @@ import './globals.css'
 
 import {Header} from './header'
 import {Footer} from './footer'
+import {Toaster} from '@/app/ui/toaster'
 
 const nextFont = Nunito({subsets: ['latin']})
 
@@ -25,6 +26,7 @@ export default function RootLayout({
           <div className="flex-grow container p-6">{children}</div>
           <Footer />
         </div>
+        <Toaster />
       </body>
     </html>
   )

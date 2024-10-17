@@ -1,15 +1,43 @@
+'use client'
+
 import {Button} from '@/app/ui/button'
 import {Card, CardContent} from '@/app/ui/card'
 import {Input} from '@/app/ui/input'
 import {Textarea} from '@/app/ui/textarea'
 import {submitForm} from './actions'
+import {useToast} from '@/hooks/use-toast'
+import {useFormState, useFormStatus} from 'react-dom'
+import {useEffect} from 'react'
+
+function SubmitButton() {
+  // Get the form status from the parent form
+  const {pending} = useFormStatus()
+  return (
+    <Button type="submit" className="w-full" disabled={pending}>
+      Send Message
+    </Button>
+  )
+}
 
 export function ContactForm() {
+  const {toast} = useToast() // get the toast function
+  const [state, action] = useFormState(submitForm, null) // get the form state
+  // show toast if state becomes true
+  useEffect(() => {
+    if (state === true) {
+      toast({
+        title: 'Message Sent',
+        description:
+          'We have received your message. Please wait for our response.'
+      })
+    }
+  }, [state, toast])
+
   return (
     <Card>
       <CardContent className="p-6">
         <h3 className="text-xl font-semibold mb-4">Send us a Message</h3>
-        <form className="space-y-4" action={submitForm}>
+        <form className="space-y-4" action={action}>
           <div>
             <label
               htmlFor="name"
@@ -52,9 +80,7 @@ export function ContactForm() {
               required
             />
           </div>
-          <Button type="submit" className="w-full">
-            Send Message
-          </Button>
+          <SubmitButton />
         </form>
       </CardContent>
     </Card>
