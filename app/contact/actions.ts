@@ -6,6 +6,7 @@ import Mail from 'nodemailer/lib/mailer'
 async function sendEmail(email: string, subject: string, message: string) {
   // Create a transporter
   const transporter = nodemailer.createTransport({
+    // @ts-ignore
     host: process.env.SMTP_HOST,
     port: process.env.SMTP_PORT,
     auth: {
