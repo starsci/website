@@ -13,7 +13,7 @@ export async function AnnouncementsSection() {
 
   return (
     <Section>
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 container">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
         <NewsSection
           title="Announcements"
           news={announcements}
