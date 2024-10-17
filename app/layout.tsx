@@ -1,12 +1,12 @@
 import {Metadata} from 'next'
-import {Nunito} from 'next/font/google'
+import {Open_Sans} from 'next/font/google'
 import './globals.css'
 
 import {Header} from './header'
 import {Footer} from './footer'
 import {Toaster} from '@/app/ui/toaster'
 
-const nextFont = Nunito({subsets: ['latin']})
+const nextFont = Open_Sans({subsets: ['latin']})
 
 export const metadata: Metadata = {
   title: 'Santa Rosa Science and Technology High School',
