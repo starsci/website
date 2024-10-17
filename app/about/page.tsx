@@ -9,10 +9,10 @@ export const metadata = {
 export default function About() {
   return (
     <main>
-      <h1 className="text-left lg:text-center text-5xl font-semibold mb-6">
+      <h1 className="text-left lg:text-center text-4xl font-bold mb-6">
         About Us
       </h1>
-      <h2 className="text-2xl font-semibold mb-2">Our History</h2>
+      <h2 className="text-2xl font-bold mb-2">Our History</h2>
       <p>
         President Gloria Macapagal-Arroyo signed into law the Republic Act 9083,
         creating Santa Rosa Science and Technology High School on April 8, 2001.
@@ -25,7 +25,7 @@ export default function About() {
       <HR />
 
       <section className="block lg:grid auto-cols-auto items-center gap-x-8 gap-y-4">
-        <h2 className="text-left lg:text-center text-2xl font-semibold mb-2 col-span-2">
+        <h2 className="text-left lg:text-center text-2xl font-bold mb-2 col-span-2">
           DepEd Mission, Vision, and Core Values
         </h2>
 
@@ -60,7 +60,7 @@ export default function About() {
 
         <hr className="hidden lg:block w-full bg-gray-700 my-2 col-span-2" />
 
-        <h2 className="text-left lg:text-center text-2xl font-semibold mb-2 col-span-2">
+        <h2 className="text-left lg:text-center text-2xl font-bold mb-2 col-span-2">
           Mission, Vision, and Values
         </h2>
 
@@ -119,7 +119,7 @@ export default function About() {
 
         <hr className="hidden lg:block w-full bg-gray-700 my-2 col-span-2" />
 
-        <h2 className="text-left lg:text-center text-2xl font-semibold mb-2 col-span-2">
+        <h2 className="text-left lg:text-center text-2xl font-bold mb-2 col-span-2">
           Rights, Duties, and Responsibilities of the Students
         </h2>
 
@@ -177,7 +177,7 @@ export default function About() {
 
       <HR />
 
-      <h2 className="text-left lg:text-center text-2xl font-semibold mb-2">
+      <h2 className="text-left lg:text-center text-2xl font-bold mb-2">
         School Curriculum
       </h2>
       <p>
