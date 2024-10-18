@@ -6,6 +6,7 @@ export type Club = {
   id: number
   name: string
   logo_id: string
+  description: string
 }
 
 export async function getClubs() {
