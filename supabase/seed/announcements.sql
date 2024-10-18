@@ -1,4 +1,4 @@
-insert into announcements (title, authors, body, thumbnailId)
+insert into announcements (title, authors, body, thumbnail_id)
 values ('Mga Paskil sa Palaro', '{"G. Dela Cruz", "G. Reyes"}',
         'Mga paskil para sa mga palaro ngayong taon.',
         'srsths-backdrop_thcdy4'),
