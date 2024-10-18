@@ -1,7 +1,8 @@
 import Link from 'next/link'
 import {Card, CardContent, CardHeader} from '../ui/card'
-import {getClubLogoUrl, getClubs} from './actions'
+import {getClubs} from './actions'
 import Image from 'next/image'
+import {v2} from 'cloudinary'
 
 export const metadata = {
   title:
@@ -18,8 +19,8 @@ export default async function ClubDirectory() {
         Clubs and Organizations
       </h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {clubs.map(async club => {
-          const url = await getClubLogoUrl(club.id)
+        {clubs.map(club => {
+          const url = v2.url(club.logoId)
 
           return (
             <div

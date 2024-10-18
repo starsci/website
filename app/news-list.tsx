@@ -11,16 +11,6 @@ type NewsListProps = {
   href: string
 }
 
-function getUrl(id: string) {
-  return v2.url(id, {
-    width: 300,
-    height: 250,
-    crop: 'fill',
-    gravity: 'face',
-    format: 'webp'
-  })
-}
-
 export function NewsList({news, href}: NewsListProps) {
   return (
     <div>
@@ -29,7 +19,7 @@ export function NewsList({news, href}: NewsListProps) {
           <div key={index} className="flex flex-col lg:flex-row gap-4 mb-4">
             {news.thumbnailId && (
               <Image
-                src={getUrl(news.thumbnailId)}
+                src={v2.url(news.thumbnailId)}
                 alt={`${news.title} logo`}
                 width={300}
                 height={250}

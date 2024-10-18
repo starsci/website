@@ -6,6 +6,7 @@ import {v2} from 'cloudinary'
 export type Club = {
   id: number
   name: string
+  logoId: string
 }
 
 export async function getClubs() {
@@ -20,19 +21,4 @@ export async function getClubs() {
   }
 
   return data as Club[]
-}
-
-export async function getClubLogoUrl(
-  clubId: number,
-  width = 100,
-  height = 100
-) {
-  // retrieve cloudinary/logos/club.id from the club id
-  return v2.url(`logos/${clubId}`, {
-    width,
-    height,
-    format: 'webp',
-    gravity: 'face',
-    crop: 'fill'
-  })
 }
