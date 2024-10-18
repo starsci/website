@@ -3,6 +3,6 @@
 create table users
 (
     id        bigint primary key generated always as identity,
-    firstName text not null,
-    lastName  text not null
+    first_name text not null,
+    last_name  text not null
 );
