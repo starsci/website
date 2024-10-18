@@ -29,6 +29,7 @@ export function Header({
           rightLinks={rightLinks}
           publicId={publicId}
           logoAlt={logoAlt}
+          basePath={basePath}
         />
       </div>
     </header>
