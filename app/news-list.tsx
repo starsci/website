@@ -14,7 +14,7 @@ type NewsListProps = {
 export function NewsList({news, href}: NewsListProps) {
   return (
     <div>
-      <ScrollArea className="h-[25rem] mb-4 transition-shadow hover:shadow-xl rounded-md">
+      <ScrollArea className="h-[25rem] p-2 mx-2 lg:p-4 lg:mx-0 mb-4 transition-shadow hover:shadow-xl rounded-lg">
         {news.map((news, index) => (
           <div key={index} className="flex flex-col lg:flex-row gap-4 mb-4">
             {news.thumbnailId && (
