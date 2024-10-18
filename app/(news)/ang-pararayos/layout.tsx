@@ -1,13 +1,13 @@
 import {Header} from '@/components/header'
 import {Footer} from '@/components/footer'
 
-const leftLinks = [{name: 'Home', href: '/'}]
-
-const rightLinks = [
+const leftLinks = [
   {name: 'Lathalain', href: '#'},
   {name: 'Isports', href: '#'},
   {name: 'Editoryal', href: '#'}
 ]
+
+const rightLinks = [{name: 'Back to Home', href: '/'}]
 
 export default function Layout({children}: {children: React.ReactNode}) {
   return (
