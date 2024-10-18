@@ -1,5 +1,5 @@
-import {News} from '@/functions/news'
-import {NewsList} from '@/components/news-list'
+import {News} from '@/functions/news.ts'
+import {NewsList} from '@/components/news-list.tsx'
 
 export type NewsSectionProps = {
   title: string

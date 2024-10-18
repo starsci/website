@@ -29,7 +29,9 @@ export function NewsList({news, href}: NewsListProps) {
             )}
             <div className="flex flex-col">
               <h3 className="text-lg leading-6">
-                <Link className="hover:underline" href={`/news/${news.id}`}>
+                <Link
+                  className="hover:underline"
+                  href={`/components/news-section.tsx/${news.id}`}>
                   {news.title}
                 </Link>
               </h3>

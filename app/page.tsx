@@ -1,6 +1,6 @@
-import {HeroSection} from './hero'
-import {ServicesSection} from './services'
-import {AnnouncementsSection} from './announcements'
+import {HeroSection} from './hero-section.tsx'
+import {ServicesSection} from './services-section.tsx'
+import {AnnouncementsSection} from './announcements-section.tsx'
 
 export default async function Home() {
   return (

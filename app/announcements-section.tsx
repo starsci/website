@@ -3,7 +3,7 @@ import {
   getTheSatellite,
   getAnnouncements
 } from '@/functions/news'
-import {NewsSection} from './news-section'
+import {NewsSection} from '../components/news-section.tsx'
 import {Section} from '@/components/section'
 
 export async function AnnouncementsSection() {
