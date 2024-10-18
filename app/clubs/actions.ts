@@ -1,7 +1,6 @@
 'use server'
 
 import {createClient} from '@/utils/supabase/server'
-import {v2} from 'cloudinary'
 
 export type Club = {
   id: number
