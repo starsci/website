@@ -2,13 +2,13 @@ import {Header} from '@/components/header'
 import {Footer} from '@/components/footer'
 
 const leftLinks = [
-  {name: 'Home', href: '/'},
+  {name: 'Club Directory', href: '/clubs'},
   {name: 'The Satellite', href: '/the-satellite'},
-  {name: 'Ang Pararayos', href: '/ang-pararayos'},
-  {name: 'Club Directory', href: '/clubs'}
+  {name: 'Ang Pararayos', href: '/ang-pararayos'}
 ]
 
 const rightLinks = [
+  {name: 'Announcements', href: '/announcements'},
   {name: 'Services', href: '/services'},
   {name: 'About', href: '/about'},
   {name: 'Contact', href: '/contact'}
