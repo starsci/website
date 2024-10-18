@@ -4,6 +4,8 @@ import {Logo} from './logo.tsx'
 export type NavProps = {
   leftLinks: {name: string; href: string}[]
   rightLinks: {name: string; href: string}[]
+  publicId: string
+  logoAlt: string
 }
 
 function NavLink(props: {name: string; href: string}) {
@@ -40,10 +42,7 @@ export function MainNav(props: NavProps) {
   return (
     <section className="flex-grow flex">
       <Link href="/" className="mr-6 flex">
-        <Logo
-          publicId="srsths-logo_p3p9be"
-          alt="Santa Rosa Science and Technology High School"
-        />
+        <Logo publicId={props.publicId} alt={props.logoAlt} />
       </Link>
       <div className="flex-grow flex justify-between">
         <LinkMap links={leftLinks} className="mr-auto" />
