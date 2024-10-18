@@ -8,7 +8,7 @@ const leftLinks = [
   {name: 'Club Directory', href: '/clubs'}
 ]
 
-const RightLinks = [
+const rightLinks = [
   {name: 'Services', href: '/services'},
   {name: 'About', href: '/about'},
   {name: 'Contact', href: '/contact'}
@@ -23,7 +23,7 @@ export default function Layout({
     <div className="flex flex-col min-h-screen">
       <Header
         leftLinks={leftLinks}
-        rightLinks={RightLinks}
+        rightLinks={rightLinks}
         publicId="srsths-logo_p3p9be"
         logoAlt="Santa Rosa Science and Technology High School"
       />
