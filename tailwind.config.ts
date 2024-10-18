@@ -18,6 +18,9 @@ const config = {
       }
     },
     extend: {
+      backgroundImage: {
+        hero: 'url("https://res.cloudinary.com/dbbb38rok/image/upload/v1729219626/srsths-backdrop_thcdy4.jpg")'
+      },
       colors: {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
