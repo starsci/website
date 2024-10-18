@@ -2,9 +2,9 @@ import {Metadata} from 'next'
 import {Open_Sans} from 'next/font/google'
 import './globals.css'
 
-import {Header} from './header'
-import {Footer} from './footer'
-import {Toaster} from '@/app/ui/toaster'
+import {Header} from '../components/header.tsx'
+import {Footer} from '../components/footer.tsx'
+import {Toaster} from '@/components/ui/toaster'
 
 const nextFont = Open_Sans({subsets: ['latin']})
 

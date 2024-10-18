@@ -4,7 +4,7 @@ import {
   getAnnouncements
 } from '@/functions/news'
 import {NewsSection} from './news-section'
-import {Section} from './section'
+import {Section} from '@/components/section'
 
 export async function AnnouncementsSection() {
   const announcements = await getAnnouncements()

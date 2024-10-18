@@ -1,5 +1,5 @@
-import {HeroButton} from './hero-button'
-import {Logo} from './logo'
+import {HeroButton} from '@/components/hero-button'
+import {Logo} from '@/components/logo'
 import {
   faScrewdriverWrench,
   faHandshake,

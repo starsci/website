@@ -1,9 +1,9 @@
 'use client'
 
-import {Button} from '@/app/ui/button'
-import {Card, CardContent} from '@/app/ui/card'
-import {Input} from '@/app/ui/input'
-import {Textarea} from '@/app/ui/textarea'
+import {Button} from '@/components/ui/button'
+import {Card, CardContent} from '@/components/ui/card'
+import {Input} from '@/components/ui/input'
+import {Textarea} from '@/components/ui/textarea'
 import {submitForm} from './actions'
 import {useToast} from '@/hooks/use-toast'
 import {useFormState, useFormStatus} from 'react-dom'

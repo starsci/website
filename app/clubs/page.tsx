@@ -1,5 +1,10 @@
 import Link from 'next/link'
-import {Card, CardDescription, CardHeader, CardTitle} from '../ui/card'
+import {
+  Card,
+  CardDescription,
+  CardHeader,
+  CardTitle
+} from '@/components/ui/card'
 import {getClubs} from './actions'
 import Image from 'next/image'
 import {v2} from 'cloudinary'

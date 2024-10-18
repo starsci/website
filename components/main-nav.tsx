@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import {Logo} from './logo'
+import {Logo} from './logo.tsx'
 
 export type NavProps = {
   leftLinks: {name: string; href: string}[]

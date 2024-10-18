@@ -1,4 +1,4 @@
-import {Card} from '@/app/ui/card'
+import {Card} from '@/components/ui/card.tsx'
 import {IconDefinition} from '@fortawesome/fontawesome-svg-core'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 

@@ -4,7 +4,7 @@ import {
   faMapMarkerAlt
 } from '@fortawesome/free-solid-svg-icons'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {Card, CardContent} from '@/app/ui/card'
+import {Card, CardContent} from '@/components/ui/card'
 
 export function ContactInfo() {
   return (

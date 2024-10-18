@@ -1,5 +1,5 @@
 import {News} from '@/functions/news'
-import {NewsList} from './news-list'
+import {NewsList} from '@/components/news-list'
 
 export type NewsSectionProps = {
   title: string
