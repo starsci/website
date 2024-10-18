@@ -20,11 +20,11 @@ const links = [
   },
   {
     title: 'The Satellite',
-    href: '/news/the-satellite'
+    href: '/the-satellite'
   },
   {
     title: 'Ang Pararayos',
-    href: '/news/ang-pararayos'
+    href: '/ang-pararayos'
   }
 ]
 
