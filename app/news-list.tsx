@@ -20,10 +20,10 @@ export function NewsList({news, href}: NewsListProps) {
             {news.thumbnailId && (
               <Image
                 src={v2.url(news.thumbnailId)}
-                alt={`${news.title} logo`}
-                width={300}
-                height={250}
-                className="object-contain mb-auto"
+                alt={`${news.title}`}
+                width={0}
+                height={0}
+                className="lg:w-1/3 w-full object-contain mb-auto"
                 sizes="100vw"
               />
             )}
