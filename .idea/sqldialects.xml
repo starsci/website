@@ -4,5 +4,6 @@
     <file url="file://$PROJECT_DIR$/supabase/migrations/20241018060515_create_clubs_table.sql" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/supabase/migrations/20241018061658_create_announcements_table.sql" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/supabase/migrations/20241018062258_create_roles_table.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/supabase/migrations/20241018063300_create_user_role_junction_table.sql" dialect="PostgreSQL" />
   </component>
 </project>
