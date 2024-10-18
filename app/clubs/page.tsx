@@ -1,5 +1,11 @@
 import Link from 'next/link'
-import {Card, CardContent, CardHeader} from '../ui/card'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle
+} from '../ui/card'
 import {getClubs} from './actions'
 import Image from 'next/image'
 import {v2} from 'cloudinary'
@@ -33,13 +39,13 @@ export default async function ClubDirectory() {
                     alt={`${club.name} logo`}
                     width={100}
                     height={100}
+                    className="mx-auto mb-4"
                   />
+                  <CardTitle className="text-center">{club.name}</CardTitle>
+                  <CardDescription className="text-center">
+                    {club.description}
+                  </CardDescription>
                 </CardHeader>
-                <CardContent>
-                  <h2 className="text-xl font-semibold text-center">
-                    {club.name}
-                  </h2>
-                </CardContent>
               </Card>
               <Link
                 href={`/clubs/${club.id}`}
