@@ -1,11 +1,11 @@
 'use client'
 
-import {Button} from '@/components/ui/button'
-import {Card, CardContent} from '@/components/ui/card'
-import {Input} from '@/components/ui/input'
-import {Textarea} from '@/components/ui/textarea'
-import {submitForm} from './actions'
-import {useToast} from '@/hooks/use-toast'
+import {Button} from '@/components/ui/button.tsx'
+import {Card, CardContent} from '@/components/ui/card.tsx'
+import {Input} from '@/components/ui/input.tsx'
+import {Textarea} from '@/components/ui/textarea.tsx'
+import {submitForm} from './actions.ts'
+import {useToast} from '@/hooks/use-toast.ts'
 import {useFormState, useFormStatus} from 'react-dom'
 import {useEffect} from 'react'
 

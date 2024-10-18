@@ -4,8 +4,8 @@ import {
   CardDescription,
   CardHeader,
   CardTitle
-} from '@/components/ui/card'
-import {getClubs} from './actions'
+} from '@/components/ui/card.tsx'
+import {getClubs} from './actions.ts'
 import Image from 'next/image'
 import {v2} from 'cloudinary'
 
@@ -47,7 +47,7 @@ export default async function ClubDirectory() {
                 </CardHeader>
               </Card>
               <Link
-                href={`/clubs/${club.id}`}
+                href={`/app/(front)/clubs/${club.id}`}
                 className="absolute inset-0 z-10"
               />
             </div>

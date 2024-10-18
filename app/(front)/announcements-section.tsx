@@ -2,9 +2,9 @@ import {
   getAngPararayos,
   getTheSatellite,
   getAnnouncements
-} from '@/functions/news'
-import {NewsSection} from '../components/news-section.tsx'
-import {Section} from '@/components/section'
+} from '@/functions/news.ts'
+import {NewsSection} from '../../components/news-section.tsx'
+import {Section} from '@/components/section.tsx'
 
 export async function AnnouncementsSection() {
   const announcements = await getAnnouncements()

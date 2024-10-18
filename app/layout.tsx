@@ -2,9 +2,7 @@ import {Metadata} from 'next'
 import {Open_Sans} from 'next/font/google'
 import './globals.css'
 
-import {Header} from '../components/header.tsx'
-import {Footer} from '../components/footer.tsx'
-import {Toaster} from '@/components/ui/toaster'
+import {Toaster} from '@/components/ui/toaster.tsx'
 
 const nextFont = Open_Sans({subsets: ['latin']})
 
@@ -21,11 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={nextFont.className}>
-        <div className="flex flex-col min-h-screen">
-          <Header />
-          <div className="flex-grow container p-6">{children}</div>
-          <Footer />
-        </div>
+        {children}
         <Toaster />
       </body>
     </html>

@@ -1,6 +1,6 @@
-import {ContactInfo} from './info'
-import {Map} from './map'
-import {ContactForm} from './contact-form'
+import {ContactInfo} from './info.tsx'
+import {Map} from './map.tsx'
+import {ContactForm} from './contact-form.tsx'
 
 export const metadata = {
   title: 'Contact Us | Santa Rosa Science and Technology High School',

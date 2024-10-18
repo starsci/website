@@ -1,5 +1,5 @@
-import {HeroButton} from '@/components/hero-button'
-import {Logo} from '@/components/logo'
+import {HeroButton} from '@/components/hero-button.tsx'
+import {Logo} from '@/components/logo.tsx'
 import {
   faScrewdriverWrench,
   faHandshake,
