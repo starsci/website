@@ -3,7 +3,8 @@ import {Footer} from '@/components/footer'
 
 const leftLinks = [
   {name: 'Home', href: '/'},
-  {name: 'News', href: '/news'},
+  {name: 'The Satellite', href: '/the-satellite'},
+  {name: 'Ang Pararayos', href: '/ang-pararayos'},
   {name: 'Club Directory', href: '/clubs'}
 ]
 
