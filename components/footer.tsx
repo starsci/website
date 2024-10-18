@@ -6,16 +6,24 @@ import {Logo} from './logo.tsx'
 
 const links = [
   {
-    title: 'About Us',
-    href: '/about'
+    title: 'Announcements',
+    href: '/announcements'
   },
   {
     title: 'Services',
     href: '/services'
   },
   {
-    title: 'Announcements',
-    href: '/announcements'
+    title: 'About',
+    href: '/about'
+  },
+  {
+    title: 'Contact',
+    href: '/contact'
+  },
+  {
+    title: 'Clubs',
+    href: '/clubs'
   },
   {
     title: 'The Satellite',
