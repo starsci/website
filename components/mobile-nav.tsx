@@ -43,7 +43,7 @@ export function MobileNav(props: NavProps) {
         </Button>
       </SheetTrigger>
       <SheetContent side="left" className="bg-neutral-800">
-        <Link href="#" className="mr-6 lg:flex">
+        <Link href={props.basePath} className="mr-6 lg:flex">
           <Logo
             publicId="srsths-logo_p3p9be"
             alt="Santa Rosa Science and Technology High School"

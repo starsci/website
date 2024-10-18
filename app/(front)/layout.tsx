@@ -22,6 +22,7 @@ export default function Layout({
   return (
     <div className="flex flex-col min-h-screen">
       <Header
+        basePath="/"
         leftLinks={leftLinks}
         rightLinks={rightLinks}
         publicId="srsths-logo_p3p9be"

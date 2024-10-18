@@ -6,6 +6,7 @@ export type NavProps = {
   rightLinks: {name: string; href: string}[]
   publicId: string
   logoAlt: string
+  basePath: string
 }
 
 function NavLink(props: {name: string; href: string}) {
@@ -41,7 +42,7 @@ export function MainNav(props: NavProps) {
   const {leftLinks, rightLinks} = props
   return (
     <section className="flex-grow flex">
-      <Link href="/" className="mr-6 flex">
+      <Link href={props.basePath} className="mr-6 flex">
         <Logo publicId={props.publicId} alt={props.logoAlt} />
       </Link>
       <div className="flex-grow flex justify-between">
