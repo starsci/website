@@ -5,7 +5,7 @@ import {createClient} from '@/utils/supabase/server'
 export type Club = {
   id: number
   name: string
-  logoId: string
+  logo_id: string
 }
 
 export async function getClubs() {

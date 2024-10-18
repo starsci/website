@@ -6,7 +6,7 @@ export type News = {
   authors: string[]
   created_at: string
   body: string
-  thumbnailId: string
+  thumbnail_id: string
 }
 
 function newsPromise(table: string, maxLength: number) {
@@ -27,6 +27,8 @@ async function getNews(maxLength: number, table: string) {
   if (error) {
     throw error
   }
+
+  console.log(data)
 
   return data as News[]
 }

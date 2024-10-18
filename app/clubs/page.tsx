@@ -20,7 +20,7 @@ export default async function ClubDirectory() {
       </h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {clubs.map(club => {
-          const url = v2.url(club.logoId)
+          const url = v2.url(club.logo_id)
 
           return (
             <div
