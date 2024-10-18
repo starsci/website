@@ -36,11 +36,17 @@ export function Footer() {
           <div className="space-y-4 md:mx-auto my-auto">
             <div className="flex gap-4">
               <Logo
+                publicId="srsths-logo_p3p9be"
                 height={96}
                 width={96}
                 alt="Santa Rosa Science and Technology High School"
               />
-              <Logo publicId="logos/1" height={96} width={96} alt="SYSTEM" />
+              <Logo
+                publicId="system-logo_ba99no"
+                height={96}
+                width={96}
+                alt="SYSTEM"
+              />
             </div>
           </div>
           <div>

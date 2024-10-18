@@ -40,7 +40,10 @@ export function MainNav(props: NavProps) {
   return (
     <section className="flex-grow flex">
       <Link href="/" className="mr-6 flex">
-        <Logo alt="Santa Rosa Science and Technology High School" />
+        <Logo
+          publicId="srsths-logo_p3p9be"
+          alt="Santa Rosa Science and Technology High School"
+        />
       </Link>
       <div className="flex-grow flex justify-between">
         <LinkMap links={leftLinks} className="mr-auto" />

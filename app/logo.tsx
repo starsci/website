@@ -4,18 +4,12 @@ import {v2} from 'cloudinary'
 export type LogoProps = {
   height?: number
   width?: number
-  publicId?: string
+  publicId: string
   alt: string
 }
 
-export function Logo({height = 40, width = 40, publicId = 'srsths', alt}: LogoProps) {
-  const logo = v2.url(publicId, {
-    width,
-    height,
-    crop: 'fill',
-    gravity: 'face',
-    format: 'webp'
-  })
+export function Logo({height = 40, width = 40, publicId, alt}: LogoProps) {
+  const logo = v2.url(publicId)
 
   return (
     <Image

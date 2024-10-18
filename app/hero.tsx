@@ -11,7 +11,12 @@ export function HeroSection() {
     <main className="flex-grow flex-shrink-0 flex bg-gradient-to-tr from-brand-blue-darker to-brand-red-darker -mt-6 -mx-6">
       <div className="flex-grow">
         <div className="flex flex-col gap-4 mx-auto justify-center items-center text-white p-10 w-full lg:w-2/3">
-          <Logo height={128} width={128} alt="Santa Rosa Science and Technology High School" />
+          <Logo
+            publicId="srsths-logo_p3p9be"
+            height={128}
+            width={128}
+            alt="Santa Rosa Science and Technology High School"
+          />
           <h1 className="text-4xl text-center mt-6">
             Empowering Tomorrow&apos;s Leaders
           </h1>
