@@ -42,7 +42,6 @@ export default async function ClubDirectory() {
               </Card>
               <Link
                 href={`/clubs/${club.id}`}
-                prefetch={false}
                 className="absolute inset-0 z-10"
               />
             </div>

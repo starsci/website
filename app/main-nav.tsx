@@ -11,8 +11,7 @@ function NavLink(props: {name: string; href: string}) {
   return (
     <Link
       href={href}
-      className="group inline-flex h-9 w-max items-center justify-center rounded-md text-white px-4 py-2 text-sm font-medium hover:underline"
-      prefetch={false}>
+      className="group inline-flex h-9 w-max items-center justify-center rounded-md text-white px-4 py-2 text-sm font-medium hover:underline">
       {name}
     </Link>
   )
@@ -40,7 +39,7 @@ export function MainNav(props: NavProps) {
   const {leftLinks, rightLinks} = props
   return (
     <section className="flex-grow flex">
-      <Link href="/" className="mr-6 flex" prefetch={false}>
+      <Link href="/" className="mr-6 flex">
         <Logo alt="Santa Rosa Science and Technology High School" />
       </Link>
       <div className="flex-grow flex justify-between">

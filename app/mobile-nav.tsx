@@ -10,8 +10,7 @@ function NavLink(props: {name: string; href: string}) {
   return (
     <Link
       href={href}
-      className="flex w-full items-center py-2 text-lg font-semibold hover:underline"
-      prefetch={false}>
+      className="flex w-full items-center py-2 text-lg font-semibold hover:underline">
       {name}
     </Link>
   )
@@ -44,7 +43,7 @@ export function MobileNav(props: NavProps) {
         </Button>
       </SheetTrigger>
       <SheetContent side="left" className="bg-neutral-800">
-        <Link href="#" className="mr-6 lg:flex" prefetch={false}>
+        <Link href="#" className="mr-6 lg:flex">
           <Logo alt="Santa Rosa Science and Technology High School" />
         </Link>
         <nav className="grid gap-2 py-6 text-white">
