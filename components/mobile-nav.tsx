@@ -44,10 +44,7 @@ export function MobileNav(props: NavProps) {
       </SheetTrigger>
       <SheetContent side="left" className="bg-neutral-800">
         <Link href={props.basePath} className="mr-6 lg:flex">
-          <Logo
-            publicId="srsths-logo_p3p9be"
-            alt="Santa Rosa Science and Technology High School"
-          />
+          <Logo publicId={props.publicId} alt={props.logoAlt} />
         </Link>
         <nav className="grid gap-2 py-6 text-white">
           <LinkMap links={leftLinks} />
