@@ -9,7 +9,7 @@ export async function getClubs() {
   // fetch clubs from clubs table
   const data = await payload.find<'clubs'>({
     collection: 'clubs',
-    depth: 0,
+    depth: 1,
     pagination: false,
   })
 
