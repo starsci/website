@@ -1,9 +1,13 @@
+import {isClubManager, isSupervisorOrClubManager} from '@/admin/access'
 import type {CollectionConfig} from 'payload'
 
 export const ClubAnnouncements: CollectionConfig = {
   slug: 'club-announcements',
   access: {
-    read: () => true
+    read: () => true,
+    create: isSupervisorOrClubManager,
+    update: isSupervisorOrClubManager,
+    delete: isSupervisorOrClubManager
   },
   fields: [
     {
@@ -31,7 +35,7 @@ export const ClubAnnouncements: CollectionConfig = {
     {
       name: 'thumbnail',
       type: 'upload',
-      relationTo: 'media',
+      relationTo: 'media'
     }
   ]
 }

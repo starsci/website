@@ -1,9 +1,13 @@
+import {isSupervisor, isSupervisorOrClubManager} from '@/admin/access'
 import type {CollectionConfig} from 'payload'
 
 export const Clubs: CollectionConfig = {
   slug: 'clubs',
   access: {
-    read: () => true
+    read: () => true,
+    create: isSupervisor,
+    update: isSupervisorOrClubManager,
+    delete: isSupervisor
   },
   fields: [
     {

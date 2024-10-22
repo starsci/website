@@ -1,9 +1,16 @@
 import type {CollectionConfig} from 'payload'
+import {
+  isSupervisorOrSocialMediaManager,
+  isSupervisorOrSocialMediaManagerOrStaff
+} from '@/admin/access'
 
 export const SchoolAnnouncements: CollectionConfig = {
   slug: 'school-announcements',
   access: {
-    read: () => true
+    read: isSupervisorOrSocialMediaManagerOrStaff,
+    create: isSupervisorOrSocialMediaManager,
+    update: isSupervisorOrSocialMediaManager,
+    delete: isSupervisorOrSocialMediaManager
   },
   fields: [
     {
