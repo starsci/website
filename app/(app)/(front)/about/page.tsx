@@ -1,5 +1,5 @@
-import {HR} from './hr.jsx'
-import {Subtitle} from './subtitle.jsx'
+import {HR} from './hr'
+import {Subtitle} from './subtitle'
 
 export const metadata = {
   title: 'About Us | Santa Rosa Science and Technology High School',
