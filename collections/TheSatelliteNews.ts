@@ -1,16 +1,13 @@
 import type {CollectionConfig} from 'payload'
-import {
-  isSupervisorOrSocialMediaManager,
-  isSupervisorOrSocialMediaManagerOrStaff
-} from '@/admin/access'
+import {isSupervisorOrSatelliteMember} from '@/admin/access'
 
 export const TheSatelliteNews: CollectionConfig = {
   slug: 'the-satellite-news',
   access: {
     read: () => true,
-    create: isSupervisorOrSocialMediaManager,
-    update: isSupervisorOrSocialMediaManager,
-    delete: isSupervisorOrSocialMediaManager
+    create: isSupervisorOrSatelliteMember,
+    update: isSupervisorOrSatelliteMember,
+    delete: isSupervisorOrSatelliteMember
   },
   admin: {
     group: 'Newspaper'
@@ -46,7 +43,7 @@ export const TheSatelliteNews: CollectionConfig = {
         {label: 'Opinion', value: 'opinion'},
         {label: 'Feature', value: 'feature'},
         {label: 'Sports', value: 'sports'},
-        {label: 'Science and Technology', value: 'sci-and-tech'},
+        {label: 'Science and Technology', value: 'sci-and-tech'}
       ]
     },
     {

@@ -1,16 +1,13 @@
 import type {CollectionConfig} from 'payload'
-import {
-  isSupervisorOrSocialMediaManager,
-  isSupervisorOrSocialMediaManagerOrStaff
-} from '@/admin/access'
+import {isSupervisorOrPararayosMember} from '@/admin/access'
 
 export const AngPararayosNews: CollectionConfig = {
   slug: 'ang-pararayos-news',
   access: {
     read: () => true,
-    create: isSupervisorOrSocialMediaManager,
-    update: isSupervisorOrSocialMediaManager,
-    delete: isSupervisorOrSocialMediaManager
+    create: isSupervisorOrPararayosMember,
+    update: isSupervisorOrPararayosMember,
+    delete: isSupervisorOrPararayosMember
   },
   admin: {
     group: 'Newspaper'

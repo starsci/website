@@ -1,7 +1,8 @@
+import {Club} from '@/payload-types'
 import {PayloadRequest} from 'payload'
 
 export function isSupervisor({req: {user}}: {req: PayloadRequest}) {
-  return !!user && user.role == 'supervisor'
+  return user?.role == 'supervisor'
 }
 
 export function isSupervisorOrSocialMediaManager({
@@ -9,15 +10,7 @@ export function isSupervisorOrSocialMediaManager({
 }: {
   req: PayloadRequest
 }) {
-  if (user && user.role == 'supervisor') {
-    return true
-  }
-
-  if (user && user.role == 'social-media-manager') {
-    return true
-  }
-
-  return false
+  return user?.role == 'supervisor' || user?.role == 'social-media-manager'
 }
 
 export function isSupervisorOrClubManager({
@@ -26,12 +19,12 @@ export function isSupervisorOrClubManager({
   req: PayloadRequest
 }) {
   // if supervisor, return true
-  if (user && user.role == 'supervisor') {
+  if (user?.role == 'supervisor') {
     return true
   }
 
   // if club manager, return only announcements of their own club
-  if (user && user.role == 'club-manager') {
+  if (user?.role == 'club-manager') {
     return {
       club: {
         equals: user.club
@@ -50,10 +43,9 @@ export function isSupervisorOrSocialMediaManagerOrStaff({
 }) {
   // if supervisor, return all announcements
   if (
-    user &&
-    (user.role == 'supervisor' ||
-      user.role == 'social-media-manager' ||
-      user.role == 'staff')
+    user?.role == 'supervisor' ||
+    user?.role == 'social-media-manager' ||
+    user?.role == 'staff'
   ) {
     return true
   }
@@ -64,4 +56,46 @@ export function isSupervisorOrSocialMediaManagerOrStaff({
       equals: false
     }
   }
+}
+
+export function isSupervisorOrSatelliteMember({
+  req: {user}
+}: {
+  req: PayloadRequest
+}) {
+  if (user?.role == 'supervisor') {
+    return true
+  }
+
+  // check if the club of the user is the satellite club
+  // first cast the user.club to Club type
+  if (user?.collection == 'admins') {
+    const club = user.club as Club
+    if (club?.name == 'The Satellite') {
+      return true
+    }
+  }
+
+  return false
+}
+
+export function isSupervisorOrPararayosMember({
+  req: {user}
+}: {
+  req: PayloadRequest
+}) {
+  if (user?.role == 'supervisor') {
+    return true
+  }
+
+  // check if the club of the user is the pararayos club
+  // first cast the user.club to Club type
+  if (user?.collection == 'admins') {
+    const club = user.club as Club
+    if (club?.name == 'Ang Pararayos') {
+      return true
+    }
+  }
+
+  return false
 }
