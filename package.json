@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --turbo",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -14,6 +14,10 @@
     "@fortawesome/free-regular-svg-icons": "^6.6.0",
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
     "@fortawesome/react-fontawesome": "^0.2.2",
+    "@payloadcms/db-postgres": "3.0.0-beta.116",
+    "@payloadcms/next": "3.0.0-beta.116",
+    "@payloadcms/plugin-cloud": "3.0.0-beta.116",
+    "@payloadcms/richtext-lexical": "3.0.0-beta.116",
     "@radix-ui/react-dialog": "^1.1.1",
     "@radix-ui/react-scroll-area": "^1.1.0",
     "@radix-ui/react-slot": "^1.1.0",
@@ -23,26 +27,38 @@
     "cloudinary": "^2.5.1",
     "clsx": "^2.1.1",
     "embla-carousel-react": "^8.1.8",
+    "graphql": "^16.8.1",
     "lucide-react": "^0.424.0",
-    "next": "^14.2.15",
+    "next": "15.0.0",
     "nodemailer": "^6.9.15",
+    "payload": "3.0.0-beta.116",
+    "pg": "^8.13.0",
+    "pino-pretty": "^11.3.0",
     "pnpm": "^9.12.1",
-    "react": "^18",
-    "react-dom": "^18",
+    "react": "19.0.0-rc-65a56d0e-20241020",
+    "react-dom": "19.0.0-rc-65a56d0e-20241020",
+    "sharp": "^0.33.5",
     "tailwind-merge": "^2.4.0",
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@types/node": "^20",
     "@types/nodemailer": "^6.4.16",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
+    "@types/react": "npm:types-react@19.0.0-rc.1",
+    "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1",
     "eslint": "^8",
-    "eslint-config-next": "14.2.5",
+    "eslint-config-next": "15.0.0",
     "postcss": "^8",
     "prettier": "^3.3.3",
     "tailwindcss": "^3.4.1",
     "txtgen": "^3.0.7",
     "typescript": "^5"
-  }
+  },
+  "pnpm": {
+    "overrides": {
+      "@types/react": "npm:types-react@19.0.0-rc.1",
+      "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1"
+    }
+  },
+  "packageManager": "pnpm@9.12.1+sha512.e5a7e52a4183a02d5931057f7a0dbff9d5e9ce3161e33fa68ae392125b79282a8a8a470a51dfc8a0ed86221442eb2fb57019b0990ed24fab519bf0e1bc5ccfc4"
 }

@@ -1,13 +1,12 @@
-import {News} from '@/functions/news.ts'
 import {faArrowRight} from '@fortawesome/free-solid-svg-icons'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {ScrollArea} from '@/components/ui/scroll-area.tsx'
+import {ScrollArea} from '@/components/ui/scroll-area'
 import Image from 'next/image'
 import Link from 'next/link'
-import {v2} from 'cloudinary'
+import {SchoolAnnouncement} from '@/payload-types'
 
 type NewsListProps = {
-  news: News[]
+  news: SchoolAnnouncement[]
   href: string
 }
 
@@ -17,9 +16,9 @@ export function NewsList({news, href}: NewsListProps) {
       <ScrollArea className="h-[25rem] p-2 mx-2 lg:p-4 lg:mx-0 mb-4 transition-shadow hover:shadow-xl rounded-lg">
         {news.map((news, index) => (
           <div key={index} className="flex flex-col lg:flex-row gap-4 mb-4">
-            {news.thumbnail_id && (
+            {news.thumbnail && (
               <Image
-                src={v2.url(news.thumbnail_id)}
+                src={news.thumbnail}
                 alt={`${news.title}`}
                 width={0}
                 height={0}
@@ -31,18 +30,18 @@ export function NewsList({news, href}: NewsListProps) {
               <h3 className="text-lg leading-6">
                 <Link
                   className="hover:underline"
-                  href={`/components/news-section.tsx/${news.id}`}>
+                  href={`/news/${news.id}`}>
                   {news.title}
                 </Link>
               </h3>
-              <small className="text-sm font-semibold text-neutral-400">
+              {/* <small className="text-sm font-semibold text-neutral-400">
                 {
                   // join the array of authors with a comma and a space
                   news.authors.join(', ')
                 }
-              </small>
+              </small> */}
               <small className="text-sm text-neutral-400">
-                {new Date(news.created_at).toLocaleString()}
+                {new Date(news.published_at).toLocaleString()}
               </small>
               <p className="text-sm line-clamp-2 md:line-clamp-3">
                 {news.body}
