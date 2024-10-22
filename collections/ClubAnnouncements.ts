@@ -1,4 +1,4 @@
-import {isClubManager, isSupervisorOrClubManager} from '@/admin/access'
+import {isSupervisorOrClubManager} from '@/admin/access'
 import type {CollectionConfig} from 'payload'
 
 export const ClubAnnouncements: CollectionConfig = {
