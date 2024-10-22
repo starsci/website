@@ -53,6 +53,7 @@ export interface UserAuthOperations {
  */
 export interface User {
   id: number;
+  role: ('admin' | 'content-manager' | 'club-manager' | 'social-media-manager' | 'staff')[];
   updatedAt: string;
   createdAt: string;
   email: string;
