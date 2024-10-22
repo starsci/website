@@ -18,6 +18,8 @@ export interface Config {
     clubs: Club;
     'school-announcements': SchoolAnnouncement;
     'club-announcements': ClubAnnouncement;
+    'the-satellite-news': TheSatelliteNew;
+    'ang-pararayos-news': AngPararayosNew;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -197,6 +199,72 @@ export interface ClubAnnouncement {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "the-satellite-news".
+ */
+export interface TheSatelliteNew {
+  id: number;
+  title: string;
+  authors: {
+    first_name: string;
+    last_name: string;
+    id?: string | null;
+  }[];
+  category?: ('news' | 'opinion' | 'feature' | 'sports' | 'sci-and-tech') | null;
+  published_at: string;
+  body: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  thumbnail?: (number | null) | Media;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ang-pararayos-news".
+ */
+export interface AngPararayosNew {
+  id: number;
+  title: string;
+  authors: {
+    first_name: string;
+    last_name: string;
+    id?: string | null;
+  }[];
+  category: 'news' | 'opinion' | 'feature' | 'sports' | 'sci-and-tech';
+  published_at: string;
+  body: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  thumbnail?: (number | null) | Media;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
@@ -225,6 +293,14 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'club-announcements';
         value: number | ClubAnnouncement;
+      } | null)
+    | ({
+        relationTo: 'the-satellite-news';
+        value: number | TheSatelliteNew;
+      } | null)
+    | ({
+        relationTo: 'ang-pararayos-news';
+        value: number | AngPararayosNew;
       } | null);
   globalSlug?: string | null;
   user:

@@ -12,6 +12,8 @@ import {Clubs} from './collections/Clubs'
 import {SchoolAnnouncements} from './collections/SchoolAnnouncements'
 import {ClubAnnouncements} from './collections/ClubAnnouncements'
 import {Users} from './collections/Users'
+import {TheSatelliteNews} from './collections/TheSatelliteNews'
+import { AngPararayosNews } from './collections/AngPararayosNews'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -29,7 +31,9 @@ export default buildConfig({
     Media,
     Clubs,
     SchoolAnnouncements,
-    ClubAnnouncements
+    ClubAnnouncements,
+    TheSatelliteNews,
+    AngPararayosNews
   ],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
