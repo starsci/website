@@ -1,5 +1,5 @@
-import {MobileNav} from './mobile-nav.tsx'
-import {MainNav} from './main-nav.tsx'
+import {MobileNav} from './mobile-nav'
+import {MainNav} from './main-nav'
 
 export function Header({
   leftLinks,
