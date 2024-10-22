@@ -12,6 +12,9 @@ export const TheSatelliteNews: CollectionConfig = {
     update: isSupervisorOrSocialMediaManager,
     delete: isSupervisorOrSocialMediaManager
   },
+  admin: {
+    group: 'Newspaper'
+  },
   fields: [
     {
       name: 'title',

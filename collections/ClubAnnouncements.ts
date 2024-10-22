@@ -9,6 +9,9 @@ export const ClubAnnouncements: CollectionConfig = {
     update: isSupervisorOrClubManager,
     delete: isSupervisorOrClubManager
   },
+  admin: {
+    group: 'Announcements'
+  },
   fields: [
     {
       name: 'title',

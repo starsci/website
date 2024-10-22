@@ -12,6 +12,9 @@ export const SchoolAnnouncements: CollectionConfig = {
     update: isSupervisorOrSocialMediaManager,
     delete: isSupervisorOrSocialMediaManager
   },
+  admin: {
+    group: 'Announcements'
+  },
   fields: [
     {
       name: 'title',

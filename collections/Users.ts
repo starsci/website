@@ -7,7 +7,8 @@ export const Users: CollectionConfig = {
     read: isSupervisor
   },
   admin: {
-    useAsTitle: 'email'
+    useAsTitle: 'email',
+    group: 'People'
   },
   auth: true,
   fields: [

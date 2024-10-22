@@ -12,6 +12,9 @@ export const AngPararayosNews: CollectionConfig = {
     update: isSupervisorOrSocialMediaManager,
     delete: isSupervisorOrSocialMediaManager
   },
+  admin: {
+    group: 'Newspaper'
+  },
   fields: [
     {
       name: 'title',
@@ -44,7 +47,7 @@ export const AngPararayosNews: CollectionConfig = {
         {label: 'Opinyon', value: 'opinion'},
         {label: 'Lathalain', value: 'feature'},
         {label: 'Isports', value: 'sports'},
-        {label: 'Agham at Teknolohiya', value: 'sci-and-tech'},
+        {label: 'Agham at Teknolohiya', value: 'sci-and-tech'}
       ]
     },
     {
@@ -62,6 +65,6 @@ export const AngPararayosNews: CollectionConfig = {
       name: 'thumbnail',
       type: 'upload',
       relationTo: 'media'
-    },
+    }
   ]
 }
