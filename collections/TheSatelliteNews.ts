@@ -1,6 +1,12 @@
 import type {CollectionConfig} from 'payload'
 import {isSupervisorOrSatelliteMember} from '@/admin/access'
 
+import {
+  HTMLConverterFeature,
+  lexicalEditor,
+  lexicalHTML
+} from '@payloadcms/richtext-lexical'
+
 export const TheSatelliteNews: CollectionConfig = {
   slug: 'the-satellite-news',
   access: {
@@ -55,8 +61,17 @@ export const TheSatelliteNews: CollectionConfig = {
     {
       name: 'body',
       type: 'richText',
-      required: true
+      required: true,
+      editor: lexicalEditor({
+        features: ({ defaultFeatures }) => [
+          ...defaultFeatures,
+          HTMLConverterFeature({})
+        ]
+      })
     },
+    lexicalHTML('body', {
+      name: 'bodyHTML'
+    }),
     {
       name: 'thumbnail',
       type: 'upload',

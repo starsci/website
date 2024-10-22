@@ -166,6 +166,7 @@ export interface SchoolAnnouncement {
     };
     [k: string]: unknown;
   };
+  bodyHTML?: string | null;
   thumbnail?: (number | null) | Media;
   internal?: boolean | null;
   updatedAt: string;
@@ -195,6 +196,7 @@ export interface ClubAnnouncement {
     };
     [k: string]: unknown;
   };
+  bodyHTML?: string | null;
   thumbnail?: (number | null) | Media;
   updatedAt: string;
   createdAt: string;
@@ -228,6 +230,7 @@ export interface TheSatelliteNew {
     };
     [k: string]: unknown;
   };
+  bodyHTML?: string | null;
   thumbnail?: (number | null) | Media;
   updatedAt: string;
   createdAt: string;
@@ -261,6 +264,7 @@ export interface AngPararayosNew {
     };
     [k: string]: unknown;
   };
+  bodyHTML?: string | null;
   thumbnail?: (number | null) | Media;
   updatedAt: string;
   createdAt: string;

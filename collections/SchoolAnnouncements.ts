@@ -4,6 +4,12 @@ import {
   isSupervisorOrSocialMediaManagerOrStaff
 } from '@/admin/access'
 
+import {
+  HTMLConverterFeature,
+  lexicalEditor,
+  lexicalHTML
+} from '@payloadcms/richtext-lexical'
+
 export const SchoolAnnouncements: CollectionConfig = {
   slug: 'school-announcements',
   access: {
@@ -30,8 +36,17 @@ export const SchoolAnnouncements: CollectionConfig = {
     {
       name: 'body',
       type: 'richText',
-      required: true
+      required: true,
+      editor: lexicalEditor({
+        features: ({defaultFeatures}) => [
+          ...defaultFeatures,
+          HTMLConverterFeature({})
+        ]
+      })
     },
+    lexicalHTML('body', {
+      name: 'bodyHTML'
+    }),
     {
       name: 'thumbnail',
       type: 'upload',

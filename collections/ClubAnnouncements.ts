@@ -1,6 +1,12 @@
 import {isSupervisorOrClubManager} from '@/admin/access'
 import type {CollectionConfig} from 'payload'
 
+import {
+  HTMLConverterFeature,
+  lexicalEditor,
+  lexicalHTML
+} from '@payloadcms/richtext-lexical'
+
 export const ClubAnnouncements: CollectionConfig = {
   slug: 'club-announcements',
   access: {
@@ -33,8 +39,17 @@ export const ClubAnnouncements: CollectionConfig = {
     {
       name: 'body',
       type: 'richText',
-      required: true
+      required: true,
+      editor: lexicalEditor({
+        features: ({ defaultFeatures }) => [
+          ...defaultFeatures,
+          HTMLConverterFeature({}),
+        ],
+      }),
     },
+    lexicalHTML('body', {
+      name: 'bodyHTML'
+    }),
     {
       name: 'thumbnail',
       type: 'upload',

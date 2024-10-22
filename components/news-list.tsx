@@ -48,7 +48,7 @@ export function NewsList({news, href}: NewsListProps) {
                 {new Date(news.published_at).toLocaleString()}
               </small>
               <p className="text-sm line-clamp-2 md:line-clamp-3">
-                {news.body}
+                {news.bodyHTML}
               </p>
             </div>
           </div>

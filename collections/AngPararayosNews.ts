@@ -1,6 +1,12 @@
 import type {CollectionConfig} from 'payload'
 import {isSupervisorOrPararayosMember} from '@/admin/access'
 
+import {
+  HTMLConverterFeature,
+  lexicalEditor,
+  lexicalHTML
+} from '@payloadcms/richtext-lexical'
+
 export const AngPararayosNews: CollectionConfig = {
   slug: 'ang-pararayos-news',
   access: {
@@ -56,8 +62,17 @@ export const AngPararayosNews: CollectionConfig = {
     {
       name: 'body',
       type: 'richText',
-      required: true
+      required: true,
+      editor: lexicalEditor({
+        features: ({defaultFeatures}) => [
+          ...defaultFeatures,
+          HTMLConverterFeature({})
+        ]
+      })
     },
+    lexicalHTML('body', {
+      name: 'bodyHTML'
+    }),
     {
       name: 'thumbnail',
       type: 'upload',
