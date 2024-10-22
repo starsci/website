@@ -1,6 +1,6 @@
-import {HeroSection} from './hero-section.jsx'
-import {ServicesSection} from './services-section.jsx'
-import {AnnouncementsSection} from './announcements-section.jsx'
+import {HeroSection} from './hero-section'
+import {ServicesSection} from './services-section'
+import {AnnouncementsSection} from './announcements-section'
 
 export default async function Home() {
   return (
