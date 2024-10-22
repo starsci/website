@@ -38,6 +38,7 @@
     "react": "19.0.0-rc-65a56d0e-20241020",
     "react-dom": "19.0.0-rc-65a56d0e-20241020",
     "sharp": "^0.33.5",
+    "streamifier": "^0.1.1",
     "tailwind-merge": "^2.4.0",
     "tailwindcss-animate": "^1.0.7"
   },
@@ -46,6 +47,7 @@
     "@types/nodemailer": "^6.4.16",
     "@types/react": "npm:types-react@19.0.0-rc.1",
     "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1",
+    "@types/streamifier": "^0.1.2",
     "eslint": "^8",
     "eslint-config-next": "15.0.0",
     "postcss": "^8",

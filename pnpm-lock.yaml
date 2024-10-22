@@ -99,6 +99,9 @@ importers:
       sharp:
         specifier: ^0.33.5
         version: 0.33.5
+      streamifier:
+        specifier: ^0.1.1
+        version: 0.1.1
       tailwind-merge:
         specifier: ^2.4.0
         version: 2.5.4
@@ -118,6 +121,9 @@ importers:
       '@types/react-dom':
         specifier: npm:types-react-dom@19.0.0-rc.1
         version: types-react-dom@19.0.0-rc.1
+      '@types/streamifier':
+        specifier: ^0.1.2
+        version: 0.1.2
       eslint:
         specifier: ^8
         version: 8.57.1
@@ -1962,6 +1968,9 @@ packages:
 
   '@types/react-transition-group@4.4.11':
     resolution: {integrity: sha512-RM05tAniPZ5DZPzzNFP+DmrcOdD0efDUxMy3145oljWSl3x9ZV5vhme98gTxFrj2lhXvmGNnUiuDyJgY9IKkNA==}
+
+  '@types/streamifier@0.1.2':
+    resolution: {integrity: sha512-W53GwxY5Tunz3JUoP1YWDidrAadenSZKOBKMRl6RO3yThOFd03w7yx3HypI8ABGuUCGDHCHUml/5e45FWRt1TQ==}
 
   '@types/uuid@10.0.0':
     resolution: {integrity: sha512-7gqG38EyHgyP1S+7+xomFtL+ZNHcKv6DwNaCZmJmo1vgMugyF3TCnXVg4t1uk89mLNwnLtnY3TpOpCOyp1/xHQ==}
@@ -4174,6 +4183,10 @@ packages:
 
   stream-browserify@3.0.0:
     resolution: {integrity: sha512-H73RAHsVBapbim0tU2JwwOiXUj+fikfiaoYAKHF3VJfA0pe2BCzkhAHBlLG6REzE+2WNZcxOXjK7lkso+9euLA==}
+
+  streamifier@0.1.1:
+    resolution: {integrity: sha512-zDgl+muIlWzXNsXeyUfOk9dChMjlpkq0DRsxujtYPgyJ676yQ8jEm6zzaaWHFDg5BNcLuif0eD2MTyJdZqXpdg==}
+    engines: {node: '>=0.10'}
 
   streamsearch@1.1.0:
     resolution: {integrity: sha512-Mcc5wHehp9aXz1ax6bZUyY5afg9u2rv5cqQI3mRrYkGC8rW2hM02jWuwjtL++LS5qinSyhj2QfLyNsuc+VsExg==}
@@ -6949,6 +6962,10 @@ snapshots:
     dependencies:
       '@types/react': types-react@19.0.0-rc.1
 
+  '@types/streamifier@0.1.2':
+    dependencies:
+      '@types/node': 20.16.11
+
   '@types/uuid@10.0.0': {}
 
   '@types/ws@8.5.12':
@@ -9425,6 +9442,8 @@ snapshots:
     dependencies:
       inherits: 2.0.4
       readable-stream: 3.6.2
+
+  streamifier@0.1.1: {}
 
   streamsearch@1.1.0: {}
 
