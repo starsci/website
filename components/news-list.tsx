@@ -3,10 +3,16 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {ScrollArea} from '@/components/ui/scroll-area'
 import Image from 'next/image'
 import Link from 'next/link'
-import {SchoolAnnouncement} from '@/payload-types'
+import {
+  Media,
+  SchoolAnnouncement,
+  TheSatelliteNew,
+  AngPararayosNew
+} from '@/payload-types'
+import {PaginatedDocs} from 'payload'
 
 type NewsListProps = {
-  news: SchoolAnnouncement[]
+  news: PaginatedDocs<SchoolAnnouncement | TheSatelliteNew | AngPararayosNew>
   href: string
 }
 
@@ -14,11 +20,11 @@ export function NewsList({news, href}: NewsListProps) {
   return (
     <div>
       <ScrollArea className="h-[25rem] p-2 mx-2 lg:p-4 lg:mx-0 mb-4 transition-shadow hover:shadow-xl rounded-lg">
-        {news.map((news, index) => (
+        {news.docs.map((news, index) => (
           <div key={index} className="flex flex-col lg:flex-row gap-4 mb-4">
             {news.thumbnail && (
               <Image
-                src={news.thumbnail}
+                src={(news.thumbnail as Media).cloudinaryURL!}
                 alt={`${news.title}`}
                 width={0}
                 height={0}
@@ -28,9 +34,7 @@ export function NewsList({news, href}: NewsListProps) {
             )}
             <div className="flex flex-col">
               <h3 className="text-lg leading-6">
-                <Link
-                  className="hover:underline"
-                  href={`/news/${news.id}`}>
+                <Link className="hover:underline" href={`/news/${news.id}`}>
                   {news.title}
                 </Link>
               </h3>
