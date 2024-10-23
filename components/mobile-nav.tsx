@@ -1,7 +1,7 @@
-import {Sheet, SheetContent, SheetTrigger} from '@/components/ui/sheet.tsx'
-import {Button} from '@/components/ui/button.tsx'
-import {Logo} from './logo.tsx'
-import {NavProps} from './main-nav.tsx'
+import {Sheet, SheetContent, SheetTrigger} from '@/components/ui/sheet'
+import {Button} from '@/components/ui/button'
+import {Logo} from './logo'
+import {NavProps} from './main-nav'
 import {MenuIcon} from 'lucide-react'
 import Link from 'next/link'
 

@@ -1,9 +1,10 @@
-import {News} from '@/functions/news.ts'
-import {NewsList} from '@/components/news-list.tsx'
+import {NewsList} from '@/components/news-list'
+import { AngPararayosNew, SchoolAnnouncement, TheSatelliteNew } from '@/payload-types'
+import { PaginatedDocs } from 'payload'
 
 export type NewsSectionProps = {
   title: string
-  news: News[]
+  news: PaginatedDocs<SchoolAnnouncement | AngPararayosNew | TheSatelliteNew>
   href: string
 }
 

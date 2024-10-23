@@ -1,6 +1,6 @@
-import {Button} from '@/components/ui/button.tsx'
+import {Button} from '@/components/ui/button'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {cn} from '@/lib/utils.ts'
+import {cn} from '@/lib/utils'
 import Link from 'next/link'
 
 type HeroButtonProps = {

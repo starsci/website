@@ -2,7 +2,7 @@ import Link from 'next/link'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faFacebook} from '@fortawesome/free-brands-svg-icons'
 import {faPhone, faEnvelope} from '@fortawesome/free-solid-svg-icons'
-import {Logo} from './logo.tsx'
+import {Logo} from './logo'
 
 const links = [
   {
