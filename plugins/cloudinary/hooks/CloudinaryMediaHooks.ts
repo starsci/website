@@ -80,7 +80,7 @@ const afterChangeHook: AfterChangeHook = ({doc, operation}) => {
   // if it exists, delete it
   if (doc?.filename) {
     const mainFilePath = path.resolve(
-      __dirname + `../../../cloudinary_media/${doc.filename}`
+      __dirname + `../../../media/${doc.filename}`
     )
     deleteFile(mainFilePath)
   }
@@ -88,7 +88,7 @@ const afterChangeHook: AfterChangeHook = ({doc, operation}) => {
   if (doc?.sizes) {
     for (const imageName in doc.sizes) {
       const filePath = path.resolve(
-        __dirname + `../../../cloudinary_media/${doc.sizes[imageName].filename}`
+        __dirname + `../../../media/${doc.sizes[imageName].filename}`
       )
       deleteFile(filePath)
     }
@@ -110,4 +110,4 @@ const afterDeleteHook: AfterDeleteHook = ({doc}) => {
   return doc
 }
 
-export {streamUpload, beforeChangeHook, afterChangeHook, afterDeleteHook}
+export {streamUpload, beforeChangeHook, /* afterChangeHook, */ afterDeleteHook}

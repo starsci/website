@@ -2,7 +2,7 @@
 
 import {Config} from 'payload'
 import {
-  afterChangeHook,
+  // afterChangeHook,
   afterDeleteHook,
   beforeChangeHook
 } from './hooks/CloudinaryMediaHooks'
@@ -17,7 +17,7 @@ const addCloudinary = (incomingConfig: Config): Config => {
           hooks: {
             ...collection.hooks,
             beforeChange: [beforeChangeHook],
-            afterChange: [afterChangeHook],
+            // afterChange: [afterChangeHook],
             afterDelete: [afterDeleteHook]
           },
           fields: [
