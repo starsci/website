@@ -111,6 +111,7 @@ export interface Club {
 export interface Media {
   id: number;
   public_id?: string | null;
+  cdn_url?: string | null;
   updatedAt: string;
   createdAt: string;
   url?: string | null;

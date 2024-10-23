@@ -24,7 +24,7 @@ export function NewsList({news, href}: NewsListProps) {
           <div key={index} className="flex flex-col lg:flex-row gap-4 mb-4">
             {news.thumbnail && (
               <Image
-                src={(news.thumbnail as Media).url!}
+                src={(news.thumbnail as Media).cdn_url!}
                 alt={`${news.title}`}
                 width={0}
                 height={0}

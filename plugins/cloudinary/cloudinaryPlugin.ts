@@ -26,6 +26,7 @@ const addCloudinary = (incomingConfig: Config): Config => {
               name: 'public_id', // This field would be needed to delete and update cloudinary files.
               label: 'Cloudinary Public ID',
               type: 'text',
+              required: true,
               access: {
                 // prevent writing to the field, instead hooks are responsible for this
                 create: () => false,
@@ -38,9 +39,10 @@ const addCloudinary = (incomingConfig: Config): Config => {
               }
             },
             {
-              name: 'url',
+              name: 'cdn_url',
               label: 'Cloudinary URL',
               type: 'text',
+              required: true,
               access: {
                 // prevent writing to the field, instead hooks are responsible for this
                 create: () => false,
@@ -51,7 +53,7 @@ const addCloudinary = (incomingConfig: Config): Config => {
               hooks: {
                 afterRead: [
                   ({data}) => {
-                    return data?.url
+                    return data?.cdn_url
                   }
                 ]
               },
@@ -59,7 +61,7 @@ const addCloudinary = (incomingConfig: Config): Config => {
                 position: 'sidebar',
                 readOnly: true,
                 // only show the field when it has a value
-                condition: data => Boolean(data?.url)
+                condition: data => Boolean(data?.cdn_url)
               }
             }
           ]

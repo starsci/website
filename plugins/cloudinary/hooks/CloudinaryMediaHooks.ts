@@ -45,12 +45,10 @@ const beforeChangeHook: BeforeChangeHook = async ({data, req, operation}) => {
     const basename = file ? path.parse(file.name).name : undefined
     const result = await streamUpload(
       uploadedFile,
-      operation === 'update'
-        ? data.cloudPublicId
-        : basename
+      operation === 'update' ? data.public_id : basename
     )
-    data.cloudPublicId = result.public_id
-    data.cloudinaryURL = result.secure_url
+    data.public_id = result.public_id
+    data.cdn_url = result.secure_url
   }
   return data
 }
@@ -102,7 +100,7 @@ const afterChangeHook: AfterChangeHook = ({doc, operation}) => {
 const afterDeleteHook: AfterDeleteHook = ({doc}) => {
   // DONE: delete the files from Cloudinary using public_id obtained from cloudinary
   cloudinary.uploader.destroy(
-    doc.cloudPublicId,
+    doc.public_id,
     function (result: any, error: any) {
       console.log(result, error)
     }
