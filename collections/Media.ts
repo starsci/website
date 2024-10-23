@@ -7,13 +7,8 @@ export const Media: CollectionConfig = {
   },
   upload: {
     // thumbnail image for the admin UI will use cloudinary instead of the admin host URL
-    adminThumbnail: ({doc}) => String(doc.cloudinaryURL)
+    adminThumbnail: ({doc}) => String(doc.url)
   },
   fields: [
-    {
-      name: 'alt',
-      type: 'text',
-      required: true
-    }
   ],
 }

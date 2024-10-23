@@ -32,7 +32,7 @@ export default async function ClubDirectory() {
               <Card className="shadow-md flex flex-col items-center justify-center">
                 <CardHeader>
                   <Image
-                    src={(club.logo as Media).cloudinaryURL!}
+                    src={(club.logo as Media).url!}
                     alt={`${club.name} logo`}
                     width={100}
                     height={100}
