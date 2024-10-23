@@ -2,9 +2,11 @@ import {Header} from '@/components/header'
 import {Footer} from '@/components/footer'
 
 const leftLinks = [
+  {name: 'Balita', href: '#'},
+  {name: 'Opinyon', href: '#'},
   {name: 'Lathalain', href: '#'},
   {name: 'Isports', href: '#'},
-  {name: 'Editoryal', href: '#'}
+  {name: 'AgTek', href: '#'},
 ]
 
 const rightLinks = [{name: 'Back to Home', href: '/'}]
