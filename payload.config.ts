@@ -1,9 +1,12 @@
 // storage-adapter-import-placeholder
 import {postgresAdapter} from '@payloadcms/db-postgres'
 import {lexicalEditor} from '@payloadcms/richtext-lexical'
+import {nodemailerAdapter} from '@payloadcms/email-nodemailer'
+import {ZeptomailTransport} from 'nodemailer-zeptomail-transport'
 import path from 'path'
 import {buildConfig} from 'payload'
 import {fileURLToPath} from 'url'
+import nodemailer from 'nodemailer'
 import sharp from 'sharp'
 
 import {Admins} from './collections/Admins'
@@ -45,6 +48,15 @@ export default buildConfig({
     pool: {
       connectionString: process.env.DATABASE_URI || ''
     }
+  }),
+  email: nodemailerAdapter({
+    defaultFromName: 'No-reply',
+    defaultFromAddress: 'no-reply@srsths.edu.ph',
+    transport: nodemailer.createTransport(
+      new ZeptomailTransport({
+        apiKey: process.env.ZEPTOMAIL_API_KEY || '',
+      })
+    )
   }),
   sharp,
   plugins: [addCloudinary]
