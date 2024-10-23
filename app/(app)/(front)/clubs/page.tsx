@@ -45,7 +45,7 @@ export default async function ClubDirectory() {
                 </CardHeader>
               </Card>
               <Link
-                href={`/app/(front)/clubs/${club.id}`}
+                href={`/clubs/${club.id}`}
                 className="absolute inset-0 z-10"
               />
             </div>
