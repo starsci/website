@@ -1,10 +1,14 @@
 import {NewsList} from '@/components/news-list'
-import { AngPararayosNew, SchoolAnnouncement, TheSatelliteNew } from '@/payload-types'
-import { PaginatedDocs } from 'payload'
+import {
+  AngPararayosNew,
+  SchoolAnnouncement,
+  TheSatelliteNew
+} from '@/payload-types'
+import {CollectionSlug, DataFromCollectionSlug, PaginatedDocs} from 'payload'
 
 export type NewsSectionProps = {
   title: string
-  news: PaginatedDocs<SchoolAnnouncement | AngPararayosNew | TheSatelliteNew>
+  news: PaginatedDocs<DataFromCollectionSlug<CollectionSlug>>
   href: string
 }
 

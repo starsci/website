@@ -1,19 +1,15 @@
 'use server'
 
-import {getPayloadHMR} from '@payloadcms/next/utilities'
 import config from '@payload-config'
+import {getPayload} from 'payload'
 
 export async function getClubs() {
-  const payload = await getPayloadHMR({config})
+  const payload = await getPayload({config})
 
   // fetch clubs from clubs table
-  const data = await payload.find<'clubs'>({
+  return await payload.find({
     collection: 'clubs',
     depth: 1,
-    pagination: false,
+    pagination: false
   })
-
-  console.log(data)
-
-  return data
 }
