@@ -38,7 +38,7 @@ export function ClubGrid() {
             <Card className="shadow-md flex flex-col items-center justify-center">
               <CardHeader>
                 <Image
-                  src={club.logo.cdn_url!}
+                  src={(club.logo as Media).cdn_url!}
                   alt={`${club.name} logo`}
                   width={100}
                   height={100}
