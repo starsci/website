@@ -5,7 +5,7 @@ import {useParams} from 'next/navigation'
 import {useQuery} from '@/hooks/use-query'
 
 export default function Announcement() {
-  const {slug} = useParams<{slug: number}>()
+  const {slug} = useParams<{slug: string}>()
   const {data, isLoading, error} = useQuery('school-announcements', {
     where: {
       id: {
