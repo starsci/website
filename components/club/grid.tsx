@@ -16,7 +16,7 @@ import useSWR from 'swr'
 
 import {getClubs} from './actions'
 
-export function Grid() {
+export function ClubGrid() {
   const {data, isLoading, error} = useSWR('clubs', getClubs)
 
   if (isLoading) {

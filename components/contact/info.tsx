@@ -6,7 +6,7 @@ import {
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {Card, CardContent} from '@/components/ui/card'
 
-export function Info() {
+export function ContactInfo() {
   return (
     <Card>
       <CardContent className="p-6">
