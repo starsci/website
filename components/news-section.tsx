@@ -1,9 +1,4 @@
 import {NewsList} from '@/components/news-list'
-import {
-  AngPararayosNew,
-  SchoolAnnouncement,
-  TheSatelliteNew
-} from '@/payload-types'
 import {CollectionSlug, DataFromCollectionSlug, PaginatedDocs} from 'payload'
 
 export type NewsSectionProps = {
