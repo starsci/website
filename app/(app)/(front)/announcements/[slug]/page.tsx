@@ -3,6 +3,7 @@
 import Image from 'next/image'
 import {useParams} from 'next/navigation'
 import {useQuery} from '@/hooks/use-query'
+import {Media} from '@/payload-types'
 
 export default function Announcement() {
   const {slug} = useParams<{slug: string}>()
@@ -24,7 +25,7 @@ export default function Announcement() {
     return <p>Failed to load announcement: {error.message}</p>
   }
 
-  const {title, createdAt, bodyHTML, thumbnail} = data.docs[0]
+  const {title, createdAt, bodyHTML, thumbnail} = data!.docs[0]!
 
   return (
     <article>
@@ -34,7 +35,7 @@ export default function Announcement() {
       </p>
       {thumbnail && (
         <Image
-          src={thumbnail.cdn_url}
+          src={(thumbnail as Media).cdn_url!}
           alt={title}
           width={0}
           height={0}
@@ -44,7 +45,7 @@ export default function Announcement() {
       )}
       <div
         className="prose prose-neutral"
-        dangerouslySetInnerHTML={{__html: bodyHTML}}
+        dangerouslySetInnerHTML={{__html: bodyHTML!}}
       />
     </article>
   )

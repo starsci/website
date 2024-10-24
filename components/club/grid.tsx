@@ -30,7 +30,7 @@ export function ClubGrid() {
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-      {data.docs.map(club => {
+      {data!.docs!.map(club => {
         return (
           <div
             className="relative transition-transform hover:scale-105"
@@ -38,7 +38,7 @@ export function ClubGrid() {
             <Card className="shadow-md flex flex-col items-center justify-center">
               <CardHeader>
                 <Image
-                  src={(club.logo as Media).cdn_url!}
+                  src={club.logo.cdn_url!}
                   alt={`${club.name} logo`}
                   width={100}
                   height={100}
