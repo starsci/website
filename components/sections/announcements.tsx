@@ -5,7 +5,7 @@ import {Section} from '@/components/section'
 import {getAnnouncements, getPararayos, getSatellite} from './actions'
 import useSWR from 'swr'
 
-export function AnnouncementsSection() {
+export function Announcements() {
   const {
     data: announcements,
     isLoading: i1,

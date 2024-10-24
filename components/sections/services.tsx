@@ -3,10 +3,10 @@ import {
   faHandHoldingHand,
   faGraduationCap
 } from '@fortawesome/free-solid-svg-icons'
-import {ServiceCard} from '@/components/service-card'
-import {Section} from '@/components/section'
+import {ServiceCard} from '@/components/service-card.tsx'
+import {Section} from '@/components/section.tsx'
 
-export function ServicesSection() {
+export function Services() {
   return (
     <Section>
       <h2 className="text-2xl text-center font-semibold">School Services</h2>

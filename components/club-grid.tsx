@@ -6,11 +6,28 @@ import {
   CardHeader,
   CardTitle
 } from '@/components/ui/card'
-import Image from 'next/image'
+
 import {Media} from '@/payload-types'
+
+import Image from 'next/image'
 import Link from 'next/link'
+
+import config from '@payload-config'
+import {getPayload} from 'payload'
+
 import useSWR from 'swr'
-import {getClubs} from './actions'
+
+async function getClubs() {
+  'use server'
+  const payload = await getPayload({config})
+
+  // fetch clubs from clubs table
+  return await payload.find({
+    collection: 'clubs',
+    depth: 1,
+    pagination: false
+  })
+}
 
 export function ClubGrid() {
   const {data, isLoading, error} = useSWR('/api/clubs', getClubs)

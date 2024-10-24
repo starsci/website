@@ -1,12 +1,12 @@
-import {HeroButton} from '@/components/hero-button'
-import {Logo} from '@/components/logo'
+import {HeroButton} from '@/components/hero-button.tsx'
+import {Logo} from '@/components/logo.tsx'
 import {
   faScrewdriverWrench,
   faHandshake,
   faClockRotateLeft
 } from '@fortawesome/free-solid-svg-icons'
 
-export function HeroSection() {
+export function Hero() {
   return (
     <main className="flex-grow flex-shrink-0 flex relative -mt-6 -mx-6">
       <div className="absolute inset-0 -z-10 bg-hero bg-cover brightness-50" />

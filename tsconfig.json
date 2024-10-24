@@ -14,6 +14,7 @@
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
+    "allowImportingTsExtensions": false,
     "jsx": "preserve",
     "incremental": true,
     "plugins": [
