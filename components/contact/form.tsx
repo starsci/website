@@ -19,7 +19,7 @@ function SubmitButton() {
   )
 }
 
-export function ContactForm() {
+export function Form() {
   const {toast} = useToast() // get the toast function
   const [state, action] = useFormState(submitForm, null) // get the form state
   // show toast if state becomes true
