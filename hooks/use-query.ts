@@ -6,7 +6,7 @@ import {queryCollection} from './server/payload-query'
 // the return type to the collection's type
 export function useQuery<TSlug extends CollectionSlug>(
   collection: TSlug,
-  options: Parameters<typeof queryCollection>[1]
+  options: Omit<Parameters<typeof queryCollection>[1], 'collection'>
 ) {
   return useSWR<PaginatedDocs<DataFromCollectionSlug<TSlug>>>(collection, () =>
     queryCollection(collection, options)

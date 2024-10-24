@@ -8,7 +8,7 @@ const payload = await getPayloadHMR({config})
 
 export async function queryCollection<TSlug extends CollectionSlug>(
   collection: TSlug,
-  options: Parameters<typeof payload.find<TSlug>>[0]
+  options: Omit<Parameters<typeof payload.find<TSlug>>[0], 'collection'>
 ) {
   return await payload.find({
     collection,
