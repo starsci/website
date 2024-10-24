@@ -1,7 +1,7 @@
 'use client'
 
-import {NewsSection} from '@/components/news-section'
-import {Section} from '@/components/section'
+import {NewsBit} from '@/components/news-bit'
+import {HeroSection} from '@/components/hero-section'
 import {getAnnouncements, getPararayos, getSatellite} from './actions'
 import useSWR from 'swr'
 
@@ -25,43 +25,43 @@ export function Announcements() {
   if (i1 || i2 || i3) {
     // if any of the data is loading
     return (
-      <Section>
+      <HeroSection>
         <p>Loading...</p>
-      </Section>
+      </HeroSection>
     )
   }
 
   if (e1 || e2 || e3) {
     // if any of the data has an error
     return (
-      <Section>
+      <HeroSection>
         <p>Failed to load announcements:</p>
         {e1 && <p>{e1.message}</p>}
         {e2 && <p>{e2.message}</p>}
         {e3 && <p>{e3.message}</p>}
-      </Section>
+      </HeroSection>
     )
   }
 
   return (
-    <Section>
+    <HeroSection>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
-        <NewsSection
+        <NewsBit
           title="Announcements"
           news={announcements}
           href="/announcements"
         />
-        <NewsSection
+        <NewsBit
           title="The Satellite"
           news={theSatellite}
           href="/the-satellite"
         />
-        <NewsSection
+        <NewsBit
           title="Ang Pararayos"
           news={angPararayos}
           href="/ang-pararayos"
         />
       </div>
-    </Section>
+    </HeroSection>
   )
 }

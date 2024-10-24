@@ -11,7 +11,7 @@ import {
 } from '@/payload-types'
 import {CollectionSlug, DataFromCollectionSlug, PaginatedDocs} from 'payload'
 
-export function NewsList({
+export function NewsCard({
   news,
   href
 }: {

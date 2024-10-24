@@ -1,6 +1,6 @@
-import {Hero} from '@/components/sections/hero'
-import {Services} from '@/components/sections/services'
-import {Announcements} from '@/components/sections/announcements'
+import {Hero} from '@/components/hero-sections/hero'
+import {Services} from '@/components/hero-sections/services'
+import {Announcements} from '@/components/hero-sections/announcements'
 
 export default async function Home() {
   return (
