@@ -9,18 +9,23 @@ import {
   TheSatelliteNew,
   AngPararayosNew
 } from '@/payload-types'
-import {PaginatedDocs} from 'payload'
+import {CollectionSlug, DataFromCollectionSlug, PaginatedDocs} from 'payload'
 
-type NewsListProps = {
-  news: PaginatedDocs<SchoolAnnouncement | TheSatelliteNew | AngPararayosNew>
+export function NewsCard({
+  news,
+  href
+}: {
+  news: PaginatedDocs<DataFromCollectionSlug<CollectionSlug>>
   href: string
-}
+}) {
+  const data = news as PaginatedDocs<
+    SchoolAnnouncement | AngPararayosNew | TheSatelliteNew
+  >
 
-export function NewsList({news, href}: NewsListProps) {
   return (
     <div>
       <ScrollArea className="h-[25rem] p-2 mx-2 lg:p-4 lg:mx-0 mb-4 transition-shadow hover:shadow-xl rounded-lg">
-        {news.docs.map((news, index) => (
+        {data.docs.map((news, index) => (
           <div key={index} className="flex flex-col lg:flex-row gap-4 mb-4">
             {news.thumbnail && (
               <Image
@@ -34,7 +39,7 @@ export function NewsList({news, href}: NewsListProps) {
             )}
             <div className="flex flex-col">
               <h3 className="text-lg leading-6">
-                <Link className="hover:underline" href={`/news/${news.id}`}>
+                <Link className="hover:underline" href={`${href}/${news.id}`}>
                   {news.title}
                 </Link>
               </h3>
@@ -45,11 +50,11 @@ export function NewsList({news, href}: NewsListProps) {
                 }
               </small> */}
               <small className="text-sm text-neutral-400">
-                {new Date(news.published_at).toLocaleString()}
+                {new Date(news.createdAt).toLocaleString()}
               </small>
-              <p className="text-sm line-clamp-2 md:line-clamp-3">
-                {news.bodyHTML}
-              </p>
+              <p
+                className="text-sm line-clamp-2 md:line-clamp-3"
+                dangerouslySetInnerHTML={{__html: news.bodyHTML!}}></p>
             </div>
           </div>
         ))}

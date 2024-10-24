@@ -1,13 +1,6 @@
 import Link from 'next/link'
-import {Logo} from './logo'
-
-export type NavProps = {
-  leftLinks: {name: string; href: string}[]
-  rightLinks: {name: string; href: string}[]
-  publicId: string
-  logoAlt: string
-  basePath: string
-}
+import {Logo} from '@/components/logo'
+import {NavProps} from './props'
 
 function NavLink(props: {name: string; href: string}) {
   const {name, href} = props

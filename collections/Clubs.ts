@@ -9,6 +9,9 @@ export const Clubs: CollectionConfig = {
     update: isSupervisorOrClubManager,
     delete: isSupervisor
   },
+  admin: {
+    useAsTitle: 'name'
+  },
   fields: [
     {
       name: 'name',

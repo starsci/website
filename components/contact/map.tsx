@@ -1,6 +1,6 @@
 import {Card, CardContent} from '@/components/ui/card'
 
-export function Map() {
+export function ContactMap() {
   return (
     <Card className="mt-6">
       <CardContent className="p-6">
