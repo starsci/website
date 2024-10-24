@@ -43,8 +43,6 @@ export function AnnouncementsSection() {
     )
   }
 
-  console.log(announcements)
-
   return (
     <Section>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
