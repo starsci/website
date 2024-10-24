@@ -6,18 +6,19 @@ import {
   CardHeader,
   CardTitle
 } from '@/components/ui/card'
+import {useQuery} from '@/hooks/use-query'
 
 import {Media} from '@/payload-types'
 
 import Image from 'next/image'
 import Link from 'next/link'
 
-import useSWR from 'swr'
-
-import {getClubs} from './actions'
-
 export function ClubGrid() {
-  const {data, isLoading, error} = useSWR('clubs', getClubs)
+  const {data, isLoading, error} = useQuery('clubs', {
+    depth: 1,
+    pagination: true,
+    limit: 8
+  })
 
   if (isLoading) {
     return <p>Loading...</p>
