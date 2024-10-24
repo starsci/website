@@ -2,20 +2,19 @@ import {Button} from '@/components/ui/button'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {cn} from '@/lib/utils'
 import Link from 'next/link'
-
-type HeroButtonProps = {
-  children: React.ReactNode
-  href: string
-  icon: any
-  main?: boolean
-}
+import {ReactNode} from 'react'
 
 export function HeroButton({
   children,
   href,
   icon,
   main = false
-}: HeroButtonProps) {
+}: {
+  children: ReactNode
+  href: string
+  icon: any
+  main?: boolean
+}) {
   return (
     <Button
       variant={main ? 'default' : 'outline'}

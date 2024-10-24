@@ -1,13 +1,15 @@
 import {NewsList} from '@/components/news-list'
 import {CollectionSlug, DataFromCollectionSlug, PaginatedDocs} from 'payload'
 
-export type NewsSectionProps = {
+export function NewsSection({
+  title,
+  news,
+  href
+}: {
   title: string
   news: PaginatedDocs<DataFromCollectionSlug<CollectionSlug>>
   href: string
-}
-
-export function NewsSection({title, news, href}: NewsSectionProps) {
+}) {
   return (
     <div className="flex flex-col gap-4">
       <h2 className="text-2xl font-semibold">{title}</h2>

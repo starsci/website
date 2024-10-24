@@ -11,12 +11,13 @@ import {
 } from '@/payload-types'
 import {CollectionSlug, DataFromCollectionSlug, PaginatedDocs} from 'payload'
 
-type NewsListProps = {
+export function NewsList({
+  news,
+  href
+}: {
   news: PaginatedDocs<DataFromCollectionSlug<CollectionSlug>>
   href: string
-}
-
-export function NewsList({news, href}: NewsListProps) {
+}) {
   const data = news as PaginatedDocs<
     SchoolAnnouncement | AngPararayosNew | TheSatelliteNew
   >
