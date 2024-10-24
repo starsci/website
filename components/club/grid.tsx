@@ -12,25 +12,12 @@ import {Media} from '@/payload-types'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import config from '@payload-config'
-import {getPayload} from 'payload'
-
 import useSWR from 'swr'
 
-async function getClubs() {
-  'use server'
-  const payload = await getPayload({config})
+import {getClubs} from './actions'
 
-  // fetch clubs from clubs table
-  return await payload.find({
-    collection: 'clubs',
-    depth: 1,
-    pagination: false
-  })
-}
-
-export function ClubGrid() {
-  const {data, isLoading, error} = useSWR('/api/clubs', getClubs)
+export function Grid() {
+  const {data, isLoading, error} = useSWR('clubs', getClubs)
 
   if (isLoading) {
     return <p>Loading...</p>

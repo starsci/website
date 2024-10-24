@@ -1,4 +1,4 @@
-import {ClubGrid} from '@/components/club-grid'
+import {Grid} from '@/components/club/grid'
 
 export const metadata = {
   title:
@@ -12,7 +12,7 @@ export default function ClubDirectory() {
       <h1 className="text-4xl font-bold text-center mb-6">
         Clubs and Organizations
       </h1>
-      <ClubGrid />
+      <Grid />
     </main>
   )
 }
