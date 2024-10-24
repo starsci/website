@@ -1,4 +1,4 @@
-import {HR} from '@/components/hr.tsx'
+import {HR} from '@/components/hr'
 import {NewsCard} from '@/components/news-card'
 import {CollectionSlug, DataFromCollectionSlug, PaginatedDocs} from 'payload'
 

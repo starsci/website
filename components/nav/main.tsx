@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import {Logo} from '@/components/logo'
+import {NavProps} from './props'
 
 function NavLink(props: {name: string; href: string}) {
   const {name, href} = props

@@ -54,7 +54,7 @@ export function NewsCard({
               </small>
               <p
                 className="text-sm line-clamp-2 md:line-clamp-3"
-                dangerouslySetInnerHTML={{__html: news.bodyHTML}}></p>
+                dangerouslySetInnerHTML={{__html: news.bodyHTML!}}></p>
             </div>
           </div>
         ))}

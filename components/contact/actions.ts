@@ -6,7 +6,7 @@ import Mail from 'nodemailer/lib/mailer'
 
 const transporter = nodemailer.createTransport(
   new ZeptomailTransport({
-    apiKey: process.env.ZEPTOMAIL_API_KEY
+    apiKey: process.env.ZEPTOMAIL_API_KEY!
   })
 )
 
