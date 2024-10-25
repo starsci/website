@@ -19,7 +19,12 @@ export default function Layout({children}: {children: React.ReactNode}) {
         basePath="/ang-pararayos"
         leftLinks={leftLinks}
         rightLinks={rightLinks}
-        logo={<Logo publicId="pararayos-logo_mrdspq" alt="Ang Pararayos" />}
+        logo={
+          <Logo
+            publicId={process.env.NEXT_PUBLIC_PARARAYOS_LOGO_PUBLIC_ID}
+            alt="Ang Pararayos"
+          />
+        }
       />
       <div className="flex-grow container p-6">{children}</div>
       <Footer />
