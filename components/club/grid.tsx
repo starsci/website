@@ -35,7 +35,7 @@ export function ClubGrid() {
           <article
             className="relative transition-transform hover:scale-105"
             key={club.id}>
-            <Card className="shadow-md flex flex-col items-center justify-center">
+            <Card className="shadow-md flex flex-col items-center justify-center h-full">
               <CardHeader>
                 <Image
                   src={(club.logo as Media).cdn_url!}
