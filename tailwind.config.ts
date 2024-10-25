@@ -30,20 +30,24 @@ const config = {
         brand: {
           blue: {
             default: '#023e8a',
-            lighter: '#0077b6',
-            darker: '#03045e'
+            dark: '#022c6c',
+            darker: '#021f5d',
+            light: '#035a9c',
+            lighter: '#4a8bd2'
           },
           yellow: {
             default: '#ffd000',
-            lighter: '#ffdd00',
-            darker: '#ffb700'
+            dark: '#e6c200',
+            darker: '#ccac00',
+            light: '#ffe033',
+            lighter: '#ffea58'
           },
           red: {
-            default: 'rgb(234, 11, 15)',
-            lighter: 'rgb(255, 43, 10)',
-            light: 'rgb(255, 11, 11)',
-            dark: 'rgb(182, 8, 11)',
-            darker: 'rgb(157, 7, 10)'
+            default: '#ea0b0f',
+            dark: '#d2100d',
+            darker: '#be090b',
+            light: '#f0282a',
+            lighter: '#ff6466'
           }
         },
         primary: {
