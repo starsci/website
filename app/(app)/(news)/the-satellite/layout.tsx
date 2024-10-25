@@ -19,7 +19,12 @@ export default function Layout({children}: {children: React.ReactNode}) {
         basePath="/the-satellite"
         leftLinks={leftLinks}
         rightLinks={rightLinks}
-        logo={<Logo publicId="The_Satellite_qzoiwn" alt="The Satellite" />}
+        logo={
+          <Logo
+            publicId={process.env.NEXT_PUBLIC_SATELLITE_LOGO_PUBLIC_ID}
+            alt="The Satellite"
+          />
+        }
       />
       <div className="flex-grow container p-6">{children}</div>
       <Footer />

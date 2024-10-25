@@ -32,7 +32,12 @@ export default function Layout({
         basePath="/"
         leftLinks={leftLinks}
         rightLinks={rightLinks}
-        logo={<Logo publicId="srs" alt="Logo" />}
+        logo={
+          <Logo
+            publicId={process.env.NEXT_PUBLIC_SRSTHS_LOGO_PUBLIC_ID}
+            alt="Logo"
+          />
+        }
       />
       <div className="flex-grow container p-6">{children}</div>
       <Footer />
