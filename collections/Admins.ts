@@ -1,10 +1,13 @@
-import { isSupervisor } from '@/admin/access'
+import {isSupervisor, isSupervisorOrSelf} from '@/admin/access'
 import type {CollectionConfig} from 'payload'
 
 export const Admins: CollectionConfig = {
   slug: 'admins',
   access: {
-    read: isSupervisor
+    read: isSupervisorOrSelf,
+    create: isSupervisor,
+    update: isSupervisorOrSelf,
+    delete: isSupervisor
   },
   admin: {
     useAsTitle: 'email',
@@ -22,7 +25,10 @@ export const Admins: CollectionConfig = {
         {label: 'Supervisor', value: 'supervisor'}, // can manage all collections
         {label: 'Club Manager', value: 'club-manager'}, // can manage announcements of their own club
         {label: 'Social Media Manager', value: 'social-media-manager'} // can manage school-wide announcements
-      ]
+      ],
+      access: {
+        update: isSupervisor
+      }
     },
     {
       name: 'club',
@@ -31,6 +37,9 @@ export const Admins: CollectionConfig = {
       required: true,
       admin: {
         condition: data => data.role === 'club-manager' // only show this field if the user is a club manager
+      },
+      access: {
+        update: isSupervisor
       }
     }
   ]

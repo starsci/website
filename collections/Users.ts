@@ -1,4 +1,4 @@
-import { isSupervisor } from '@/admin/access'
+import {isSupervisor} from '@/admin/access'
 import type {CollectionConfig} from 'payload'
 
 export const Users: CollectionConfig = {
