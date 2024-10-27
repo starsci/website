@@ -34,7 +34,7 @@ export default function Layout({
         rightLinks={rightLinks}
         logo={
           <Logo
-            publicId={process.env.NEXT_PUBLIC_SRSTHS_LOGO_PUBLIC_ID}
+            publicId={process.env.NEXT_PUBLIC_SRSTHS_LOGO_PUBLIC_ID!}
             alt="Logo"
           />
         }

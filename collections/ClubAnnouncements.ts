@@ -1,4 +1,5 @@
 import {isSupervisorOrClubManager} from '@/admin/access'
+import {Club} from '@/payload-types'
 import type {CollectionConfig} from 'payload'
 
 import {
@@ -12,7 +13,11 @@ export const ClubAnnouncements: CollectionConfig = {
   access: {
     read: () => true,
     create: ({req: {user}, data}) => {
-      if (user?.role === 'supervisor' || user?.role === 'club-manager') {
+      if (!user || user?.collection !== 'admins') {
+        return false
+      }
+
+      if (user.role === 'supervisor' || user.role === 'club-manager') {
         return true
       }
 
@@ -22,7 +27,7 @@ export const ClubAnnouncements: CollectionConfig = {
       }
 
       // return false if club is not the same as user's club
-      return data.club === user.club.id
+      return data.club === (user.club as Club).id
     },
     update: isSupervisorOrClubManager,
     delete: isSupervisorOrClubManager

@@ -21,7 +21,7 @@ export default function Layout({children}: {children: React.ReactNode}) {
         rightLinks={rightLinks}
         logo={
           <Logo
-            publicId={process.env.NEXT_PUBLIC_PARARAYOS_LOGO_PUBLIC_ID}
+            publicId={process.env.NEXT_PUBLIC_PARARAYOS_LOGO_PUBLIC_ID!}
             alt="Ang Pararayos"
           />
         }
