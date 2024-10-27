@@ -13,7 +13,7 @@ export function Hero() {
       <div className="flex-grow">
         <div className="flex flex-col gap-4 mx-auto justify-center items-center text-white p-10 w-full lg:w-2/3">
           <Logo
-            publicId={process.env.NEXT_PUBLIC_SRSTHS_LOGO_PUBLIC_ID}
+            publicId={process.env.NEXT_PUBLIC_SRSTHS_LOGO_PUBLIC_ID!}
             height={128}
             width={128}
             alt="Santa Rosa Science and Technology High School"
