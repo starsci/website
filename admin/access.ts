@@ -13,7 +13,7 @@ export function isSupervisorOrSelf({req: {user}}: {req: PayloadRequest}) {
   // allow user to update their own profile
   return {
     id: {
-      equals: user.id
+      equals: user?.id
     }
   }
 }
@@ -40,7 +40,7 @@ export function isSupervisorOrClubManager({
   if (user?.role == 'club-manager') {
     return {
       club: {
-        equals: user.club.id
+        equals: (user.club as Club).id
       }
     }
   }
