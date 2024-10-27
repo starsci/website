@@ -1,9 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    // configure picsum.photos as a domain
-    images: {
-        domains: ['picsum.photos'],
-    },
-};
+  // configure picsum.photos as a domain
+  images: {
+    remotePatterns: [
+      {
+        hostname: 'res.cloudinary.com'
+      }
+    ]
+  }
+}
 
-export default nextConfig;
+export default nextConfig
