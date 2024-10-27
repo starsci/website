@@ -5,6 +5,19 @@ export function isSupervisor({req: {user}}: {req: PayloadRequest}) {
   return user?.role == 'supervisor'
 }
 
+export function isSupervisorOrSelf({req: {user}}: {req: PayloadRequest}) {
+  if (user?.role == 'supervisor') {
+    return true
+  }
+
+  // allow user to update their own profile
+  return {
+    id: {
+      equals: user.id
+    }
+  }
+}
+
 export function isSupervisorOrSocialMediaManager({
   req: {user}
 }: {
