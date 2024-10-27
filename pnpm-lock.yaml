@@ -30,6 +30,9 @@ importers:
       '@payloadcms/db-postgres':
         specifier: 3.0.0-beta.116
         version: 3.0.0-beta.116(payload@3.0.0-beta.116(graphql@16.9.0)(monaco-editor@0.38.0)(react-dom@19.0.0-rc-65a56d0e-20241020(react@19.0.0-rc-65a56d0e-20241020))(react@19.0.0-rc-65a56d0e-20241020)(typescript@5.6.3))(react@19.0.0-rc-65a56d0e-20241020)(types-react@19.0.0-rc.1)
+      '@payloadcms/email-nodemailer':
+        specifier: 3.0.0-beta.116
+        version: 3.0.0-beta.116(payload@3.0.0-beta.116(graphql@16.9.0)(monaco-editor@0.38.0)(react-dom@19.0.0-rc-65a56d0e-20241020(react@19.0.0-rc-65a56d0e-20241020))(react@19.0.0-rc-65a56d0e-20241020)(typescript@5.6.3))
       '@payloadcms/next':
         specifier: 3.0.0-beta.116
         version: 3.0.0-beta.116(graphql@16.9.0)(monaco-editor@0.38.0)(next@15.0.0(react-dom@19.0.0-rc-65a56d0e-20241020(react@19.0.0-rc-65a56d0e-20241020))(react@19.0.0-rc-65a56d0e-20241020)(sass@1.77.4))(payload@3.0.0-beta.116(graphql@16.9.0)(monaco-editor@0.38.0)(react-dom@19.0.0-rc-65a56d0e-20241020(react@19.0.0-rc-65a56d0e-20241020))(react@19.0.0-rc-65a56d0e-20241020)(typescript@5.6.3))(react-dom@19.0.0-rc-65a56d0e-20241020(react@19.0.0-rc-65a56d0e-20241020))(react@19.0.0-rc-65a56d0e-20241020)(types-react@19.0.0-rc.1)(typescript@5.6.3)
@@ -78,6 +81,9 @@ importers:
       nodemailer:
         specifier: ^6.9.15
         version: 6.9.15
+      nodemailer-zeptomail-transport:
+        specifier: ^1.0.13
+        version: 1.0.13
       payload:
         specifier: 3.0.0-beta.116
         version: 3.0.0-beta.116(graphql@16.9.0)(monaco-editor@0.38.0)(react-dom@19.0.0-rc-65a56d0e-20241020(react@19.0.0-rc-65a56d0e-20241020))(react@19.0.0-rc-65a56d0e-20241020)(typescript@5.6.3)
@@ -3501,6 +3507,9 @@ packages:
     peerDependenciesMeta:
       encoding:
         optional: true
+
+  nodemailer-zeptomail-transport@1.0.13:
+    resolution: {integrity: sha512-bLnHcxqrVi0uWi3brWa9T2fZNr1TsT8TR20ch40LxnQ2JrCBdcNktNt9I+LbSP3u6mVoPuAW9WGVKX4uISmMKw==}
 
   nodemailer@6.9.10:
     resolution: {integrity: sha512-qtoKfGFhvIFW5kLfrkw2R6Nm6Ur4LNUMykyqu6n9BRKJuyQrqEGwdXXUAbwWEKt33dlWUGXb7rzmJP/p4+O+CA==}
@@ -8686,6 +8695,10 @@ snapshots:
   node-fetch@2.7.0:
     dependencies:
       whatwg-url: 5.0.0
+
+  nodemailer-zeptomail-transport@1.0.13:
+    dependencies:
+      nodemailer: 6.9.15
 
   nodemailer@6.9.10: {}
 
