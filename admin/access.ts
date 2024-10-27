@@ -1,5 +1,5 @@
 import {Club} from '@/payload-types'
-import {PayloadRequest} from 'payload'
+import {DataFromCollectionSlug, PayloadRequest} from 'payload'
 
 export function isSupervisor({req: {user}}: {req: PayloadRequest}) {
   return user?.role == 'supervisor'
@@ -27,7 +27,7 @@ export function isSupervisorOrClubManager({
   if (user?.role == 'club-manager') {
     return {
       club: {
-        equals: user.club
+        equals: user.club.id
       }
     }
   }
