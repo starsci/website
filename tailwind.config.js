@@ -29,13 +29,23 @@ module.exports = {
                         light: 'rgb(255, 11, 11)',
                         dark: 'rgb(182, 8, 11)',
                         darker: 'rgb(157, 7, 10)'
+                    },
+                    dark: {
+                        default: 'rgb(28, 29, 30)',
+                        lighter: 'rgb(40, 41, 42)',
+                        light: 'rgb(33, 34, 35)',
                     }
                 }
             },
             backgroundImage: {
                 hero: "url('/hero.jpg')",
+            },
+            fontFamily: {
+                nunito: "var(--font-nunito)",
+                oswald: "var(--font-oswald)",
             }
         },
     },
     plugins: [],
+    darkMode: 'class',
 }

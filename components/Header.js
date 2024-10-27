@@ -1,6 +1,6 @@
 'use client'
 
-import {useState} from "react";
+import { useState } from "react";
 
 import Navbar from "@/components/Navbar";
 import Brand from "@/components/Brand";
@@ -9,6 +9,7 @@ import NavbarLink from "@/components/NavbarLink";
 import NavbarDropdown from "@/components/NavbarDropdown";
 import NavbarDropdownLink from "@/components/NavbarDropdownLink";
 import NavbarLinks from "@/components/NavbarLinks";
+import ThemeToggleButton from "./ThemeToggleButton";
 
 function Header() {
     const [isServicesExpanded, toggleServicesExpansion] = useState(false);
@@ -22,7 +23,7 @@ function Header() {
            desktop */
         <Navbar>
             <Brand src="/logo.png"
-                   title="Santa Rosa Science and Technology High School"/>
+                title="Santa Rosa Science and Technology High School" />
             <NavbarCollapsible>
                 <NavbarLinks>
                     <NavbarLink href="/announcements">Announcements</NavbarLink>
@@ -39,10 +40,11 @@ function Header() {
                     </NavbarDropdown>
                 </NavbarLinks>
                 {/* separator for mobile */}
-                <hr className="block lg:hidden w-full border-white my-4"/>
+                <hr className="block lg:hidden w-full border-white my-4" />
                 <NavbarLinks alignLinks="right">
                     <NavbarLink href="/about">About</NavbarLink>
                     <NavbarLink href="/contact">Contact</NavbarLink>
+                    <ThemeToggleButton />
                 </NavbarLinks>
             </NavbarCollapsible>
         </Navbar>

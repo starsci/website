@@ -1,10 +1,5 @@
 import Image from "next/image";
-import {Oswald} from "next/font/google";
 import Link from "next/link";
-
-const oswald = Oswald({
-    subsets: ['latin-ext'],
-})
 
 function Brand(props) {
     return (
@@ -15,7 +10,7 @@ function Brand(props) {
                        className="fill-current" height={props.height ?? 32}
                        width={props.width ?? props.height ?? 32}/>
                 <span
-                    className={`text-xl hidden sm:inline-block sm:ms-2 font-title ${oswald.className}`}>
+                    className={`text-xl hidden sm:inline-block sm:ms-2 font-oswald`}>
                 {props.title}
             </span>
             </div>
