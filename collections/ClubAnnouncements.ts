@@ -1,5 +1,5 @@
 import {isSupervisorOrClubManager} from '@/admin/access'
-import {Club} from '@/payload-types.ts'
+import {Club} from '@/payload-types'
 import type {CollectionConfig} from 'payload'
 
 import {
