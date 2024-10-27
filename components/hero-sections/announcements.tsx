@@ -37,22 +37,31 @@ export function Announcements() {
     )
   }
 
+  if (!announcements.data || !satellite.data || !pararayos.data) {
+    // if any of the data is missing
+    return (
+      <HeroSection>
+        <p>No data</p>
+      </HeroSection>
+    )
+  }
+
   return (
     <HeroSection>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
         <NewsBit
           title="Announcements"
-          news={announcements.data!}
+          news={announcements.data}
           href="/announcements"
         />
         <NewsBit
           title="The Satellite"
-          news={satellite.data!}
+          news={satellite.data}
           href="/the-satellite"
         />
         <NewsBit
           title="Ang Pararayos"
-          news={pararayos.data!}
+          news={pararayos.data}
           href="/ang-pararayos"
         />
       </div>

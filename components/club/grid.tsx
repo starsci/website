@@ -6,7 +6,17 @@ import {
   CardHeader,
   CardTitle
 } from '@/components/ui/card'
+import {
+  Pagination,
+  PaginationContent,
+  PaginationEllipsis,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious
+} from '@/components/ui/pagination'
 import {useQuery} from '@/hooks/use-query'
+import {useEffect, useState} from 'react'
 
 import {Media} from '@/payload-types'
 
@@ -14,10 +24,14 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 export function ClubGrid() {
+  const [page, setPage] = useState(1)
+  const [maxPage, setMaxPage] = useState(1)
+
   const {data, isLoading, error} = useQuery('clubs', {
     depth: 1,
     pagination: true,
-    limit: 8
+    limit: 12,
+    page
   })
 
   if (isLoading) {
@@ -28,9 +42,13 @@ export function ClubGrid() {
     return <p>Failed to load clubs: {error.message}</p>
   }
 
+  if (!data) {
+    return <p>No data</p>
+  }
+
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-      {data!.docs!.map(club => {
+      {data.docs.map(club => {
         return (
           <article
             className="relative transition-transform hover:scale-105"
@@ -57,6 +75,22 @@ export function ClubGrid() {
           </article>
         )
       })}
+      <Pagination>
+        <PaginationContent>
+          <PaginationItem>
+            <PaginationPrevious href="#" />
+          </PaginationItem>
+          <PaginationItem>
+            <PaginationLink href="#">1</PaginationLink>
+          </PaginationItem>
+          <PaginationItem>
+            <PaginationEllipsis />
+          </PaginationItem>
+          <PaginationItem>
+            <PaginationNext href="#" />
+          </PaginationItem>
+        </PaginationContent>
+      </Pagination>
     </div>
   )
 }
