@@ -1,14 +1,15 @@
-import {HeroSection} from './hero-section'
-import {ServicesSection} from './services-section'
-import {AnnouncementsSection} from './announcements-section'
+import {Hero} from '@/components/hero-sections/hero'
+import {Services} from '@/components/hero-sections/services'
+import {Announcements} from '@/components/hero-sections/announcements'
+import {HR} from '@/components/hr'
 
 export default async function Home() {
   return (
     <div>
-      <HeroSection />
-      <ServicesSection />
-      <hr className="border-t border-gray-300" />
-      <AnnouncementsSection />
+      <Hero />
+      <Services />
+      <HR />
+      <Announcements />
     </div>
   )
 }

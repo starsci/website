@@ -1,20 +1,16 @@
 'use server'
 
 import nodemailer from 'nodemailer'
+import {ZeptomailTransport} from 'nodemailer-zeptomail-transport'
 import Mail from 'nodemailer/lib/mailer'
 
-async function sendEmail(email: string, subject: string, message: string) {
-  // Create a transporter
-  const transporter = nodemailer.createTransport({
-    // @ts-ignore
-    host: process.env.SMTP_HOST,
-    port: process.env.SMTP_PORT,
-    auth: {
-      user: process.env.SMTP_USERNAME,
-      pass: process.env.SMTP_PASSWORD
-    }
+const transporter = nodemailer.createTransport(
+  new ZeptomailTransport({
+    apiKey: process.env.ZEPTOMAIL_API_KEY!
   })
+)
 
+async function sendEmail(email: string, subject: string, message: string) {
   // Send the email
   const mailOptions: Mail.Options = {
     from: 'No-reply <no-reply@srsths.edu.ph>', // sender address (from)

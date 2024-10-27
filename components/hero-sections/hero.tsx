@@ -6,9 +6,9 @@ import {
   faClockRotateLeft
 } from '@fortawesome/free-solid-svg-icons'
 
-export function HeroSection() {
+export function Hero() {
   return (
-    <main className="flex-grow flex-shrink-0 flex relative -mt-6 -mx-6">
+    <main className="flex-grow flex-shrink-0 flex relative -mt-6 -mx-6 w-[100vw] ml-[calc(50%-50vw)]">
       <div className="absolute inset-0 -z-10 bg-hero bg-cover brightness-50" />
       <div className="flex-grow">
         <div className="flex flex-col gap-4 mx-auto justify-center items-center text-white p-10 w-full lg:w-2/3">

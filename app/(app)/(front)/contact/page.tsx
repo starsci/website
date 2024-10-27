@@ -1,6 +1,6 @@
-import {ContactInfo} from './info'
-import {Map} from './map'
-import {ContactForm} from './contact-form'
+import {ContactInfo} from '@/components/contact/info'
+import {ContactMap} from '@/components/contact/map'
+import {ContactForm} from '@/components/contact/form'
 
 export const metadata = {
   title: 'Contact Us | Santa Rosa Science and Technology High School',
@@ -15,7 +15,7 @@ export default function Contact() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div>
           <ContactInfo />
-          <Map />
+          <ContactMap />
         </div>
         <ContactForm />
       </div>
