@@ -111,18 +111,18 @@ export function Header({
   )
 
   return (
-    <nav className="bg-brand-blue-default shadow text-white">
+    <header className="bg-brand-blue-default shadow text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 space-x-4 justify-between">
           <div className="flex items-center">
             <Link href={basePath}>{logo}</Link>
           </div>
-          <div className="hidden sm:flex sm:items-center sm:flex-grow">
+          <nav className="hidden sm:flex sm:items-center sm:flex-grow">
             <section className="flex flex-grow justify-between">
               {renderDesktopLinks(leftLinks)}
               {renderDesktopLinks(rightLinks)}
             </section>
-          </div>
+          </nav>
           <div className="sm:hidden flex items-center">
             <button
               type="button"
@@ -141,13 +141,13 @@ export function Header({
         </div>
       </div>
 
-      <div
+      <nav
         className={`sm:hidden ${mobileMenuOpen ? 'block' : 'hidden'}`}
         id="mobile-menu">
         {renderMobileLinks(leftLinks)}
         <HR />
         {renderMobileLinks(rightLinks)}
-      </div>
-    </nav>
+      </nav>
+    </header>
   )
 }

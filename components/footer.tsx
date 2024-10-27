@@ -5,34 +5,13 @@ import {faPhone, faEnvelope} from '@fortawesome/free-solid-svg-icons'
 import {Logo} from './logo'
 
 const links = [
-  {
-    title: 'Announcements',
-    href: '/announcements'
-  },
-  {
-    title: 'Services',
-    href: '/services'
-  },
-  {
-    title: 'About',
-    href: '/about'
-  },
-  {
-    title: 'Contact',
-    href: '/contact'
-  },
-  {
-    title: 'Clubs',
-    href: '/clubs'
-  },
-  {
-    title: 'The Satellite',
-    href: '/the-satellite'
-  },
-  {
-    title: 'Ang Pararayos',
-    href: '/ang-pararayos'
-  }
+  {title: 'Announcements', href: '/announcements'},
+  {title: 'Services', href: '/services'},
+  {title: 'About', href: '/about'},
+  {title: 'Contact', href: '/contact'},
+  {title: 'Clubs', href: '/clubs'},
+  {title: 'The Satellite', href: '/the-satellite'},
+  {title: 'Ang Pararayos', href: '/ang-pararayos'}
 ]
 
 export function Footer() {
@@ -56,7 +35,7 @@ export function Footer() {
               />
             </div>
           </div>
-          <div>
+          <nav>
             <h3 className="text-lg font-bold mb-4">Quick Links</h3>
             <ul className="space-y-2">
               {links.map((link, index) => (
@@ -65,8 +44,8 @@ export function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
-          <div>
+          </nav>
+          <section>
             <h3 className="text-lg font-bold mb-4">Contact Us</h3>
             <ul className="space-y-2">
               <li>LM Subd., Brgy. Market Area</li>
@@ -80,8 +59,8 @@ export function Footer() {
                 info@srsths.edu.ph
               </li>
             </ul>
-          </div>
-          <div>
+          </section>
+          <section>
             <h3 className="text-lg font-bold mb-4">Follow Us</h3>
             <div className="flex space-x-4">
               <a
@@ -93,14 +72,14 @@ export function Footer() {
                 <span className="sr-only">Facebook</span>
               </a>
             </div>
-          </div>
+          </section>
         </div>
-        <div className="mt-8 pt-8 border-t border-primary-foreground/10 text-center text-sm">
+        <section className="mt-8 pt-8 border-t border-primary-foreground/10 text-center text-sm">
           <p>
             &copy; {new Date().getFullYear()} Santa Rosa Science and Technology
             High School. All rights reserved.
           </p>
-        </div>
+        </section>
       </div>
     </footer>
   )
