@@ -1,7 +1,7 @@
 'use client'
 
 import {HR} from '@/components/hr'
-import {cn} from '@/lib/utils.ts'
+import {cn} from '@/lib/utils'
 import {ChevronDown, X, Menu} from 'lucide-react'
 import Link from 'next/link'
 import {ReactNode, useState} from 'react'
