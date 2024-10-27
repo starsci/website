@@ -32,7 +32,7 @@ export function ClubGrid() {
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
       {data!.docs!.map(club => {
         return (
-          <div
+          <article
             className="relative transition-transform hover:scale-105"
             key={club.id}>
             <Card className="shadow-md flex flex-col items-center justify-center">
@@ -54,7 +54,7 @@ export function ClubGrid() {
               href={`/clubs/${club.id}`}
               className="absolute inset-0 z-10"
             />
-          </div>
+          </article>
         )
       })}
     </div>
