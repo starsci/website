@@ -22,10 +22,12 @@ import {Media} from '@/payload-types'
 
 import Image from 'next/image'
 import Link from 'next/link'
+import {useSearchParams} from 'next/navigation'
 
 export function ClubGrid() {
-  const [page, setPage] = useState(1)
-  const [maxPage, setMaxPage] = useState(1)
+  // get query params
+  const searchParams = useSearchParams()
+  const page = parseInt(searchParams.get('page') || '1') // if page is 0 or NaN, default to 1
 
   const {data, isLoading, error} = useQuery('clubs', {
     depth: 1,
