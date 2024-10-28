@@ -8,13 +8,11 @@ import {
 } from '@/components/ui/card'
 
 import {useQuery} from '@/hooks/use-query'
-import {useEffect, useState} from 'react'
 
 import {Media} from '@/payload-types'
 
 import Image from 'next/image'
 import Link from 'next/link'
-import {parse} from 'path'
 import {useSearchParams} from 'next/navigation'
 import {Pagination} from '../pagination'
 
