@@ -32,7 +32,7 @@ export function ClubGrid() {
   const {data, isLoading, error} = useQuery('clubs', {
     depth: 1,
     pagination: true,
-    limit: 12,
+    limit: 1,
     page
   })
 
@@ -87,12 +87,18 @@ export function ClubGrid() {
                 <PaginationPrevious href="#" />
               </PaginationItem>
             )}
-            <PaginationItem>
-              <PaginationLink href="#">1</PaginationLink>
-            </PaginationItem>
-            <PaginationItem>
-              <PaginationEllipsis />
-            </PaginationItem>
+            {/* print page numbers from 1 to data.totalPages and mark the current page */}
+            {Array.from({length: data.totalPages}, (_, i) => i + 1).map(
+              pageNumber => (
+                <PaginationItem key={pageNumber}>
+                  <PaginationLink
+                    isActive={pageNumber === page}
+                    href={`?page=${pageNumber}`}>
+                    {pageNumber}
+                  </PaginationLink>
+                </PaginationItem>
+              )
+            )}
             {data.hasNextPage && (
               <PaginationItem>
                 <PaginationNext href="#" />
