@@ -84,7 +84,7 @@ export function ClubGrid() {
           <PaginationContent>
             {data.hasPrevPage && (
               <PaginationItem>
-                <PaginationPrevious href="#" />
+                <PaginationPrevious href={`?page=${page - 1}`} />
               </PaginationItem>
             )}
             {/* print page numbers from 1 to data.totalPages and mark the current page */}
@@ -101,7 +101,7 @@ export function ClubGrid() {
             )}
             {data.hasNextPage && (
               <PaginationItem>
-                <PaginationNext href="#" />
+                <PaginationNext href={`?page=${page + 1}`} />
               </PaginationItem>
             )}
           </PaginationContent>
