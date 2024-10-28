@@ -10,7 +10,7 @@ const Card = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      'rounded-lg border bg-card text-card-foreground shadow-sm',
+      'rounded-lg border bg-card text-card-foreground shadow-sm overflow-hidden',
       className
     )}
     {...props}
@@ -81,7 +81,7 @@ const CardImage = React.forwardRef<
   HTMLImageElement,
   React.ComponentProps<typeof Image>
 >(({ className, ...props }, ref) => (
-  <Image ref={ref} className={cn("h-auto w-full object-cover max-h-48", className)} height={0} width={0} sizes="100vw" {...props} />
+  <Image ref={ref} className={cn("h-auto w-full object-cover", className)} height={0} width={0} sizes="100vw" {...props} />
 ));
 CardImage.displayName = "CardImage";
 
