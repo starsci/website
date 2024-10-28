@@ -6,15 +6,7 @@ import {
   CardHeader,
   CardTitle
 } from '@/components/ui/card'
-import {
-  Pagination,
-  PaginationContent,
-  PaginationEllipsis,
-  PaginationItem,
-  PaginationLink,
-  PaginationNext,
-  PaginationPrevious
-} from '@/components/ui/pagination'
+
 import {useQuery} from '@/hooks/use-query'
 import {useEffect, useState} from 'react'
 
@@ -22,14 +14,15 @@ import {Media} from '@/payload-types'
 
 import Image from 'next/image'
 import Link from 'next/link'
-import {useSearchParams} from 'next/navigation'
 import {parse} from 'path'
+import {useSearchParams} from 'next/navigation'
+import {Pagination} from '../pagination'
 
 export function ClubGrid() {
-  // get query params
   const searchParams = useSearchParams()
+  const defaultLimit = 12
   const page = parseInt(searchParams.get('page') || '1') // if page is 0 or NaN, default to 1
-  const limit = parseInt(searchParams.get('limit') || '12') // if limit is 0 or NaN, default to 1
+  const limit = parseInt(searchParams.get('limit') || defaultLimit.toString())
 
   const {data, isLoading, error} = useQuery('clubs', {
     depth: 1,
@@ -82,32 +75,12 @@ export function ClubGrid() {
         })}
       </div>
       <div className="mx-auto">
-        <Pagination>
-          <PaginationContent>
-            {data.hasPrevPage && (
-              <PaginationItem>
-                <PaginationPrevious href={`?page=${page - 1}&limit=${limit}`} />
-              </PaginationItem>
-            )}
-            {/* print page numbers from 1 to data.totalPages and mark the current page */}
-            {Array.from({length: data.totalPages}, (_, i) => i + 1).map(
-              pageNumber => (
-                <PaginationItem key={pageNumber}>
-                  <PaginationLink
-                    isActive={pageNumber === page}
-                    href={`?page=${pageNumber}&limit=${limit}`}>
-                    {pageNumber}
-                  </PaginationLink>
-                </PaginationItem>
-              )
-            )}
-            {data.hasNextPage && (
-              <PaginationItem>
-                <PaginationNext href={`?page=${page + 1}&limit=${limit}`} />
-              </PaginationItem>
-            )}
-          </PaginationContent>
-        </Pagination>
+        <Pagination
+          totalPages={data.totalPages}
+          hasPrevPage={data.hasPrevPage}
+          hasNextPage={data.hasNextPage}
+          defaultLimit={defaultLimit}
+        />
       </div>
     </div>
   )
