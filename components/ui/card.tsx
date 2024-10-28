@@ -1,6 +1,7 @@
 import * as React from 'react'
 
 import {cn} from '@/lib/utils'
+import Image from 'next/image'
 
 const Card = React.forwardRef<
   HTMLDivElement,
@@ -76,4 +77,12 @@ const CardFooter = React.forwardRef<
 ))
 CardFooter.displayName = 'CardFooter'
 
-export {Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent}
+const CardImage = React.forwardRef<
+  HTMLImageElement,
+  React.ComponentProps<typeof Image>
+>(({ className, ...props }, ref) => (
+  <Image ref={ref} className={cn("h-auto w-full object-cover max-h-48", className)} height={0} width={0} sizes="100vw" {...props} />
+));
+CardImage.displayName = "CardImage";
+
+export {Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent, CardImage}
