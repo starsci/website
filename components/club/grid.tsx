@@ -82,18 +82,22 @@ export function ClubGrid() {
       <div className="mx-auto">
         <Pagination>
           <PaginationContent>
-            <PaginationItem>
-              <PaginationPrevious href="#" />
-            </PaginationItem>
+            {data.hasPrevPage && (
+              <PaginationItem>
+                <PaginationPrevious href="#" />
+              </PaginationItem>
+            )}
             <PaginationItem>
               <PaginationLink href="#">1</PaginationLink>
             </PaginationItem>
             <PaginationItem>
               <PaginationEllipsis />
             </PaginationItem>
-            <PaginationItem>
-              <PaginationNext href="#" />
-            </PaginationItem>
+            {data.hasNextPage && (
+              <PaginationItem>
+                <PaginationNext href="#" />
+              </PaginationItem>
+            )}
           </PaginationContent>
         </Pagination>
       </div>
