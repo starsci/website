@@ -7,7 +7,8 @@ import {Media} from '@/payload-types'
 
 export default function Announcement() {
   const {slug} = useParams<{slug: string}>()
-  const {data, isLoading, error} = useQuery('school-announcements', {
+  const {data, isLoading, error} = useQuery({
+    collection: 'school-announcements',
     where: {
       id: {
         equals: slug
