@@ -26,7 +26,11 @@ export default function Announcement() {
     return <p>Failed to load announcement: {error.message}</p>
   }
 
-  const {title, createdAt, bodyHTML, thumbnail} = data!.docs[0]!
+  if (!data) {
+    return <p>No data</p>
+  }
+
+  const {title, createdAt, bodyHTML, thumbnail} = data.docs[0]
 
   return (
     <article>
