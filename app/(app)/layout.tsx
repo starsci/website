@@ -1,8 +1,9 @@
 import {Metadata} from 'next'
 import {Open_Sans} from 'next/font/google'
-import './globals.css'
-
 import {Toaster} from '@/components/ui/toaster'
+import {ReactQueryClientProvider} from '@/components/QueryClientProvider'
+
+import './globals.css'
 
 const nextFont = Open_Sans({subsets: ['latin']})
 
@@ -17,11 +18,13 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body className={nextFont.className}>
-        {children}
-        <Toaster />
-      </body>
-    </html>
+    <ReactQueryClientProvider>
+      <html lang="en">
+        <body className={nextFont.className}>
+          {children}
+          <Toaster />
+        </body>
+      </html>
+    </ReactQueryClientProvider>
   )
 }

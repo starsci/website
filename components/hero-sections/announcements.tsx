@@ -12,9 +12,18 @@ export function Announcements() {
     sort: '-createdAt'
   }
 
-  const announcements = useQuery('school-announcements', queryOptions)
-  const satellite = useQuery('the-satellite-news', queryOptions)
-  const pararayos = useQuery('ang-pararayos-news', queryOptions)
+  const announcements = useQuery({
+    collection: 'school-announcements',
+    ...queryOptions
+  })
+  const satellite = useQuery({
+    collection: 'the-satellite-news',
+    ...queryOptions
+  })
+  const pararayos = useQuery({
+    collection: 'ang-pararayos-news',
+    ...queryOptions
+  })
 
   if (announcements.isLoading || satellite.isLoading || pararayos.isLoading) {
     // if any of the data is loading

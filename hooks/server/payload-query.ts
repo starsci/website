@@ -6,12 +6,16 @@ import {CollectionSlug} from 'payload'
 
 const payload = await getPayloadHMR({config})
 
+export type Options<TSlug extends CollectionSlug> = Parameters<
+  typeof payload.find<TSlug>
+>[0]
+
 export async function queryCollection<TSlug extends CollectionSlug>(
-  collection: TSlug,
-  options: Omit<Parameters<typeof payload.find<TSlug>>[0], 'collection'>
+  options:
+    | {
+        collection: TSlug
+      }
+    | Options<TSlug>
 ) {
-  return await payload.find({
-    collection,
-    ...options
-  })
+  return await payload.find(options)
 }
