@@ -22,7 +22,8 @@ export function ClubGrid() {
   const page = parseInt(searchParams.get('page') || '1') // if page is 0 or NaN, default to 1
   const limit = parseInt(searchParams.get('limit') || defaultLimit.toString())
 
-  const {data, isLoading, error} = useQuery('clubs', {
+  const {data, isLoading, error} = useQuery({
+    collection: 'clubs',
     depth: 1,
     pagination: true,
     limit,
