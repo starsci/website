@@ -6,8 +6,8 @@ import {Input} from '@/components/ui/input'
 import {Textarea} from '@/components/ui/textarea'
 import {submitForm} from './actions'
 import {useToast} from '@/hooks/use-toast'
-import {useFormState, useFormStatus} from 'react-dom'
-import {useEffect} from 'react'
+import {useFormStatus} from 'react-dom'
+import {useActionState, useEffect} from 'react'
 
 function SubmitButton() {
   // Get the form status from the parent form
@@ -21,7 +21,7 @@ function SubmitButton() {
 
 export function ContactForm() {
   const {toast} = useToast() // get the toast function
-  const [state, action] = useFormState(submitForm, null) // get the form state
+  const [state, action] = useActionState(submitForm, null) // get the form state
   // show toast if state becomes true
   useEffect(() => {
     if (state === true) {
