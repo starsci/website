@@ -1,12 +1,10 @@
 import {Metadata} from 'next'
 import {Open_Sans} from 'next/font/google'
 import {Toaster} from '@/components/ui/toaster'
-
-import {QueryClient, QueryClientProvider, useQuery} from '@tanstack/react-query'
+import {ReactQueryClientProvider} from '@/components/QueryClientProvider'
 
 import './globals.css'
 
-const queryClient = new QueryClient()
 const nextFont = Open_Sans({subsets: ['latin']})
 
 export const metadata: Metadata = {
@@ -20,13 +18,13 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body className={nextFont.className}>
-        <QueryClientProvider client={queryClient}>
+    <ReactQueryClientProvider>
+      <html lang="en">
+        <body className={nextFont.className}>
           {children}
           <Toaster />
-        </QueryClientProvider>
-      </body>
-    </html>
+        </body>
+      </html>
+    </ReactQueryClientProvider>
   )
 }
