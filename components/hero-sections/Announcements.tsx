@@ -1,7 +1,7 @@
 'use client'
 
-import {NewsBit} from '@/components/news-bit'
-import {HeroSection} from '@/components/hero-section'
+import {NewsBit} from '@/components/NewsBit'
+import {HeroSection} from '@/components/HeroSection'
 import {useQuery} from '@/hooks/use-query'
 
 export function Announcements() {

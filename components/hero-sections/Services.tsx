@@ -3,8 +3,8 @@ import {
   faHandHoldingHand,
   faGraduationCap
 } from '@fortawesome/free-solid-svg-icons'
-import {ServiceCard} from '@/components/service-card'
-import {HeroSection} from '@/components/hero-section'
+import {ServiceCard} from '@/components/ServiceCard'
+import {HeroSection} from '@/components/HeroSection'
 
 export function Services() {
   return (

@@ -1,6 +1,6 @@
 'use client'
 
-import {HR} from '@/components/hr'
+import {HR} from '@/components/HR'
 import {cn} from '@/lib/utils'
 import {ChevronDown, X, Menu} from 'lucide-react'
 import Link from 'next/link'

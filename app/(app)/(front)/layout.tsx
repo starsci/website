@@ -1,6 +1,6 @@
-import {Header} from '@/components/header'
-import {Footer} from '@/components/footer'
-import {Logo} from '@/components/logo'
+import {Header} from '@/components/Header'
+import {Footer} from '@/components/Footer'
+import {Logo} from '@/components/Logo'
 
 const leftLinks = [
   {name: 'Clubs', href: '/clubs'},

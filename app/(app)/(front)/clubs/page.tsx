@@ -1,4 +1,4 @@
-import {ClubGrid} from '@/components/club/grid'
+import {ClubGrid} from '@/components/club/Grid'
 
 export const metadata = {
   title:

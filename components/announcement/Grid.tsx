@@ -15,7 +15,7 @@ import {Media} from '@/payload-types'
 
 import Link from 'next/link'
 import {useSearchParams} from 'next/navigation'
-import {Pagination} from '../pagination'
+import {Pagination} from '../Pagination'
 
 export function AnnouncementGrid() {
   const searchParams = useSearchParams()

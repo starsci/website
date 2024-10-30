@@ -14,7 +14,7 @@ import {Media} from '@/payload-types'
 import Image from 'next/image'
 import Link from 'next/link'
 import {useSearchParams} from 'next/navigation'
-import {Pagination} from '../pagination'
+import {Pagination} from '../Pagination'
 
 export function ClubGrid() {
   const searchParams = useSearchParams()

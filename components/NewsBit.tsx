@@ -1,5 +1,5 @@
-import {HR} from '@/components/hr'
-import {NewsCard} from '@/components/news-card'
+import {HR} from '@/components/HR'
+import {NewsCard} from '@/components/NewsCard'
 import {CollectionSlug, DataFromCollectionSlug, PaginatedDocs} from 'payload'
 
 export function NewsBit({
