@@ -1,4 +1,4 @@
-import {AnnouncementGrid} from '@/components/announcement/grid'
+import {AnnouncementGrid} from '@/components/announcement/Grid'
 
 export default function Announcements() {
   return (
