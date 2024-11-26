@@ -4,11 +4,11 @@ import {Logo} from '@/components/Logo'
 
 const leftLinks = [
   {name: 'Clubs', href: '/clubs'},
+  {name: 'Announcements', href: '/announcements'},
   {
-    name: 'News',
+    name: 'Publications',
     href: '#',
     children: [
-      {name: 'Announcements', href: '/announcements'},
       {name: 'Pararayos', href: '/pararayos'},
       {name: 'The Satellite', href: '/the-satellite'}
     ]
