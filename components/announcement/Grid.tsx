@@ -53,7 +53,11 @@ export function AnnouncementGrid() {
               key={ann.id}>
               <Card className="shadow-md h-full">
                 {ann.thumbnail && (
-                  <CardImage src={(ann.thumbnail as Media).cdn_url!} alt={ann.title} className="max-h-48" />
+                  <CardImage
+                    src={(ann.thumbnail as Media).cdn_url || ''}
+                    alt={ann.title}
+                    className="max-h-48"
+                  />
                 )}
                 <CardHeader>
                   <CardTitle>{ann.title}</CardTitle>
@@ -64,7 +68,7 @@ export function AnnouncementGrid() {
                 <CardContent>
                   <div
                     className="prose line-clamp-3"
-                    dangerouslySetInnerHTML={{__html: ann.bodyHTML!}}
+                    dangerouslySetInnerHTML={{__html: ann.bodyHTML || ''}}
                   />
                 </CardContent>
               </Card>

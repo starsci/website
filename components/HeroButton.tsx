@@ -1,5 +1,4 @@
 import {Button} from '@/components/ui/button'
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {cn} from '@/lib/utils'
 import Link from 'next/link'
 import {ReactNode} from 'react'
@@ -26,7 +25,7 @@ export function HeroButton({
           main
       })}>
       <Link href={href} className="flex items-center">
-        <FontAwesomeIcon icon={icon} className="mr-3 h-6 w-6" />
+        <span className="mr-2">{icon}</span>
         {children}
       </Link>
     </Button>

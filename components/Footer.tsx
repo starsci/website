@@ -1,8 +1,6 @@
 import Link from 'next/link'
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faFacebook} from '@fortawesome/free-brands-svg-icons'
-import {faPhone, faEnvelope} from '@fortawesome/free-solid-svg-icons'
 import {Logo} from './Logo'
+import {Phone, MailOpen, Facebook, MapPinned} from 'lucide-react'
 
 const links = [
   {title: 'Announcements', href: '/announcements'},
@@ -48,14 +46,17 @@ export function Footer() {
           <section>
             <h3 className="text-lg font-bold mb-4">Contact Us</h3>
             <ul className="space-y-2">
-              <li>LM Subd., Brgy. Market Area</li>
-              <li>City of Santa Rosa, Laguna, Philippines</li>
               <li className="flex gap-2">
-                <FontAwesomeIcon icon={faPhone} className="h-5 w-5" />
+                <MapPinned className="h-5 w-5" />
+                LM Subd., Brgy. Market Area, City of Santa Rosa, Laguna,
+                Philippines
+              </li>
+              <li className="flex gap-2">
+                <Phone className="h-5 w-5" />
                 0908 705 1083
               </li>
               <li className="flex gap-2">
-                <FontAwesomeIcon icon={faEnvelope} className="h-5 w-5" />
+                <MailOpen className="h-5 w-5" />
                 info@srsths.edu.ph
               </li>
             </ul>
@@ -68,7 +69,7 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-gray-300">
-                <FontAwesomeIcon icon={faFacebook} className="h-6 w-6" />
+                <Facebook className="h-5 w-5" />
                 <span className="sr-only">Facebook</span>
               </a>
             </div>

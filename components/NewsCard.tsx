@@ -1,5 +1,4 @@
-import {faArrowRight} from '@fortawesome/free-solid-svg-icons'
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {ChevronRight} from 'lucide-react'
 import {ScrollArea} from '@/components/ui/scroll-area'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -63,7 +62,7 @@ export function NewsCard({
         href={href}
         className="text-md hover:underline font-semibold gap-x-2 flex items-center">
         Read More
-        <FontAwesomeIcon icon={faArrowRight} className="h-4 w-4" />
+        <ChevronRight size={24} />
       </Link>
     </div>
   )

@@ -1,10 +1,6 @@
-import {
-  faFileSignature,
-  faHandHoldingHand,
-  faGraduationCap
-} from '@fortawesome/free-solid-svg-icons'
 import {ServiceCard} from '@/components/ServiceCard'
 import {HeroSection} from '@/components/HeroSection'
+import {FilePen, GraduationCap, HeartHandshake} from 'lucide-react'
 
 export function Services() {
   return (
@@ -15,15 +11,15 @@ export function Services() {
         students&apos; academic and personal growth.
       </p>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-x-4 gap-y-8 mt-4 place-items-center">
-        <ServiceCard icon={faFileSignature} title="Registrar Services">
+        <ServiceCard icon={<FilePen />} title="Registrar Services">
           Learn more about our registrar services, including enrollment,
           records, and more.
         </ServiceCard>
-        <ServiceCard icon={faHandHoldingHand} title="Counseling Services">
+        <ServiceCard icon={<HeartHandshake />} title="Counseling Services">
           Explore our counseling services, including guidance, mental health,
           and more.
         </ServiceCard>
-        <ServiceCard icon={faGraduationCap} title="Academic Services">
+        <ServiceCard icon={<GraduationCap />} title="Academic Services">
           Discover our academic services, including tutoring, scholarships, and
           more.
         </ServiceCard>
