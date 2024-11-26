@@ -3,13 +3,23 @@ import {Logo} from './Logo'
 import {Phone, MailOpen, Facebook, MapPinned} from 'lucide-react'
 
 const links = [
-  {title: 'Announcements', href: '/announcements'},
-  {title: 'Services', href: '/services'},
-  {title: 'About', href: '/about'},
-  {title: 'Contact', href: '/contact'},
-  {title: 'Clubs', href: '/clubs'},
-  {title: 'The Satellite', href: '/the-satellite'},
-  {title: 'Pararayos', href: '/pararayos'}
+  {
+    name: 'Essentials',
+    content: [
+      {title: 'Announcements', href: '/announcements'},
+      {title: 'Services', href: '/services'},
+      {title: 'About', href: '/about'},
+      {title: 'Contact', href: '/contact'},
+      {title: 'Clubs', href: '/clubs'}
+    ]
+  },
+  {
+    name: 'Publications',
+    content: [
+      {title: 'Pararayos', href: '/pararayos'},
+      {title: 'The Satellite', href: '/the-satellite'}
+    ]
+  }
 ]
 
 export function Footer() {
@@ -35,13 +45,21 @@ export function Footer() {
           </div>
           <nav>
             <h3 className="text-lg font-bold mb-4">Quick Links</h3>
-            <ul className="space-y-2">
-              {links.map((link, index) => (
-                <li key={index} className="hover:underline">
-                  <Link href={link.href}>{link.title}</Link>
-                </li>
+            {/* iterate through links keys and create columns for each key */}
+            <div className="flex space-x-8">
+              {links.map(({name, content}, index) => (
+                <div key={index}>
+                  <h4 className="text-lg font-semibold mb-2">{name}</h4>
+                  <ul className="space-y-2">
+                    {content.map((link, index) => (
+                      <li key={index} className="hover:underline">
+                        <Link href={link.href}>{link.title}</Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               ))}
-            </ul>
+            </div>
           </nav>
           <section>
             <h3 className="text-lg font-bold mb-4">Contact Us</h3>
