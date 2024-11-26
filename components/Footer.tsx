@@ -45,21 +45,33 @@ export function Footer() {
           </nav>
           <section>
             <h3 className="text-lg font-bold mb-4">Contact Us</h3>
-            <ul className="space-y-2">
-              <li className="flex gap-2">
-                <MapPinned className="h-5 w-5" />
-                LM Subd., Brgy. Market Area, City of Santa Rosa, Laguna,
-                Philippines
-              </li>
-              <li className="flex gap-2">
-                <Phone className="h-5 w-5" />
-                0908 705 1083
-              </li>
-              <li className="flex gap-2">
-                <MailOpen className="h-5 w-5" />
-                info@srsths.edu.ph
-              </li>
-            </ul>
+            <table>
+              <tbody>
+                <tr>
+                  <td className="pr-4">
+                    <Phone className="h-5 w-5" />
+                  </td>
+                  <td>0908 705 1083</td>
+                </tr>
+                <tr>
+                  <td className="pr-4">
+                    <MailOpen className="h-5 w-5" />
+                  </td>
+                  <td>
+                    <a href="mailto:info@srsths.edu.ph">info@srsths.edu.ph</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td className="pr-4">
+                    <MapPinned className="h-5 w-5" />
+                  </td>
+                  <td>
+                    LM Subd., Brgy. Market Area, City of Santa Rosa, Laguna,
+                    Philippines
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </section>
           <section>
             <h3 className="text-lg font-bold mb-4">Follow Us</h3>
