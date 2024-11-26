@@ -9,7 +9,7 @@ const links = [
   {title: 'Contact', href: '/contact'},
   {title: 'Clubs', href: '/clubs'},
   {title: 'The Satellite', href: '/the-satellite'},
-  {title: 'Ang Pararayos', href: '/ang-pararayos'}
+  {title: 'Pararayos', href: '/pararayos'}
 ]
 
 export function Footer() {

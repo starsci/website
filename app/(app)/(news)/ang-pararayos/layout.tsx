@@ -16,13 +16,13 @@ export default function Layout({children}: {children: React.ReactNode}) {
   return (
     <div className="flex flex-col min-h-screen">
       <Header
-        basePath="/ang-pararayos"
+        basePath="/pararayos"
         leftLinks={leftLinks}
         rightLinks={rightLinks}
         logo={
           <Logo
             publicId={process.env.NEXT_PUBLIC_PARARAYOS_LOGO_PUBLIC_ID!}
-            alt="Ang Pararayos"
+            alt="Pararayos"
           />
         }
       />

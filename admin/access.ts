@@ -105,7 +105,7 @@ export function isSupervisorOrPararayosMember({
   // first cast the user.club to Club type
   if (user?.collection == 'admins') {
     const club = user.club as Club
-    if (club?.name == 'Ang Pararayos') {
+    if (club?.name == 'Pararayos') {
       return true
     }
   }

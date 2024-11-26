@@ -9,7 +9,7 @@ const leftLinks = [
     href: '#',
     children: [
       {name: 'Announcements', href: '/announcements'},
-      {name: 'Ang Pararayos', href: '/ang-pararayos'},
+      {name: 'Pararayos', href: '/pararayos'},
       {name: 'The Satellite', href: '/the-satellite'}
     ]
   }

@@ -68,11 +68,7 @@ export function Announcements() {
           news={satellite.data}
           href="/the-satellite"
         />
-        <NewsBit
-          title="Ang Pararayos"
-          news={pararayos.data}
-          href="/ang-pararayos"
-        />
+        <NewsBit title="Pararayos" news={pararayos.data} href="/pararayos" />
       </div>
     </HeroSection>
   )
