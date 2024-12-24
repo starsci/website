@@ -60,6 +60,37 @@ export const SchoolAnnouncements: CollectionConfig = {
       admin: {
         position: 'sidebar'
       }
+    },
+    {
+      name: 'frontPage',
+      label: 'Is announcement for front page?',
+      type: 'checkbox',
+      defaultValue: false,
+      admin: {
+        position: 'sidebar'
+      }
     }
-  ]
+  ],
+  hooks: {
+    beforeChange: [
+      async ({data, req: {payload}}) => {
+        // remove the frontPage flag from all other announcements if this announcement is set to be on the front page
+        if (data.frontPage) {
+          await payload.update({
+            collection: 'school-announcements',
+            where: {
+              frontPage: {
+                equals: true
+              }
+            },
+            data: {
+              frontPage: false
+            }
+          })
+        }
+
+        return data
+      }
+    ]
+  }
 }
