@@ -1,6 +1,6 @@
 import {HeroButton} from '@/components/HeroButton'
 import {Logo} from '@/components/Logo'
-import {HeartHandshake, MessageCircleQuestion, PencilRuler} from 'lucide-react'
+import {HeartHandshake, MessageCircleQuestion} from 'lucide-react'
 
 export function Hero() {
   return (
@@ -21,10 +21,7 @@ export function Hero() {
             Santa Rosa Science and Technology High School is the premier public
             science and technology high school in Santa Rosa, Laguna.
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <HeroButton href="/services" icon={<PencilRuler />} main>
-              Explore Our Services
-            </HeroButton>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <HeroButton href="/contact" icon={<HeartHandshake />}>
               Get in Touch
             </HeroButton>
