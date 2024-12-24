@@ -11,11 +11,10 @@
     "payload": "payload"
   },
   "dependencies": {
-    "@payloadcms/db-postgres": "3.0.0-beta.116",
-    "@payloadcms/email-nodemailer": "3.0.0-beta.116",
-    "@payloadcms/next": "3.0.0-beta.116",
-    "@payloadcms/plugin-cloud": "3.0.0-beta.116",
-    "@payloadcms/richtext-lexical": "3.0.0-beta.116",
+    "@payloadcms/db-postgres": "3.11.0",
+    "@payloadcms/email-nodemailer": "3.11.0",
+    "@payloadcms/next": "3.11.0",
+    "@payloadcms/richtext-lexical": "3.11.0",
     "@radix-ui/react-dialog": "^1.1.1",
     "@radix-ui/react-scroll-area": "^1.1.0",
     "@radix-ui/react-slot": "^1.1.0",
@@ -32,7 +31,6 @@
     "nodemailer-zeptomail-transport": "^1.0.13",
     "payload": "3.11.0",
     "pg": "^8.13.0",
-    "pnpm": "^9.12.1",
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "sharp": "^0.33.5",
@@ -51,17 +49,11 @@
     "eslint-config-next": "15.1.2",
     "postcss": "^8",
     "prettier": "^3.3.3",
-    "supabase": "^1.215.0",
     "tailwind-merge": "^2.5.4",
     "tailwindcss": "^3.4.1",
     "tailwindcss-animate": "^1.0.7",
     "typescript": "^5"
   },
-  "pnpm": {
-    "overrides": {
-      "@types/react": "19.0.2",
-      "@types/react-dom": "19.0.2"
-    }
-  },
-  "packageManager": "pnpm@9.12.1+sha512.e5a7e52a4183a02d5931057f7a0dbff9d5e9ce3161e33fa68ae392125b79282a8a8a470a51dfc8a0ed86221442eb2fb57019b0990ed24fab519bf0e1bc5ccfc4"
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e",
+  "type": "module"
 }
