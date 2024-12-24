@@ -1,11 +1,11 @@
-import {Metadata} from 'next'
-import {PT_Sans} from 'next/font/google'
-import {Toaster} from '@/components/ui/toaster'
-import {ReactQueryClientProvider} from '@/components/QueryClientProvider'
+import { Metadata } from 'next'
+import { PT_Sans } from 'next/font/google'
+import { Toaster } from '@/components/ui/toaster'
+import { ReactQueryClientProvider } from '@/components/QueryClientProvider'
 
 import './globals.css'
 
-const nextFont = PT_Sans({weight: ['400', '700']})
+const nextFont = PT_Sans({ weight: ['400', '700'], subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Santa Rosa Science and Technology High School',
