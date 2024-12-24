@@ -1,15 +1,13 @@
 import {Hero} from '@/components/hero-sections/Hero'
-import {Services} from '@/components/hero-sections/Services'
-import {Announcements} from '@/components/hero-sections/Announcements'
+import {CampusNews} from '@/components/hero-sections/CampusNews'
 import {HR} from '@/components/HR'
 
 export default async function Home() {
   return (
     <div>
       <Hero />
-      <Services />
       <HR />
-      <Announcements />
+      <CampusNews />
     </div>
   )
 }
