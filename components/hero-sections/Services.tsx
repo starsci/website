@@ -2,6 +2,7 @@
 
 import { useQuery } from '@/hooks/use-query'
 import { Media } from '@/payload-types'
+import { ChevronRight } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -30,7 +31,7 @@ export function Services() {
   }
 
   return (
-    <div className="flex flex-col sm:flex-row gap-4 lg:px-16 py-8">
+    <div className="flex flex-col sm:flex-row gap-4 lg:px-[10rem] py-8">
       {frontPage.thumbnail && (
         <Image
           src={(frontPage.thumbnail as Media).cdn_url!}
@@ -57,8 +58,14 @@ export function Services() {
           {new Date(frontPage.createdAt).toLocaleString()}
         </small>
         <p
-          className="text-sm line-clamp-4 md:line-clamp-[8] prose-sm"
+          className="text-sm line-clamp-4 md:line-clamp-[8] prose-sm mb-4"
           dangerouslySetInnerHTML={{ __html: frontPage.bodyHTML! }}></p>
+        <Link
+          href={`/announcements/${frontPage.id}`}
+          className="text-md hover:underline font-semibold gap-x-2 flex items-center">
+          Read More
+          <ChevronRight size={24} />
+        </Link>
       </div>
     </div>
   )

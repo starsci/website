@@ -2,13 +2,11 @@
 
 import Image from 'next/image'
 import { useQuery } from '@/hooks/use-query'
-import { useParams } from 'next/navigation'
 import { Media } from '@/payload-types'
 
-export function Content() {
-    const { slug } = useParams<{ slug: string }>()
+export function Content({ slug, collection }: { slug: string, collection: "school-announcements" | "club-announcements" | "the-satellite-news" | "ang-pararayos-news" }) {
     const { data, isLoading, error } = useQuery({
-        collection: 'school-announcements',
+        collection,
         where: {
             id: {
                 equals: slug
@@ -23,7 +21,7 @@ export function Content() {
     }
 
     if (error) {
-        return <p>Failed to load announcement: {error.message}</p>
+        return <p>Failed to load collection: {error.message}</p>
     }
 
     if (!data) {
@@ -45,7 +43,7 @@ export function Content() {
                     width={0}
                     height={0}
                     sizes="100vw"
-                    className="object-contain w-full h-auto"
+                    className="object-contain w-full h-auto my-4"
                 />
             )}
             <div

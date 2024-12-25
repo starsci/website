@@ -23,7 +23,8 @@ export function NewsCard({
 
   return (
     <div>
-      <ScrollArea className="max-h-[25rem] p-2 mx-2 lg:p-4 lg:mx-0 mb-4 transition-shadow hover:shadow-xl rounded-lg">
+      {data.docs?.length == 0 && <span>No data</span>}
+      <ScrollArea className="max-h-[25rem] overflow-y-auto p-2 mb-4 ">
         {data.docs.map((news, index) => (
           <div key={index} className="flex flex-col lg:flex-row gap-4 mb-4">
             {news.thumbnail && (
