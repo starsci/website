@@ -1,3 +1,24 @@
+## 0.6.0 (2024-12-25)
+
+### Feat
+
+- add Read More button in front page announcement
+- create slug pages for Pararayos and The Satellite
+- add aside in announcements
+
+### Fix
+
+- increase margin of thumbnail in content
+- news card scrollbar
+- announcement aside spacing
+- add opengraph to announcement
+
+### Refactor
+
+- componentize aside and content
+- move slug param to page
+- remove services page
+
 ## 0.5.0 (2024-12-25)
 
 ### Feat
