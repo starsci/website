@@ -1,10 +1,11 @@
-import {Metadata} from 'next'
-import {Open_Sans} from 'next/font/google'
+import { Metadata } from 'next'
+import { PT_Sans } from 'next/font/google'
+import { Toaster } from '@/components/ui/toaster'
+import { ReactQueryClientProvider } from '@/components/QueryClientProvider'
+
 import './globals.css'
 
-import {Toaster} from '@/components/ui/toaster'
-
-const nextFont = Open_Sans({subsets: ['latin']})
+const nextFont = PT_Sans({ weight: ['400', '700'], subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Santa Rosa Science and Technology High School',
@@ -17,11 +18,13 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body className={nextFont.className}>
-        {children}
-        <Toaster />
-      </body>
-    </html>
+    <ReactQueryClientProvider>
+      <html lang="en">
+        <body className={nextFont.className}>
+          {children}
+          <Toaster />
+        </body>
+      </html>
+    </ReactQueryClientProvider>
   )
 }

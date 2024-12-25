@@ -1,6 +1,5 @@
-import {faArrowRight} from '@fortawesome/free-solid-svg-icons'
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {ScrollArea} from '@/components/ui/scroll-area'
+import { ChevronRight } from 'lucide-react'
+import { ScrollArea } from '@/components/ui/scroll-area'
 import Image from 'next/image'
 import Link from 'next/link'
 import {
@@ -9,7 +8,7 @@ import {
   TheSatelliteNew,
   AngPararayosNew
 } from '@/payload-types'
-import {CollectionSlug, DataFromCollectionSlug, PaginatedDocs} from 'payload'
+import { CollectionSlug, DataFromCollectionSlug, PaginatedDocs } from 'payload'
 
 export function NewsCard({
   news,
@@ -24,7 +23,7 @@ export function NewsCard({
 
   return (
     <div>
-      <ScrollArea className="h-[25rem] p-2 mx-2 lg:p-4 lg:mx-0 mb-4 transition-shadow hover:shadow-xl rounded-lg">
+      <ScrollArea className="max-h-[25rem] p-2 mx-2 lg:p-4 lg:mx-0 mb-4 transition-shadow hover:shadow-xl rounded-lg">
         {data.docs.map((news, index) => (
           <div key={index} className="flex flex-col lg:flex-row gap-4 mb-4">
             {news.thumbnail && (
@@ -54,7 +53,7 @@ export function NewsCard({
               </small>
               <p
                 className="text-sm line-clamp-2 md:line-clamp-3"
-                dangerouslySetInnerHTML={{__html: news.bodyHTML!}}></p>
+                dangerouslySetInnerHTML={{ __html: news.bodyHTML! }}></p>
             </div>
           </div>
         ))}
@@ -63,7 +62,7 @@ export function NewsCard({
         href={href}
         className="text-md hover:underline font-semibold gap-x-2 flex items-center">
         Read More
-        <FontAwesomeIcon icon={faArrowRight} className="h-4 w-4" />
+        <ChevronRight size={24} />
       </Link>
     </div>
   )

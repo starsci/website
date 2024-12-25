@@ -1,4 +1,5 @@
-import {ClubGrid} from '@/components/club/grid'
+import { ClubGrid } from '@/components/club/Grid'
+import { Suspense } from 'react'
 
 export const metadata = {
   title:
@@ -12,7 +13,9 @@ export default function ClubDirectory() {
       <h1 className="text-4xl font-bold text-center mb-6">
         Clubs and Organizations
       </h1>
-      <ClubGrid />
+      <Suspense fallback={<div>Loading...</div>}>
+        <ClubGrid />
+      </Suspense>
     </main>
   )
 }

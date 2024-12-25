@@ -1,17 +1,24 @@
-import {Header} from '@/components/header'
-import {Footer} from '@/components/footer'
+import { Header } from '@/components/Header'
+import { Footer } from '@/components/Footer'
+import { Logo } from '@/components/Logo'
 
 const leftLinks = [
-  {name: 'Club Directory', href: '/clubs'},
-  {name: 'The Satellite', href: '/the-satellite'},
-  {name: 'Ang Pararayos', href: '/ang-pararayos'}
+  { name: 'Clubs', href: '/clubs' },
+  { name: 'Announcements', href: '/announcements' },
+  {
+    name: 'Publications',
+    href: '#',
+    children: [
+      { name: 'Pararayos', href: '/pararayos' },
+      { name: 'The Satellite', href: '/the-satellite' }
+    ]
+  }
 ]
 
 const rightLinks = [
-  {name: 'Announcements', href: '/announcements'},
-  {name: 'Services', href: '/services'},
-  {name: 'About', href: '/about'},
-  {name: 'Contact', href: '/contact'}
+  // {name: 'Services', href: '/services'},
+  { name: 'About', href: '/about' },
+  { name: 'Contact', href: '/contact' }
 ]
 
 export default function Layout({
@@ -25,8 +32,12 @@ export default function Layout({
         basePath="/"
         leftLinks={leftLinks}
         rightLinks={rightLinks}
-        publicId="srsths-logo_p3p9be"
-        logoAlt="Santa Rosa Science and Technology High School"
+        logo={
+          <Logo
+            publicId={process.env.NEXT_PUBLIC_SRSTHS_LOGO_PUBLIC_ID!}
+            alt="Logo"
+          />
+        }
       />
       <div className="flex-grow container p-6">{children}</div>
       <Footer />

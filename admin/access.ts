@@ -1,8 +1,21 @@
 import {Club} from '@/payload-types'
-import {PayloadRequest} from 'payload'
+import {DataFromCollectionSlug, PayloadRequest} from 'payload'
 
 export function isSupervisor({req: {user}}: {req: PayloadRequest}) {
   return user?.role == 'supervisor'
+}
+
+export function isSupervisorOrSelf({req: {user}}: {req: PayloadRequest}) {
+  if (user?.role == 'supervisor') {
+    return true
+  }
+
+  // allow user to update their own profile
+  return {
+    id: {
+      equals: user?.id
+    }
+  }
 }
 
 export function isSupervisorOrSocialMediaManager({
@@ -27,7 +40,7 @@ export function isSupervisorOrClubManager({
   if (user?.role == 'club-manager') {
     return {
       club: {
-        equals: user.club
+        equals: (user.club as Club).id
       }
     }
   }
@@ -92,7 +105,7 @@ export function isSupervisorOrPararayosMember({
   // first cast the user.club to Club type
   if (user?.collection == 'admins') {
     const club = user.club as Club
-    if (club?.name == 'Ang Pararayos') {
+    if (club?.name == 'Pararayos') {
       return true
     }
   }

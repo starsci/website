@@ -1,17 +1,21 @@
 'use server'
 
-import {getPayloadHMR} from '@payloadcms/next/utilities'
+import {getPayload, TypedCollectionSelect} from 'payload'
 import config from '@payload-config'
 import {CollectionSlug} from 'payload'
 
-const payload = await getPayloadHMR({config})
+const payload = await getPayload({config})
+
+export type Options<TSlug extends CollectionSlug> = Parameters<
+  typeof payload.find<TSlug, TypedCollectionSelect[TSlug]>
+>[0]
 
 export async function queryCollection<TSlug extends CollectionSlug>(
-  collection: TSlug,
-  options: Omit<Parameters<typeof payload.find<TSlug>>[0], 'collection'>
+  options:
+    | {
+        collection: TSlug
+      }
+    | Options<TSlug>
 ) {
-  return await payload.find({
-    collection,
-    ...options
-  })
+  return await payload.find(options)
 }

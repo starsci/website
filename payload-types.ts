@@ -24,10 +24,25 @@ export interface Config {
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
   };
+  collectionsJoins: {};
+  collectionsSelect: {
+    admins: AdminsSelect<false> | AdminsSelect<true>;
+    users: UsersSelect<false> | UsersSelect<true>;
+    media: MediaSelect<false> | MediaSelect<true>;
+    clubs: ClubsSelect<false> | ClubsSelect<true>;
+    'school-announcements': SchoolAnnouncementsSelect<false> | SchoolAnnouncementsSelect<true>;
+    'club-announcements': ClubAnnouncementsSelect<false> | ClubAnnouncementsSelect<true>;
+    'the-satellite-news': TheSatelliteNewsSelect<false> | TheSatelliteNewsSelect<true>;
+    'ang-pararayos-news': AngPararayosNewsSelect<false> | AngPararayosNewsSelect<true>;
+    'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
+    'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
+    'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
+  };
   db: {
     defaultIDType: number;
   };
   globals: {};
+  globalsSelect: {};
   locale: null;
   user:
     | (Admin & {
@@ -36,6 +51,10 @@ export interface Config {
     | (User & {
         collection: 'users';
       });
+  jobs: {
+    tasks: unknown;
+    workflows: unknown;
+  };
 }
 export interface AdminAuthOperations {
   forgotPassword: {
@@ -168,6 +187,7 @@ export interface SchoolAnnouncement {
   bodyHTML?: string | null;
   thumbnail?: (number | null) | Media;
   internal?: boolean | null;
+  frontPage?: boolean | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -358,6 +378,172 @@ export interface PayloadMigration {
   batch?: number | null;
   updatedAt: string;
   createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "admins_select".
+ */
+export interface AdminsSelect<T extends boolean = true> {
+  role?: T;
+  club?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  email?: T;
+  resetPasswordToken?: T;
+  resetPasswordExpiration?: T;
+  salt?: T;
+  hash?: T;
+  loginAttempts?: T;
+  lockUntil?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "users_select".
+ */
+export interface UsersSelect<T extends boolean = true> {
+  role?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  email?: T;
+  resetPasswordToken?: T;
+  resetPasswordExpiration?: T;
+  salt?: T;
+  hash?: T;
+  loginAttempts?: T;
+  lockUntil?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "media_select".
+ */
+export interface MediaSelect<T extends boolean = true> {
+  public_id?: T;
+  cdn_url?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  url?: T;
+  thumbnailURL?: T;
+  filename?: T;
+  mimeType?: T;
+  filesize?: T;
+  width?: T;
+  height?: T;
+  focalX?: T;
+  focalY?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "clubs_select".
+ */
+export interface ClubsSelect<T extends boolean = true> {
+  name?: T;
+  description?: T;
+  logo?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "school-announcements_select".
+ */
+export interface SchoolAnnouncementsSelect<T extends boolean = true> {
+  title?: T;
+  published_at?: T;
+  body?: T;
+  bodyHTML?: T;
+  thumbnail?: T;
+  internal?: T;
+  frontPage?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "club-announcements_select".
+ */
+export interface ClubAnnouncementsSelect<T extends boolean = true> {
+  title?: T;
+  published_at?: T;
+  club?: T;
+  body?: T;
+  bodyHTML?: T;
+  thumbnail?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "the-satellite-news_select".
+ */
+export interface TheSatelliteNewsSelect<T extends boolean = true> {
+  title?: T;
+  authors?:
+    | T
+    | {
+        first_name?: T;
+        last_name?: T;
+        id?: T;
+      };
+  category?: T;
+  published_at?: T;
+  body?: T;
+  bodyHTML?: T;
+  thumbnail?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ang-pararayos-news_select".
+ */
+export interface AngPararayosNewsSelect<T extends boolean = true> {
+  title?: T;
+  authors?:
+    | T
+    | {
+        first_name?: T;
+        last_name?: T;
+        id?: T;
+      };
+  category?: T;
+  published_at?: T;
+  body?: T;
+  bodyHTML?: T;
+  thumbnail?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "payload-locked-documents_select".
+ */
+export interface PayloadLockedDocumentsSelect<T extends boolean = true> {
+  document?: T;
+  globalSlug?: T;
+  user?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "payload-preferences_select".
+ */
+export interface PayloadPreferencesSelect<T extends boolean = true> {
+  user?: T;
+  key?: T;
+  value?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "payload-migrations_select".
+ */
+export interface PayloadMigrationsSelect<T extends boolean = true> {
+  name?: T;
+  batch?: T;
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

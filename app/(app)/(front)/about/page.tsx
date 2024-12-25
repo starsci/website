@@ -1,5 +1,5 @@
-import {HR} from '@/components/hr'
-import {Subtitle} from '@/components/subtitle'
+import {HR} from '@/components/HR'
+import {Subtitle} from '@/components/Subtitle'
 
 export const metadata = {
   title: 'About Us | Santa Rosa Science and Technology High School',
@@ -12,15 +12,17 @@ export default function About() {
       <h1 className="text-left lg:text-center text-4xl font-bold mb-6">
         About Us
       </h1>
-      <h2 className="text-2xl font-bold mb-2">Our History</h2>
-      <p>
-        President Gloria Macapagal-Arroyo signed into law the Republic Act 9083,
-        creating Santa Rosa Science and Technology High School on April 8, 2001.
-        Cong. Uliran T. Joaquin of the 1st District of Laguna was its principal
-        author. The school started in School Year 2002-2003 through the
-        initiative and financial support of the local government of Santa Rosa
-        led by Mayor Leon C. Arcillas.
-      </p>
+      <section>
+        <h2 className="text-2xl font-bold mb-2">Our History</h2>
+        <p>
+          President Gloria Macapagal-Arroyo signed into law the Republic Act
+          9083, creating Santa Rosa Science and Technology High School on April
+          8, 2001. Cong. Uliran T. Joaquin of the 1st District of Laguna was its
+          principal author. The school started in School Year 2002-2003 through
+          the initiative and financial support of the local government of Santa
+          Rosa led by Mayor Leon C. Arcillas.
+        </p>
+      </section>
 
       <HR />
 
@@ -177,21 +179,24 @@ export default function About() {
 
       <HR />
 
-      <h2 className="text-left lg:text-center text-2xl font-bold mb-2">
-        School Curriculum
-      </h2>
-      <p>
-        Santa Rosa Science and Technology High School adopts a Science,
-        Technology, and Engineering (STE) Curriculum anchored with the SHS
-        Academic Track STEM (Science, Technology, Engineering, and Mathematics)
-        Strand of the Philippines&apos; K to 12 Educational Program. It is
-        focused on pure science and its application to industry using the latest
-        technologies, Computer rooms are to be linked to the internet, including
-        multi-media classrooms. Instruction shall be supplemented with visits to
-        known science institutions, laboratories & plants. The school shall
-        maintain a well-stocked library, and subscribe to professional,
-        scientific, and technological magazines and manuals.
-      </p>
+      <section>
+        <h2 className="text-left lg:text-center text-2xl font-bold mb-2">
+          School Curriculum
+        </h2>
+        <p>
+          Santa Rosa Science and Technology High School adopts a Science,
+          Technology, and Engineering (STE) Curriculum anchored with the SHS
+          Academic Track STEM (Science, Technology, Engineering, and
+          Mathematics) Strand of the Philippines&apos; K to 12 Educational
+          Program. It is focused on pure science and its application to industry
+          using the latest technologies, Computer rooms are to be linked to the
+          internet, including multi-media classrooms. Instruction shall be
+          supplemented with visits to known science institutions, laboratories &
+          plants. The school shall maintain a well-stocked library, and
+          subscribe to professional, scientific, and technological magazines and
+          manuals.
+        </p>
+      </section>
     </main>
   )
 }
