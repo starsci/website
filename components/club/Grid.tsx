@@ -7,14 +7,14 @@ import {
   CardTitle
 } from '@/components/ui/card'
 
-import {useQuery} from '@/hooks/use-query'
+import { useQuery } from '@/hooks/use-query'
 
-import {Media} from '@/payload-types'
+import { Media } from '@/payload-types'
 
 import Image from 'next/image'
 import Link from 'next/link'
-import {useSearchParams} from 'next/navigation'
-import {Pagination} from '../Pagination'
+import { useSearchParams } from 'next/navigation'
+import { Pagination } from '../Pagination'
 
 export function ClubGrid() {
   const searchParams = useSearchParams()
@@ -22,7 +22,7 @@ export function ClubGrid() {
   const page = parseInt(searchParams.get('page') || '1') // if page is 0 or NaN, default to 1
   const limit = parseInt(searchParams.get('limit') || defaultLimit.toString())
 
-  const {data, isLoading, error} = useQuery({
+  const { data, isLoading, error } = useQuery({
     collection: 'clubs',
     depth: 1,
     pagination: true,
@@ -65,10 +65,12 @@ export function ClubGrid() {
                   </CardDescription>
                 </CardHeader>
               </Card>
+              {/*
               <Link
                 href={`/clubs/${club.id}`}
                 className="absolute inset-0 z-10"
               />
+              */}
             </article>
           )
         })}
