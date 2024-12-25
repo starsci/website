@@ -1,11 +1,13 @@
 import { Content } from "./content"
-import { headers } from 'next/headers'
 
-export default function Announcement() {
-  return <Content />
+type Params = { params: Promise<{ slug: string }> }
+
+export default async function Announcement({ params }: Params) {
+  const { slug } = await params
+  return <Content slug={slug} />
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+export async function generateMetadata({ params }: Params) {
   const { slug } = await params
   const data = await fetch(`${process.env.API_BASE || ''}/api/school-announcements/${slug}`)
   const { title, bodyHTML } = await data.json()

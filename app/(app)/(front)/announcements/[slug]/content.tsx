@@ -2,11 +2,9 @@
 
 import Image from 'next/image'
 import { useQuery } from '@/hooks/use-query'
-import { useParams } from 'next/navigation'
 import { Media } from '@/payload-types'
 
-export function Content() {
-    const { slug } = useParams<{ slug: string }>()
+export function Content({ slug }: { slug: string }) {
     const { data, isLoading, error } = useQuery({
         collection: 'school-announcements',
         where: {
@@ -33,7 +31,7 @@ export function Content() {
     const { title, createdAt, bodyHTML, thumbnail } = data.docs[0]
 
     return (
-        <article>
+        <article className="lg:w-[1024px] mx-auto">
             <h1 className="text-4xl font-bold">{title}</h1>
             <p className="text-sm text-gray-500 mb-2">
                 {new Date(createdAt).toLocaleDateString()}
