@@ -1,5 +1,5 @@
-import { Aside } from "./aside"
-import { Content } from "./content"
+import { Aside } from "@/components/aside"
+import { Content } from "@/components/content"
 
 type Params = { params: Promise<{ slug: string }> }
 
@@ -8,10 +8,10 @@ export default async function Announcement({ params }: Params) {
   return (
     <div className="flex flex-row lg:flex-row-reverse space-x-8 lg:space-x-reverse lg:justify-end">
       <div className="md:w-2/3 lg:w-1/2 w-full">
-        <Content slug={slug} />
+        <Content slug={slug} collection="school-announcements" />
       </div>
       <div className="md:w-1/3 lg:w-1/4 md:block hidden">
-        <Aside slug={slug} />
+        <Aside slug={slug} collection="school-announcements" caption="Announcements" />
       </div>
     </div>
   )

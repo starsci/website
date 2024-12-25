@@ -4,9 +4,9 @@ import Image from 'next/image'
 import { useQuery } from '@/hooks/use-query'
 import { Media } from '@/payload-types'
 
-export function Content({ slug }: { slug: string }) {
+export function Content({ slug, collection }: { slug: string, collection: "school-announcements" | "club-announcements" | "the-satellite-news" | "ang-pararayos-news" }) {
     const { data, isLoading, error } = useQuery({
-        collection: 'school-announcements',
+        collection,
         where: {
             id: {
                 equals: slug
@@ -21,7 +21,7 @@ export function Content({ slug }: { slug: string }) {
     }
 
     if (error) {
-        return <p>Failed to load announcement: {error.message}</p>
+        return <p>Failed to load collection: {error.message}</p>
     }
 
     if (!data) {

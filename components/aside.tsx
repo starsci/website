@@ -3,9 +3,9 @@
 import Link from "next/link"
 import { useQuery } from "@/hooks/use-query"
 
-export function Aside({ slug }: { slug: string }) {
+export function Aside({ slug, collection, caption }: { slug: string, caption: string, collection: "school-announcements" | "club-announcements" | "the-satellite-news" | "ang-pararayos-news" }) {
     const { data, isLoading, error } = useQuery({
-        collection: 'school-announcements',
+        collection,
         where: {
             id: {
                 not_equals: slug
@@ -22,7 +22,7 @@ export function Aside({ slug }: { slug: string }) {
     }
 
     if (error) {
-        return <p>Failed to load announcements: {error.message}</p>
+        return <p>Failed to load collection: {error.message}</p>
     }
 
     if (!data) {
@@ -31,7 +31,7 @@ export function Aside({ slug }: { slug: string }) {
 
     return (
         <aside>
-            <h2 className="text-2xl font-bold mb-4">Recent Announcements</h2>
+            <h2 className="text-2xl font-bold mb-4">Recent {caption}</h2>
             <ul>
                 {data.docs.map((doc: any) => (
                     <li key={doc.id} className="mb-4">
