@@ -1,3 +1,9 @@
+## 0.5.0 (2024-12-25)
+
+### Feat
+
+- set announcement metadata
+
 ## 0.4.0 (2024-12-25)
 
 ### Feat
