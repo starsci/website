@@ -31,7 +31,7 @@ export function Content({ slug }: { slug: string }) {
     const { title, createdAt, bodyHTML, thumbnail } = data.docs[0]
 
     return (
-        <article className="lg:w-[1024px] mx-auto">
+        <article>
             <h1 className="text-4xl font-bold">{title}</h1>
             <p className="text-sm text-gray-500 mb-2">
                 {new Date(createdAt).toLocaleDateString()}

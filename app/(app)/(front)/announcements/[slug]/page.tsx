@@ -1,10 +1,20 @@
+import { Aside } from "./aside"
 import { Content } from "./content"
 
 type Params = { params: Promise<{ slug: string }> }
 
 export default async function Announcement({ params }: Params) {
   const { slug } = await params
-  return <Content slug={slug} />
+  return (
+    <div className="flex flex-row lg:flex-row-reverse space-x-8 lg:justify-end">
+      <div className="md:w-2/3 lg:w-1/2">
+        <Content slug={slug} />
+      </div>
+      <div className="md:w-1/3 lg:w-1/4">
+        <Aside slug={slug} />
+      </div>
+    </div>
+  )
 }
 
 export async function generateMetadata({ params }: Params) {
