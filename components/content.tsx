@@ -43,7 +43,7 @@ export function Content({ slug, collection }: { slug: string, collection: "schoo
                     width={0}
                     height={0}
                     sizes="100vw"
-                    className="object-contain w-full h-auto"
+                    className="object-contain w-full h-auto my-4"
                 />
             )}
             <div
