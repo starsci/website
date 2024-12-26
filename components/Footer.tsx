@@ -30,13 +30,13 @@ export function Footer() {
           <div className="space-y-4 md:mx-auto my-auto">
             <div className="flex gap-4">
               <Logo
-                publicId={process.env.NEXT_PUBLIC_SRSTHS_LOGO_PUBLIC_ID!}
+                publicId={process.env.NEXT_PUBLIC_SRSTHS_LOGO_PUBLIC_ID || ''}
                 height={96}
                 width={96}
                 alt="Santa Rosa Science and Technology High School"
               />
               <Logo
-                publicId={process.env.NEXT_PUBLIC_SYSTEM_LOGO_PUBLIC_ID!}
+                publicId={process.env.NEXT_PUBLIC_SYSTEM_LOGO_PUBLIC_ID || ''}
                 height={96}
                 width={96}
                 alt="SYSTEM"
