@@ -1,3 +1,14 @@
+## 0.7.0 (2024-12-26)
+
+### Feat
+
+- add image to OpenGraph metadata
+
+### Refactor
+
+- environmentalize hero background image
+- generateMetadata function
+
 ## 0.6.1 (2024-12-26)
 
 ### Fix
