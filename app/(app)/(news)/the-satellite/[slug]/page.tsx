@@ -1,5 +1,6 @@
 import { Aside } from "@/components/aside"
 import { Content } from "@/components/content"
+import { metadataFunction } from "@/lib/generateMetadata"
 
 type Params = { params: Promise<{ slug: string }> }
 
@@ -17,22 +18,4 @@ export default async function Announcement({ params }: Params) {
   )
 }
 
-export async function generateMetadata({ params }: Params) {
-  const { slug } = await params
-  const data = await fetch(`${process.env.API_BASE || ''}/api/the-satellite-news/${slug}`)
-  const { title, bodyHTML } = await data.json()
-  const description = bodyHTML.replace(/<\s*br[^>]?>/gm, '\n')
-    .replace(/(<([^>]+)>)/gm, "").slice(0, 160)
-
-  return {
-    title,
-    description,
-    openGraph: {
-      title,
-      description,
-      type: 'article',
-      url: `${process.env.API_BASE || ''}/announcements/${slug}`,
-      site_name: 'Santa Rosa Science and Technology High School',
-    }
-  }
-}
+export const generateMetadata = metadataFunction('the-satellite-news', 'the-satellite')

@@ -1,4 +1,7 @@
 import type {Config} from 'tailwindcss'
+import {v2} from 'cloudinary'
+
+const hero = v2.url(process.env.NEXT_PUBLIC_HERO_PUBLIC_ID || '')
 
 const config = {
   darkMode: ['class'],
@@ -19,7 +22,7 @@ const config = {
     },
     extend: {
       backgroundImage: {
-        hero: 'url("https://res.cloudinary.com/dbbb38rok/image/upload/v1729219626/srsths-backdrop_thcdy4.jpg")'
+        hero: `url("${hero}")`
       },
       colors: {
         border: 'hsl(var(--border))',

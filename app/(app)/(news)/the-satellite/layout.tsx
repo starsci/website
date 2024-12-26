@@ -1,18 +1,18 @@
-import {Header} from '@/components/Header'
-import {Footer} from '@/components/Footer'
-import {Logo} from '@/components/Logo'
+import { Header } from '@/components/Header'
+import { Footer } from '@/components/Footer'
+import { Logo } from '@/components/Logo'
 
 const leftLinks = [
-  {name: 'News', href: '#'},
-  {name: 'Feature', href: '#'},
-  {name: 'Opinion', href: '#'},
-  {name: 'Sports', href: '#'},
-  {name: 'Sci & Tech', href: '#'}
+  { name: 'News', href: '#' },
+  { name: 'Feature', href: '#' },
+  { name: 'Opinion', href: '#' },
+  { name: 'Sports', href: '#' },
+  { name: 'Sci & Tech', href: '#' }
 ]
 
-const rightLinks = [{name: 'Back to Home', href: '/'}]
+const rightLinks = [{ name: 'Back to Home', href: '/' }]
 
-export default function Layout({children}: {children: React.ReactNode}) {
+export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex flex-col min-h-screen">
       <Header
@@ -21,7 +21,7 @@ export default function Layout({children}: {children: React.ReactNode}) {
         rightLinks={rightLinks}
         logo={
           <Logo
-            publicId={process.env.NEXT_PUBLIC_SATELLITE_LOGO_PUBLIC_ID!}
+            publicId={process.env.NEXT_PUBLIC_SATELLITE_LOGO_PUBLIC_ID || ''}
             alt="The Satellite"
           />
         }

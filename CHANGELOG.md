@@ -1,3 +1,21 @@
+## 0.7.0 (2024-12-26)
+
+### Feat
+
+- add image to OpenGraph metadata
+
+### Refactor
+
+- environmentalize hero background image
+- generateMetadata function
+
+## 0.6.1 (2024-12-26)
+
+### Fix
+
+- site_name should be siteName in openGraph
+- og:url for Pararayos and The Satellite
+
 ## 0.6.0 (2024-12-25)
 
 ### Feat
