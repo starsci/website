@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: Params) {
       description,
       type: 'article',
       url: `${process.env.API_BASE || ''}/pararayos/${slug}`,
-      site_name: 'Santa Rosa Science and Technology High School',
+      siteName: 'Santa Rosa Science and Technology High School',
     }
   }
 }
