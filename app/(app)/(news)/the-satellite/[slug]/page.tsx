@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: Params) {
       title,
       description,
       type: 'article',
-      url: `${process.env.API_BASE || ''}/announcements/${slug}`,
+      url: `${process.env.API_BASE || ''}/the-satellite/${slug}`,
       site_name: 'Santa Rosa Science and Technology High School',
     }
   }
