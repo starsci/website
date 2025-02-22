@@ -1,5 +1,7 @@
-import {HR} from '@/components/HR'
-import {Subtitle} from '@/components/Subtitle'
+import ExecutiveProfile from '@/components/ExecutiveProfile'
+import {Logo} from '@/components/Logo'
+import {Tabs, TabsList, TabsTrigger} from '@/components/ui/tabs'
+import {TabsContent} from '@radix-ui/react-tabs'
 
 export const metadata = {
   title: 'About Us | Santa Rosa Science and Technology High School',
@@ -9,194 +11,362 @@ export const metadata = {
 export default function About() {
   return (
     <main>
-      <h1 className="text-left lg:text-center text-4xl font-bold mb-6">
-        About Us
-      </h1>
-      <section>
-        <h2 className="text-2xl font-bold mb-2">Our History</h2>
-        <p>
-          President Gloria Macapagal-Arroyo signed into law the Republic Act
-          9083, creating Santa Rosa Science and Technology High School on April
-          8, 2001. Cong. Uliran T. Joaquin of the 1st District of Laguna was its
-          principal author. The school started in School Year 2002-2003 through
-          the initiative and financial support of the local government of Santa
-          Rosa led by Mayor Leon C. Arcillas.
-        </p>
-      </section>
+      <h1 className="text-4xl font-bold text-center mb-6">About Us</h1>
+      <Tabs defaultValue="history">
+        <TabsList className="grid h-full w-full grid-cols-1 md:grid-cols-4 xl:grid-cols-7 gap-4">
+          <TabsTrigger value="history">History</TabsTrigger>
+          <TabsTrigger value="logo">Logo</TabsTrigger>
+          <TabsTrigger value="mission-vision">Vision and Mission</TabsTrigger>
+          <TabsTrigger value="deped-mission-vision">
+            DepEd Vision and Mission
+          </TabsTrigger>
+          <TabsTrigger value="curriculum">Curriculum</TabsTrigger>
+          <TabsTrigger value="facilities">School Facilities</TabsTrigger>
+          <TabsTrigger value="organizational-chart">
+            Organizational Chart
+          </TabsTrigger>
+        </TabsList>
+        <TabsContent value="history">
+          <section className="prose mt-4 max-w-none">
+            <h2>Our History</h2>
+            <p>
+              President Gloria Macapagal-Arroyo signed into law the Republic Act
+              9083, creating Santa Rosa Science and Technology High School on
+              April 8, 2001. Cong. Uliran T. Joaquin of the 1st District of
+              Laguna was its principal author.
+            </p>
+            <p>
+              The school started in School Year 2002-2003 through the initiative
+              and financial support of the local government of Santa Rosa led by
+              Mayor Leon C. Arcillas.
+            </p>
+          </section>
+        </TabsContent>
+        <TabsContent value="logo">
+          <section className="prose mt-4 max-w-none">
+            <h2>The SciTech Logo</h2>
+            <p>
+              The SciTech logo signifies progress in the community. Each part
+              symbolizes a component of progress.
+            </p>
+            <div className="flex md:space-x-4 md:space-y-0 space-x-0 space-y-4 flex-col-reverse md:flex-row">
+              <ul>
+                <li>
+                  <strong>The open-winged eagle</strong> represents the strong
+                  determination to move forward towards prosperity, the year
+                  2002 for the birth of SciTech High; the ribbon that the eagle
+                  held on its beak for the respect in God.
+                </li>
+                <li>
+                  <strong>
+                    The two upright concrete posts of the Santa Rosa Arch
+                  </strong>{' '}
+                  for the strong support of the City Government and its populace
+                </li>
+                <li>
+                  <strong>The building</strong> for the growth of trade and
+                  industries.
+                </li>
+                <li>
+                  <strong>
+                    The wheel with eight spokes, the computer, and the space
+                    satellite
+                  </strong>{' '}
+                  for the advancement in transportation and communication
+                </li>
+                <li>
+                  <strong>
+                    The test tubes, the flasks, and the atoms encircling the
+                    round object with rays
+                  </strong>{' '}
+                  for continuing studies in the field of science.
+                </li>
+                <li>
+                  <strong>The blue and yellow background</strong> symbolizes our
+                  love and loyalty for our country and our highest aspirations.
+                </li>
+                <li>
+                  <strong>The DepEd shield</strong> logo for the supportive and
+                  protective government umbrella in high school education.
+                </li>
+              </ul>
+              <div className="flex md:block justify-center">
+                <Logo
+                  publicId={process.env.NEXT_PUBLIC_SRSTHS_LOGO_PUBLIC_ID || ''}
+                  height={256}
+                  width={256}
+                  alt="Santa Rosa Science and Technology High School"
+                />
+              </div>
+            </div>
+          </section>
+        </TabsContent>
+        <TabsContent value="mission-vision">
+          <section className="prose mt-4 max-w-none">
+            <h2>Mission and Vision</h2>
+            <h3>Vision</h3>
+            <blockquote>
+              Santa Rosa Science and Technology High School envisions students
+              who are globally competitive with high morals, responsible,
+              diligent, smart, innovative, adaptive, flexible, confident,
+              patriotic future leaders of our nation produced by highly
+              motivated and committed 21st century professional teachers and
+              school personnel who are spurring growth in character and
+              intelligence through the generous support of dynamic, dedicated,
+              goal-driven, value-oriented external stakeholders.
+            </blockquote>
+            <h3>Mission</h3>
+            <blockquote>
+              Through the collaborative effort of all the internal and external
+              stakeholders, Santa Rosa Science and Technology High School will
+              become a child-friendly, gender-sensitive, world-class,
+              world-class, state-of-the-art, green school responsive to the
+              science and technology educational needs of the society towards a
+              Maka-Diyos, Makatao, Makakalikasan, Makabansa community in a
+              highly developed country.
+            </blockquote>
+          </section>
+        </TabsContent>
+        <TabsContent value="deped-mission-vision">
+          <section className="prose mt-4 max-w-none">
+            <h2>DepEd Mission, Vision, and Core Values</h2>
+            <h3>DepEd Vision</h3>
+            <blockquote>
+              We dream of Filipinos who passionately love their country and
+              whose values and competencies enable them to realize their full
+              potential and contribute meaningfully to building the nation. As a
+              learner-centered public institution, the Department of Education
+              continuously improves itself to better serve its stakeholders.
+            </blockquote>
+            <h3>DepEd Mission</h3>
+            <blockquote>
+              To protect and promote the right of every Filipino to quality,
+              equitable, culture-based, and complete basic education where:
+              Students learn in a child-friendly, gender-sensitive, safe, and
+              motivating environment. Teachers facilitate learning and
+              constantly nurture every learner. Administrators and staff, as
+              stewards of the institution, ensure an enabling and supportive
+              environment for effective learning to happen. Family, community
+              and other stakeholders are actively engaged and share
+              responsibility for developing life-long learners.
+            </blockquote>
+            <h3>DepEd Core Values</h3>
+            <ul>
+              <li>Maka-Diyos</li>
+              <li>Maka-tao</li>
+              <li>Makakalikasan</li>
+              <li>Makabansa</li>
+            </ul>
+            <h3>Quality Policy Statement</h3>
+            <p>
+              The Department of Education is committed to provide learners with
+              quality basic education that is accessible, inclusive, liberating
+              through:
+            </p>
+            <ul>
+              <li>Proactive leadership</li>
+              <li>Shared governance</li>
+              <li>Evidenced-based policies, standards and programs</li>
+              <li>Responsive and relevant curricula</li>
+              <li>
+                Highly competent and committed officials, and teaching and
+                non-teaching personnel
+              </li>
+              <li>An enabling learning environment</li>
+            </ul>
+            <p>
+              The Department upholds the highest standards of conduct and
+              performance to fulfill stakeholders&apos; needs and expectations
+              by adhering to constitutional mandates, statutory, and regulatory
+              requirements, and sustains client satisfaction through continuous
+              improvement of the Quality Management System.
+            </p>
+          </section>
+        </TabsContent>
+        <TabsContent value="curriculum">
+          <section className="prose mt-4 max-w-none">
+            <h2>School Curriculum</h2>
+            <p>
+              Santa Rosa Science and Technology High School adopts a Science,
+              Technology, and Engineering (STE) Curriculum anchored with the SHS
+              Academic Track STEM (Science, Technology, Engineering, and
+              Mathematics) Strand of the Philippines&apos; K to 12 Educational
+              Program. It is focused on pure science and its application to
+              industry using the latest technologies, Computer rooms are to be
+              linked to the internet, including multi-media classrooms.
+              Instruction shall be supplemented with visits to known science
+              institutions, laboratories & plants. The school shall maintain a
+              well-stocked library, and subscribe to professional, scientific,
+              and technological magazines and manuals.
+            </p>
+          </section>
+        </TabsContent>
+        <TabsContent value="facilities">
+          <section className="prose mt-4 max-w-none">
+            <h2>School Facilities</h2>
+            <p>
+              School facilities improve the quality of the study environment in
+              the school, thus improving the quality of education. Proper
+              facilities give teachers and students a safe space to teach as
+              well as one that is beneficial for their physical and emotional
+              health.
+            </p>
+            <h3>Laboratories</h3>
+            <ul>
+              <li>Chemistry</li>
+              <li>Computer Science</li>
+              <li>Physics</li>
+              <li>Speech</li>
+              <li>Biology</li>
+              <li>Mathematics</li>
+              <li>General Science</li>
+            </ul>
+            <h3>Student Services</h3>
+            <ul>
+              <li>Accounting Office</li>
+              <li>Library</li>
+              <li>Registrar</li>
+              <li>Canteen</li>
+              <li>Guidance</li>
+              <li>Sports</li>
+              <li>Clinic</li>
+            </ul>
+          </section>
+        </TabsContent>
+        <TabsContent value="organizational-chart">
+          <section className="prose mt-4 max-w-none">
+            <h2>Organizational Chart</h2>
 
-      <HR />
+            <div className="py-4">
+              <ExecutiveProfile
+                name="Alvin D. Sta. Maria, EdD"
+                role="Principal III"
+                imageUrl="/assets/executives/principal.jpg"
+              />
+            </div>
 
-      <section className="block lg:grid auto-cols-auto items-center gap-x-8 gap-y-4">
-        <h2 className="text-left lg:text-center text-2xl font-bold mb-2 col-span-2">
-          DepEd Mission, Vision, and Core Values
-        </h2>
+            <div className="bg-slate-100 py-4">
+              <ExecutiveProfile
+                name="Honeylet H. Terrible"
+                role="Administrative Officer"
+                imageUrl="/assets/executives/ao.jpg"
+              />
+            </div>
 
-        <Subtitle>DepEd Vision</Subtitle>
-        <p className="col-start-2 mb-4 lg:mb-0">
-          We dream of Filipinos who passionately love their country and whose
-          values and competencies enable them to realize their full potential
-          and contribute meaningfully to building the nation. As a
-          learner-centered public institution, the Department of Education
-          continuously improves itself to better serve its stakeholders.
-        </p>
+            <div className="py-4">
+              <ExecutiveProfile
+                name="Riza Jane De Castro"
+                role="Registrar"
+                imageUrl="/assets/executives/registrar.jpg"
+              />
+            </div>
 
-        <Subtitle>DepEd Mission</Subtitle>
-        <p className="col-start-2 mb-4 lg:mb-0">
-          To protect and promote the right of every Filipino to quality,
-          equitable, culture-based, and complete basic education where: Students
-          learn in a child-friendly, gender-sensitive, safe, and motivating
-          environment. Teachers facilitate learning and constantly nurture every
-          learner. Administrators and staff, as stewards of the institution,
-          ensure an enabling and supportive environment for effective learning
-          to happen. Family, community and other stakeholders are actively
-          engaged and share responsibility for developing life-long learners.
-        </p>
+            <div className="bg-slate-100 py-4">
+              <ExecutiveProfile
+                name="Jayson T. Mallonga, EdD"
+                role="Guidance Designate"
+                imageUrl="/assets/executives/guidance.jpg"
+              />
+            </div>
 
-        <Subtitle>DepEd Core Values</Subtitle>
-        <ul className="col-start-2 mb-4 lg:mb-0 list-disc list-inside">
-          <li>Maka-Diyos</li>
-          <li>Maka-tao</li>
-          <li>Makakalikasan</li>
-          <li>Makabansa</li>
-        </ul>
+            <div className="py-4">
+              <h3 className="text-center">Head Teachers</h3>
 
-        <hr className="hidden lg:block w-full bg-gray-700 my-2 col-span-2" />
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
+                <ExecutiveProfile
+                  name="Marilyn C. Santos"
+                  role="Head Teacher II &ndash; Science"
+                  imageUrl="/assets/executives/ht/sci.jpg"
+                />
+                <ExecutiveProfile
+                  name="Maria Cecilla D. Vitug"
+                  role="Head Teacher II &ndash; Math, MAPEH, TLE"
+                  imageUrl="/assets/executives/ht/math.jpg"
+                />
+                <ExecutiveProfile
+                  name="Rozenda A. Mi&ntilde;oza"
+                  role="Head Teacher I &ndash; Communication Arts"
+                  imageUrl="/assets/executives/ht/arts.jpg"
+                />
+              </div>
+            </div>
 
-        <h2 className="text-left lg:text-center text-2xl font-bold mb-2 col-span-2">
-          Mission, Vision, and Values
-        </h2>
+            <div className="bg-slate-100 py-4">
+              <h3 className="text-center">Master Teachers</h3>
 
-        <Subtitle>Our Vision</Subtitle>
-        <p className="col-start-2 mb-4 lg:mb-0">
-          Santa Rosa Science and Technology High School envisions students who
-          are globally competitive with high morals, responsible, diligent,
-          smart, innovative, adaptive, flexible, confident, patriotic future
-          leaders of our nation produced by highly motivated and committed 21st
-          century professional teachers and school personnel who are spurring
-          growth in character and intelligence through the generous support of
-          dynamic, dedicated, goal-driven, value-oriented external stakeholders.
-        </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
+                <ExecutiveProfile
+                  name="Joralie J. Mendoza, PhD"
+                  role="Master Teacher II"
+                  imageUrl="/assets/executives/mt/mendoza.jpg"
+                />
+                <ExecutiveProfile
+                  name="Enerito M. Clima, PhD"
+                  role="Master Teacher II"
+                  imageUrl="/assets/executives/mt/clima.jpg"
+                />
+                <ExecutiveProfile
+                  name="Mariel Y. Castillo"
+                  role="Master Teacher II"
+                  imageUrl="/assets/executives/mt/castillo.jpg"
+                />
+                <ExecutiveProfile
+                  name="Chriselleen Jazel D. Pasilan"
+                  role="Master Teacher II"
+                  imageUrl="/assets/executives/mt/pasilan.jpg"
+                />
+                <ExecutiveProfile
+                  name="Mike Angelo B. Estopace"
+                  role="Master Teacher I"
+                  imageUrl="/assets/executives/mt/estopace.jpg"
+                />
+                <ExecutiveProfile
+                  name="Maria Cristina R. Miranda, EdD"
+                  role="Master Teacher I"
+                  imageUrl="/assets/executives/mt/miranda.jpg"
+                />
+              </div>
+            </div>
 
-        <Subtitle>Our Mission</Subtitle>
-        <p className="col-start-2 mb-4 lg:mb-0">
-          Through the collaborative effort of all the internal and external
-          stakeholders, Santa Rosa Science and Technology High School will
-          become a child-friendly, gender-sensitive, world-class, world-class,
-          state-of-the-art, green school responsive to the science and
-          technology educational needs of the society towards a Maka-Diyos,
-          Makatao, Makakalikasan, Makabansa community in a highly developed
-          country.
-        </p>
+            <div className="py-4">
+              <h3 className="text-center">Key Teachers</h3>
 
-        <hr className="hidden lg:block w-full bg-gray-700 my-2 col-span-2" />
-
-        <Subtitle>DepEd Quality Policy Statement</Subtitle>
-        <div className="col-start-2 mb-4 lg:mb-0">
-          <p className="mb-2">
-            The Department of Education is committed to provide learners with
-            quality basic education that is accessible, inclusive, liberating
-            through:
-          </p>
-
-          <ul className="mb-2 list-disc list-inside">
-            <li>Proactive leadership</li>
-            <li>Shared governance</li>
-            <li>Evidenced-based policies, standards and programs</li>
-            <li>Responsive and relevant curricula</li>
-            <li>
-              Highly competent and committed officials, and teaching and
-              non-teaching personnel
-            </li>
-            <li>An enabling learning environment</li>
-          </ul>
-
-          <p>
-            The Department upholds the highest standards of conduct and
-            performance to fulfill stakeholders&apos; needs and expectations by
-            adhering to constitutional mandates, statutory, and regulatory
-            requirements, and sustains client satisfaction through continuous
-            improvement of the Quality Management System.
-          </p>
-        </div>
-
-        <hr className="hidden lg:block w-full bg-gray-700 my-2 col-span-2" />
-
-        <h2 className="text-left lg:text-center text-2xl font-bold mb-2 col-span-2">
-          Rights, Duties, and Responsibilities of the Students
-        </h2>
-
-        <Subtitle>Rights and Duties</Subtitle>
-        <ul className="col-start-2 mb-4 lg:mb-0 list-disc list-inside">
-          <li>
-            To have a meaningful education that adequately meets the needs of
-            the individual students within the capabilities of the school
-          </li>
-          <li>
-            To express an opinion and provide input in the development of the
-            school in a respectful and polite manner
-          </li>
-          <li>
-            To have adequate and timely notice of all rules and regulations,
-            policies, and penalties to which they are subject to
-          </li>
-          <li>
-            To have a free and honest election of their peers in the classroom
-            and the student government organization
-          </li>
-          <li>
-            To present complaints or grievances to school authorities and to
-            receive a prompt reply from the school officials
-          </li>
-          <li>To access and use school facilities</li>
-        </ul>
-
-        <Subtitle>Duties and Responsibilities</Subtitle>
-        <ul className="col-start-2 mb-4 lg:mb-0 list-disc list-inside">
-          <li>
-            To obey and observe all rules, regulations, policies, and codes of
-            conduct in the school
-          </li>
-          <li>
-            To uphold the mission and vision, ideals, and integrity of the
-            school; to give honor and glory to the school, community, family,
-            and the country, and show respect for God
-          </li>
-          <li>
-            To give proper time and devotion to studies and achieve the standard
-            grade requirements of the school
-          </li>
-          <li>
-            To respect and maintain a good relationship with peers, teachers,
-            staff, parents, family members, and the proper authorities in and
-            outside the school
-          </li>
-          <li>
-            To maintain orderliness, and cleanliness, and take care of school
-            and facility
-          </li>
-        </ul>
-      </section>
-
-      <HR />
-
-      <section>
-        <h2 className="text-left lg:text-center text-2xl font-bold mb-2">
-          School Curriculum
-        </h2>
-        <p>
-          Santa Rosa Science and Technology High School adopts a Science,
-          Technology, and Engineering (STE) Curriculum anchored with the SHS
-          Academic Track STEM (Science, Technology, Engineering, and
-          Mathematics) Strand of the Philippines&apos; K to 12 Educational
-          Program. It is focused on pure science and its application to industry
-          using the latest technologies, Computer rooms are to be linked to the
-          internet, including multi-media classrooms. Instruction shall be
-          supplemented with visits to known science institutions, laboratories &
-          plants. The school shall maintain a well-stocked library, and
-          subscribe to professional, scientific, and technological magazines and
-          manuals.
-        </p>
-      </section>
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
+                <ExecutiveProfile
+                  name="Yehleen P. Catindig"
+                  role="Grade 7 Key Teacher"
+                  imageUrl="/assets/executives/kt/7.jpg"
+                />
+                <ExecutiveProfile
+                  name="Jocelyn B. Gregorio"
+                  role="Grade 8 Key Teacher"
+                  imageUrl="/assets/executives/kt/8.jpg"
+                />
+                <ExecutiveProfile
+                  name="Dolores V. Cruz"
+                  role="Grade 9 Key Teacher"
+                  imageUrl="/assets/executives/kt/9.jpg"
+                />
+                <ExecutiveProfile
+                  name="Janeza T. Alignay"
+                  role="Grade 10 Key Teacher"
+                  imageUrl="/assets/executives/kt/10.jpg"
+                />
+                <ExecutiveProfile
+                  name="Shinah Jasmin R. Miranda"
+                  role="Grade 11 Key Teacher"
+                  imageUrl="/assets/executives/kt/11.jpg"
+                />
+                <ExecutiveProfile
+                  name="Joralie J. Mendoza, PhD"
+                  role="Grade 12 Key Teacher"
+                  imageUrl="/assets/executives/kt/12.jpg"
+                />
+              </div>
+            </div>
+          </section>
+        </TabsContent>
+      </Tabs>
     </main>
   )
 }
