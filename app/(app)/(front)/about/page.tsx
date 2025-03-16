@@ -238,131 +238,133 @@ export default function About() {
           <section className="prose mt-4 max-w-none">
             <h2>Organizational Chart</h2>
 
-            <div className="py-4">
-              <ExecutiveProfile
-                name="Alvin D. Sta. Maria, EdD"
-                role="Principal III"
-                imageUrl="/assets/executives/principal.jpg"
-              />
-            </div>
-
-            <div className="bg-slate-100 py-4">
-              <ExecutiveProfile
-                name="Honeylet H. Terrible"
-                role="Administrative Officer"
-                imageUrl="/assets/executives/ao.jpg"
-              />
-            </div>
-
-            <div className="py-4">
-              <ExecutiveProfile
-                name="Riza Jane De Castro"
-                role="Registrar"
-                imageUrl="/assets/executives/registrar.jpg"
-              />
-            </div>
-
-            <div className="bg-slate-100 py-4">
-              <ExecutiveProfile
-                name="Jayson T. Mallonga, EdD"
-                role="Guidance Designate"
-                imageUrl="/assets/executives/guidance.jpg"
-              />
-            </div>
-
-            <div className="py-4">
-              <h3 className="text-center">Head Teachers</h3>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
+            <div className="w-[100vw] ml-[calc(50%-50vw)]">
+              <div className="py-4">
                 <ExecutiveProfile
-                  name="Marilyn C. Santos"
-                  role="Head Teacher II &ndash; Science"
-                  imageUrl="/assets/executives/ht/sci.jpg"
-                />
-                <ExecutiveProfile
-                  name="Maria Cecilla D. Vitug"
-                  role="Head Teacher II &ndash; Math, MAPEH, TLE"
-                  imageUrl="/assets/executives/ht/math.jpg"
-                />
-                <ExecutiveProfile
-                  name="Rozenda A. Mi&ntilde;oza"
-                  role="Head Teacher I &ndash; Communication Arts"
-                  imageUrl="/assets/executives/ht/arts.jpg"
+                  name="Alvin D. Sta. Maria, EdD"
+                  role="Principal III"
+                  imageUrl="/assets/executives/principal.jpg"
                 />
               </div>
-            </div>
 
-            <div className="bg-slate-100 py-4">
-              <h3 className="text-center">Master Teachers</h3>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
+              <div className="bg-neutral-200 py-4">
                 <ExecutiveProfile
-                  name="Joralie J. Mendoza, PhD"
-                  role="Master Teacher II"
-                  imageUrl="/assets/executives/mt/mendoza.jpg"
-                />
-                <ExecutiveProfile
-                  name="Enerito M. Clima, PhD"
-                  role="Master Teacher II"
-                  imageUrl="/assets/executives/mt/clima.jpg"
-                />
-                <ExecutiveProfile
-                  name="Mariel Y. Castillo"
-                  role="Master Teacher II"
-                  imageUrl="/assets/executives/mt/castillo.jpg"
-                />
-                <ExecutiveProfile
-                  name="Chriselleen Jazel D. Pasilan"
-                  role="Master Teacher II"
-                  imageUrl="/assets/executives/mt/pasilan.jpg"
-                />
-                <ExecutiveProfile
-                  name="Mike Angelo B. Estopace"
-                  role="Master Teacher I"
-                  imageUrl="/assets/executives/mt/estopace.jpg"
-                />
-                <ExecutiveProfile
-                  name="Maria Cristina R. Miranda, EdD"
-                  role="Master Teacher I"
-                  imageUrl="/assets/executives/mt/miranda.jpg"
+                  name="Honeylet H. Terrible"
+                  role="Administrative Officer"
+                  imageUrl="/assets/executives/ao.jpg"
                 />
               </div>
-            </div>
 
-            <div className="py-4">
-              <h3 className="text-center">Key Teachers</h3>
+              <div className="py-4">
+                <ExecutiveProfile
+                  name="Riza Jane De Castro"
+                  role="Registrar"
+                  imageUrl="/assets/executives/registrar.jpg"
+                />
+              </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
+              <div className="bg-neutral-200 py-4">
                 <ExecutiveProfile
-                  name="Yehleen P. Catindig"
-                  role="Grade 7 Key Teacher"
-                  imageUrl="/assets/executives/kt/7.jpg"
+                  name="Jayson T. Mallonga, EdD"
+                  role="Guidance Designate"
+                  imageUrl="/assets/executives/guidance.jpg"
                 />
-                <ExecutiveProfile
-                  name="Jocelyn B. Gregorio"
-                  role="Grade 8 Key Teacher"
-                  imageUrl="/assets/executives/kt/8.jpg"
-                />
-                <ExecutiveProfile
-                  name="Dolores V. Cruz"
-                  role="Grade 9 Key Teacher"
-                  imageUrl="/assets/executives/kt/9.jpg"
-                />
-                <ExecutiveProfile
-                  name="Janeza T. Alignay"
-                  role="Grade 10 Key Teacher"
-                  imageUrl="/assets/executives/kt/10.jpg"
-                />
-                <ExecutiveProfile
-                  name="Shinah Jasmin R. Miranda"
-                  role="Grade 11 Key Teacher"
-                  imageUrl="/assets/executives/kt/11.jpg"
-                />
-                <ExecutiveProfile
-                  name="Joralie J. Mendoza, PhD"
-                  role="Grade 12 Key Teacher"
-                  imageUrl="/assets/executives/kt/12.jpg"
-                />
+              </div>
+
+              <div className="py-4">
+                <h3 className="text-center">Head Teachers</h3>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
+                  <ExecutiveProfile
+                    name="Marilyn C. Santos"
+                    role="Head Teacher II &ndash; Science"
+                    imageUrl="/assets/executives/ht/sci.jpg"
+                  />
+                  <ExecutiveProfile
+                    name="Maria Cecilla D. Vitug"
+                    role="Head Teacher II &ndash; Math, MAPEH, TLE"
+                    imageUrl="/assets/executives/ht/math.jpg"
+                  />
+                  <ExecutiveProfile
+                    name="Rozenda A. Mi&ntilde;oza"
+                    role="Head Teacher I &ndash; Communication Arts"
+                    imageUrl="/assets/executives/ht/arts.jpg"
+                  />
+                </div>
+              </div>
+
+              <div className="bg-neutral-200 py-4">
+                <h3 className="text-center">Master Teachers</h3>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
+                  <ExecutiveProfile
+                    name="Joralie J. Mendoza, PhD"
+                    role="Master Teacher II"
+                    imageUrl="/assets/executives/mt/mendoza.jpg"
+                  />
+                  <ExecutiveProfile
+                    name="Enerito M. Clima, PhD"
+                    role="Master Teacher II"
+                    imageUrl="/assets/executives/mt/clima.jpg"
+                  />
+                  <ExecutiveProfile
+                    name="Mariel Y. Castillo"
+                    role="Master Teacher II"
+                    imageUrl="/assets/executives/mt/castillo.jpg"
+                  />
+                  <ExecutiveProfile
+                    name="Chriselleen Jazel D. Pasilan"
+                    role="Master Teacher II"
+                    imageUrl="/assets/executives/mt/pasilan.jpg"
+                  />
+                  <ExecutiveProfile
+                    name="Mike Angelo B. Estopace"
+                    role="Master Teacher I"
+                    imageUrl="/assets/executives/mt/estopace.jpg"
+                  />
+                  <ExecutiveProfile
+                    name="Maria Cristina R. Miranda, EdD"
+                    role="Master Teacher I"
+                    imageUrl="/assets/executives/mt/miranda.jpg"
+                  />
+                </div>
+              </div>
+
+              <div className="py-4">
+                <h3 className="text-center">Key Teachers</h3>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
+                  <ExecutiveProfile
+                    name="Regina B. Salipot"
+                    role="Grade 7 Key Teacher"
+                    imageUrl="/assets/executives/kt/7.jpg"
+                  />
+                  <ExecutiveProfile
+                    name="Jocelyn B. Gregorio"
+                    role="Grade 8 Key Teacher"
+                    imageUrl="/assets/executives/kt/8.jpg"
+                  />
+                  <ExecutiveProfile
+                    name="Dolores V. Cruz"
+                    role="Grade 9 Key Teacher"
+                    imageUrl="/assets/executives/kt/9.jpg"
+                  />
+                  <ExecutiveProfile
+                    name="Janeza T. Alignay"
+                    role="Grade 10 Key Teacher"
+                    imageUrl="/assets/executives/kt/10.jpg"
+                  />
+                  <ExecutiveProfile
+                    name="Shinah Jasmin R. Miranda"
+                    role="Grade 11 Key Teacher"
+                    imageUrl="/assets/executives/kt/11.jpg"
+                  />
+                  <ExecutiveProfile
+                    name="Joralie J. Mendoza, PhD"
+                    role="Grade 12 Key Teacher"
+                    imageUrl="/assets/executives/kt/12.jpg"
+                  />
+                </div>
               </div>
             </div>
           </section>
