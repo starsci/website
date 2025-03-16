@@ -110,8 +110,8 @@ export function Header({
   )
 
   return (
-    <header className="bg-[#292929] shadow text-neutral-300 text-sm py-1">
-      <div className="container mx-auto px-4 md:px-6 lg:px-8">
+    <header className="bg-[#292929] shadow text-neutral-300 text-sm">
+      <div className="container mx-auto px-4 md:px-6 lg:px-8 py-1">
         <div className="flex space-x-4 justify-between">
           <div className="flex items-center">
             <Image
@@ -152,6 +152,28 @@ export function Header({
         <hr className="w-full border-[#595959] my-1" />
         {renderMobileLinks(rightLinks)}
       </nav>
+
+      <section className="bg-brand-blue-default text-white text-xs py-1">
+        {/*fit masthead 3000px here*/}
+        <div className="container py-2 grid grid-cols-4">
+          <Image
+            src="/assets/masthead.png"
+            alt="Santa Rosa Science and Technology High School"
+            height={0}
+            width={0}
+            sizes="100vw"
+            className="w-full h-auto col-span-4 lg:col-span-3"
+          />
+          <div className="my-4 flex flex-col col-span-4 lg:col-span-1">
+            <span>Philippine Standard Time</span>
+            <iframe
+              src="http://oras.pagasa.dost.gov.ph/time_display/time/"
+              height="14rem"
+              width="100%"
+              className="block"></iframe>
+          </div>
+        </div>
+      </section>
     </header>
   )
 }
