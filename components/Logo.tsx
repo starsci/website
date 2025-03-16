@@ -1,14 +1,27 @@
-import Image from "next/image";
+import Image from 'next/image'
+import {v2} from 'cloudinary'
 
-export type LogoProps = {
-    height?: number;
-    width?: number;
-}
+export function Logo({
+  height = 40,
+  width = 40,
+  publicId,
+  alt
+}: {
+  height?: number
+  width?: number
+  publicId: string
+  alt: string
+}) {
+  const logo = v2.url(publicId)
 
-export function Logo({height = 40, width = 40}: LogoProps) {
-
-    return <Image src="/assets/logo.png"
-                  alt="Santa Rosa Science and Technology High School"
-                  width={width} height={height}
-                  className="rounded-full" sizes="100vw"/>;
+  return (
+    <Image
+      src={logo}
+      alt={alt}
+      width={width}
+      height={height}
+      className="rounded-full"
+      sizes="100vw"
+    />
+  )
 }
