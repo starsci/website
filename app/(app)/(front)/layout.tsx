@@ -5,9 +5,9 @@ import {Logo} from '@/components/Logo'
 const leftLinks = [
   {name: 'Home', href: '/'},
   {
-    name: 'Transparency Seal',
+    name: 'Transparency',
     href: '#',
-    children: [{name: 'About', href: '/about'}]
+    children: [{name: "Citizen's Charter", href: '#'}]
   },
   {name: 'Announcements', href: '/announcements'},
   {name: 'Clubs', href: '/clubs'},
@@ -21,7 +21,10 @@ const leftLinks = [
   }
 ]
 
-const rightLinks = [{name: 'Contact', href: '/contact'}]
+const rightLinks = [
+  {name: 'About', href: '/about'},
+  {name: 'Contact', href: '/contact'}
+]
 
 export default function Layout({
   children
