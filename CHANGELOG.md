@@ -1,3 +1,12 @@
+## 0.8.0 (2025-03-16)
+
+### Feat
+
+- add portraits in organizational chart
+- update layout to conform to DICT Unified Website Content Policy
+- add tabs to about page
+- add tabs component
+
 ## 0.7.1 (2024-12-26)
 
 ### Feat
