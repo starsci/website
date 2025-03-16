@@ -1,25 +1,27 @@
-import { Header } from '@/components/Header'
-import { Footer } from '@/components/Footer'
-import { Logo } from '@/components/Logo'
+import {Header} from '@/components/Header'
+import {Footer} from '@/components/Footer'
+import {Logo} from '@/components/Logo'
 
 const leftLinks = [
-  { name: 'Clubs', href: '/clubs' },
-  { name: 'Announcements', href: '/announcements' },
+  {name: 'Home', href: '/'},
+  {
+    name: 'Transparency Seal',
+    href: '#',
+    children: [{name: 'About', href: '/about'}]
+  },
+  {name: 'Announcements', href: '/announcements'},
+  {name: 'Clubs', href: '/clubs'},
   {
     name: 'Publications',
     href: '#',
     children: [
-      { name: 'Pararayos', href: '/pararayos' },
-      { name: 'The Satellite', href: '/the-satellite' }
+      {name: 'Pararayos', href: '/pararayos'},
+      {name: 'The Satellite', href: '/the-satellite'}
     ]
   }
 ]
 
-const rightLinks = [
-  // {name: 'Services', href: '/services'},
-  { name: 'About', href: '/about' },
-  { name: 'Contact', href: '/contact' }
-]
+const rightLinks = [{name: 'Contact', href: '/contact'}]
 
 export default function Layout({
   children

@@ -3,8 +3,9 @@
 import {HR} from '@/components/HR'
 import {cn} from '@/lib/utils'
 import {ChevronDown, X, Menu} from 'lucide-react'
-import Link from 'next/link'
 import {ReactNode, useState} from 'react'
+import Link from 'next/link'
+import Image from 'next/image'
 
 type LinkType = {
   name: string
@@ -45,7 +46,7 @@ export function Header({
           <>
             <button
               onClick={() => toggleMenu(item.name)}
-              className="flex items-center justify-between w-full py-2 px-3 hover:bg-brand-blue-dark md:hover:bg-brand-blue-darker"
+              className="flex items-center justify-between w-full py-2 px-3 hover:bg-[#393939] md:hover:bg-[#393939]er"
               aria-expanded={openMenus.includes(item.name)}>
               {item.name}
               <ChevronDown
@@ -63,7 +64,7 @@ export function Header({
         ) : (
           <a
             href={item.href}
-            className="block py-2 px-3 hover:bg-brand-blue-dark md:hover:bg-brand-blue-darker">
+            className="block py-2 px-3 hover:bg-[#393939] md:hover:bg-[#393939]er">
             {item.name}
           </a>
         )}
@@ -79,7 +80,7 @@ export function Header({
             <>
               <button
                 onClick={() => toggleMenu(item.name)}
-                className="flex items-center py-2 px-3 hover:bg-brand-blue-dark"
+                className="flex items-center py-2 px-3 hover:bg-[#393939]"
                 aria-expanded={openMenus.includes(item.name)}>
                 {item.name}
                 <ChevronDown
@@ -89,15 +90,13 @@ export function Header({
                 />
               </button>
               {openMenus.includes(item.name) && (
-                <div className="absolute left-0 mt-2 w-48 bg-brand-blue-dark shadow-lg z-50">
+                <div className="absolute left-0 mt-2 w-48 bg-[#292929] shadow-lg z-50">
                   <ul className="py-2">{renderNavItems(item.children)}</ul>
                 </div>
               )}
             </>
           ) : (
-            <a
-              href={item.href}
-              className="block py-2 px-3 hover:bg-brand-blue-dark">
+            <a href={item.href} className="block py-2 px-3 hover:bg-[#393939]">
               {item.name}
             </a>
           )}
@@ -111,11 +110,16 @@ export function Header({
   )
 
   return (
-    <header className="bg-brand-blue-default shadow text-white">
+    <header className="bg-[#292929] shadow text-neutral-300 text-sm py-1">
       <div className="container mx-auto px-4 md:px-6 lg:px-8">
-        <div className="flex h-16 space-x-4 justify-between">
+        <div className="flex space-x-4 justify-between">
           <div className="flex items-center">
-            <Link href={basePath}>{logo}</Link>
+            <Image
+              src="/assets/govph-seal-mono-footer.png"
+              alt="Santa Rosa Science and Technology High School"
+              width={33}
+              height={33}
+            />
           </div>
           <nav className="hidden md:flex sm:items-center sm:flex-grow">
             <section className="flex flex-grow justify-between">
@@ -126,7 +130,7 @@ export function Header({
           <div className="md:hidden flex items-center">
             <button
               type="button"
-              className="inline-flex items-center justify-center p-2 rounded-md hover:bg-brand-blue-dark"
+              className="inline-flex items-center justify-center p-2 rounded-md hover:bg-[#393939]"
               aria-controls="mobile-menu"
               aria-expanded={mobileMenuOpen}
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
@@ -145,7 +149,7 @@ export function Header({
         className={`md:hidden ${mobileMenuOpen ? 'block' : 'hidden'}`}
         id="mobile-menu">
         {renderMobileLinks(leftLinks)}
-        <HR />
+        <hr className="w-full border-[#595959] my-1" />
         {renderMobileLinks(rightLinks)}
       </nav>
     </header>

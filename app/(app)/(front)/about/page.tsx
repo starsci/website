@@ -2,6 +2,7 @@ import ExecutiveProfile from '@/components/ExecutiveProfile'
 import {Logo} from '@/components/Logo'
 import {Tabs, TabsList, TabsTrigger} from '@/components/ui/tabs'
 import {TabsContent} from '@radix-ui/react-tabs'
+import Image from 'next/image'
 
 export const metadata = {
   title: 'About Us | Santa Rosa Science and Technology High School',
@@ -91,11 +92,11 @@ export default function About() {
                 </li>
               </ul>
               <div className="flex md:block justify-center">
-                <Logo
-                  publicId={process.env.NEXT_PUBLIC_SRSTHS_LOGO_PUBLIC_ID || ''}
-                  height={256}
-                  width={256}
-                  alt="Santa Rosa Science and Technology High School"
+                <Image
+                  src="/assets/srsths-logo.webp"
+                  alt="Santa Rosa Science and Technology High School Logo"
+                  width={200}
+                  height={200}
                 />
               </div>
             </div>
