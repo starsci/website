@@ -167,7 +167,7 @@ export function Header({
           <div className="my-4 flex flex-col col-span-4 lg:col-span-1">
             <span>Philippine Standard Time</span>
             <iframe
-              src="http://oras.pagasa.dost.gov.ph/time_display/time/"
+              src="//oras.pagasa.dost.gov.ph/time_display/time/"
               height="14rem"
               width="100%"
               className="block"></iframe>
