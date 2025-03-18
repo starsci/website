@@ -10,15 +10,15 @@ const leftLinks = [
     children: [{name: "Citizen's Charter", href: '#'}]
   },
   {name: 'Announcements', href: '/announcements'},
-  {name: 'Clubs', href: '/clubs'},
-  {
-    name: 'Publications',
-    href: '#',
-    children: [
-      {name: 'Pararayos', href: '/pararayos'},
-      {name: 'The Satellite', href: '/the-satellite'}
-    ]
-  }
+  {name: 'Clubs', href: '/clubs'}
+  // {
+  //   name: 'Publications',
+  //   href: '#',
+  //   children: [
+  //     {name: 'Pararayos', href: '/pararayos'},
+  //     {name: 'The Satellite', href: '/the-satellite'}
+  //   ]
+  // }
 ]
 
 const rightLinks = [

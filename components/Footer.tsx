@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import {Logo} from './Logo'
 import {Phone, MailOpen, Facebook, MapPinned} from 'lucide-react'
 
 const links = [
@@ -13,14 +12,14 @@ const links = [
       {title: 'Contact', href: '/contact'},
       {title: 'Clubs', href: '/clubs'}
     ]
-  },
-  {
-    name: 'Publications',
-    content: [
-      {title: 'Pararayos', href: '/pararayos'},
-      {title: 'The Satellite', href: '/the-satellite'}
-    ]
   }
+  // {
+  //   name: 'Publications',
+  //   content: [
+  //     {title: 'Pararayos', href: '/pararayos'},
+  //     {title: 'The Satellite', href: '/the-satellite'}
+  //   ]
+  // }
 ]
 
 export function Footer() {
