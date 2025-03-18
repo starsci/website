@@ -296,7 +296,7 @@ export default function About() {
               <div className="bg-neutral-200 py-4">
                 <h3 className="text-center">Master Teachers</h3>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-7">
                   <ExecutiveProfile
                     name="Joralie J. Mendoza, PhD"
                     role="Master Teacher II"
@@ -326,6 +326,11 @@ export default function About() {
                     name="Maria Cristina R. Miranda, EdD"
                     role="Master Teacher I"
                     imageUrl="/assets/executives/mt/miranda.jpg"
+                  />
+                  <ExecutiveProfile
+                    name="Hazel T. Edrozo"
+                    role="Master Teacher I"
+                    imageUrl="/assets/executives/mt/edrozo.jpg"
                   />
                 </div>
               </div>
