@@ -256,22 +256,26 @@ export default function About() {
               </div>
 
               <div className="py-4">
-                <ExecutiveProfile
-                  name="Riza Jane De Castro"
-                  role="Registrar"
-                  imageUrl="/assets/executives/registrar.jpg"
-                />
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
+		  <ExecutiveProfile
+		    name="Gladysma Kate E. Ruga, RGC, RPm"
+		    role="Guidance Counselor II"
+		    imageUrl="/assets/executives/guidance.jpg"
+		  />
+                  <ExecutiveProfile
+                    name="Riza Jane De Castro"
+                    role="Registrar"
+                    imageUrl="/assets/executives/registrar.jpg"
+                  />
+                  <ExecutiveProfile
+                    name="Jayson T. Mallonga, EdD"
+                    role="School Activity Coordinator"
+                    imageUrl="/assets/executives/sac.jpg"
+                  />
+		</div>
               </div>
 
               <div className="bg-neutral-200 py-4">
-                <ExecutiveProfile
-                  name="Jayson T. Mallonga, EdD"
-                  role="Guidance Designate"
-                  imageUrl="/assets/executives/guidance.jpg"
-                />
-              </div>
-
-              <div className="py-4">
                 <h3 className="text-center">Head Teachers</h3>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
@@ -293,7 +297,7 @@ export default function About() {
                 </div>
               </div>
 
-              <div className="bg-neutral-200 py-4">
+              <div className="py-4">
                 <h3 className="text-center">Master Teachers</h3>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-7">
@@ -335,7 +339,7 @@ export default function About() {
                 </div>
               </div>
 
-              <div className="py-4">
+              <div className="bg-neutral-200 py-4">
                 <h3 className="text-center">Key Teachers</h3>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
@@ -365,7 +369,7 @@ export default function About() {
                     imageUrl="/assets/executives/kt/11.jpg"
                   />
                   <ExecutiveProfile
-                    name="Joralie J. Mendoza, PhD"
+                    name="Mike Angelo B. Estopace"
                     role="Grade 12 Key Teacher"
                     imageUrl="/assets/executives/kt/12.jpg"
                   />
