@@ -1,16 +1,8 @@
 import type {Config} from 'tailwindcss'
-import {v2} from 'cloudinary'
-
-const hero = v2.url(process.env.NEXT_PUBLIC_HERO_PUBLIC_ID || '')
 
 const config = {
   darkMode: ['class'],
-  content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}'
-  ],
+  content: ['./src/**/*.{ts,tsx}'],
   prefix: '',
   theme: {
     container: {
@@ -21,9 +13,6 @@ const config = {
       }
     },
     extend: {
-      backgroundImage: {
-        hero: `url("${hero}")`
-      },
       colors: {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
