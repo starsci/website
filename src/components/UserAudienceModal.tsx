@@ -2,8 +2,9 @@
 
 import {useRouter} from 'next/navigation'
 import {useCallback, useEffect, useState} from 'react'
+import {COOKIE_NAME} from '@/lib/cookies'
+import {useCookies} from 'react-cookie'
 
-const COOKIE_NAME = 'srsths_user_audience'
 const COOKIE_MAX_AGE_SECONDS = 60 * 60 * 24 * 30 // 30 days
 
 type Audience = 'student' | 'parent' | 'teacher-employee' | 'visitor'
@@ -24,27 +25,13 @@ const AUDIENCE_OPTIONS: Record<
   visitor: {label: 'Visitor'}
 }
 
-function getCookie(name: string): string | null {
-  if (typeof document === 'undefined') return null
-
-  const cookie = document.cookie
-    .split('; ')
-    .find(entry => entry.startsWith(`${name}=`))
-
-  if (!cookie) return null
-  return decodeURIComponent(cookie.split('=')[1] ?? '')
-}
-
-function setCookie(name: string, value: string) {
-  document.cookie = `${name}=${encodeURIComponent(value)}; path=/; max-age=${COOKIE_MAX_AGE_SECONDS}; samesite=lax`
-}
-
 export function UserAudienceModal() {
   const [isOpen, setIsOpen] = useState(false)
+  const [cookies, setCookie] = useCookies([COOKIE_NAME])
   const router = useRouter()
 
   useEffect(() => {
-    const savedAudience = getCookie(COOKIE_NAME)
+    const savedAudience = cookies[COOKIE_NAME]
     if (!savedAudience) {
       setIsOpen(true)
     }
@@ -52,7 +39,10 @@ export function UserAudienceModal() {
 
   const handleSelect = useCallback(
     (audience: Audience) => {
-      setCookie(COOKIE_NAME, audience)
+      setCookie(COOKIE_NAME, audience, {
+        path: '/',
+        maxAge: COOKIE_MAX_AGE_SECONDS
+      })
       setIsOpen(false)
 
       const redirectTo = AUDIENCE_OPTIONS[audience].redirectTo

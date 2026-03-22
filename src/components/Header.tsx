@@ -1,11 +1,13 @@
 'use client'
 
 import {cn} from '@/lib/utils'
+import {COOKIE_NAME} from '@/lib/cookies'
 import {useAuth} from '@/providers/Auth'
 import {ChevronDown, X, Menu} from 'lucide-react'
-import {ReactNode, useState, useEffect, useRef} from 'react'
+import {ReactNode, useState, useEffect} from 'react'
 import Image from 'next/image'
 import {useRouter} from 'next/navigation'
+import {useCookies} from 'react-cookie'
 
 type LinkType = {
   name: string
@@ -26,11 +28,16 @@ export function Header({
 }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [openMenus, setOpenMenus] = useState<string[]>([])
+  const [showTeacherLogin, setShowTeacherLogin] = useState(false)
   const {user, logout} = useAuth()
+  const [cookies] = useCookies([COOKIE_NAME])
   const router = useRouter()
   const authenticated = Boolean(user)
 
-  console.log('Header rendered with user:', user)
+  useEffect(() => {
+    const audience = cookies[COOKIE_NAME]
+    setShowTeacherLogin(audience === 'teacher-employee')
+  }, [cookies])
 
   const toggleMenu = (menuName: string) => {
     setOpenMenus(prevOpenMenus =>
@@ -131,6 +138,14 @@ export function Header({
               {renderDesktopLinks(leftLinks)}
               <div className="flex items-center gap-2">
                 {renderDesktopLinks(rightLinks)}
+                {showTeacherLogin && !authenticated && (
+                  <button
+                    type="button"
+                    onClick={() => router.push('/internal-login')}
+                    className="block py-2 px-3 hover:bg-[#393939]">
+                    Login
+                  </button>
+                )}
                 {authenticated && (
                   <button
                     type="button"
@@ -169,6 +184,14 @@ export function Header({
         {renderMobileLinks(leftLinks)}
         <hr className="w-full border-[#595959] my-1" />
         {renderMobileLinks(rightLinks)}
+        {showTeacherLogin && !authenticated && (
+          <button
+            type="button"
+            onClick={() => router.push('/internal-login')}
+            className="w-full text-left py-2 px-3 hover:bg-[#393939]">
+            Login
+          </button>
+        )}
         {authenticated && (
           <button
             type="button"
