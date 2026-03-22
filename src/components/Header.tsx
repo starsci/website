@@ -160,7 +160,7 @@ export function Header({
               height={33}
             />
           </div>
-          <nav className="hidden md:flex sm:items-center sm:flex-grow">
+          <nav className="hidden lg:flex sm:items-center sm:flex-grow">
             <section className="flex flex-grow justify-between">
               {renderDesktopLinks(leftLinks)}
               <div className="flex items-center gap-2">
@@ -168,7 +168,7 @@ export function Header({
               </div>
             </section>
           </nav>
-          <div className="md:hidden flex items-center">
+          <div className="lg:hidden flex items-center">
             <button
               type="button"
               className="inline-flex items-center justify-center p-2 rounded-md hover:bg-[#393939]"
@@ -187,7 +187,7 @@ export function Header({
       </div>
 
       <nav
-        className={`md:hidden ${mobileMenuOpen ? 'block' : 'hidden'}`}
+        className={`lg:hidden ${mobileMenuOpen ? 'block' : 'hidden'}`}
         id="mobile-menu">
         {renderMobileLinks(leftLinks)}
         <hr className="w-full border-[#595959] my-1" />
