@@ -19,7 +19,7 @@ const AUDIENCE_OPTIONS: Record<
   parent: {label: 'Parent'},
   'teacher-employee': {
     label: 'Teacher/Employee',
-    redirectTo: '/internal-login'
+    redirectTo: '/employee/login'
   },
   visitor: {label: 'Visitor'}
 }
@@ -53,14 +53,12 @@ export function UserAudienceModal() {
   const handleSelect = useCallback(
     (audience: Audience) => {
       setCookie(COOKIE_NAME, audience)
+      setIsOpen(false)
 
       const redirectTo = AUDIENCE_OPTIONS[audience].redirectTo
       if (redirectTo) {
         router.push(redirectTo)
-        return
       }
-
-      setIsOpen(false)
     },
     [router]
   )

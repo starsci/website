@@ -43,7 +43,7 @@ export function InternalLoginForm() {
   return (
     <Card className="max-w-md w-full">
       <CardContent className="p-6">
-        <h1 className="text-2xl font-bold mb-2">Internal Login</h1>
+        <h1 className="text-2xl font-bold mb-2">Login</h1>
         <p className="text-sm text-gray-600 mb-6">
           Sign in with your teacher/employee account.
         </p>
