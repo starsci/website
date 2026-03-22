@@ -4,11 +4,11 @@ import {Logo} from '@/components/Logo'
 import {getMediaUrlByFilename} from '@/lib/media'
 
 const leftLinks = [
-  {name: 'News', href: '#'},
-  {name: 'Feature', href: '#'},
-  {name: 'Opinion', href: '#'},
-  {name: 'Sports', href: '#'},
-  {name: 'Sci & Tech', href: '#'}
+  {name: 'News', href: '/the-satellite/news'},
+  {name: 'Feature', href: '/the-satellite/feature'},
+  {name: 'Opinion', href: '/the-satellite/opinion'},
+  {name: 'Sports', href: '/the-satellite/sports'},
+  {name: 'Sci & Tech', href: '/the-satellite/sci-and-tech'}
 ]
 
 const rightLinks = [{name: 'Back to Home', href: '/'}]

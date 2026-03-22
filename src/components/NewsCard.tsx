@@ -5,6 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import {News} from '@/payload-types'
 import {PaginatedDocs} from 'payload'
+import {convertLexicalToHTML} from '@payloadcms/richtext-lexical/html'
 
 export function NewsCard({
   news,
@@ -19,6 +20,7 @@ export function NewsCard({
       <ScrollArea className="max-h-[25rem] overflow-y-auto p-2 mb-4 ">
         {news.docs.map((news, index) => {
           const thumbnailUrl = getMediaUrl(news.thumbnail)
+          const bodyHTML = convertLexicalToHTML({data: news.body})
 
           return (
             <div key={index} className="flex flex-col lg:flex-row gap-4 mb-4">
@@ -49,7 +51,7 @@ export function NewsCard({
                 </small>
                 <p
                   className="text-sm line-clamp-2 md:line-clamp-3"
-                  dangerouslySetInnerHTML={{__html: news.bodyHTML!}}></p>
+                  dangerouslySetInnerHTML={{__html: bodyHTML || ''}}></p>
               </div>
             </div>
           )

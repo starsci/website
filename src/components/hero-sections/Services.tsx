@@ -5,6 +5,7 @@ import {getMediaUrl} from '@/lib/utils'
 import {ChevronRight} from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
+import {convertLexicalToHTML} from '@payloadcms/richtext-lexical/html'
 
 export function Services() {
   const {data, isLoading, error} = useQuery({
@@ -31,6 +32,7 @@ export function Services() {
   }
 
   const thumbnailUrl = getMediaUrl(frontPage.thumbnail)
+  const bodyHTML = convertLexicalToHTML({data: frontPage.body})
 
   return (
     <div className="flex flex-col sm:flex-row gap-4 lg:px-[10rem] py-8">
@@ -63,7 +65,7 @@ export function Services() {
         </small>
         <p
           className="text-sm line-clamp-4 md:line-clamp-[8] prose-sm mb-4"
-          dangerouslySetInnerHTML={{__html: frontPage.bodyHTML!}}></p>
+          dangerouslySetInnerHTML={{__html: bodyHTML || ''}}></p>
         <Link
           href={`/announcements/${frontPage.id}`}
           className="text-md hover:underline font-semibold gap-x-2 flex items-center">
