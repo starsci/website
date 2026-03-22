@@ -13,6 +13,7 @@ type LinkType = {
   name: string
   href: string
   children?: LinkType[] | undefined
+  onClick?: () => Promise<void>
 }
 
 export function Header({
@@ -29,6 +30,7 @@ export function Header({
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [openMenus, setOpenMenus] = useState<string[]>([])
   const [showTeacherLogin, setShowTeacherLogin] = useState(false)
+  const [realRightLinks, setRealRightLinks] = useState<LinkType[]>(rightLinks)
   const {user, logout} = useAuth()
   const [cookies] = useCookies([COOKIE_NAME])
   const router = useRouter()
@@ -38,6 +40,27 @@ export function Header({
     const audience = cookies[COOKIE_NAME]
     setShowTeacherLogin(audience === 'teacher-employee')
   }, [cookies])
+
+  useEffect(() => {
+    setRealRightLinks([
+      ...rightLinks,
+      ...(showTeacherLogin && !authenticated
+        ? [{name: 'Login', href: '/employee/login'}]
+        : []),
+      ...(authenticated
+        ? [
+            {
+              name: 'Logout',
+              href: '#',
+              onClick: async () => {
+                await logout()
+                router.push('/')
+              }
+            }
+          ]
+        : [])
+    ])
+  }, [user, showTeacherLogin])
 
   const toggleMenu = (menuName: string) => {
     setOpenMenus(prevOpenMenus =>
@@ -76,7 +99,8 @@ export function Header({
         ) : (
           <a
             href={item.href}
-            className="block py-2 px-3 hover:bg-[#393939] md:hover:bg-[#393939]er">
+            className="block py-2 px-3 hover:bg-[#393939] md:hover:bg-[#393939]er"
+            onClick={item.onClick ?? (() => {})}>
             {item.name}
           </a>
         )}
@@ -108,7 +132,10 @@ export function Header({
               )}
             </>
           ) : (
-            <a href={item.href} className="block py-2 px-3 hover:bg-[#393939]">
+            <a
+              href={item.href}
+              className="block py-2 px-3 hover:bg-[#393939]"
+              onClick={item.onClick ?? (() => {})}>
               {item.name}
             </a>
           )}
@@ -137,26 +164,7 @@ export function Header({
             <section className="flex flex-grow justify-between">
               {renderDesktopLinks(leftLinks)}
               <div className="flex items-center gap-2">
-                {renderDesktopLinks(rightLinks)}
-                {showTeacherLogin && !authenticated && (
-                  <button
-                    type="button"
-                    onClick={() => router.push('/internal-login')}
-                    className="block py-2 px-3 hover:bg-[#393939]">
-                    Login
-                  </button>
-                )}
-                {authenticated && (
-                  <button
-                    type="button"
-                    onClick={async () => {
-                      await logout()
-                      router.push('/')
-                    }}
-                    className="block py-2 px-3 hover:bg-[#393939]">
-                    Logout
-                  </button>
-                )}
+                {renderDesktopLinks(realRightLinks)}
               </div>
             </section>
           </nav>
@@ -183,26 +191,7 @@ export function Header({
         id="mobile-menu">
         {renderMobileLinks(leftLinks)}
         <hr className="w-full border-[#595959] my-1" />
-        {renderMobileLinks(rightLinks)}
-        {showTeacherLogin && !authenticated && (
-          <button
-            type="button"
-            onClick={() => router.push('/internal-login')}
-            className="w-full text-left py-2 px-3 hover:bg-[#393939]">
-            Login
-          </button>
-        )}
-        {authenticated && (
-          <button
-            type="button"
-            onClick={async () => {
-              await logout()
-              router.push('/')
-            }}
-            className="w-full text-left py-2 px-3 hover:bg-[#393939]">
-            Logout
-          </button>
-        )}
+        {renderMobileLinks(realRightLinks)}
       </nav>
 
       <section className="bg-brand-blue-default text-white text-xs py-1">
