@@ -64,7 +64,25 @@ export const ClubAnnouncements: CollectionConfig = {
       name: 'club',
       type: 'relationship',
       relationTo: 'clubs',
-      required: true
+      required: true,
+      admin: {
+        readOnly: true
+      },
+      defaultValue: ({user}) => {
+        if (!user) {
+          return null
+        }
+
+        if (
+          user.collection === 'admins' &&
+          user.role === 'club-manager' &&
+          isClubObject(user.club)
+        ) {
+          return user.club.id
+        }
+
+        return null
+      }
     },
     {
       name: 'body',

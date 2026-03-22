@@ -1,13 +1,63 @@
 import type {CollectionConfig} from 'payload'
-import {canCreateNews, canManageNews} from '@/admin/access'
-
+import {isAdmin, isClubObject, UserType, ClubType} from '@/admin/access'
 import {lexicalEditor} from '@payloadcms/richtext-lexical'
+import {News as NewsType} from '@/payload-types'
+
+function getNewsPublicationFromClub(
+  user: UserType
+): NewsType['publication'] | null {
+  if (!isAdmin(user)) {
+    return null
+  }
+
+  const club = user.club as ClubType
+  if (!isClubObject(club)) {
+    return null
+  }
+
+  const clubName = club.name
+
+  if (clubName === 'Pararayos') {
+    return 'pararayos'
+  }
+
+  if (clubName === 'The Satellite') {
+    return 'the-satellite'
+  }
+
+  return null
+}
+
+function canManageNews(user: UserType) {
+  if (isAdmin(user) && user.role === 'supervisor') {
+    return true
+  }
+
+  const allowedPublication = getNewsPublicationFromClub(user)
+  if (!allowedPublication) {
+    return false
+  }
+
+  return {
+    publication: {
+      equals: allowedPublication
+    }
+  }
+}
 
 export const News: CollectionConfig = {
   slug: 'news',
   access: {
-    read: () => true,
-    create: ({req: {user}, data}) => canCreateNews(user, data),
+    read: ({req: {user}}) => {
+      // if non-user or user is not admin, show
+      if (!user || user.collection !== 'admins') {
+        return true
+      }
+
+      // only show if can manage news of specific publication
+      return canManageNews(user)
+    },
+    create: ({req: {user}}) => canManageNews(user),
     update: ({req: {user}}) => canManageNews(user),
     delete: ({req: {user}}) => canManageNews(user)
   },
@@ -30,7 +80,18 @@ export const News: CollectionConfig = {
       options: [
         {label: 'Pararayos', value: 'pararayos'},
         {label: 'The Satellite', value: 'the-satellite'}
-      ]
+      ],
+      admin: {
+        readOnly: true
+      },
+      defaultValue: ({user}) => {
+        if (!user) {
+          return null
+        }
+
+        const publication = getNewsPublicationFromClub(user)
+        return publication
+      }
     },
     {
       name: 'title',

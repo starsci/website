@@ -46,9 +46,7 @@ export function isSupervisorOrSocialMediaManager(
   )
 }
 
-export function isSupervisorOrClubManager(user: UserType) {
-  
-}
+export function isSupervisorOrClubManager(user: UserType) {}
 
 export function isSupervisorOrSocialMediaManagerOrStaff(user: UserType) {
   // if supervisor, return all announcements
@@ -92,63 +90,4 @@ export function isSupervisorOrSatelliteMember(user: UserType) {
 
 export function isSupervisorOrPararayosMember(user: UserType) {
   return isSupervisorOrClubMember(user, 'Pararayos')
-}
-
-function getNewsPublicationFromClub(
-  user: UserType
-): News['publication'] | null {
-  if (!isAdmin(user)) {
-    return null
-  }
-
-  const club = user.club as Club | number | null | undefined
-  if (!isClubObject(club)) {
-    return null
-  }
-
-  const clubName = club.name
-
-  if (clubName === 'Pararayos') {
-    return 'pararayos'
-  }
-
-  if (clubName === 'The Satellite') {
-    return 'the-satellite'
-  }
-
-  return null
-}
-
-export function canCreateNews(
-  user: UserType,
-  data: {publication?: string} | null | undefined
-) {
-  if (isAdmin(user) && user.role === 'supervisor') {
-    return true
-  }
-
-  const allowedPublication = getNewsPublicationFromClub(user)
-  if (!allowedPublication) {
-    return false
-  }
-
-  const publication = data?.publication
-  return publication === allowedPublication
-}
-
-export function canManageNews(user: UserType) {
-  if (isAdmin(user) && user.role === 'supervisor') {
-    return true
-  }
-
-  const allowedPublication = getNewsPublicationFromClub(user)
-  if (!allowedPublication) {
-    return false
-  }
-
-  return {
-    publication: {
-      equals: allowedPublication
-    }
-  }
 }
