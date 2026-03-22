@@ -70,7 +70,7 @@ export default async function SatelliteCategoryPage({
           return (
             <Link
               key={article.id}
-              href={`/the-satellite/${article.id}`}
+              href={`/the-satellite/articles/${article.id}`}
               className="group">
               <article className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow h-full flex flex-col">
                 {thumbnailUrl && (

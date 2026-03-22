@@ -8,12 +8,14 @@ export function Aside({
   slug,
   collection,
   caption,
-  publication
+  publication,
+  hrefBase = '/announcements'
 }: {
   slug: string
   caption: string
   collection: 'school-announcements' | 'club-announcements' | 'news'
   publication?: News['publication']
+  hrefBase?: string
 }) {
   const {data, isLoading, error} = useQuery({
     collection,
@@ -53,7 +55,7 @@ export function Aside({
       <ul>
         {data.docs.map(doc => (
           <li key={doc.id} className="mb-4">
-            <Link href={`/announcements/${doc.id}`}>
+            <Link href={`${hrefBase}/${doc.id}`}>
               <h3 className="text-xl font-bold">{doc.title}</h3>
             </Link>
             <p className="text-sm text-gray-500">

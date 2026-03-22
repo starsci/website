@@ -36,7 +36,9 @@ export function NewsCard({
               )}
               <div className="flex flex-col">
                 <h3 className="text-lg leading-6">
-                  <Link className="hover:underline" href={`${href}/${news.id}`}>
+                  <Link
+                    className="hover:underline"
+                    href={`${href}/articles/${news.id}`}>
                     {news.title}
                   </Link>
                 </h3>

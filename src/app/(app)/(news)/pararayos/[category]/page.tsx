@@ -70,7 +70,7 @@ export default async function PararayosCategoryPage({
           return (
             <Link
               key={article.id}
-              href={`/pararayos/${article.id}`}
+              href={`/pararayos/articles/${article.id}`}
               className="group">
               <article className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow h-full flex flex-col">
                 {thumbnailUrl && (

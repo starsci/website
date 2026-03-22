@@ -63,7 +63,7 @@ export function PublicationGrid({
               return (
                 <Link
                   key={article.id}
-                  href={`/${publication}/${article.id}`}
+                  href={`/${publication}/articles/${article.id}`}
                   className="group">
                   <article className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow h-full flex flex-col">
                     {thumbnailUrl && (
