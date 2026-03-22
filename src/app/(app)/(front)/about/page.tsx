@@ -1,5 +1,4 @@
 import {OrganizationalChart} from '@/components/organizational-chart/Chart'
-import {Logo} from '@/components/Logo'
 import {Tabs, TabsList, TabsTrigger} from '@/components/ui/tabs'
 import {TabsContent} from '@radix-ui/react-tabs'
 import Image from 'next/image'
