@@ -3,13 +3,16 @@ import {Logo} from '@/components/Logo'
 import {Tabs, TabsList, TabsTrigger} from '@/components/ui/tabs'
 import {TabsContent} from '@radix-ui/react-tabs'
 import Image from 'next/image'
+import {getMediaUrlByFilename} from '@/lib/media'
 
 export const metadata = {
   title: 'About Us | Santa Rosa Science and Technology High School',
   description: 'Learn about Santa Rosa Science and Technology High School'
 }
 
-export default function About() {
+export default async function About() {
+  const logoSrc = await getMediaUrlByFilename('SRSTHS logo')
+
   return (
     <main>
       <h1 className="text-4xl font-bold text-center mb-6">About Us</h1>
@@ -50,7 +53,7 @@ export default function About() {
               The SciTech logo signifies progress in the community. Each part
               symbolizes a component of progress.
             </p>
-            <div className="flex md:space-x-4 md:space-y-0 space-x-0 space-y-4 flex-col-reverse md:flex-row">
+            <div className="flex space-x-0 space-y-8 md:space-x-8 md:space-y-0 flex-col-reverse md:flex-row">
               <ul>
                 <li>
                   <strong>The open-winged eagle</strong> represents the strong
@@ -91,9 +94,9 @@ export default function About() {
                   protective government umbrella in high school education.
                 </li>
               </ul>
-              <div className="flex md:block justify-center">
+              <div className="flex md:block flex-shrink-0 justify-center">
                 <Image
-                  src="/assets/srsths-logo.webp"
+                  src={logoSrc}
                   alt="Santa Rosa Science and Technology High School Logo"
                   width={200}
                   height={200}
