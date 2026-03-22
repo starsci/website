@@ -2,6 +2,7 @@ import {Metadata} from 'next'
 import {Mulish} from 'next/font/google'
 import {Toaster} from '@/components/ui/toaster'
 import {ReactQueryClientProvider} from '@/components/QueryClientProvider'
+import {UserAudienceModal} from '@/components/UserAudienceModal'
 
 import './globals.css'
 
@@ -39,6 +40,7 @@ export default function RootLayout({
       <html lang="en">
         <body className={nextFont.className}>
           {children}
+          <UserAudienceModal />
           <Toaster />
         </body>
       </html>
