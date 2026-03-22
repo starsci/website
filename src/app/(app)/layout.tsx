@@ -5,6 +5,7 @@ import {ReactQueryClientProvider} from '@/components/QueryClientProvider'
 import {UserAudienceModal} from '@/components/UserAudienceModal'
 
 import './globals.css'
+import {AuthProvider} from '@/providers/Auth'
 
 const nextFont = Mulish({weight: ['400', '700'], subsets: ['latin']})
 const title = 'Santa Rosa Science and Technology High School'
@@ -37,13 +38,15 @@ export default function RootLayout({
 }>) {
   return (
     <ReactQueryClientProvider>
-      <html lang="en">
-        <body className={nextFont.className}>
-          {children}
-          <UserAudienceModal />
-          <Toaster />
-        </body>
-      </html>
+      <AuthProvider>
+        <html lang="en">
+          <body className={nextFont.className}>
+            {children}
+            <UserAudienceModal />
+            <Toaster />
+          </body>
+        </html>
+      </AuthProvider>
     </ReactQueryClientProvider>
   )
 }

@@ -29,6 +29,9 @@ importers:
       '@payloadcms/storage-s3':
         specifier: ^3.80.0
         version: 3.80.0(@types/react@19.2.14)(monaco-editor@0.55.1)(next@16.2.1(@babel/core@7.29.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(sass@1.77.4))(payload@3.80.0(graphql@16.13.1)(typescript@5.9.3))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(typescript@5.9.3)
+      '@payloadcms/ui':
+        specifier: ^3.80.0
+        version: 3.80.0(@types/react@19.2.14)(monaco-editor@0.55.1)(next@16.2.1(@babel/core@7.29.0)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(sass@1.77.4))(payload@3.80.0(graphql@16.13.1)(typescript@5.9.3))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(typescript@5.9.3)
       '@radix-ui/react-dialog':
         specifier: ^1.1.1
         version: 1.1.15(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
@@ -10070,6 +10073,7 @@ snapshots:
       '@tanstack/react-query': 5.91.3(react@19.2.4)
       class-variance-authority: 0.7.1
       clsx: 2.1.1
+      cross-env: 10.1.0
       embla-carousel-react: 8.6.0(react@19.2.4)
       graphql: 16.13.1
       lucide-react: 0.424.0(react@19.2.4)

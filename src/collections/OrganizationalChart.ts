@@ -5,9 +5,9 @@ export const OrganizationalChart: CollectionConfig = {
   slug: 'organizational-chart',
   access: {
     read: () => true,
-    create: isSupervisorOrSocialMediaManager,
-    update: isSupervisorOrSocialMediaManager,
-    delete: isSupervisorOrSocialMediaManager
+    create: ({req: {user}}) => isSupervisorOrSocialMediaManager(user),
+    update: ({req: {user}}) => isSupervisorOrSocialMediaManager(user),
+    delete: ({req: {user}}) => isSupervisorOrSocialMediaManager(user)
   },
   admin: {
     useAsTitle: 'name',

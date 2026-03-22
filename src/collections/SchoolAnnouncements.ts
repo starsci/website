@@ -9,10 +9,10 @@ import {lexicalEditor} from '@payloadcms/richtext-lexical'
 export const SchoolAnnouncements: CollectionConfig = {
   slug: 'school-announcements',
   access: {
-    read: isSupervisorOrSocialMediaManagerOrStaff,
-    create: isSupervisorOrSocialMediaManager,
-    update: isSupervisorOrSocialMediaManager,
-    delete: isSupervisorOrSocialMediaManager
+    read: ({req: {user}}) => isSupervisorOrSocialMediaManagerOrStaff(user),
+    create: ({req: {user}}) => isSupervisorOrSocialMediaManager(user),
+    update: ({req: {user}}) => isSupervisorOrSocialMediaManager(user),
+    delete: ({req: {user}}) => isSupervisorOrSocialMediaManager(user)
   },
   admin: {
     group: 'Announcements'

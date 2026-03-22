@@ -5,9 +5,9 @@ export const Clubs: CollectionConfig = {
   slug: 'clubs',
   access: {
     read: () => true,
-    create: isSupervisor,
-    update: isSupervisorOrClubManager,
-    delete: isSupervisor
+    create: ({req: {user}}) => isSupervisor(user),
+    update: ({req: {user}}) => isSupervisor(user),
+    delete: ({req: {user}}) => isSupervisor(user)
   },
   admin: {
     useAsTitle: 'name'

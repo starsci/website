@@ -7,9 +7,9 @@ export const News: CollectionConfig = {
   slug: 'news',
   access: {
     read: () => true,
-    create: canCreateNews,
-    update: canManageNews,
-    delete: canManageNews
+    create: ({req: {user}, data}) => canCreateNews(user, data),
+    update: ({req: {user}}) => canManageNews(user),
+    delete: ({req: {user}}) => canManageNews(user)
   },
   admin: {
     group: 'Newspaper'

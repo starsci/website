@@ -4,14 +4,15 @@ import type {CollectionConfig} from 'payload'
 export const Admins: CollectionConfig = {
   slug: 'admins',
   access: {
-    read: isSupervisorOrSelf,
-    create: isSupervisor,
-    update: isSupervisorOrSelf,
-    delete: isSupervisor
+    read: ({req: {user}}) => isSupervisorOrSelf(user),
+    create: ({req: {user}}) => isSupervisor(user),
+    update: ({req: {user}}) => isSupervisorOrSelf(user),
+    delete: ({req: {user}}) => isSupervisor(user)
   },
   admin: {
     useAsTitle: 'email',
-    group: 'People'
+    group: 'People',
+    hidden: ({user}) => !isSupervisor(user)
   },
   auth: true,
   fields: [
@@ -27,7 +28,7 @@ export const Admins: CollectionConfig = {
         {label: 'Social Media Manager', value: 'social-media-manager'} // can manage school-wide announcements
       ],
       access: {
-        update: isSupervisor
+        update: ({req: {user}}) => isSupervisor(user)
       }
     },
     {
@@ -39,7 +40,7 @@ export const Admins: CollectionConfig = {
         condition: data => data.role === 'club-manager' // only show this field if the user is a club manager
       },
       access: {
-        update: isSupervisor
+        update: ({req: {user}}) => isSupervisor(user)
       }
     }
   ]

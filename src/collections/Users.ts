@@ -4,23 +4,23 @@ import type {CollectionConfig} from 'payload'
 export const Users: CollectionConfig = {
   slug: 'users',
   access: {
-    read: isSupervisor
+    read: () => true,
+    create: ({req: {user}}) => isSupervisor(user),
+    update: ({req: {user}}) => isSupervisor(user),
+    delete: ({req: {user}}) => isSupervisor(user)
   },
   admin: {
     useAsTitle: 'email',
-    group: 'People'
+    group: 'People',
+    hidden: ({user}) => {
+      // Hide the Users collection from non-supervisors
+      if (!isSupervisor(user)) {
+        return true
+      }
+
+      return false
+    }
   },
   auth: true,
-  fields: [
-    // Email added by default
-    // Add more fields as needed
-    {
-      name: 'role',
-      type: 'select',
-      required: true,
-      options: [
-        {label: 'Staff', value: 'staff'} // can view internal announcements
-      ]
-    }
-  ]
+  fields: []
 }

@@ -1,11 +1,11 @@
 'use client'
 
-import {HR} from '@/components/HR'
 import {cn} from '@/lib/utils'
+import {useAuth} from '@/providers/Auth'
 import {ChevronDown, X, Menu} from 'lucide-react'
 import {ReactNode, useState} from 'react'
-import Link from 'next/link'
 import Image from 'next/image'
+import {useRouter} from 'next/navigation'
 
 type LinkType = {
   name: string
@@ -26,6 +26,11 @@ export function Header({
 }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [openMenus, setOpenMenus] = useState<string[]>([])
+  const {user, logout} = useAuth()
+  const router = useRouter()
+  const authenticated = Boolean(user)
+
+  console.log('Header rendered with user:', user)
 
   const toggleMenu = (menuName: string) => {
     setOpenMenus(prevOpenMenus =>
@@ -124,7 +129,20 @@ export function Header({
           <nav className="hidden md:flex sm:items-center sm:flex-grow">
             <section className="flex flex-grow justify-between">
               {renderDesktopLinks(leftLinks)}
-              {renderDesktopLinks(rightLinks)}
+              <div className="flex items-center gap-2">
+                {renderDesktopLinks(rightLinks)}
+                {authenticated && (
+                  <button
+                    type="button"
+                    onClick={async () => {
+                      await logout()
+                      router.push('/')
+                    }}
+                    className="block py-2 px-3 hover:bg-[#393939]">
+                    Logout
+                  </button>
+                )}
+              </div>
             </section>
           </nav>
           <div className="md:hidden flex items-center">
@@ -151,6 +169,17 @@ export function Header({
         {renderMobileLinks(leftLinks)}
         <hr className="w-full border-[#595959] my-1" />
         {renderMobileLinks(rightLinks)}
+        {authenticated && (
+          <button
+            type="button"
+            onClick={async () => {
+              await logout()
+              router.push('/')
+            }}
+            className="w-full text-left py-2 px-3 hover:bg-[#393939]">
+            Logout
+          </button>
+        )}
       </nav>
 
       <section className="bg-brand-blue-default text-white text-xs py-1">

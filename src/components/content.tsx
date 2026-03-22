@@ -5,6 +5,7 @@ import {useQuery} from '@/hooks/use-query'
 import {getMediaUrl} from '@/lib/utils'
 import {News} from '@/payload-types'
 import {convertLexicalToHTML} from '@payloadcms/richtext-lexical/html'
+import {notFound} from 'next/navigation'
 
 export function Content({
   slug,
@@ -41,8 +42,8 @@ export function Content({
     return <p>Failed to load collection: {error.message}</p>
   }
 
-  if (!data) {
-    return <p>No data</p>
+  if (!data || !data.docs || data.docs.length === 0) {
+    notFound()
   }
 
   const {title, createdAt, thumbnail, body} = data.docs[0]

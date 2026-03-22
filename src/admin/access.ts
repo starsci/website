@@ -1,46 +1,70 @@
-import {Club, News} from '@/payload-types'
-import {PayloadRequest} from 'payload'
+import {Admin, Club, News, User} from '@/payload-types'
+import {ClientUser} from 'payload'
 
-export function isSupervisor({req: {user}}: {req: PayloadRequest}) {
-  return user?.role == 'supervisor'
+type UserType = Admin | User | null | undefined | ClientUser
+type ClubType = Club | number | null | undefined
+
+function isAdmin(user: UserType): user is Admin {
+  return Boolean(user && user.collection === 'admins')
 }
 
-export function isSupervisorOrSelf({req: {user}}: {req: PayloadRequest}) {
-  if (user?.role == 'supervisor') {
+function isStaff(user: UserType): user is User {
+  return Boolean(user && user.collection === 'users')
+}
+
+function isClubObject(club: ClubType): club is Club {
+  return Boolean(club && typeof club === 'object' && 'id' in club && club.id)
+}
+
+export function isSupervisor(user: UserType): user is Admin {
+  // return if user does not have key 'role'
+  return isAdmin(user) && user.role == 'supervisor'
+}
+
+export function isSupervisorOrSelf(user: UserType) {
+  if (isSupervisor(user)) {
     return true
   }
+
+  const userId =
+    typeof user === 'object' && user && 'id' in user ? (user as any).id : null
 
   // allow user to update their own profile
   return {
     id: {
-      equals: user?.id
+      equals: userId
     }
   }
 }
 
-export function isSupervisorOrSocialMediaManager({
-  req: {user}
-}: {
-  req: PayloadRequest
-}) {
-  return user?.role == 'supervisor' || user?.role == 'social-media-manager'
+export function isSupervisorOrSocialMediaManager(
+  user: UserType
+): user is Admin {
+  return (
+    isSupervisor(user) ||
+    (isAdmin(user) && user.role === 'social-media-manager')
+  )
 }
 
-export function isSupervisorOrClubManager({
-  req: {user}
-}: {
-  req: PayloadRequest
-}) {
+export function isSupervisorOrClubManager(user: UserType) {
+  if (!isAdmin(user)) {
+    return false
+  }
+
   // if supervisor, return true
-  if (user?.role == 'supervisor') {
+  if (user.role == 'supervisor') {
     return true
   }
 
+  if (!isClubObject(user.club)) {
+    return false
+  }
+
   // if club manager, return only announcements of their own club
-  if (user?.role == 'club-manager') {
+  if (user.role == 'club-manager') {
     return {
       club: {
-        equals: (user.club as Club).id
+        equals: user.club.id
       }
     }
   }
@@ -49,17 +73,9 @@ export function isSupervisorOrClubManager({
   return false
 }
 
-export function isSupervisorOrSocialMediaManagerOrStaff({
-  req: {user}
-}: {
-  req: PayloadRequest
-}) {
+export function isSupervisorOrSocialMediaManagerOrStaff(user: UserType) {
   // if supervisor, return all announcements
-  if (
-    user?.role == 'supervisor' ||
-    user?.role == 'social-media-manager' ||
-    user?.role == 'staff'
-  ) {
+  if (isSupervisorOrSocialMediaManager(user) || isStaff(user)) {
     return true
   }
 
@@ -71,72 +87,49 @@ export function isSupervisorOrSocialMediaManagerOrStaff({
   }
 }
 
-export function isSupervisorOrSatelliteMember({
-  req: {user}
-}: {
-  req: PayloadRequest
-}) {
-  if (user?.role == 'supervisor') {
+function isSupervisorOrClubMember(user: UserType, club: string) {
+  if (!isAdmin(user)) {
+    return false
+  }
+
+  if (user.role == 'supervisor') {
     return true
   }
 
   // check if the club of the user is the satellite club
-  // first cast the user.club to Club type
-  if (user?.collection == 'admins') {
-    const club = user.club as Club
-    if (club?.name == 'The Satellite') {
-      return true
-    }
+  if (!isClubObject(user.club)) {
+    return false
   }
 
-  return false
-}
-
-export function isSupervisorOrPararayosMember({
-  req: {user}
-}: {
-  req: PayloadRequest
-}) {
-  if (user?.role == 'supervisor') {
+  const clubName = user.club.name
+  if (clubName == club) {
     return true
   }
 
-  // check if the club of the user is the pararayos club
-  // first cast the user.club to Club type
-  if (user?.collection == 'admins') {
-    const club = user.club as Club
-    if (club?.name == 'Pararayos') {
-      return true
-    }
-  }
-
   return false
 }
 
-async function getNewsPublicationFromClub(
-  req: PayloadRequest
-): Promise<News['publication'] | null> {
-  const {user} = req
+export function isSupervisorOrSatelliteMember(user: UserType) {
+  return isSupervisorOrClubMember(user, 'The Satellite')
+}
 
-  if (user?.collection !== 'admins') {
+export function isSupervisorOrPararayosMember(user: UserType) {
+  return isSupervisorOrClubMember(user, 'Pararayos')
+}
+
+function getNewsPublicationFromClub(
+  user: UserType
+): News['publication'] | null {
+  if (!isAdmin(user)) {
     return null
   }
 
   const club = user.club as Club | number | null | undefined
-  if (!club) {
+  if (!isClubObject(club)) {
     return null
   }
 
-  const clubName =
-    typeof club === 'object'
-      ? club.name
-      : (
-          await req.payload.findByID({
-            collection: 'clubs',
-            id: club,
-            depth: 0
-          })
-        )?.name
+  const clubName = club.name
 
   if (clubName === 'Pararayos') {
     return 'pararayos'
@@ -149,26 +142,29 @@ async function getNewsPublicationFromClub(
   return null
 }
 
-export async function canCreateNews({req}: {req: PayloadRequest}) {
-  if (req.user?.role === 'supervisor') {
+export function canCreateNews(
+  user: UserType,
+  data: {publication?: string} | null | undefined
+) {
+  if (isAdmin(user) && user.role === 'supervisor') {
     return true
   }
 
-  const allowedPublication = await getNewsPublicationFromClub(req)
+  const allowedPublication = getNewsPublicationFromClub(user)
   if (!allowedPublication) {
     return false
   }
 
-  const publication = req.data?.publication
+  const publication = data?.publication
   return publication === allowedPublication
 }
 
-export async function canManageNews({req}: {req: PayloadRequest}) {
-  if (req.user?.role === 'supervisor') {
+export function canManageNews(user: UserType) {
+  if (isAdmin(user) && user.role === 'supervisor') {
     return true
   }
 
-  const allowedPublication = await getNewsPublicationFromClub(req)
+  const allowedPublication = getNewsPublicationFromClub(user)
   if (!allowedPublication) {
     return false
   }

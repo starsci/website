@@ -25,8 +25,8 @@ export const ClubAnnouncements: CollectionConfig = {
       // return false if club is not the same as user's club
       return data.club === (user.club as Club).id
     },
-    update: isSupervisorOrClubManager,
-    delete: isSupervisorOrClubManager
+    update: ({req: {user}}) => isSupervisorOrClubManager(user),
+    delete: ({req: {user}}) => isSupervisorOrClubManager(user)
   },
   admin: {
     group: 'Announcements'
