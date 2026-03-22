@@ -75,6 +75,7 @@ export interface Config {
     'school-announcements': SchoolAnnouncement;
     'club-announcements': ClubAnnouncement;
     news: News;
+    'organizational-chart': OrganizationalChart;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -89,6 +90,7 @@ export interface Config {
     'school-announcements': SchoolAnnouncementsSelect<false> | SchoolAnnouncementsSelect<true>;
     'club-announcements': ClubAnnouncementsSelect<false> | ClubAnnouncementsSelect<true>;
     news: NewsSelect<false> | NewsSelect<true>;
+    'organizational-chart': OrganizationalChartSelect<false> | OrganizationalChartSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -252,7 +254,6 @@ export interface SchoolAnnouncement {
     };
     [k: string]: unknown;
   };
-  bodyHTML?: string | null;
   thumbnail?: (number | null) | Media;
   internal?: boolean | null;
   frontPage?: boolean | null;
@@ -283,7 +284,6 @@ export interface ClubAnnouncement {
     };
     [k: string]: unknown;
   };
-  bodyHTML?: string | null;
   thumbnail?: (number | null) | Media;
   updatedAt: string;
   createdAt: string;
@@ -318,8 +318,31 @@ export interface News {
     };
     [k: string]: unknown;
   };
-  bodyHTML?: string | null;
   thumbnail?: (number | null) | Media;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "organizational-chart".
+ */
+export interface OrganizationalChart {
+  id: number;
+  name: string;
+  position:
+    | 'principal'
+    | 'administrative-officer'
+    | 'registrar'
+    | 'guidance-designate'
+    | 'head-teacher'
+    | 'master-teacher'
+    | 'key-teacher';
+  displayRole: string;
+  photo: number | Media;
+  /**
+   * Controls display order within each position group.
+   */
+  sortOrder: number;
   updatedAt: string;
   createdAt: string;
 }
@@ -374,6 +397,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'news';
         value: number | News;
+      } | null)
+    | ({
+        relationTo: 'organizational-chart';
+        value: number | OrganizationalChart;
       } | null);
   globalSlug?: string | null;
   user:
@@ -510,7 +537,6 @@ export interface SchoolAnnouncementsSelect<T extends boolean = true> {
   title?: T;
   published_at?: T;
   body?: T;
-  bodyHTML?: T;
   thumbnail?: T;
   internal?: T;
   frontPage?: T;
@@ -526,7 +552,6 @@ export interface ClubAnnouncementsSelect<T extends boolean = true> {
   published_at?: T;
   club?: T;
   body?: T;
-  bodyHTML?: T;
   thumbnail?: T;
   updatedAt?: T;
   createdAt?: T;
@@ -548,8 +573,20 @@ export interface NewsSelect<T extends boolean = true> {
   category?: T;
   published_at?: T;
   body?: T;
-  bodyHTML?: T;
   thumbnail?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "organizational-chart_select".
+ */
+export interface OrganizationalChartSelect<T extends boolean = true> {
+  name?: T;
+  position?: T;
+  displayRole?: T;
+  photo?: T;
+  sortOrder?: T;
   updatedAt?: T;
   createdAt?: T;
 }

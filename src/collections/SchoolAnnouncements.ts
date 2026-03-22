@@ -4,11 +4,7 @@ import {
   isSupervisorOrSocialMediaManagerOrStaff
 } from '@/admin/access'
 
-import {
-  HTMLConverterFeature,
-  lexicalEditor,
-  lexicalHTML
-} from '@payloadcms/richtext-lexical'
+import {lexicalEditor} from '@payloadcms/richtext-lexical'
 
 export const SchoolAnnouncements: CollectionConfig = {
   slug: 'school-announcements',
@@ -38,15 +34,9 @@ export const SchoolAnnouncements: CollectionConfig = {
       type: 'richText',
       required: true,
       editor: lexicalEditor({
-        features: ({defaultFeatures}) => [
-          ...defaultFeatures,
-          HTMLConverterFeature({})
-        ]
+        features: ({defaultFeatures}) => [...defaultFeatures]
       })
     },
-    lexicalHTML('body', {
-      name: 'bodyHTML'
-    }),
     {
       name: 'thumbnail',
       type: 'upload',
@@ -73,10 +63,10 @@ export const SchoolAnnouncements: CollectionConfig = {
   ],
   hooks: {
     beforeChange: [
-      async ({data, req: {payload}}) => {
+      async ({data, req}) => {
         // remove the frontPage flag from all other announcements if this announcement is set to be on the front page
         if (data.frontPage) {
-          await payload.update({
+          await req.payload.update({
             collection: 'school-announcements',
             where: {
               frontPage: {
@@ -85,10 +75,10 @@ export const SchoolAnnouncements: CollectionConfig = {
             },
             data: {
               frontPage: false
-            }
+            },
+            req
           })
         }
-
         return data
       }
     ]

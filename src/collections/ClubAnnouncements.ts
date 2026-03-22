@@ -2,11 +2,7 @@ import {isSupervisorOrClubManager} from '@/admin/access'
 import {Club} from '@/payload-types'
 import type {CollectionConfig} from 'payload'
 
-import {
-  HTMLConverterFeature,
-  lexicalEditor,
-  lexicalHTML
-} from '@payloadcms/richtext-lexical'
+import {HTMLConverterFeature, lexicalEditor} from '@payloadcms/richtext-lexical'
 
 export const ClubAnnouncements: CollectionConfig = {
   slug: 'club-announcements',
@@ -64,9 +60,6 @@ export const ClubAnnouncements: CollectionConfig = {
         ]
       })
     },
-    lexicalHTML('body', {
-      name: 'bodyHTML'
-    }),
     {
       name: 'thumbnail',
       type: 'upload',

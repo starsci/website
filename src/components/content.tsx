@@ -4,6 +4,7 @@ import Image from 'next/image'
 import {useQuery} from '@/hooks/use-query'
 import {getMediaUrl} from '@/lib/utils'
 import {News} from '@/payload-types'
+import {convertLexicalToHTML} from '@payloadcms/richtext-lexical/html'
 
 export function Content({
   slug,
@@ -44,8 +45,9 @@ export function Content({
     return <p>No data</p>
   }
 
-  const {title, createdAt, bodyHTML, thumbnail} = data.docs[0]
+  const {title, createdAt, thumbnail, body} = data.docs[0]
   const thumbnailUrl = getMediaUrl(thumbnail)
+  const html = convertLexicalToHTML({data: body})
 
   return (
     <article>
@@ -65,7 +67,7 @@ export function Content({
       )}
       <div
         className="prose prose-neutral"
-        dangerouslySetInnerHTML={{__html: bodyHTML!}}
+        dangerouslySetInnerHTML={{__html: html || ''}}
       />
     </article>
   )

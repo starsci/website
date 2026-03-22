@@ -15,6 +15,7 @@ import {getMediaUrl} from '@/lib/utils'
 import Link from 'next/link'
 import {useSearchParams} from 'next/navigation'
 import {Pagination} from '../Pagination'
+import {convertLexicalToHTML} from '@payloadcms/richtext-lexical/html'
 
 export function AnnouncementGrid() {
   const searchParams = useSearchParams()
@@ -46,6 +47,7 @@ export function AnnouncementGrid() {
     <div className="flex flex-col gap-y-4">
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {data.docs.map(ann => {
+          const html = convertLexicalToHTML({data: ann.body})
           const thumbnailUrl = getMediaUrl(ann.thumbnail)
 
           return (
@@ -69,7 +71,7 @@ export function AnnouncementGrid() {
                 <CardContent>
                   <div
                     className="prose line-clamp-3"
-                    dangerouslySetInnerHTML={{__html: ann.bodyHTML || ''}}
+                    dangerouslySetInnerHTML={{__html: html || ''}}
                   />
                 </CardContent>
               </Card>

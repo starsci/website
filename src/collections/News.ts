@@ -1,11 +1,7 @@
 import type {CollectionConfig} from 'payload'
 import {canCreateNews, canManageNews} from '@/admin/access'
 
-import {
-  HTMLConverterFeature,
-  lexicalEditor,
-  lexicalHTML
-} from '@payloadcms/richtext-lexical'
+import {lexicalEditor} from '@payloadcms/richtext-lexical'
 
 export const News: CollectionConfig = {
   slug: 'news',
@@ -73,15 +69,9 @@ export const News: CollectionConfig = {
       type: 'richText',
       required: true,
       editor: lexicalEditor({
-        features: ({defaultFeatures}) => [
-          ...defaultFeatures,
-          HTMLConverterFeature({})
-        ]
+        features: ({defaultFeatures}) => [...defaultFeatures]
       })
     },
-    lexicalHTML('body', {
-      name: 'bodyHTML'
-    }),
     {
       name: 'thumbnail',
       type: 'upload',
