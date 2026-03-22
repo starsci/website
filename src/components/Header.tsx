@@ -3,7 +3,7 @@
 import {cn} from '@/lib/utils'
 import {useAuth} from '@/providers/Auth'
 import {ChevronDown, X, Menu} from 'lucide-react'
-import {ReactNode, useState} from 'react'
+import {ReactNode, useState, useEffect, useRef} from 'react'
 import Image from 'next/image'
 import {useRouter} from 'next/navigation'
 
@@ -184,25 +184,52 @@ export function Header({
 
       <section className="bg-brand-blue-default text-white text-xs py-1">
         {/*fit masthead 3000px here*/}
-        <div className="container py-2 grid grid-cols-4">
+        <div className="container px-4 md:px-6 lg:px-8 flex flex-col lg:flex-row gap-x-6 gap-y-4 my-2">
           <Image
             src="/assets/masthead.png"
             alt="Santa Rosa Science and Technology High School"
             height={0}
             width={0}
             sizes="100vw"
-            className="w-full h-auto col-span-4 lg:col-span-3"
+            className="w-full lg:w-[70%] h-auto"
           />
-          <div className="my-4 flex flex-col col-span-4 lg:col-span-1">
-            <span>Philippine Standard Time</span>
-            <iframe
-              src="//oras.pagasa.dost.gov.ph/time_display/time/"
-              height="14rem"
-              width="100%"
-              className="block"></iframe>
+          <div className="my-4 w-full flex flex-col items-right">
+            <PSTWidget />
           </div>
         </div>
       </section>
     </header>
+  )
+}
+
+function PSTWidget() {
+  const [time, setTime] = useState('')
+
+  useEffect(() => {
+    const tick = () => {
+      const pst = new Date().toLocaleString('en-PH', {
+        timeZone: 'Asia/Manila',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: true,
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      })
+      setTime(pst)
+    }
+
+    tick() // run immediately
+    const interval = setInterval(tick, 1000)
+    return () => clearInterval(interval)
+  }, [])
+
+  return (
+    <div className="text-right">
+      <p>Philippine Standard Time</p>
+      <p>{time}</p>
+    </div>
   )
 }
