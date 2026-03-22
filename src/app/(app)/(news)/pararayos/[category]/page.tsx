@@ -1,0 +1,106 @@
+import {queryNewsArticles} from '@/lib/news-queries'
+import {isValidCategory} from '@/lib/news-categories'
+import {notFound} from 'next/navigation'
+import Image from 'next/image'
+import {getMediaUrl} from '@/lib/utils'
+import Link from 'next/link'
+
+const CATEGORY_DISPLAY_NAMES = {
+  news: 'Balita',
+  opinion: 'Opinyon',
+  feature: 'Lathalain',
+  sports: 'Isports',
+  'sci-and-tech': 'AgTek'
+} as const
+
+interface CategoryPageProps {
+  params: Promise<{
+    category: string
+  }>
+}
+
+export async function generateMetadata({params}: CategoryPageProps) {
+  const resolvedParams = await params
+  const categoryName =
+    CATEGORY_DISPLAY_NAMES[
+      resolvedParams.category as keyof typeof CATEGORY_DISPLAY_NAMES
+    ]
+  if (!categoryName) return {}
+
+  return {
+    title: `${categoryName} | Pararayos`,
+    description: `${categoryName} articles from Pararayos`
+  }
+}
+
+export default async function PararayosCategoryPage({
+  params
+}: CategoryPageProps) {
+  const resolvedParams = await params
+  if (!isValidCategory(resolvedParams.category)) {
+    notFound()
+  }
+
+  const categoryName =
+    CATEGORY_DISPLAY_NAMES[
+      resolvedParams.category as keyof typeof CATEGORY_DISPLAY_NAMES
+    ]!
+  const articles = await queryNewsArticles({
+    publication: 'pararayos',
+    category: resolvedParams.category
+  })
+
+  if (articles.length === 0) {
+    return (
+      <main>
+        <h1 className="text-4xl font-bold mb-8">{categoryName}</h1>
+        <p className="text-center text-gray-500">
+          No articles in this category.
+        </p>
+      </main>
+    )
+  }
+
+  return (
+    <main>
+      <h1 className="text-4xl font-bold mb-8">{categoryName}</h1>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        {articles.map(article => {
+          const thumbnailUrl = getMediaUrl(article.thumbnail)
+          return (
+            <Link
+              key={article.id}
+              href={`/pararayos/articles/${article.id}`}
+              className="group">
+              <article className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow h-full flex flex-col">
+                {thumbnailUrl && (
+                  <div className="relative h-48 overflow-hidden bg-gray-100">
+                    <Image
+                      src={thumbnailUrl}
+                      alt={article.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform"
+                    />
+                  </div>
+                )}
+                <div className="p-4 flex flex-col flex-grow">
+                  <h2 className="font-bold text-lg mb-2 line-clamp-2 group-hover:text-blue-600">
+                    {article.title}
+                  </h2>
+                  <p className="text-sm text-gray-600 mb-2">
+                    {new Date(article.published_at).toLocaleDateString()}
+                  </p>
+                  <p className="text-xs text-gray-700 line-clamp-2 flex-grow">
+                    {article.authors
+                      ?.map(a => `${a.first_name} ${a.last_name}`)
+                      .join(', ')}
+                  </p>
+                </div>
+              </article>
+            </Link>
+          )
+        })}
+      </div>
+    </main>
+  )
+}

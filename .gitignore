@@ -37,3 +37,5 @@ next-env.d.ts
 
 .worker-next
 media
+# Local Netlify folder
+.netlify

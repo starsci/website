@@ -8,14 +8,14 @@ import {fileURLToPath} from 'url'
 import nodemailer from 'nodemailer'
 import sharp from 'sharp'
 
-import {Admins} from './src/collections/Admins'
-import {Media} from './src/collections/Media'
-import {Clubs} from './src/collections/Clubs'
-import {SchoolAnnouncements} from './src/collections/SchoolAnnouncements'
-import {ClubAnnouncements} from './src/collections/ClubAnnouncements'
-import {Users} from './src/collections/Users'
-import {News} from './src/collections/News'
-import {OrganizationalChart} from './src/collections/OrganizationalChart'
+import {Admins} from '@/collections/Admins'
+import {Media} from '@/collections/Media'
+import {Clubs} from '@/collections/Clubs'
+import {SchoolAnnouncements} from '@/collections/SchoolAnnouncements'
+import {ClubAnnouncements} from '@/collections/ClubAnnouncements'
+import {Users} from '@/collections/Users'
+import {News} from '@/collections/News'
+import {OrganizationalChart} from '@/collections/OrganizationalChart'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -48,6 +48,7 @@ export default buildConfig({
           accessKeyId: process.env.S3_ACCESS_KEY_ID || '',
           secretAccessKey: process.env.S3_SECRET_ACCESS_KEY || ''
         },
+        endpoint: process.env.S3_ENDPOINT || '',
         region: process.env.S3_REGION || 'us-east-1'
       }
     })
@@ -55,7 +56,7 @@ export default buildConfig({
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
-    outputFile: path.resolve(dirname, 'src', 'payload-types.ts')
+    outputFile: path.resolve(dirname, 'payload-types.ts')
   },
   db: postgresAdapter({
     pool: {
