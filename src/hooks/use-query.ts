@@ -17,7 +17,7 @@ export function useQuery<TSlug extends CollectionSlug>(
   const {user} = useAuth()
 
   return useReactQuery<PaginatedDocs<DataFromCollectionSlug<TSlug>>>({
-    queryKey: [options.collection, user],
+    queryKey: [options.collection, options, user],
     queryFn: () =>
       queryCollection({
         ...options,
