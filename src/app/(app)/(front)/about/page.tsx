@@ -16,7 +16,7 @@ export default async function About() {
     <main>
       <h1 className="text-4xl font-bold text-center mb-6">About Us</h1>
       <Tabs defaultValue="history">
-        <TabsList className="grid h-full w-full grid-cols-1 md:grid-cols-4 xl:grid-cols-7 gap-4">
+        <TabsList className="grid h-full w-full grid-cols-1 md:grid-cols-4 lg:grid-cols-7 gap-4">
           <TabsTrigger value="history">History</TabsTrigger>
           <TabsTrigger value="logo">Logo</TabsTrigger>
           <TabsTrigger value="mission-vision">Vision and Mission</TabsTrigger>
