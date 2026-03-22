@@ -13,11 +13,11 @@ export const OrganizationalChart: CollectionConfig = {
     useAsTitle: 'name',
     group: 'People',
     hidden: ({user}) => {
-      if (user?.collection !== 'admins') {
+      if (!isSupervisorOrSocialMediaManager(user)) {
         return true
       }
 
-      return user.role !== 'supervisor' && user.role !== 'social-media-manager'
+      return false
     }
   },
   fields: [

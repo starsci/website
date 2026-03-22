@@ -1,32 +1,49 @@
-import {isSupervisorOrClubManager} from '@/admin/access'
-import {Club} from '@/payload-types'
 import type {CollectionConfig} from 'payload'
 
-import {HTMLConverterFeature, lexicalEditor} from '@payloadcms/richtext-lexical'
+import {lexicalEditor} from '@payloadcms/richtext-lexical'
+import {isAdmin, isClubObject, UserType} from '@/admin/access'
+
+function canManageClubAnnouncements(user: UserType) {
+  if (!isAdmin(user)) {
+    return false
+  }
+
+  // if supervisor, return true
+  if (user.role == 'supervisor') {
+    return true
+  }
+
+  if (!isClubObject(user.club)) {
+    return false
+  }
+
+  // if club manager, return only announcements of their own club
+  if (user.role == 'club-manager') {
+    return {
+      club: {
+        equals: user.club.id
+      }
+    }
+  }
+
+  // otherwise,
+  return false
+}
 
 export const ClubAnnouncements: CollectionConfig = {
   slug: 'club-announcements',
   access: {
-    read: () => true,
-    create: ({req: {user}, data}) => {
-      if (!user || user?.collection !== 'admins') {
-        return false
-      }
-
-      if (user.role === 'supervisor' || user.role === 'club-manager') {
+    read: ({req: {user}}) => {
+      // if non-user or user is not admin, show
+      if (!user || user.collection !== 'admins') {
         return true
       }
 
-      // if data.club is null, return true
-      if (!data?.club) {
-        return true
-      }
-
-      // return false if club is not the same as user's club
-      return data.club === (user.club as Club).id
+      return canManageClubAnnouncements(user)
     },
-    update: ({req: {user}}) => isSupervisorOrClubManager(user),
-    delete: ({req: {user}}) => isSupervisorOrClubManager(user)
+    create: ({req: {user}}) => canManageClubAnnouncements(user),
+    update: ({req: {user}}) => canManageClubAnnouncements(user),
+    delete: ({req: {user}}) => canManageClubAnnouncements(user)
   },
   admin: {
     group: 'Announcements'
@@ -54,10 +71,7 @@ export const ClubAnnouncements: CollectionConfig = {
       type: 'richText',
       required: true,
       editor: lexicalEditor({
-        features: ({defaultFeatures}) => [
-          ...defaultFeatures,
-          HTMLConverterFeature({})
-        ]
+        features: ({defaultFeatures}) => [...defaultFeatures]
       })
     },
     {

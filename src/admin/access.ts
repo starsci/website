@@ -1,18 +1,18 @@
 import {Admin, Club, News, User} from '@/payload-types'
 import {ClientUser} from 'payload'
 
-type UserType = Admin | User | null | undefined | ClientUser
-type ClubType = Club | number | null | undefined
+export type UserType = Admin | User | null | undefined | ClientUser
+export type ClubType = Club | number | null | undefined
 
-function isAdmin(user: UserType): user is Admin {
+export function isAdmin(user: UserType): user is Admin {
   return Boolean(user && user.collection === 'admins')
 }
 
-function isStaff(user: UserType): user is User {
+export function isStaff(user: UserType): user is User {
   return Boolean(user && user.collection === 'users')
 }
 
-function isClubObject(club: ClubType): club is Club {
+export function isClubObject(club: ClubType): club is Club {
   return Boolean(club && typeof club === 'object' && 'id' in club && club.id)
 }
 
@@ -47,30 +47,7 @@ export function isSupervisorOrSocialMediaManager(
 }
 
 export function isSupervisorOrClubManager(user: UserType) {
-  if (!isAdmin(user)) {
-    return false
-  }
-
-  // if supervisor, return true
-  if (user.role == 'supervisor') {
-    return true
-  }
-
-  if (!isClubObject(user.club)) {
-    return false
-  }
-
-  // if club manager, return only announcements of their own club
-  if (user.role == 'club-manager') {
-    return {
-      club: {
-        equals: user.club.id
-      }
-    }
-  }
-
-  // otherwise,
-  return false
+  
 }
 
 export function isSupervisorOrSocialMediaManagerOrStaff(user: UserType) {

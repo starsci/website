@@ -12,7 +12,15 @@ export const News: CollectionConfig = {
     delete: ({req: {user}}) => canManageNews(user)
   },
   admin: {
-    group: 'Newspaper'
+    group: 'Newspaper',
+    hidden: ({user}) => {
+      // hide from non-supervisor or non-news-managers
+      if (!canManageNews(user)) {
+        return true
+      }
+
+      return false
+    }
   },
   fields: [
     {

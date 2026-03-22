@@ -15,7 +15,15 @@ export const SchoolAnnouncements: CollectionConfig = {
     delete: ({req: {user}}) => isSupervisorOrSocialMediaManager(user)
   },
   admin: {
-    group: 'Announcements'
+    group: 'Announcements',
+    hidden: ({user}) => {
+      // hide if not supervisor or social media manager
+      if (!isSupervisorOrSocialMediaManager(user)) {
+        return true
+      }
+
+      return false
+    }
   },
   fields: [
     {
