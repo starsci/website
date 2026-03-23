@@ -60,7 +60,7 @@ export function Header({
           ]
         : [])
     ])
-  }, [user, showTeacherLogin])
+  }, [user, showTeacherLogin, rightLinks, logout, router])
 
   const toggleMenu = (menuName: string) => {
     setOpenMenus(prevOpenMenus =>
