@@ -2,6 +2,7 @@
 
 import {queryCollection} from '@/hooks/server/payload-query'
 import type {News} from '@/payload-types'
+import {Where} from 'payload'
 
 export type Publication = 'pararayos' | 'the-satellite'
 
@@ -16,7 +17,7 @@ export async function queryNewsArticles({
   category,
   limit
 }: QueryArticlesOptions): Promise<News[]> {
-  const whereConditions: any = {
+  const whereConditions: Where = {
     publication: {
       equals: publication
     }
