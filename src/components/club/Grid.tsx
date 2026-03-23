@@ -68,12 +68,6 @@ export function ClubGrid() {
                   </CardDescription>
                 </CardHeader>
               </Card>
-              {/*
-              <Link
-                href={`/clubs/${club.id}`}
-                className="absolute inset-0 z-10"
-              />
-              */}
             </article>
           )
         })}

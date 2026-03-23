@@ -42,12 +42,6 @@ export function NewsCard({
                     {news.title}
                   </Link>
                 </h3>
-                {/* <small className="text-sm font-semibold text-neutral-400">
-                {
-                  // join the array of authors with a comma and a space
-                  news.authors.join(', ')
-                }
-              </small> */}
                 <small className="text-sm text-neutral-400">
                   {new Date(news.createdAt).toLocaleString()}
                 </small>
