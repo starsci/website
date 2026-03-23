@@ -18,12 +18,12 @@ export function NewsCard({
     <div>
       {news.docs?.length == 0 && <span>No data</span>}
       <ScrollArea className="max-h-[25rem] overflow-y-auto p-2 mb-4 ">
-        {news.docs.map((news, index) => {
+        {news.docs.map(news => {
           const thumbnailUrl = getMediaUrl(news.thumbnail)
           const bodyHTML = convertLexicalToHTML({data: news.body})
 
           return (
-            <div key={index} className="flex flex-col lg:flex-row gap-4 mb-4">
+            <div key={news.id} className="flex flex-col lg:flex-row gap-4 mb-4">
               {thumbnailUrl && (
                 <Image
                   src={thumbnailUrl}

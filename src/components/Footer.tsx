@@ -3,7 +3,14 @@ import Image from 'next/image'
 import {getMediaUrlByFilename} from '@/lib/media'
 import {Phone, MailOpen, Facebook, MapPinned} from 'lucide-react'
 
-const links = [
+type LinkType = {
+  name: string
+  content: {
+    title: string
+    href: string
+  }[]
+}
+const links: LinkType[] = [
   {
     name: 'Essentials',
     content: [
@@ -52,13 +59,13 @@ export async function Footer() {
               <h3 className="text-lg font-bold mb-4">Quick Links</h3>
               {/* iterate through links keys and create columns for each key */}
               <div className="flex space-x-8">
-                {links.map(({name, content}, index) => (
-                  <div key={index}>
-                    <h4 className="text-lg font-semibold mb-2">{name}</h4>
+                {links.map(link => (
+                  <div key={link.name}>
+                    <h4 className="text-lg font-semibold mb-2">{link.name}</h4>
                     <ul className="space-y-2">
-                      {content.map((link, index) => (
-                        <li key={index} className="hover:underline">
-                          <Link href={link.href}>{link.title}</Link>
+                      {link.content.map(subLink => (
+                        <li key={subLink.href} className="hover:underline">
+                          <Link href={subLink.href}>{subLink.title}</Link>
                         </li>
                       ))}
                     </ul>
