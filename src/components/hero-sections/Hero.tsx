@@ -29,7 +29,7 @@ export async function Hero() {
             science and technology high school in Santa Rosa, Laguna.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <HeroButton href="/contact" icon={<HeartHandshake />}>
+            <HeroButton href="/contact" icon={<HeartHandshake />} main>
               Get in Touch
             </HeroButton>
             <HeroButton href="/about" icon={<MessageCircleQuestion />}>
