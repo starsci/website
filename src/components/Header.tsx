@@ -81,7 +81,7 @@ export function Header({
           <>
             <button
               onClick={() => toggleMenu(item.name)}
-              className="flex items-center justify-between w-full py-2 px-3 hover:bg-[#393939] md:hover:bg-[#393939]er"
+              className="flex items-center justify-between w-full py-2 px-3 hover:bg-[#393939] md:hover:bg-[#393939]"
               aria-expanded={openMenus.includes(item.name)}>
               {item.name}
               <ChevronDown
