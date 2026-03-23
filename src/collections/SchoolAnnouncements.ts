@@ -1,24 +1,21 @@
 import type {CollectionConfig} from 'payload'
-import {
-  isSupervisorOrSocialMediaManager,
-  isSupervisorOrSocialMediaManagerOrStaff
-} from '@/admin/access'
+import {canManageAnnouncements, getAnnouncementReadAccess} from '@/admin/access'
 
 import {lexicalEditor} from '@payloadcms/richtext-lexical'
 
 export const SchoolAnnouncements: CollectionConfig = {
   slug: 'school-announcements',
   access: {
-    read: ({req: {user}}) => isSupervisorOrSocialMediaManagerOrStaff(user),
-    create: ({req: {user}}) => isSupervisorOrSocialMediaManager(user),
-    update: ({req: {user}}) => isSupervisorOrSocialMediaManager(user),
-    delete: ({req: {user}}) => isSupervisorOrSocialMediaManager(user)
+    read: ({req: {user}}) => getAnnouncementReadAccess(user),
+    create: ({req: {user}}) => canManageAnnouncements(user),
+    update: ({req: {user}}) => canManageAnnouncements(user),
+    delete: ({req: {user}}) => canManageAnnouncements(user)
   },
   admin: {
     group: 'Announcements',
     hidden: ({user}) => {
       // hide if not supervisor or social media manager
-      if (!isSupervisorOrSocialMediaManager(user)) {
+      if (!canManageAnnouncements(user)) {
         return true
       }
 

@@ -1,8 +1,13 @@
-import {isAdmin, isClubObject, isSupervisor, UserType} from '@/admin/access'
+import {
+  isAdminUser,
+  isPopulatedClub,
+  hasSupervisorRole,
+  UserType
+} from '@/admin/access'
 import type {CollectionConfig} from 'payload'
 
 function canManageClubs(user: UserType) {
-  if (!isAdmin(user)) {
+  if (!isAdminUser(user)) {
     return false
   }
 
@@ -11,7 +16,7 @@ function canManageClubs(user: UserType) {
     return true
   }
 
-  if (!isClubObject(user.club)) {
+  if (!isPopulatedClub(user.club)) {
     return false
   }
 
@@ -39,9 +44,9 @@ export const Clubs: CollectionConfig = {
 
       return canManageClubs(user)
     },
-    create: ({req: {user}}) => isSupervisor(user),
+    create: ({req: {user}}) => hasSupervisorRole(user),
     update: ({req: {user}}) => canManageClubs(user),
-    delete: ({req: {user}}) => isSupervisor(user)
+    delete: ({req: {user}}) => hasSupervisorRole(user)
   },
   admin: {
     useAsTitle: 'name'

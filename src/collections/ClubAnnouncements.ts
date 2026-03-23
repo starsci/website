@@ -1,10 +1,10 @@
 import type {CollectionConfig} from 'payload'
 
 import {lexicalEditor} from '@payloadcms/richtext-lexical'
-import {isAdmin, isClubObject, UserType} from '@/admin/access'
+import {isAdminUser, isPopulatedClub, UserType} from '@/admin/access'
 
 function canManageClubAnnouncements(user: UserType) {
-  if (!isAdmin(user)) {
+  if (!isAdminUser(user)) {
     return false
   }
 
@@ -13,7 +13,7 @@ function canManageClubAnnouncements(user: UserType) {
     return true
   }
 
-  if (!isClubObject(user.club)) {
+  if (!isPopulatedClub(user.club)) {
     return false
   }
 
@@ -76,7 +76,7 @@ export const ClubAnnouncements: CollectionConfig = {
         if (
           user.collection === 'admins' &&
           user.role === 'club-manager' &&
-          isClubObject(user.club)
+          isPopulatedClub(user.club)
         ) {
           return user.club.id
         }

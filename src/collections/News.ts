@@ -1,17 +1,17 @@
 import type {CollectionConfig} from 'payload'
-import {isAdmin, isClubObject, UserType, ClubType} from '@/admin/access'
+import {isAdminUser, isPopulatedClub, UserType, ClubType} from '@/admin/access'
 import {lexicalEditor} from '@payloadcms/richtext-lexical'
 import {News as NewsType} from '@/payload-types'
 
 function getNewsPublicationFromClub(
   user: UserType
 ): NewsType['publication'] | null {
-  if (!isAdmin(user)) {
+  if (!isAdminUser(user)) {
     return null
   }
 
   const club = user.club as ClubType
-  if (!isClubObject(club)) {
+  if (!isPopulatedClub(club)) {
     return null
   }
 
@@ -29,7 +29,7 @@ function getNewsPublicationFromClub(
 }
 
 function canManageNews(user: UserType) {
-  if (isAdmin(user) && user.role === 'supervisor') {
+  if (isAdminUser(user) && user.role === 'supervisor') {
     return true
   }
 

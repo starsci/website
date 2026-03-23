@@ -1,18 +1,18 @@
-import {isSupervisor, isSupervisorOrSelf} from '@/admin/access'
+import {hasSupervisorRole, canAccessOwnOrSupervisor} from '@/admin/access'
 import type {CollectionConfig} from 'payload'
 
 export const Admins: CollectionConfig = {
   slug: 'admins',
   access: {
-    read: ({req: {user}}) => isSupervisorOrSelf(user),
-    create: ({req: {user}}) => isSupervisor(user),
-    update: ({req: {user}}) => isSupervisorOrSelf(user),
-    delete: ({req: {user}}) => isSupervisor(user)
+    read: ({req: {user}}) => canAccessOwnOrSupervisor(user),
+    create: ({req: {user}}) => hasSupervisorRole(user),
+    update: ({req: {user}}) => canAccessOwnOrSupervisor(user),
+    delete: ({req: {user}}) => hasSupervisorRole(user)
   },
   admin: {
     useAsTitle: 'email',
     group: 'People',
-    hidden: ({user}) => !isSupervisor(user)
+    hidden: ({user}) => !hasSupervisorRole(user)
   },
   auth: true,
   fields: [
@@ -28,7 +28,7 @@ export const Admins: CollectionConfig = {
         {label: 'Social Media Manager', value: 'social-media-manager'} // can manage school-wide announcements
       ],
       access: {
-        update: ({req: {user}}) => isSupervisor(user)
+        update: ({req: {user}}) => hasSupervisorRole(user)
       }
     },
     {
@@ -40,7 +40,7 @@ export const Admins: CollectionConfig = {
         condition: data => data.role === 'club-manager' // only show this field if the user is a club manager
       },
       access: {
-        update: ({req: {user}}) => isSupervisor(user)
+        update: ({req: {user}}) => hasSupervisorRole(user)
       }
     }
   ]

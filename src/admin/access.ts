@@ -4,25 +4,25 @@ import {ClientUser} from 'payload'
 export type UserType = Admin | User | null | undefined | ClientUser
 export type ClubType = Club | number | null | undefined
 
-export function isAdmin(user: UserType): user is Admin {
+export function isAdminUser(user: UserType): user is Admin {
   return Boolean(user && user.collection === 'admins')
 }
 
-export function isStaff(user: UserType): user is User {
+export function isStaffUser(user: UserType): user is User {
   return Boolean(user && user.collection === 'users')
 }
 
-export function isClubObject(club: ClubType): club is Club {
+export function isPopulatedClub(club: ClubType): club is Club {
   return Boolean(club && typeof club === 'object' && 'id' in club && club.id)
 }
 
-export function isSupervisor(user: UserType): user is Admin {
+export function hasSupervisorRole(user: UserType): user is Admin {
   // return if user does not have key 'role'
-  return isAdmin(user) && user.role == 'supervisor'
+  return isAdminUser(user) && user.role == 'supervisor'
 }
 
-export function isSupervisorOrSelf(user: UserType) {
-  if (isSupervisor(user)) {
+export function canAccessOwnOrSupervisor(user: UserType) {
+  if (hasSupervisorRole(user)) {
     return true
   }
 
@@ -37,20 +37,16 @@ export function isSupervisorOrSelf(user: UserType) {
   }
 }
 
-export function isSupervisorOrSocialMediaManager(
-  user: UserType
-): user is Admin {
+export function canManageAnnouncements(user: UserType): user is Admin {
   return (
-    isSupervisor(user) ||
-    (isAdmin(user) && user.role === 'social-media-manager')
+    hasSupervisorRole(user) ||
+    (isAdminUser(user) && user.role === 'social-media-manager')
   )
 }
 
-export function isSupervisorOrClubManager(user: UserType) {}
-
-export function isSupervisorOrSocialMediaManagerOrStaff(user: UserType) {
+export function getAnnouncementReadAccess(user: UserType) {
   // if supervisor, return all announcements
-  if (isSupervisorOrSocialMediaManager(user) || isStaff(user)) {
+  if (canManageAnnouncements(user) || isStaffUser(user)) {
     return true
   }
 
@@ -62,8 +58,8 @@ export function isSupervisorOrSocialMediaManagerOrStaff(user: UserType) {
   }
 }
 
-function isSupervisorOrClubMember(user: UserType, club: string) {
-  if (!isAdmin(user)) {
+function isClubMemberOrSupervisor(user: UserType, club: string) {
+  if (!isAdminUser(user)) {
     return false
   }
 
@@ -72,7 +68,7 @@ function isSupervisorOrClubMember(user: UserType, club: string) {
   }
 
   // check if the club of the user is the satellite club
-  if (!isClubObject(user.club)) {
+  if (!isPopulatedClub(user.club)) {
     return false
   }
 
@@ -84,10 +80,10 @@ function isSupervisorOrClubMember(user: UserType, club: string) {
   return false
 }
 
-export function isSupervisorOrSatelliteMember(user: UserType) {
-  return isSupervisorOrClubMember(user, 'The Satellite')
+export function canManageSatellite(user: UserType) {
+  return isClubMemberOrSupervisor(user, 'The Satellite')
 }
 
-export function isSupervisorOrPararayosMember(user: UserType) {
-  return isSupervisorOrClubMember(user, 'Pararayos')
+export function canManagePararayos(user: UserType) {
+  return isClubMemberOrSupervisor(user, 'Pararayos')
 }

@@ -1,19 +1,19 @@
-import {isSupervisorOrSocialMediaManager} from '@/admin/access'
+import {canManageAnnouncements} from '@/admin/access'
 import type {CollectionConfig} from 'payload'
 
 export const OrganizationalChart: CollectionConfig = {
   slug: 'organizational-chart',
   access: {
     read: () => true,
-    create: ({req: {user}}) => isSupervisorOrSocialMediaManager(user),
-    update: ({req: {user}}) => isSupervisorOrSocialMediaManager(user),
-    delete: ({req: {user}}) => isSupervisorOrSocialMediaManager(user)
+    create: ({req: {user}}) => canManageAnnouncements(user),
+    update: ({req: {user}}) => canManageAnnouncements(user),
+    delete: ({req: {user}}) => canManageAnnouncements(user)
   },
   admin: {
     useAsTitle: 'name',
     group: 'People',
     hidden: ({user}) => {
-      if (!isSupervisorOrSocialMediaManager(user)) {
+      if (!canManageAnnouncements(user)) {
         return true
       }
 
