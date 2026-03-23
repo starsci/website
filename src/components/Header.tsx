@@ -81,7 +81,7 @@ export function Header({
           <>
             <button
               onClick={() => toggleMenu(item.name)}
-              className="flex items-center justify-between w-full py-2 px-3 hover:bg-[#393939] md:hover:bg-[#393939]"
+              className="flex items-center justify-between w-full py-2 px-3 hover:bg-brand-nav-hover md:hover:bg-brand-nav-hover"
               aria-expanded={openMenus.includes(item.name)}>
               {item.name}
               <ChevronDown
@@ -99,7 +99,7 @@ export function Header({
         ) : (
           <a
             href={item.href}
-            className="block py-2 px-3 hover:bg-[#393939] md:hover:bg-[#393939]er"
+            className="block py-2 px-3 hover:bg-brand-nav-hover md:hover:bg-brand-nav-hover"
             onClick={item.onClick ?? (() => {})}>
             {item.name}
           </a>
@@ -116,7 +116,7 @@ export function Header({
             <>
               <button
                 onClick={() => toggleMenu(item.name)}
-                className="flex items-center py-2 px-3 hover:bg-[#393939]"
+                className="flex items-center py-2 px-3 hover:bg-brand-nav-hover"
                 aria-expanded={openMenus.includes(item.name)}>
                 {item.name}
                 <ChevronDown
@@ -126,7 +126,7 @@ export function Header({
                 />
               </button>
               {openMenus.includes(item.name) && (
-                <div className="absolute left-0 mt-2 w-48 bg-[#292929] shadow-lg z-50">
+                <div className="absolute left-0 mt-2 w-48 bg-brand-nav-bg shadow-lg z-50">
                   <ul className="py-2">{renderNavItems(item.children)}</ul>
                 </div>
               )}
@@ -134,7 +134,7 @@ export function Header({
           ) : (
             <a
               href={item.href}
-              className="block py-2 px-3 hover:bg-[#393939]"
+              className="block py-2 px-3 hover:bg-brand-nav-hover"
               onClick={item.onClick ?? (() => {})}>
               {item.name}
             </a>
@@ -149,7 +149,7 @@ export function Header({
   )
 
   return (
-    <header className="bg-[#292929] shadow text-neutral-300 text-sm">
+    <header className="bg-brand-nav-bg shadow text-neutral-300 text-sm">
       <div className="container mx-auto px-4 md:px-6 lg:px-8 py-1">
         <div className="flex space-x-4 justify-between">
           <div className="flex items-center">
@@ -171,7 +171,7 @@ export function Header({
           <div className="lg:hidden flex items-center">
             <button
               type="button"
-              className="inline-flex items-center justify-center p-2 rounded-md hover:bg-[#393939]"
+              className="inline-flex items-center justify-center p-2 rounded-md hover:bg-brand-nav-hover"
               aria-controls="mobile-menu"
               aria-expanded={mobileMenuOpen}
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>

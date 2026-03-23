@@ -20,6 +20,10 @@ const config = {
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         brand: {
+          nav: {
+            bg: '#292929',
+            hover: '#393939'
+          },
           blue: {
             default: '#023e8a',
             dark: '#022c6c',
