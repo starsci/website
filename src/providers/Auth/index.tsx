@@ -81,74 +81,61 @@ export const AuthProvider: React.FC<{children: React.ReactNode}> = ({
   }, [])
 
   const login = useCallback<Login>(async args => {
-    try {
-      const res = await fetch(
-        `${process.env.NEXT_PUBLIC_SERVER_URL}/api/users/login`,
-        {
-          body: JSON.stringify({email: args.email, password: args.password}),
-          credentials: 'include',
-          headers: {'Content-Type': 'application/json'},
-          method: 'POST'
-        }
-      )
-
-      if (res.ok) {
-        const {errors, user} = await res.json()
-        if (errors) throw new Error(errors[0].message)
-        setUser(user)
-        setStatus('loggedIn')
-
-        return user
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_SERVER_URL}/api/users/login`,
+      {
+        body: JSON.stringify({email: args.email, password: args.password}),
+        credentials: 'include',
+        headers: {'Content-Type': 'application/json'},
+        method: 'POST'
       }
+    )
 
-      throw new Error('Invalid login')
-    } catch (e) {
-      throw new Error('An error occurred while attempting to login.')
+    const {errors, user} = await res.json()
+    if (errors) throw new Error(errors[0].message)
+
+    if (res.ok) {
+      setUser(user)
+      setStatus('loggedIn')
+
+      return user
     }
   }, [])
 
   const logout = useCallback<Logout>(async () => {
-    try {
-      const res = await fetch(
-        `${process.env.NEXT_PUBLIC_SERVER_URL}/api/users/logout`,
-        {
-          credentials: 'include',
-          headers: {'Content-Type': 'application/json'},
-          method: 'POST'
-        }
-      )
-
-      if (res.ok) {
-        setUser(null)
-        setStatus('loggedOut')
-      } else {
-        throw new Error('An error occurred while attempting to logout.')
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_SERVER_URL}/api/users/logout`,
+      {
+        credentials: 'include',
+        headers: {'Content-Type': 'application/json'},
+        method: 'POST'
       }
-    } catch (e) {
+    )
+
+    if (res.ok) {
+      setUser(null)
+      setStatus('loggedOut')
+    } else {
       throw new Error('An error occurred while attempting to logout.')
     }
   }, [])
 
   useEffect(() => {
     const fetchMe = async () => {
-      try {
-        const res = await fetch(
-          `${process.env.NEXT_PUBLIC_SERVER_URL}/api/users/me`,
-          {
-            credentials: 'include',
-            headers: {'Content-Type': 'application/json'},
-            method: 'GET'
-          }
-        )
-
-        if (res.ok) {
-          const {user: meUser} = await res.json()
-          setUser(meUser || null)
-          setStatus(meUser ? 'loggedIn' : undefined)
-        } else {
-          throw new Error('An error occurred while fetching your account.')
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_SERVER_URL}/api/users/me`,
+        {
+          credentials: 'include',
+          headers: {'Content-Type': 'application/json'},
+          method: 'GET'
         }
-      } catch (e) {
+      )
+
+      if (res.ok) {
+        const {user: meUser} = await res.json()
+        setUser(meUser || null)
+        setStatus(meUser ? 'loggedIn' : undefined)
+      } else {
         setUser(null)
         throw new Error('An error occurred while fetching your account.')
       }
