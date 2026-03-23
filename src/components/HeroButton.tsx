@@ -16,6 +16,7 @@ export function HeroButton({
 }) {
   return (
     <Button
+      asChild
       variant={main ? 'default' : 'outline'}
       size="lg"
       className={cn('w-full', {
