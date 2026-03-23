@@ -1,5 +1,6 @@
 import {Card} from '@/components/ui/card'
-import {ReactNode} from 'react'
+import {LucideProps} from 'lucide-react'
+import {ReactElement, ReactNode} from 'react'
 
 export function ServiceCard({
   children,
@@ -7,7 +8,7 @@ export function ServiceCard({
   title
 }: {
   children: ReactNode
-  icon: any
+  icon: ReactElement<LucideProps>
   title: string
 }) {
   return (

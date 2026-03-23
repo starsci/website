@@ -1,7 +1,8 @@
 import {Button} from '@/components/ui/button'
 import {cn} from '@/lib/utils'
+import {LucideProps} from 'lucide-react'
 import Link from 'next/link'
-import {ReactNode} from 'react'
+import {ReactElement, ReactNode} from 'react'
 
 export function HeroButton({
   children,
@@ -11,7 +12,7 @@ export function HeroButton({
 }: {
   children: ReactNode
   href: string
-  icon: any
+  icon: ReactElement<LucideProps>
   main?: boolean
 }) {
   return (
