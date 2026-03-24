@@ -11,15 +11,14 @@ import {useQuery} from '@/hooks/use-query'
 import {getMediaUrl} from '@/lib/utils'
 
 import Image from 'next/image'
-import Link from 'next/link'
-import {useSearchParams} from 'next/navigation'
-import {Pagination} from '../Pagination'
+import {notFound, useSearchParams} from 'next/navigation'
+import {Pagination} from '@/components/Pagination'
+import {GridSkeleton} from '@/components/GridSkeleton'
 
 export function ClubGrid() {
   const searchParams = useSearchParams()
-  const defaultLimit = 12
-  const page = parseInt(searchParams.get('page') || '1') // if page is 0 or NaN, default to 1
-  const limit = parseInt(searchParams.get('limit') || defaultLimit.toString())
+  const page = Number(searchParams.get('page')) || 1 // if page is 0 or NaN, default to 1
+  const limit = Number(searchParams.get('limit')) || 12
 
   const {data, isLoading, error} = useQuery({
     collection: 'clubs',
@@ -30,15 +29,16 @@ export function ClubGrid() {
   })
 
   if (isLoading) {
-    return <p>Loading...</p>
+    // return skeleton loaders
+    return <GridSkeleton count={limit} />
   }
 
   if (error) {
     return <p>Failed to load clubs: {error.message}</p>
   }
 
-  if (!data) {
-    return <p>No data</p>
+  if (!data || data.docs.length === 0) {
+    notFound()
   }
 
   return (
@@ -73,12 +73,7 @@ export function ClubGrid() {
         })}
       </div>
       <div className="mx-auto">
-        <Pagination
-          totalPages={data.totalPages}
-          hasPrevPage={data.hasPrevPage}
-          hasNextPage={data.hasNextPage}
-          defaultLimit={defaultLimit}
-        />
+        <Pagination totalPages={data.totalPages} />
       </div>
     </div>
   )
