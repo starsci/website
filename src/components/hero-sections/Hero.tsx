@@ -1,11 +1,11 @@
 import {HeroButton} from '@/components/HeroButton'
 import {Logo} from '@/components/Logo'
-import {getMediaUrlByFilename} from '@/lib/media'
+import {fetchCachedMediaByName} from '@/lib/media'
 import {HeartHandshake, MessageCircleQuestion} from 'lucide-react'
 
 export async function Hero() {
-  const logoSrc = await getMediaUrlByFilename('SRSTHS logo')
-  const heroImageSrc = await getMediaUrlByFilename('Hero image')
+  const logoSrc = await fetchCachedMediaByName('SRSTHS logo')
+  const heroImageSrc = await fetchCachedMediaByName('Hero image')
 
   return (
     <section className="flex-grow flex-shrink-0 flex relative -mt-6 -mx-6 w-[100vw] ml-[calc(50%-50vw)]">

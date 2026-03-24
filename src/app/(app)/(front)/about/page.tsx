@@ -2,7 +2,7 @@ import {OrganizationalChart} from '@/components/organizational-chart/Chart'
 import {Tabs, TabsList, TabsTrigger} from '@/components/ui/tabs'
 import {TabsContent} from '@radix-ui/react-tabs'
 import Image from 'next/image'
-import {getMediaUrlByFilename} from '@/lib/media'
+import {fetchCachedMediaByName} from '@/lib/media'
 
 export const metadata = {
   title: 'About Us | Santa Rosa Science and Technology High School',
@@ -10,7 +10,7 @@ export const metadata = {
 }
 
 export default async function About() {
-  const logoSrc = await getMediaUrlByFilename('SRSTHS logo')
+  const logoSrc = await fetchCachedMediaByName('SRSTHS logo')
 
   return (
     <main>

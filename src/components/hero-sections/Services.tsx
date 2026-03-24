@@ -1,45 +1,39 @@
-'use client'
-
-import {useQuery} from '@/hooks/use-query'
-import {getMediaUrl} from '@/lib/utils'
-import {ChevronRight} from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import {convertLexicalToHTML} from '@payloadcms/richtext-lexical/html'
+import {fetchCachedCollection} from '@/lib/cached'
+import {getMedia} from '@/lib/media'
 
-export function Services() {
-  const {data, isLoading, error} = useQuery({
+export async function Services() {
+  // get the announcement with frontPage true
+  const {docs} = await fetchCachedCollection({
     collection: 'school-announcements',
     where: {
       frontPage: {
         equals: true
       }
-    }
+    },
+    limit: 1, // we only need one announcement for the front page
+    pagination: false,
+    depth: 1 // we need to fetch the thumbnail and body data for the front page announcement
   })
 
-  if (isLoading) {
-    return <p>Loading...</p>
+  // if no docs, return null
+  if (docs.length === 0) {
+    return null
   }
 
-  if (error) {
-    return <p>Failed to load front page announcement: {error.message}</p>
-  }
-
-  const [frontPage] = data?.docs || []
-
-  if (!frontPage) {
-    return <></>
-  }
-
-  const thumbnailUrl = getMediaUrl(frontPage.thumbnail)
+  const [frontPage] = docs
+  console.dir(frontPage, {depth: null})
+  const thumbnail = await getMedia(frontPage.thumbnail)
   const bodyHTML = convertLexicalToHTML({data: frontPage.body})
 
   return (
     <div className="flex flex-col sm:flex-row gap-4 lg:px-[10rem] py-8">
-      {thumbnailUrl && (
+      {thumbnail && thumbnail.url && (
         <Image
-          src={thumbnailUrl}
-          alt={`${frontPage.title}`}
+          src={thumbnail.url}
+          alt={frontPage.title}
           width={0}
           height={0}
           className="sm:w-1/3 w-full object-contain mb-auto"
@@ -57,15 +51,10 @@ export function Services() {
         <small className="text-sm text-neutral-400">
           {new Date(frontPage.createdAt).toLocaleString()}
         </small>
-        <p
+        <div
           className="text-sm line-clamp-4 md:line-clamp-[8] prose-sm mb-4"
-          dangerouslySetInnerHTML={{__html: bodyHTML || ''}}></p>
-        <Link
-          href={`/announcements/${frontPage.id}`}
-          className="text-md hover:underline font-semibold gap-x-2 flex items-center">
-          Read More
-          <ChevronRight size={24} />
-        </Link>
+          dangerouslySetInnerHTML={{__html: bodyHTML || ''}}
+        />
       </div>
     </div>
   )

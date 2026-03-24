@@ -1,7 +1,8 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import {getMediaUrlByFilename} from '@/lib/media'
+import {fetchCachedMediaByName} from '@/lib/media'
 import {Phone, MailOpen, Facebook, MapPinned} from 'lucide-react'
+import {Copyright} from './copyright'
 
 type LinkType = {
   name: string
@@ -15,7 +16,6 @@ const links: LinkType[] = [
     name: 'Essentials',
     content: [
       {title: 'Announcements', href: '/announcements'},
-      // {title: 'Services', href: '/services'},
       {title: 'About', href: '/about'},
       {title: 'Contact', href: '/contact'},
       {title: 'Clubs', href: '/clubs'}
@@ -31,8 +31,8 @@ const links: LinkType[] = [
 ]
 
 export async function Footer() {
-  const srsthsLogoSrc = await getMediaUrlByFilename('SRSTHS logo')
-  const systemLogoSrc = await getMediaUrlByFilename('SYSTEM logo')
+  const srsthsLogoSrc = await fetchCachedMediaByName('SRSTHS logo')
+  const systemLogoSrc = await fetchCachedMediaByName('SYSTEM logo')
 
   return (
     <footer>
@@ -117,114 +117,111 @@ export async function Footer() {
               </div>
             </section>
           </section>
-          <section className="mt-4 pt-4 border-t border-primary-foreground/10 text-center text-sm">
-            <p>
-              &copy; {new Date().getFullYear()} Santa Rosa Science and
-              Technology High School. All rights reserved.
-            </p>
-          </section>
+          <Copyright />
         </div>
       </div>
-      <div className="bg-[#e9e9e9] text-neutral-500 text-xs">
-        <section className="container mx-auto px-4 py-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="flex space-x-4">
-              <Image
-                src="/assets/govph-seal-mono-footer.png"
-                alt="GOVPH Seal"
-                width={150}
-                height={150}
-              />
-              <div>
-                <h4 className="font-bold uppercase">
-                  Republic of the Philippines
-                </h4>
-                <p>
-                  All content is in the public domain unless otherwise stated.
-                </p>
-              </div>
-            </div>
+      <GovPhFooter />
+    </footer>
+  )
+}
+
+function GovPhFooter() {
+  return (
+    <div className="bg-[#e9e9e9] text-neutral-500 text-xs">
+      <section className="container mx-auto px-4 py-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="flex space-x-4">
+            <Image
+              src="/assets/govph-seal-mono-footer.png"
+              alt="GOVPH Seal"
+              width={150}
+              height={150}
+            />
             <div>
-              <h4 className="font-bold uppercase">About GOVPH</h4>
+              <h4 className="font-bold uppercase">
+                Republic of the Philippines
+              </h4>
               <p>
-                Learn more about the Philippine government, its structure, how
-                government works, and the people behind it.
+                All content is in the public domain unless otherwise stated.
               </p>
-              <ul className="mt-2 space-y-1">
-                <li>
-                  <a href="http://www.gov.ph/" className="hover:underline">
-                    GOV.PH
-                  </a>
-                </li>
-                <li>
-                  <a href="http://www.gov.ph/data" className="hover:underline">
-                    Open Data Portal
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="http://www.officialgazette.gov.ph"
-                    className="hover:underline">
-                    Official Gazette
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-bold uppercase">Government Links</h4>
-              <ul className="mt-2 space-y-1">
-                <li>
-                  <a
-                    href="http://president.gov.ph/"
-                    className="hover:underline">
-                    Office of the President
-                  </a>
-                </li>
-                <li>
-                  <a href="http://ovp.gov.ph/" className="hover:underline">
-                    Office of the Vice President
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="http://www.senate.gov.ph/"
-                    className="hover:underline">
-                    Senate of the Philippines
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="http://www.congress.gov.ph/"
-                    className="hover:underline">
-                    House of Representatives
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="http://sc.judiciary.gov.ph/"
-                    className="hover:underline">
-                    Supreme Court
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="http://ca.judiciary.gov.ph/"
-                    className="hover:underline">
-                    Court of Appeals
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="http://sb.judiciary.gov.ph/"
-                    className="hover:underline">
-                    Sandiganbayan
-                  </a>
-                </li>
-              </ul>
             </div>
           </div>
-        </section>
-      </div>
-    </footer>
+          <div>
+            <h4 className="font-bold uppercase">About GOVPH</h4>
+            <p>
+              Learn more about the Philippine government, its structure, how
+              government works, and the people behind it.
+            </p>
+            <ul className="mt-2 space-y-1">
+              <li>
+                <a href="http://www.gov.ph/" className="hover:underline">
+                  GOV.PH
+                </a>
+              </li>
+              <li>
+                <a href="http://www.gov.ph/data" className="hover:underline">
+                  Open Data Portal
+                </a>
+              </li>
+              <li>
+                <a
+                  href="http://www.officialgazette.gov.ph"
+                  className="hover:underline">
+                  Official Gazette
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="font-bold uppercase">Government Links</h4>
+            <ul className="mt-2 space-y-1">
+              <li>
+                <a href="http://president.gov.ph/" className="hover:underline">
+                  Office of the President
+                </a>
+              </li>
+              <li>
+                <a href="http://ovp.gov.ph/" className="hover:underline">
+                  Office of the Vice President
+                </a>
+              </li>
+              <li>
+                <a href="http://www.senate.gov.ph/" className="hover:underline">
+                  Senate of the Philippines
+                </a>
+              </li>
+              <li>
+                <a
+                  href="http://www.congress.gov.ph/"
+                  className="hover:underline">
+                  House of Representatives
+                </a>
+              </li>
+              <li>
+                <a
+                  href="http://sc.judiciary.gov.ph/"
+                  className="hover:underline">
+                  Supreme Court
+                </a>
+              </li>
+              <li>
+                <a
+                  href="http://ca.judiciary.gov.ph/"
+                  className="hover:underline">
+                  Court of Appeals
+                </a>
+              </li>
+              <li>
+                <a
+                  href="http://sb.judiciary.gov.ph/"
+                  className="hover:underline">
+                  Sandiganbayan
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </div>
   )
 }

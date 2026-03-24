@@ -1,10 +1,7 @@
 'use server'
 
-import {getPayload, TypedCollectionSelect} from 'payload'
-import config from '@payload-config'
-import {CollectionSlug} from 'payload'
-
-const payload = await getPayload({config})
+import {CollectionSlug, TypedCollectionSelect} from 'payload'
+import {payload} from '@/lib/payload'
 
 export type Options<TSlug extends CollectionSlug> = Parameters<
   typeof payload.find<TSlug, TypedCollectionSelect[TSlug]>

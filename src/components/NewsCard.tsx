@@ -1,33 +1,32 @@
 import {ChevronRight} from 'lucide-react'
 import {ScrollArea} from '@/components/ui/scroll-area'
-import {getMediaUrl} from '@/lib/utils'
 import Image from 'next/image'
 import Link from 'next/link'
 import {News} from '@/payload-types'
-import {PaginatedDocs} from 'payload'
 import {convertLexicalToHTML} from '@payloadcms/richtext-lexical/html'
+import {getMedia} from '@/lib/media'
 
-export function NewsCard({
-  news,
-  href
-}: {
-  news: PaginatedDocs<News>
+interface NewsCardProps {
+  news: News[]
   href: string
-}) {
+}
+
+export function NewsCard({news, href}: NewsCardProps) {
   return (
     <div>
-      {news.docs?.length == 0 && <span>No data</span>}
+      {news.length == 0 && <span>No data</span>}
       <ScrollArea className="max-h-[25rem] overflow-y-auto p-2 mb-4 ">
-        {news.docs.map(news => {
-          const thumbnailUrl = getMediaUrl(news.thumbnail)
-          const bodyHTML = convertLexicalToHTML({data: news.body})
+        {news.map(async doc => {
+          const thumbnail = await getMedia(doc.thumbnail)
+          const bodyHTML = convertLexicalToHTML({data: doc.body})
+          const publishedAt = new Date(doc.published_at).toLocaleString()
 
           return (
-            <div key={news.id} className="flex flex-col lg:flex-row gap-4 mb-4">
-              {thumbnailUrl && (
+            <div key={doc.id} className="flex flex-col lg:flex-row gap-4 mb-4">
+              {thumbnail && thumbnail.url && (
                 <Image
-                  src={thumbnailUrl}
-                  alt={`${news.title}`}
+                  src={thumbnail.url}
+                  alt={doc.title}
                   width={0}
                   height={0}
                   className="lg:w-1/3 w-full object-contain mb-auto"
@@ -38,16 +37,17 @@ export function NewsCard({
                 <h3 className="text-lg leading-6">
                   <Link
                     className="hover:underline"
-                    href={`${href}/articles/${news.id}`}>
-                    {news.title}
+                    href={`${href}/articles/${doc.id}`}>
+                    {doc.title}
                   </Link>
                 </h3>
                 <small className="text-sm text-neutral-400">
-                  {new Date(news.createdAt).toLocaleString()}
+                  {publishedAt}
                 </small>
-                <p
+                <div
                   className="text-sm line-clamp-2 md:line-clamp-3"
-                  dangerouslySetInnerHTML={{__html: bodyHTML || ''}}></p>
+                  dangerouslySetInnerHTML={{__html: bodyHTML || ''}}
+                />
               </div>
             </div>
           )

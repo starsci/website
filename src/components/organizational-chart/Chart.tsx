@@ -1,6 +1,6 @@
 import ExecutiveProfile from '@/components/ExecutiveProfile'
-import {queryCollection} from '@/hooks/server/payload-query'
-import {getMediaUrl} from '@/lib/utils'
+import {fetchCachedCollection} from '@/lib/cached'
+import {getMedia} from '@/lib/media'
 import {OrganizationalChart as OrganizationalChartDoc} from '@/payload-types'
 
 type ChartPosition = OrganizationalChartDoc['position']
@@ -46,7 +46,7 @@ const sections: SectionConfig[] = [
 ]
 
 export async function OrganizationalChart() {
-  const {docs} = await queryCollection<'organizational-chart'>({
+  const {docs} = await fetchCachedCollection({
     collection: 'organizational-chart',
     sort: ['position', 'sortOrder', 'name'],
     pagination: false,
@@ -71,14 +71,18 @@ export async function OrganizationalChart() {
           <div key={section.position} className={rowClass}>
             <h3 className="text-center">{section.title}</h3>
             <div className={`grid ${section.columns}`}>
-              {entries.map(entry => (
-                <ExecutiveProfile
-                  key={entry.id}
-                  name={entry.name}
-                  role={entry.displayRole}
-                  imageUrl={getMediaUrl(entry.photo) || ''}
-                />
-              ))}
+              {entries.map(async entry => {
+                const media = await getMedia(entry.photo)
+
+                return (
+                  <ExecutiveProfile
+                    key={entry.id}
+                    name={entry.name}
+                    role={entry.displayRole}
+                    imageUrl={media?.url || ''}
+                  />
+                )
+              })}
             </div>
           </div>
         )

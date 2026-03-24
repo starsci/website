@@ -1,9 +1,9 @@
 import Link from 'next/link'
 import {Logo} from '@/components/Logo'
-import {getMediaUrlByFilename} from '@/lib/media'
+import {fetchCachedMediaByName} from '@/lib/media'
 
 export default async function NotFound() {
-  const logoSrc = await getMediaUrlByFilename('SRSTHS logo')
+  const logoSrc = await fetchCachedMediaByName('SRSTHS logo')
 
   return (
     <main className="min-h-[70vh] flex items-center justify-center px-6">

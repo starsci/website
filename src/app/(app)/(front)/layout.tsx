@@ -1,7 +1,7 @@
 import {Header} from '@/components/Header'
 import {Footer} from '@/components/Footer'
 import {Logo} from '@/components/Logo'
-import {getMediaUrlByFilename} from '@/lib/media'
+import {fetchCachedMediaByName} from '@/lib/media'
 
 const leftLinks = [
   {name: 'Home', href: '/'},
@@ -32,7 +32,7 @@ export default async function Layout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  const logoSrc = await getMediaUrlByFilename('SRSTHS logo')
+  const logoSrc = await fetchCachedMediaByName('SRSTHS logo')
 
   return (
     <div className="flex flex-col min-h-screen">

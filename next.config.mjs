@@ -33,6 +33,7 @@ const nextConfig = {
 
     return webpackConfig
   },
+  cacheComponents: true
 }
 
 export default withPayload(nextConfig, {devBundleServerPackages: false})
