@@ -2,7 +2,7 @@
 
 import {CollectionSlug, PaginatedDocs, DataFromCollectionSlug} from 'payload'
 import {Options, queryCollection} from './server/payload-query'
-import {useQuery as useReactQuery} from '@tanstack/react-query'
+import {useSuspenseQuery as useReactQuery} from '@tanstack/react-query'
 import {useAuth} from '@/providers/Auth'
 
 // Client hook that calls server action for Payload Local API queries

@@ -1,7 +1,7 @@
 import {Header} from '@/components/Header'
 import {Footer} from '@/components/Footer'
 import {Logo} from '@/components/Logo'
-import {fetchCachedMediaByName} from '@/lib/media'
+import {fetchCachedMediaByName} from '@/lib/cached'
 
 const leftLinks = [
   {name: 'News', href: '/the-satellite/news'},

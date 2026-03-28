@@ -2,7 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import {convertLexicalToHTML} from '@payloadcms/richtext-lexical/html'
 import {fetchCachedCollection} from '@/lib/cached'
-import {getMedia} from '@/lib/media'
+import {isMedia} from '@/lib/media'
 
 export async function Services() {
   // get the announcement with frontPage true
@@ -23,17 +23,15 @@ export async function Services() {
     return null
   }
 
-  const [frontPage] = docs
-  console.dir(frontPage, {depth: null})
-  const thumbnail = await getMedia(frontPage.thumbnail)
-  const bodyHTML = convertLexicalToHTML({data: frontPage.body})
+  const {id, title, published_at, body, thumbnail} = docs[0]
+  const bodyHTML = convertLexicalToHTML({data: body})
 
   return (
     <div className="flex flex-col sm:flex-row gap-4 lg:px-[10rem] py-8">
-      {thumbnail && thumbnail.url && (
+      {isMedia(thumbnail) && thumbnail.url && (
         <Image
           src={thumbnail.url}
-          alt={frontPage.title}
+          alt={title}
           width={0}
           height={0}
           className="sm:w-1/3 w-full object-contain mb-auto"
@@ -42,14 +40,12 @@ export async function Services() {
       )}
       <div className="flex flex-col">
         <h3 className="text-lg leading-6">
-          <Link
-            className="hover:underline"
-            href={`/announcements/${frontPage.id}`}>
-            {frontPage.title}
+          <Link className="hover:underline" href={`/announcements/${id}`}>
+            {title}
           </Link>
         </h3>
         <small className="text-sm text-neutral-400">
-          {new Date(frontPage.createdAt).toLocaleString()}
+          {new Date(published_at).toLocaleString()}
         </small>
         <div
           className="text-sm line-clamp-4 md:line-clamp-[8] prose-sm mb-4"

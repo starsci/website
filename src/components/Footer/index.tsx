@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import {fetchCachedMediaByName} from '@/lib/media'
+import {fetchCachedMediaByName} from '@/lib/cached'
 import {Phone, MailOpen, Facebook, MapPinned} from 'lucide-react'
 import {Copyright} from './copyright'
 

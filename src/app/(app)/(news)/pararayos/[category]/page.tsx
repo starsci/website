@@ -2,7 +2,7 @@ import {queryNewsArticles} from '@/lib/news-queries'
 import {isValidCategory} from '@/lib/news-categories'
 import {notFound} from 'next/navigation'
 import Image from 'next/image'
-import {getMediaUrl} from '@/lib/utils'
+import {isMedia} from '@/lib/media'
 import Link from 'next/link'
 
 const CATEGORY_DISPLAY_NAMES = {
@@ -66,18 +66,15 @@ export default async function PararayosCategoryPage({
       <h1 className="text-4xl font-bold mb-8">{categoryName}</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {articles.map(article => {
-          const thumbnailUrl = getMediaUrl(article.thumbnail)
+          const {id, title, thumbnail, published_at, authors} = article
           return (
-            <Link
-              key={article.id}
-              href={`/pararayos/articles/${article.id}`}
-              className="group">
+            <Link key={id} href={`/pararayos/articles/${id}`} className="group">
               <article className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow h-full flex flex-col">
-                {thumbnailUrl && (
+                {isMedia(thumbnail) && thumbnail.url && (
                   <div className="relative h-48 overflow-hidden bg-gray-100">
                     <Image
-                      src={thumbnailUrl}
-                      alt={article.title}
+                      src={thumbnail.url}
+                      alt={title}
                       fill
                       className="object-cover group-hover:scale-105 transition-transform"
                     />
@@ -85,13 +82,13 @@ export default async function PararayosCategoryPage({
                 )}
                 <div className="p-4 flex flex-col flex-grow">
                   <h2 className="font-bold text-lg mb-2 line-clamp-2 group-hover:text-blue-600">
-                    {article.title}
+                    {title}
                   </h2>
                   <p className="text-sm text-gray-600 mb-2">
-                    {new Date(article.published_at).toLocaleDateString()}
+                    {new Date(published_at).toLocaleDateString()}
                   </p>
                   <p className="text-xs text-gray-700 line-clamp-2 flex-grow">
-                    {article.authors
+                    {authors
                       ?.map(a => `${a.first_name} ${a.last_name}`)
                       .join(', ')}
                   </p>

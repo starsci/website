@@ -2,10 +2,28 @@
 
 import Image from 'next/image'
 import {useQuery} from '@/hooks/use-query'
-import {getMediaUrl} from '@/lib/utils'
+import {isMedia} from '@/lib/media'
 import {News} from '@/payload-types'
 import {convertLexicalToHTML} from '@payloadcms/richtext-lexical/html'
 import {notFound} from 'next/navigation'
+import {Skeleton} from '@/components/ui/skeleton'
+
+export function ContentSkeleton() {
+  return (
+    <article>
+      <Skeleton className="h-10 w-3/4 mb-2" />
+      <Skeleton className="h-4 w-1/4 mb-4" />
+      <Skeleton className="w-full h-64 my-4" />
+      <div className="flex flex-col gap-2 mt-4">
+        <Skeleton className="h-4 w-full" />
+        <Skeleton className="h-4 w-full" />
+        <Skeleton className="h-4 w-5/6" />
+        <Skeleton className="h-4 w-full" />
+        <Skeleton className="h-4 w-3/4" />
+      </div>
+    </article>
+  )
+}
 
 export function Content({
   slug,
@@ -16,7 +34,7 @@ export function Content({
   collection: 'school-announcements' | 'club-announcements' | 'news'
   publication?: News['publication']
 }) {
-  const {data, isLoading, error} = useQuery({
+  const {data} = useQuery({
     collection,
     where: {
       id: {
@@ -34,31 +52,23 @@ export function Content({
     pagination: false
   })
 
-  if (isLoading) {
-    return <p>Loading...</p>
-  }
+  // if (data.docs.length === 0) {
+  //  notFound()
+  // }
 
-  if (error) {
-    return <p>Failed to load collection: {error.message}</p>
-  }
-
-  if (!data || !data.docs || data.docs.length === 0) {
-    notFound()
-  }
-
-  const {title, createdAt, thumbnail, body} = data.docs[0]
-  const thumbnailUrl = getMediaUrl(thumbnail)
+  const [doc] = data.docs
+  const {title, published_at, thumbnail, body} = doc
   const html = convertLexicalToHTML({data: body})
 
   return (
     <article>
       <h1 className="text-4xl font-bold">{title}</h1>
       <p className="text-sm text-gray-500 mb-2">
-        {new Date(createdAt).toLocaleDateString()}
+        {new Date(published_at).toLocaleDateString()}
       </p>
-      {thumbnailUrl && (
+      {isMedia(thumbnail) && thumbnail.url && (
         <Image
-          src={thumbnailUrl}
+          src={thumbnail.url}
           alt={title}
           width={0}
           height={0}

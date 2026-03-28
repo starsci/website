@@ -1,6 +1,6 @@
 import {HeroButton} from '@/components/HeroButton'
 import {Logo} from '@/components/Logo'
-import {fetchCachedMediaByName} from '@/lib/media'
+import {fetchCachedMediaByName} from '@/lib/cached'
 import {HeartHandshake, MessageCircleQuestion} from 'lucide-react'
 
 export async function Hero() {

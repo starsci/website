@@ -8,7 +8,7 @@ import {
 } from '@/components/ui/card'
 
 import {useQuery} from '@/hooks/use-query'
-import {getMediaUrl} from '@/lib/utils'
+import {isMedia} from '@/lib/media'
 
 import Image from 'next/image'
 import {notFound, useSearchParams} from 'next/navigation'

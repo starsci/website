@@ -2,7 +2,7 @@ import {OrganizationalChart} from '@/components/organizational-chart/Chart'
 import {Tabs, TabsList, TabsTrigger} from '@/components/ui/tabs'
 import {TabsContent} from '@radix-ui/react-tabs'
 import Image from 'next/image'
-import {fetchCachedMediaByName} from '@/lib/media'
+import {fetchCachedMediaByName} from '@/lib/cached'
 
 export const metadata = {
   title: 'About Us | Santa Rosa Science and Technology High School',

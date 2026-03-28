@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import {Logo} from '@/components/Logo'
-import {fetchCachedMediaByName} from '@/lib/media'
+import {fetchCachedMediaByName} from '@/lib/cached'
 
 export default async function NotFound() {
   const logoSrc = await fetchCachedMediaByName('SRSTHS logo')

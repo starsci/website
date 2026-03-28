@@ -10,21 +10,20 @@ import {
 } from '@/components/ui/card'
 
 import {useQuery} from '@/hooks/use-query'
-import {getMediaUrl} from '@/lib/utils'
+import {isMedia} from '@/lib/media'
 
 import Link from 'next/link'
 import {notFound, useSearchParams} from 'next/navigation'
 import {Pagination} from '../Pagination'
 import {convertLexicalToHTML} from '@payloadcms/richtext-lexical/html'
 import {GridContainer} from '@/components/GridContainer'
-import {GridSkeleton} from '../GridSkeleton'
 
 export function AnnouncementGrid() {
   const searchParams = useSearchParams()
   const page = Number(searchParams.get('page')) || 1 // if page is 0 or NaN, default to 1
   const limit = Number(searchParams.get('limit')) || 12
 
-  const {data, isLoading, error} = useQuery({
+  const {data} = useQuery({
     collection: 'school-announcements',
     depth: 1,
     pagination: true,
@@ -32,42 +31,33 @@ export function AnnouncementGrid() {
     page
   })
 
-  if (isLoading) {
-    // return skeleton loader
-    return <GridSkeleton count={limit} />
-  }
-
-  if (error) {
-    return <p>Failed to load announcements: {error.message}</p>
-  }
-
-  if (!data || data.docs.length === 0) {
-    notFound()
-  }
+  // if (data.docs.length === 0) {
+  //   notFound()
+  // }
 
   return (
     <div className="flex flex-col gap-y-4">
       <GridContainer>
         {data.docs.map(ann => {
-          const html = convertLexicalToHTML({data: ann.body})
-          const thumbnailUrl = getMediaUrl(ann.thumbnail)
+          const {id, title, body, published_at, thumbnail} = ann
+          const html = convertLexicalToHTML({data: body})
 
           return (
             <div
               className="relative transition-transform hover:scale-105"
-              key={ann.id}>
+              key={id}>
               <Card className="shadow-md h-full">
-                {thumbnailUrl && (
+                {isMedia(thumbnail) && thumbnail.url && (
                   <CardImage
-                    src={thumbnailUrl}
-                    alt={ann.title}
+                    src={thumbnail.url}
+                    alt={title}
                     className="max-h-48"
                   />
                 )}
                 <CardHeader>
-                  <CardTitle>{ann.title}</CardTitle>
+                  <CardTitle>{title}</CardTitle>
                   <CardDescription>
-                    {new Date(ann.createdAt).toLocaleString()}
+                    {new Date(published_at).toLocaleString()}
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -78,7 +68,7 @@ export function AnnouncementGrid() {
                 </CardContent>
               </Card>
               <Link
-                href={`/announcements/${ann.id}`}
+                href={`/announcements/${id}`}
                 className="absolute inset-0 z-10"
               />
             </div>
