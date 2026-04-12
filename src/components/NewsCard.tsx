@@ -5,6 +5,7 @@ import Link from 'next/link'
 import {News} from '@/payload-types'
 import {convertLexicalToHTML} from '@payloadcms/richtext-lexical/html'
 import {isMedia} from '@/lib/media'
+import {sanitizeRichTextHTML} from '@/lib/sanitize'
 
 interface NewsCardProps {
   news: News[]
@@ -15,23 +16,26 @@ export function NewsCard({news, href}: NewsCardProps) {
   return (
     <div>
       {news.length == 0 && <span>No data</span>}
-      <ScrollArea className="max-h-[25rem] overflow-y-auto p-2 mb-4 ">
-        {news.map(async (doc: News) => {
+      <ScrollArea className="max-h-[25rem] overflow-y-auto pr-3">
+        {news.map((doc: News) => {
           const {id, title, body, thumbnail, published_at} = doc
-          const bodyHTML = convertLexicalToHTML({data: body})
+          const bodyHTML = sanitizeRichTextHTML(convertLexicalToHTML({data: body}))
           const publishedAt = new Date(published_at).toLocaleString()
 
           return (
-            <div key={id} className="flex flex-col lg:flex-row gap-4 mb-4">
+            <div
+              key={id}
+              className="mb-4 grid gap-4 rounded-md border border-gray-200 bg-white p-3 shadow-sm lg:grid-cols-[8rem_1fr]">
               {isMedia(thumbnail) && thumbnail.url && (
-                <Image
-                  src={thumbnail.url}
-                  alt={title}
-                  width={0}
-                  height={0}
-                  className="lg:w-1/3 w-full object-contain mb-auto"
-                  sizes="100vw"
-                />
+                <div className="relative h-36 overflow-hidden rounded-md bg-gray-100 lg:h-full">
+                  <Image
+                    src={thumbnail.url}
+                    alt={title}
+                    fill
+                    className="object-cover"
+                    sizes="(min-width: 1024px) 8rem, 100vw"
+                  />
+                </div>
               )}
               <div className="flex flex-col">
                 <h3 className="text-lg leading-6">
@@ -45,7 +49,7 @@ export function NewsCard({news, href}: NewsCardProps) {
                   {publishedAt}
                 </small>
                 <div
-                  className="text-sm line-clamp-2 md:line-clamp-3"
+                  className="prose prose-sm mt-2 line-clamp-2 max-w-none text-gray-600 md:line-clamp-3"
                   dangerouslySetInnerHTML={{__html: bodyHTML || ''}}
                 />
               </div>

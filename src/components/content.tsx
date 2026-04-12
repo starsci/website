@@ -7,6 +7,7 @@ import {News} from '@/payload-types'
 import {convertLexicalToHTML} from '@payloadcms/richtext-lexical/html'
 import {notFound} from 'next/navigation'
 import {Skeleton} from '@/components/ui/skeleton'
+import {sanitizeRichTextHTML} from '@/lib/sanitize'
 
 export function ContentSkeleton() {
   return (
@@ -52,13 +53,14 @@ export function Content({
     pagination: false
   })
 
-  // if (data.docs.length === 0) {
-  //  notFound()
-  // }
-
   const [doc] = data.docs
+
+  if (!doc) {
+    notFound()
+  }
+
   const {title, published_at, thumbnail, body} = doc
-  const html = convertLexicalToHTML({data: body})
+  const html = sanitizeRichTextHTML(convertLexicalToHTML({data: body}))
 
   return (
     <article>
@@ -77,7 +79,7 @@ export function Content({
         />
       )}
       <div
-        className="prose prose-neutral"
+        className="prose prose-neutral max-w-none"
         dangerouslySetInnerHTML={{__html: html || ''}}
       />
     </article>

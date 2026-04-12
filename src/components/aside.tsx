@@ -4,7 +4,6 @@ import Link from 'next/link'
 import {useQuery} from '@/hooks/use-query'
 import {News} from '@/payload-types'
 import {Skeleton} from '@/components/ui/skeleton'
-import {notFound} from 'next/navigation'
 
 export function AsideSkeleton() {
   return (
@@ -62,15 +61,19 @@ export function Aside({
   */
 
   return (
-    <aside>
-      <h2 className="text-2xl font-bold mb-4">Recent {caption}</h2>
-      <ul>
+    <aside className="rounded-md border border-gray-200 bg-white p-4 shadow-sm">
+      <h2 className="mb-4 text-lg font-bold text-gray-950">
+        Recent {caption}
+      </h2>
+      <ul className="space-y-4">
         {data.docs.map(doc => {
           const {id, title, published_at} = doc
           return (
-            <li key={id} className="mb-4">
-              <Link href={`${hrefBase}/${id}`}>
-                <h3 className="text-xl font-bold">{title}</h3>
+            <li key={id}>
+              <Link href={`${hrefBase}/${id}`} className="group">
+                <h3 className="font-semibold leading-snug text-gray-900 group-hover:text-brand-blue-default">
+                  {title}
+                </h3>
               </Link>
               <p className="text-sm text-gray-500">
                 {new Date(published_at).toLocaleDateString()}

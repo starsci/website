@@ -84,7 +84,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // append Pararayos articles
   pararayosData.docs.forEach((article: any) => {
     sitemap.push({
-      url: `${baseUrl}/pararayos/${article.id}`,
+      url: `${baseUrl}/pararayos/articles/${article.id}`,
       lastModified: new Date(article.createdAt).toISOString()
     })
   })
@@ -92,7 +92,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // append The Satellite articles
   satelliteData.docs.forEach((article: any) => {
     sitemap.push({
-      url: `${baseUrl}/the-satellite/${article.id}`,
+      url: `${baseUrl}/the-satellite/articles/${article.id}`,
       lastModified: new Date(article.createdAt).toISOString()
     })
   })

@@ -27,6 +27,7 @@ export const Admins: CollectionConfig = {
         {label: 'Club Manager', value: 'club-manager'}, // can manage announcements of their own club
         {label: 'Social Media Manager', value: 'social-media-manager'} // can manage school-wide announcements
       ],
+      saveToJWT: true,
       access: {
         update: ({req: {user}}) => hasSupervisorRole(user)
       }
@@ -35,7 +36,14 @@ export const Admins: CollectionConfig = {
       name: 'club',
       type: 'relationship',
       relationTo: 'clubs',
-      required: true,
+      saveToJWT: true,
+      validate: (value: unknown, {siblingData}: {siblingData?: {role?: string}}) => {
+        if (siblingData?.role === 'club-manager' && !value) {
+          return 'Club is required for club managers.'
+        }
+
+        return true
+      },
       admin: {
         condition: data => data.role === 'club-manager' // only show this field if the user is a club manager
       },

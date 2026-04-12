@@ -80,8 +80,16 @@ CardFooter.displayName = 'CardFooter'
 const CardImage = React.forwardRef<
   HTMLImageElement,
   React.ComponentProps<typeof Image>
->(({ className, ...props }, ref) => (
-  <Image ref={ref} className={cn("h-auto w-full object-cover", className)} height={0} width={0} sizes="100vw" {...props} />
+>(({className, alt = '', ...props}, ref) => (
+  <Image
+    ref={ref}
+    alt={alt}
+    className={cn('h-auto w-full object-cover', className)}
+    height={0}
+    width={0}
+    sizes="100vw"
+    {...props}
+  />
 ));
 CardImage.displayName = "CardImage";
 

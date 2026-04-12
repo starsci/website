@@ -8,7 +8,7 @@ const NEXT_PUBLIC_SERVER_URL =
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    dangerouslyAllowLocalIP: true,
+    dangerouslyAllowLocalIP: process.env.NODE_ENV !== 'production',
     qualities: [75, 90],
     remotePatterns: [
       ...[
@@ -33,7 +33,7 @@ const nextConfig = {
 
     return webpackConfig
   },
-  cacheComponents: true
+  cacheComponents: false
 }
 
 export default withPayload(nextConfig, {devBundleServerPackages: false})

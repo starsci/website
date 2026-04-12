@@ -4,8 +4,9 @@ import {cn} from '@/lib/utils'
 import {COOKIE_NAME} from '@/lib/cookies'
 import {useAuth} from '@/providers/Auth'
 import {ChevronDown, X, Menu} from 'lucide-react'
-import {ReactNode, useState, useEffect} from 'react'
+import {ReactNode, useState, useEffect, useMemo} from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import {useRouter} from 'next/navigation'
 import {useCookies} from 'react-cookie'
 
@@ -29,20 +30,14 @@ export function Header({
 }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [openMenus, setOpenMenus] = useState<string[]>([])
-  const [showTeacherLogin, setShowTeacherLogin] = useState(false)
-  const [realRightLinks, setRealRightLinks] = useState<LinkType[]>(rightLinks)
   const {user, logout} = useAuth()
   const [cookies] = useCookies([COOKIE_NAME])
   const router = useRouter()
   const authenticated = Boolean(user)
+  const showTeacherLogin = cookies[COOKIE_NAME] === 'teacher-employee'
 
-  useEffect(() => {
-    const audience = cookies[COOKIE_NAME]
-    setShowTeacherLogin(audience === 'teacher-employee')
-  }, [cookies])
-
-  useEffect(() => {
-    setRealRightLinks([
+  const realRightLinks = useMemo(
+    () => [
       ...rightLinks,
       ...(showTeacherLogin && !authenticated
         ? [{name: 'Login', href: '/employee/login'}]
@@ -55,12 +50,13 @@ export function Header({
               onClick: async () => {
                 await logout()
                 router.push('/')
-              }
             }
-          ]
+          }
+        ]
         : [])
-    ])
-  }, [user, showTeacherLogin, rightLinks, logout, router])
+    ],
+    [authenticated, logout, rightLinks, router, showTeacherLogin]
+  )
 
   const toggleMenu = (menuName: string) => {
     setOpenMenus(prevOpenMenus =>
@@ -96,11 +92,23 @@ export function Header({
               </ul>
             )}
           </>
+        ) : item.onClick ? (
+          <button
+            type="button"
+            className="block w-full py-2 px-3 text-left hover:bg-brand-nav-hover md:hover:bg-brand-nav-hover"
+            onClick={item.onClick}>
+            {item.name}
+          </button>
+        ) : item.href.startsWith('/') ? (
+          <Link
+            href={item.href}
+            className="block py-2 px-3 hover:bg-brand-nav-hover md:hover:bg-brand-nav-hover">
+            {item.name}
+          </Link>
         ) : (
           <a
             href={item.href}
-            className="block py-2 px-3 hover:bg-brand-nav-hover md:hover:bg-brand-nav-hover"
-            onClick={item.onClick ?? (() => {})}>
+            className="block py-2 px-3 hover:bg-brand-nav-hover md:hover:bg-brand-nav-hover">
             {item.name}
           </a>
         )}
@@ -131,11 +139,23 @@ export function Header({
                 </div>
               )}
             </>
+          ) : item.onClick ? (
+            <button
+              type="button"
+              className="block py-2 px-3 hover:bg-brand-nav-hover"
+              onClick={item.onClick}>
+              {item.name}
+            </button>
+          ) : item.href.startsWith('/') ? (
+            <Link
+              href={item.href}
+              className="block py-2 px-3 hover:bg-brand-nav-hover">
+              {item.name}
+            </Link>
           ) : (
             <a
               href={item.href}
-              className="block py-2 px-3 hover:bg-brand-nav-hover"
-              onClick={item.onClick ?? (() => {})}>
+              className="block py-2 px-3 hover:bg-brand-nav-hover">
               {item.name}
             </a>
           )}

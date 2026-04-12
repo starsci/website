@@ -3,7 +3,7 @@
 import {News} from '@/payload-types'
 import Link from 'next/link'
 import Image from 'next/image'
-import {getMediaUrl} from '@/lib/utils'
+import {isMedia} from '@/lib/media'
 import type {Publication} from '@/lib/news-queries'
 
 interface PublicationGridProps {
@@ -59,18 +59,18 @@ export function PublicationGrid({
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {articles.slice(0, 3).map(article => {
-              const thumbnailUrl = getMediaUrl(article.thumbnail)
+              const {id, title, published_at, thumbnail, authors} = article
               return (
                 <Link
-                  key={article.id}
-                  href={`/${publication}/articles/${article.id}`}
+                  key={id}
+                  href={`/${publication}/articles/${id}`}
                   className="group">
                   <article className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow h-full flex flex-col">
-                    {thumbnailUrl && (
+                    {isMedia(thumbnail) && thumbnail.url && (
                       <div className="relative h-48 overflow-hidden bg-gray-100">
                         <Image
-                          src={thumbnailUrl}
-                          alt={article.title}
+                          src={thumbnail.url}
+                          alt={title}
                           fill
                           className="object-cover group-hover:scale-105 transition-transform"
                         />
@@ -78,13 +78,13 @@ export function PublicationGrid({
                     )}
                     <div className="p-4 flex flex-col flex-grow">
                       <h3 className="font-bold text-lg mb-2 line-clamp-2 group-hover:text-blue-600">
-                        {article.title}
+                        {title}
                       </h3>
                       <p className="text-sm text-gray-600 mb-2">
-                        {new Date(article.published_at).toLocaleDateString()}
+                        {new Date(published_at).toLocaleDateString()}
                       </p>
                       <p className="text-xs text-gray-700 line-clamp-2 flex-grow">
-                        {article.authors
+                        {authors
                           ?.map(a => `${a.first_name} ${a.last_name}`)
                           .join(', ')}
                       </p>

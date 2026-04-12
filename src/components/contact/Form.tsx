@@ -31,6 +31,15 @@ export function ContactForm() {
           'We have received your message. Please wait for our response.'
       })
     }
+
+    if (state === false) {
+      toast({
+        title: 'Message not sent',
+        description:
+          'Please check your details and try again in a few moments.',
+        variant: 'destructive'
+      })
+    }
   }, [state, toast])
 
   return (

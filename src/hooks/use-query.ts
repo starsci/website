@@ -21,7 +21,6 @@ export function useQuery<TSlug extends CollectionSlug>(
     queryFn: () =>
       queryCollection({
         ...options,
-        overrideAccess: false,
         ...(user ? {user} : {})
       })
   })

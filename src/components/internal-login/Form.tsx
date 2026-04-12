@@ -37,7 +37,7 @@ export function InternalLoginForm() {
         )
       }
     },
-    [router]
+    [login, router]
   )
 
   return (

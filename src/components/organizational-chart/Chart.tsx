@@ -1,6 +1,6 @@
 import ExecutiveProfile from '@/components/ExecutiveProfile'
 import {fetchCachedCollection} from '@/lib/cached'
-import {getMedia} from '@/lib/media'
+import {getMedia} from '@/lib/media-server'
 import {OrganizationalChart as OrganizationalChartDoc} from '@/payload-types'
 
 type ChartPosition = OrganizationalChartDoc['position']
@@ -52,26 +52,25 @@ export async function OrganizationalChart() {
     pagination: false,
     depth: 1
   })
-
-  let renderedRows = 0
+  const visibleSections = sections
+    .map(section => ({
+      ...section,
+      entries: docs.filter(
+        (doc: OrganizationalChartDoc) => section.position === doc.position
+      )
+    }))
+    .filter(section => section.entries.length > 0)
 
   return (
     <div className="w-[100vw] ml-[calc(50%-50vw)]">
-      {sections.map(section => {
-        const entries = docs.filter(doc => section.position === doc.position)
-
-        if (entries.length === 0) {
-          return null
-        }
-
-        const rowClass = renderedRows % 2 === 0 ? 'py-4' : 'bg-neutral-200 py-4'
-        renderedRows += 1
+      {visibleSections.map((section, index) => {
+        const rowClass = index % 2 === 0 ? 'py-4' : 'bg-neutral-200 py-4'
 
         return (
           <div key={section.position} className={rowClass}>
             <h3 className="text-center">{section.title}</h3>
             <div className={`grid ${section.columns}`}>
-              {entries.map(async entry => {
+              {section.entries.map(async (entry: OrganizationalChartDoc) => {
                 const media = await getMedia(entry.photo)
 
                 return (

@@ -1,7 +1,7 @@
 'use client'
 
 import {useRouter} from 'next/navigation'
-import {useCallback, useEffect, useState} from 'react'
+import {useCallback, useState} from 'react'
 import {COOKIE_NAME} from '@/lib/cookies'
 import {useCookies} from 'react-cookie'
 
@@ -26,16 +26,9 @@ const AUDIENCE_OPTIONS: Record<
 }
 
 export function UserAudienceModal() {
-  const [isOpen, setIsOpen] = useState(false)
   const [cookies, setCookie] = useCookies([COOKIE_NAME])
+  const [isOpen, setIsOpen] = useState(() => !cookies[COOKIE_NAME])
   const router = useRouter()
-
-  useEffect(() => {
-    const savedAudience = cookies[COOKIE_NAME]
-    if (!savedAudience) {
-      setIsOpen(true)
-    }
-  }, [])
 
   const handleSelect = useCallback(
     (audience: Audience) => {
@@ -50,7 +43,7 @@ export function UserAudienceModal() {
         router.push(redirectTo)
       }
     },
-    [router]
+    [router, setCookie]
   )
 
   if (!isOpen) {
@@ -58,9 +51,15 @@ export function UserAudienceModal() {
   }
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/40 px-4">
-      <div className="w-full max-w-xl rounded-2xl border border-gray-200 bg-white p-6 shadow-xl">
-        <h2 className="text-2xl font-bold text-gray-900">Welcome</h2>
+    <div
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/50 px-4"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="audience-title">
+      <div className="w-full max-w-xl rounded-md border border-gray-200 bg-white p-6 shadow-xl">
+        <h2 id="audience-title" className="text-2xl font-bold text-gray-900">
+          Welcome
+        </h2>
         <p className="mt-2 text-sm text-gray-600">
           Please tell us which best describes you.
         </p>
@@ -76,6 +75,12 @@ export function UserAudienceModal() {
             </button>
           ))}
         </div>
+        <button
+          type="button"
+          className="mt-4 text-sm font-medium text-gray-600 underline-offset-4 hover:underline"
+          onClick={() => handleSelect('visitor')}>
+          Continue as visitor
+        </button>
       </div>
     </div>
   )

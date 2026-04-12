@@ -17,6 +17,7 @@ import {notFound, useSearchParams} from 'next/navigation'
 import {Pagination} from '../Pagination'
 import {convertLexicalToHTML} from '@payloadcms/richtext-lexical/html'
 import {GridContainer} from '@/components/GridContainer'
+import {sanitizeRichTextHTML} from '@/lib/sanitize'
 
 export function AnnouncementGrid() {
   const searchParams = useSearchParams()
@@ -40,13 +41,13 @@ export function AnnouncementGrid() {
       <GridContainer>
         {data.docs.map(ann => {
           const {id, title, body, published_at, thumbnail} = ann
-          const html = convertLexicalToHTML({data: body})
+          const html = sanitizeRichTextHTML(convertLexicalToHTML({data: body}))
 
           return (
             <div
-              className="relative transition-transform hover:scale-105"
+              className="relative transition-transform hover:-translate-y-1"
               key={id}>
-              <Card className="shadow-md h-full">
+              <Card className="h-full border-gray-200 shadow-sm transition-shadow hover:shadow-lg">
                 {isMedia(thumbnail) && thumbnail.url && (
                   <CardImage
                     src={thumbnail.url}
@@ -62,7 +63,7 @@ export function AnnouncementGrid() {
                 </CardHeader>
                 <CardContent>
                   <div
-                    className="prose line-clamp-3"
+                    className="prose prose-sm line-clamp-3 max-w-none text-gray-600"
                     dangerouslySetInnerHTML={{__html: html || ''}}
                   />
                 </CardContent>

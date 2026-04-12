@@ -11,6 +11,8 @@ const title = 'Santa Rosa Science and Technology High School'
 const description =
   'Public science and technology high school in Santa Rosa, Laguna'
 
+export const dynamic = 'force-dynamic'
+
 export const metadata: Metadata = {
   title,
   description,
@@ -36,14 +38,14 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <Providers>
-      <html lang="en">
-        <body className={nextFont.className}>
+    <html lang="en">
+      <body className={nextFont.className}>
+        <Providers>
           {children}
           <UserAudienceModal />
           <Toaster />
-        </body>
-      </html>
-    </Providers>
+        </Providers>
+      </body>
+    </html>
   )
 }

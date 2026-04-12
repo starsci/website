@@ -16,3 +16,7 @@ export function isMedia(
 
   return false
 }
+
+export function getMediaUrl(media: Media | number | null | undefined) {
+  return isMedia(media) ? media.url || '' : ''
+}

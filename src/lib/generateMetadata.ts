@@ -1,7 +1,10 @@
 import {queryCollection} from '@/hooks/server/payload-query'
-import {News} from '@/payload-types'
+import {Media, News} from '@/payload-types'
 import {CollectionSlug} from 'payload'
 import {ResolvingMetadata} from 'next'
+import {convertLexicalToHTML} from '@payloadcms/richtext-lexical/html'
+import {isMedia} from '@/lib/media'
+import {sanitizeRichTextHTML} from '@/lib/sanitize'
 
 export function metadataFunction(
   collection: CollectionSlug,
@@ -41,17 +44,20 @@ export function metadataFunction(
       }
     }
 
-    const {title, bodyHTML, thumbnail} = article as {
+    const {title, body, thumbnail} = article as {
       title: string
-      bodyHTML?: string | null
-      thumbnail?: {cdn_url?: string | null} | null
+      body?: any
+      thumbnail?: Media | number | null
     }
+    const bodyHTML = body
+      ? sanitizeRichTextHTML(convertLexicalToHTML({data: body}))
+      : ''
     const description =
       bodyHTML
         ?.replace(/<\s*br[^>]?>/gm, '\n')
         .replace(/(<([^>]+)>)/gm, '')
         .slice(0, 160) || ''
-    const thumbnailUrl = thumbnail?.cdn_url
+    const thumbnailUrl = isMedia(thumbnail) ? thumbnail.url : undefined
 
     return {
       title,
@@ -62,7 +68,10 @@ export function metadataFunction(
         type: 'article',
         url: `${process.env.API_BASE}/${path}/${slug}`,
         siteName: 'Santa Rosa Science and Technology High School',
-        images: [thumbnailUrl, ...((await parent).openGraph?.images || [])]
+        images: [
+          ...(thumbnailUrl ? [thumbnailUrl] : []),
+          ...((await parent).openGraph?.images || [])
+        ]
       }
     }
   }

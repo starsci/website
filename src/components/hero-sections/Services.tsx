@@ -3,6 +3,7 @@ import Link from 'next/link'
 import {convertLexicalToHTML} from '@payloadcms/richtext-lexical/html'
 import {fetchCachedCollection} from '@/lib/cached'
 import {isMedia} from '@/lib/media'
+import {sanitizeRichTextHTML} from '@/lib/sanitize'
 
 export async function Services() {
   // get the announcement with frontPage true
@@ -24,22 +25,25 @@ export async function Services() {
   }
 
   const {id, title, published_at, body, thumbnail} = docs[0]
-  const bodyHTML = convertLexicalToHTML({data: body})
+  const bodyHTML = sanitizeRichTextHTML(convertLexicalToHTML({data: body}))
 
   return (
-    <div className="flex flex-col sm:flex-row gap-4 lg:px-[10rem] py-8">
+    <section className="grid gap-6 py-10 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:px-10">
       {isMedia(thumbnail) && thumbnail.url && (
         <Image
           src={thumbnail.url}
           alt={title}
           width={0}
           height={0}
-          className="sm:w-1/3 w-full object-contain mb-auto"
+          className="h-auto w-full rounded-md object-cover shadow-sm"
           sizes="100vw"
         />
       )}
-      <div className="flex flex-col">
-        <h3 className="text-lg leading-6">
+      <div className="flex flex-col justify-center">
+        <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-brand-blue-default">
+          Latest announcement
+        </p>
+        <h3 className="text-2xl font-bold leading-tight text-gray-950">
           <Link className="hover:underline" href={`/announcements/${id}`}>
             {title}
           </Link>
@@ -48,10 +52,10 @@ export async function Services() {
           {new Date(published_at).toLocaleString()}
         </small>
         <div
-          className="text-sm line-clamp-4 md:line-clamp-[8] prose-sm mb-4"
+          className="prose prose-sm mt-4 line-clamp-5 max-w-none text-gray-700 md:line-clamp-[8]"
           dangerouslySetInnerHTML={{__html: bodyHTML || ''}}
         />
       </div>
-    </div>
+    </section>
   )
 }
