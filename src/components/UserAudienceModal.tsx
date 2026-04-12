@@ -1,5 +1,6 @@
 'use client'
 
+import dynamic from 'next/dynamic'
 import {useRouter} from 'next/navigation'
 import {useCallback, useState} from 'react'
 import {COOKIE_NAME} from '@/lib/cookies'
@@ -25,7 +26,7 @@ const AUDIENCE_OPTIONS: Record<
   visitor: {label: 'Visitor'}
 }
 
-export function UserAudienceModal() {
+function UserAudienceModalInner() {
   const [cookies, setCookie] = useCookies([COOKIE_NAME])
   const [isOpen, setIsOpen] = useState(() => !cookies[COOKIE_NAME])
   const router = useRouter()
@@ -85,3 +86,8 @@ export function UserAudienceModal() {
     </div>
   )
 }
+
+export const UserAudienceModal = dynamic(
+  () => Promise.resolve(UserAudienceModalInner),
+  {ssr: false}
+)
