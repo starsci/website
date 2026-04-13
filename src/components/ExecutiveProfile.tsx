@@ -13,18 +13,20 @@ const ExecutiveProfile: React.FC<ExecutiveProfileProps> = ({
   imageUrl
 }) => {
   return (
-    <div className="flex flex-col items-center p-6 max-w-xs mx-auto space-y-4">
-      <div className="relative w-40 h-40">
+    <div className="mx-auto flex h-full max-w-xs flex-col items-center rounded-md border border-gray-200 bg-white p-5 text-center shadow-sm">
+      <div className="relative h-36 w-36 overflow-hidden rounded-full border-4 border-brand-yellow-default bg-gray-100">
         <Image
           src={imageUrl || 'https://placehold.co/160x160?text=Profile'}
           alt={`${name}'s profile`}
           fill
-          className="rounded-full object-cover"
+          className="object-cover"
         />
       </div>
-      <div className="text-center space-y-2">
-        <p className="text-xl font-semibold text-gray-900">{name}</p>
-        <p className="text-gray-500 font-medium">{role}</p>
+      <div className="mt-4 space-y-1">
+        <p className="text-lg font-bold text-gray-950">{name}</p>
+        <p className="text-sm font-semibold uppercase tracking-wide text-brand-blue-default">
+          {role}
+        </p>
       </div>
     </div>
   )

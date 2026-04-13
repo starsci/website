@@ -62,14 +62,19 @@ export async function OrganizationalChart() {
     .filter(section => section.entries.length > 0)
 
   return (
-    <div className="w-[100vw] ml-[calc(50%-50vw)]">
+    <div className="space-y-8">
       {visibleSections.map((section, index) => {
-        const rowClass = index % 2 === 0 ? 'py-4' : 'bg-neutral-200 py-4'
+        const rowClass =
+          index % 2 === 0
+            ? 'rounded-md border border-gray-200 bg-white p-5'
+            : 'rounded-md border border-gray-200 bg-gray-50 p-5'
 
         return (
           <div key={section.position} className={rowClass}>
-            <h3 className="text-center">{section.title}</h3>
-            <div className={`grid ${section.columns}`}>
+            <h3 className="mb-5 text-center text-2xl font-bold text-gray-950">
+              {section.title}
+            </h3>
+            <div className={`grid gap-5 ${section.columns}`}>
               {section.entries.map(async (entry: OrganizationalChartDoc) => {
                 const media = await getMedia(entry.photo)
 
