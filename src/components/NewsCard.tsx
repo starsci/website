@@ -6,6 +6,7 @@ import {News} from '@/payload-types'
 import {convertLexicalToHTML} from '@payloadcms/richtext-lexical/html'
 import {isMedia} from '@/lib/media'
 import {sanitizeRichTextHTML} from '@/lib/sanitize'
+import {formatDisplayDate} from '@/lib/date-format'
 
 interface NewsCardProps {
   news: News[]
@@ -24,7 +25,7 @@ export function NewsCard({news, href}: NewsCardProps) {
         {news.map((doc: News) => {
           const {id, title, body, thumbnail, published_at} = doc
           const bodyHTML = sanitizeRichTextHTML(convertLexicalToHTML({data: body}))
-          const publishedAt = new Date(published_at).toLocaleString()
+          const publishedAt = formatDisplayDate(published_at)
 
           return (
             <div

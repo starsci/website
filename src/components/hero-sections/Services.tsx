@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import {convertLexicalToHTML} from '@payloadcms/richtext-lexical/html'
 import {fetchCachedCollection} from '@/lib/cached'
+import {formatDisplayDate} from '@/lib/date-format'
 import {isMedia} from '@/lib/media'
 import {sanitizeRichTextHTML} from '@/lib/sanitize'
 
@@ -49,7 +50,7 @@ export async function Services() {
           </Link>
         </h3>
         <small className="text-sm text-neutral-400">
-          {new Date(published_at).toLocaleString()}
+          {formatDisplayDate(published_at)}
         </small>
         <div
           className="prose prose-sm mt-4 line-clamp-5 max-w-none text-gray-700 md:line-clamp-[8]"

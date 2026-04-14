@@ -4,6 +4,7 @@ import Link from 'next/link'
 import {useQuery} from '@/hooks/use-query'
 import {News} from '@/payload-types'
 import {Skeleton} from '@/components/ui/skeleton'
+import {formatDisplayDate} from '@/lib/date-format'
 
 export function AsideSkeleton() {
   return (
@@ -76,7 +77,7 @@ export function Aside({
                 </h3>
               </Link>
               <p className="text-sm text-gray-500">
-                {new Date(published_at).toLocaleDateString()}
+                {formatDisplayDate(published_at)}
               </p>
             </li>
           )

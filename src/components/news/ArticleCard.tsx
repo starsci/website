@@ -1,4 +1,5 @@
 import type {News} from '@/payload-types'
+import {formatDisplayDate} from '@/lib/date-format'
 import {isMedia} from '@/lib/media'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -30,7 +31,7 @@ export function ArticleCard({article, href}: ArticleCardProps) {
         )}
         <div className="flex flex-1 flex-col p-4">
           <p className="text-sm font-medium text-gray-500">
-            {new Date(published_at).toLocaleDateString()}
+            {formatDisplayDate(published_at)}
           </p>
           <h3 className="mt-2 line-clamp-2 text-lg font-bold leading-6 text-gray-950 group-hover:text-brand-blue-default">
             {title}

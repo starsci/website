@@ -18,6 +18,7 @@ import {Pagination} from '../Pagination'
 import {convertLexicalToHTML} from '@payloadcms/richtext-lexical/html'
 import {GridContainer} from '@/components/GridContainer'
 import {sanitizeRichTextHTML} from '@/lib/sanitize'
+import {formatDisplayDate} from '@/lib/date-format'
 
 export function AnnouncementGrid() {
   const searchParams = useSearchParams()
@@ -58,7 +59,7 @@ export function AnnouncementGrid() {
                 )}
                 <CardHeader className="p-5">
                   <CardDescription className="font-medium">
-                    {new Date(published_at).toLocaleDateString()}
+                    {formatDisplayDate(published_at)}
                   </CardDescription>
                   <CardTitle className="line-clamp-2 text-xl leading-7 text-gray-950 group-hover:text-brand-blue-default">
                     {title}

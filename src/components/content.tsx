@@ -8,6 +8,7 @@ import {convertLexicalToHTML} from '@payloadcms/richtext-lexical/html'
 import {notFound} from 'next/navigation'
 import {Skeleton} from '@/components/ui/skeleton'
 import {sanitizeRichTextHTML} from '@/lib/sanitize'
+import {formatDisplayDate} from '@/lib/date-format'
 
 export function ContentSkeleton() {
   return (
@@ -65,7 +66,7 @@ export function Content({
   return (
     <article className="rounded-md border border-gray-200 bg-white p-6 shadow-sm md:p-8">
       <p className="text-sm font-bold uppercase tracking-[0.2em] text-brand-blue-default">
-        {new Date(published_at).toLocaleDateString()}
+        {formatDisplayDate(published_at)}
       </p>
       <h1 className="mt-2 text-4xl font-bold leading-tight text-gray-950">
         {title}
