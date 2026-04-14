@@ -36,7 +36,7 @@ export async function Footer() {
 
   return (
     <footer>
-      <div className="bg-primary text-primary-foreground">
+      <div className="bg-brand-nav-bg text-primary-foreground">
         <div className="container mx-auto px-4 py-8">
           <section className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="space-y-4 md:mx-auto my-auto">
