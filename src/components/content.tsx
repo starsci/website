@@ -63,11 +63,13 @@ export function Content({
   const html = sanitizeRichTextHTML(convertLexicalToHTML({data: body}))
 
   return (
-    <article>
-      <h1 className="text-4xl font-bold">{title}</h1>
-      <p className="text-sm text-gray-500 mb-2">
+    <article className="rounded-md border border-gray-200 bg-white p-6 shadow-sm md:p-8">
+      <p className="text-sm font-bold uppercase tracking-[0.2em] text-brand-blue-default">
         {new Date(published_at).toLocaleDateString()}
       </p>
+      <h1 className="mt-2 text-4xl font-bold leading-tight text-gray-950">
+        {title}
+      </h1>
       {isMedia(thumbnail) && thumbnail.url && (
         <Image
           src={thumbnail.url}
@@ -75,11 +77,11 @@ export function Content({
           width={0}
           height={0}
           sizes="100vw"
-          className="object-contain w-full h-auto my-4"
+          className="my-6 h-auto w-full rounded-md object-contain"
         />
       )}
       <div
-        className="prose prose-neutral max-w-none"
+        className="prose prose-neutral mt-6 max-w-none"
         dangerouslySetInnerHTML={{__html: html || ''}}
       />
     </article>

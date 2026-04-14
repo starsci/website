@@ -2,9 +2,8 @@
 
 import {News} from '@/payload-types'
 import Link from 'next/link'
-import Image from 'next/image'
-import {isMedia} from '@/lib/media'
 import type {Publication} from '@/lib/news-queries'
+import {ArticleCard} from '@/components/news/ArticleCard'
 
 interface PublicationGridProps {
   news: News[]
@@ -53,44 +52,33 @@ export function PublicationGrid({
   return (
     <div className="space-y-12">
       {sortedEntries.map(([category, articles]) => (
-        <section key={category}>
-          <h2 className="text-3xl font-bold mb-6">
-            {categoryDisplayNames[category]}
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <section
+          key={category}
+          className="rounded-md border border-gray-200 bg-white p-6 shadow-sm">
+          <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p className="text-sm font-bold uppercase tracking-[0.2em] text-brand-blue-default">
+                Section
+              </p>
+              <h2 className="mt-2 text-3xl font-bold text-gray-950">
+                {categoryDisplayNames[category]}
+              </h2>
+            </div>
+            <Link
+              href={`/${publication}/${category}`}
+              className="text-sm font-bold text-brand-blue-default hover:underline">
+              View all
+            </Link>
+          </div>
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
             {articles.slice(0, 3).map(article => {
-              const {id, title, published_at, thumbnail, authors} = article
+              const {id} = article
               return (
-                <Link
+                <ArticleCard
                   key={id}
+                  article={article}
                   href={`/${publication}/articles/${id}`}
-                  className="group">
-                  <article className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow h-full flex flex-col">
-                    {isMedia(thumbnail) && thumbnail.url && (
-                      <div className="relative h-48 overflow-hidden bg-gray-100">
-                        <Image
-                          src={thumbnail.url}
-                          alt={title}
-                          fill
-                          className="object-cover group-hover:scale-105 transition-transform"
-                        />
-                      </div>
-                    )}
-                    <div className="p-4 flex flex-col flex-grow">
-                      <h3 className="font-bold text-lg mb-2 line-clamp-2 group-hover:text-blue-600">
-                        {title}
-                      </h3>
-                      <p className="text-sm text-gray-600 mb-2">
-                        {new Date(published_at).toLocaleDateString()}
-                      </p>
-                      <p className="text-xs text-gray-700 line-clamp-2 flex-grow">
-                        {authors
-                          ?.map(a => `${a.first_name} ${a.last_name}`)
-                          .join(', ')}
-                      </p>
-                    </div>
-                  </article>
-                </Link>
+                />
               )
             })}
           </div>

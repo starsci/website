@@ -10,13 +10,13 @@ export default async function Announcement({
 }) {
   const {slug} = await params
   return (
-    <div className="flex flex-row lg:flex-row-reverse space-x-8 lg:space-x-reverse lg:justify-end">
-      <div className="md:w-2/3 lg:w-1/2 w-full">
+    <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_18rem]">
+      <div className="min-w-0">
         <Suspense fallback={<ContentSkeleton />}>
           <Content slug={slug} collection="school-announcements" />
         </Suspense>
       </div>
-      <div className="md:w-1/3 lg:w-1/4 md:block hidden">
+      <div className="hidden md:block">
         <Suspense fallback={<AsideSkeleton />}>
           <Aside
             slug={slug}

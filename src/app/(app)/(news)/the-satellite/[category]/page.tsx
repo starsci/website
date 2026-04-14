@@ -1,9 +1,7 @@
 import {queryNewsArticles} from '@/lib/news-queries'
 import {isValidCategory} from '@/lib/news-categories'
 import {notFound} from 'next/navigation'
-import Image from 'next/image'
-import {isMedia} from '@/lib/media'
-import Link from 'next/link'
+import {ArticleCard} from '@/components/news/ArticleCard'
 
 const CATEGORY_DISPLAY_NAMES = {
   news: 'News',
@@ -52,9 +50,14 @@ export default async function SatelliteCategoryPage({
 
   if (articles.length === 0) {
     return (
-      <main>
-        <h1 className="text-4xl font-bold mb-8">{categoryName}</h1>
-        <p className="text-center text-gray-500">
+      <main className="space-y-8">
+        <section className="mx-auto max-w-3xl text-center">
+          <p className="mb-2 text-sm font-bold uppercase tracking-[0.2em] text-brand-blue-default">
+            The Satellite
+          </p>
+          <h1 className="text-4xl font-bold text-gray-950">{categoryName}</h1>
+        </section>
+        <p className="rounded-md border border-gray-200 bg-white p-8 text-center text-gray-500 shadow-sm">
           No articles in this category.
         </p>
       </main>
@@ -62,42 +65,25 @@ export default async function SatelliteCategoryPage({
   }
 
   return (
-    <main>
-      <h1 className="text-4xl font-bold mb-8">{categoryName}</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+    <main className="space-y-8">
+      <section className="mx-auto max-w-3xl text-center">
+        <p className="mb-2 text-sm font-bold uppercase tracking-[0.2em] text-brand-blue-default">
+          The Satellite
+        </p>
+        <h1 className="text-4xl font-bold text-gray-950">{categoryName}</h1>
+        <p className="mt-3 text-lg leading-8 text-gray-600">
+          Stories filed under {categoryName}.
+        </p>
+      </section>
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {articles.map(article => {
-          const {id, title, published_at, thumbnail, authors} = article
+          const {id} = article
           return (
-            <Link
+            <ArticleCard
               key={id}
+              article={article}
               href={`/the-satellite/articles/${id}`}
-              className="group">
-              <article className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow h-full flex flex-col">
-                {isMedia(thumbnail) && thumbnail.url && (
-                  <div className="relative h-48 overflow-hidden bg-gray-100">
-                    <Image
-                      src={thumbnail.url}
-                      alt={title}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform"
-                    />
-                  </div>
-                )}
-                <div className="p-4 flex flex-col flex-grow">
-                  <h2 className="font-bold text-lg mb-2 line-clamp-2 group-hover:text-blue-600">
-                    {title}
-                  </h2>
-                  <p className="text-sm text-gray-600 mb-2">
-                    {new Date(published_at).toLocaleDateString()}
-                  </p>
-                  <p className="text-xs text-gray-700 line-clamp-2 flex-grow">
-                    {authors
-                      ?.map(a => `${a.first_name} ${a.last_name}`)
-                      .join(', ')}
-                  </p>
-                </div>
-              </article>
-            </Link>
+            />
           )
         })}
       </div>

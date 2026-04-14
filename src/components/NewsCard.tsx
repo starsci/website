@@ -14,8 +14,12 @@ interface NewsCardProps {
 
 export function NewsCard({news, href}: NewsCardProps) {
   return (
-    <div>
-      {news.length == 0 && <span>No data</span>}
+    <div className="mt-4">
+      {news.length === 0 && (
+        <p className="rounded-md border border-gray-200 bg-gray-50 p-4 text-center text-sm text-gray-500">
+          No articles published yet.
+        </p>
+      )}
       <ScrollArea className="max-h-[25rem] overflow-y-auto pr-3">
         {news.map((doc: News) => {
           const {id, title, body, thumbnail, published_at} = doc
@@ -25,7 +29,7 @@ export function NewsCard({news, href}: NewsCardProps) {
           return (
             <div
               key={id}
-              className="mb-4 grid gap-4 rounded-md border border-gray-200 bg-white p-3 shadow-sm lg:grid-cols-[8rem_1fr]">
+              className="mb-4 grid gap-4 rounded-md border border-gray-200 bg-gray-50 p-3 transition hover:-translate-y-1 hover:bg-white hover:shadow-sm lg:grid-cols-[8rem_1fr]">
               {isMedia(thumbnail) && thumbnail.url && (
                 <div className="relative h-36 overflow-hidden rounded-md bg-gray-100 lg:h-full">
                   <Image
@@ -40,12 +44,12 @@ export function NewsCard({news, href}: NewsCardProps) {
               <div className="flex flex-col">
                 <h3 className="text-lg leading-6">
                   <Link
-                    className="hover:underline"
+                    className="font-bold text-gray-950 hover:text-brand-blue-default"
                     href={`${href}/articles/${id}`}>
                     {title}
                   </Link>
                 </h3>
-                <small className="text-sm text-neutral-400">
+                <small className="text-sm font-medium text-gray-500">
                   {publishedAt}
                 </small>
                 <div
@@ -59,7 +63,7 @@ export function NewsCard({news, href}: NewsCardProps) {
       </ScrollArea>
       <Link
         href={href}
-        className="text-md hover:underline font-semibold gap-x-2 flex items-center">
+        className="mt-2 flex items-center gap-x-2 text-sm font-bold text-brand-blue-default hover:underline">
         Read More
         <ChevronRight size={24} />
       </Link>
