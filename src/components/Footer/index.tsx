@@ -75,33 +75,25 @@ export async function Footer() {
             </nav>
             <section>
               <h3 className="text-lg font-bold mb-4">Contact Us</h3>
-              <table>
-                <tbody>
-                  <tr>
-                    <td className="pr-4">
-                      <Phone className="h-5 w-5" />
-                    </td>
-                    <td>0908 705 1083</td>
-                  </tr>
-                  <tr>
-                    <td className="pr-4">
-                      <MailOpen className="h-5 w-5" />
-                    </td>
-                    <td>
-                      <a href="mailto:info@srsths.edu.ph">info@srsths.edu.ph</a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="pr-4">
-                      <MapPinned className="h-5 w-5" />
-                    </td>
-                    <td>
-                      LM Subd., Brgy. Market Area, City of Santa Rosa, Laguna,
-                      Philippines
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+              <ul className="space-y-3">
+                <li className="flex gap-3">
+                  <Phone className="mt-0.5 h-5 w-5 flex-shrink-0" />
+                  <span>0908 705 1083</span>
+                </li>
+                <li className="flex gap-3">
+                  <MailOpen className="mt-0.5 h-5 w-5 flex-shrink-0" />
+                  <a href="mailto:info@srsths.edu.ph" className="break-all">
+                    info@srsths.edu.ph
+                  </a>
+                </li>
+                <li className="flex gap-3">
+                  <MapPinned className="mt-0.5 h-5 w-5 flex-shrink-0" />
+                  <span>
+                    LM Subd., Brgy. Market Area, City of Santa Rosa, Laguna,
+                    Philippines
+                  </span>
+                </li>
+              </ul>
             </section>
             <section>
               <h3 className="text-lg font-bold mb-4">Follow Us</h3>

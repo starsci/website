@@ -53,7 +53,7 @@ export function ContactForm() {
               className="block text-sm font-medium text-gray-700 mb-1">
               Name
             </label>
-            <Input name="name" placeholder="Your Name" required />
+            <Input id="name" name="name" placeholder="Your Name" required />
           </div>
           <div>
             <label
@@ -74,7 +74,7 @@ export function ContactForm() {
               className="block text-sm font-medium text-gray-700 mb-1">
               Subject
             </label>
-            <Input name="subject" placeholder="Subject" required />
+            <Input id="subject" name="subject" placeholder="Subject" required />
           </div>
           <div>
             <label
@@ -83,6 +83,7 @@ export function ContactForm() {
               Message
             </label>
             <Textarea
+              id="message"
               name="message"
               placeholder="Your message here"
               rows={4}
