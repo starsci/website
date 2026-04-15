@@ -1,4 +1,3 @@
-import {HR} from '@/components/HR'
 import {NewsCard} from '@/components/NewsCard'
 import {News} from '@/payload-types'
 
@@ -17,7 +16,6 @@ export function NewsBit({title, news, href}: NewsBitProps) {
         </p>
         <h2 className="mt-2 text-2xl font-bold text-gray-950">{title}</h2>
       </div>
-      <HR />
       <NewsCard news={news} href={href} />
     </article>
   )

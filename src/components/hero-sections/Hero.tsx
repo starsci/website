@@ -22,9 +22,6 @@ export async function Hero() {
             width={128}
             alt="Santa Rosa Science and Technology High School"
           />
-          <p className="text-sm font-bold uppercase tracking-[0.2em] text-brand-yellow-default">
-            Santa Rosa Science and Technology High School
-          </p>
           <h1 className="max-w-3xl text-4xl font-bold leading-tight sm:text-5xl">
             Empowering tomorrow&apos;s science and technology leaders.
           </h1>

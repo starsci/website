@@ -75,7 +75,7 @@ export default async function SatelliteCategoryPage({
           Stories filed under {categoryName}.
         </p>
       </section>
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+      <div className="grid grid-cols-1 gap-6 pt-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {articles.map(article => {
           const {id} = article
           return (

@@ -70,7 +70,7 @@ export function PublicationGrid({
               View all
             </Link>
           </div>
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
+          <div className="grid grid-cols-1 gap-6 pt-1 sm:grid-cols-2 md:grid-cols-3">
             {articles.slice(0, 3).map(article => {
               const {id} = article
               return (

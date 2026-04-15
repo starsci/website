@@ -12,6 +12,10 @@ import type {Club} from '@/payload-types'
 import Image from 'next/image'
 import {notFound} from 'next/navigation'
 import {Pagination} from '@/components/Pagination'
+import {
+  interactiveCardClass,
+  interactiveCardWrapperClass
+} from '@/components/card-styles'
 
 interface ClubGridProps {
   searchParams?: {
@@ -49,10 +53,9 @@ export async function ClubGrid({searchParams}: ClubGridProps) {
           const logoUrl = getMediaUrl(club.logo)
 
           return (
-            <article
-              className="relative transition-transform hover:-translate-y-1"
-              key={club.id}>
-              <Card className="flex h-full flex-col items-center justify-center border-gray-200 shadow-sm transition-shadow hover:shadow-lg">
+            <article className={interactiveCardWrapperClass} key={club.id}>
+              <Card
+                className={`${interactiveCardClass} flex flex-col items-center justify-center`}>
                 <CardHeader>
                   {logoUrl && (
                     <Image

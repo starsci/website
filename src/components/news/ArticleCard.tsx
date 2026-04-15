@@ -3,6 +3,10 @@ import {formatDisplayDate} from '@/lib/date-format'
 import {isMedia} from '@/lib/media'
 import Image from 'next/image'
 import Link from 'next/link'
+import {
+  interactiveCardClass,
+  interactiveLinkCardWrapperClass
+} from '@/components/card-styles'
 
 interface ArticleCardProps {
   article: News
@@ -16,15 +20,15 @@ export function ArticleCard({article, href}: ArticleCardProps) {
     .join(', ')
 
   return (
-    <Link href={href} className="group block h-full">
-      <article className="flex h-full flex-col overflow-hidden rounded-md border border-gray-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+    <Link href={href} className={interactiveLinkCardWrapperClass}>
+      <article className={`${interactiveCardClass} flex flex-col overflow-hidden`}>
         {isMedia(thumbnail) && thumbnail.url && (
           <div className="relative h-48 overflow-hidden bg-gray-100">
             <Image
               src={thumbnail.url}
               alt={title}
               fill
-              className="object-cover transition-transform duration-300 group-hover:scale-105"
+              className="object-cover"
               sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
             />
           </div>

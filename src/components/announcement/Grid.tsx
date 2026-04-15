@@ -19,6 +19,10 @@ import {convertLexicalToHTML} from '@payloadcms/richtext-lexical/html'
 import {GridContainer} from '@/components/GridContainer'
 import {sanitizeRichTextHTML} from '@/lib/sanitize'
 import {formatDisplayDate} from '@/lib/date-format'
+import {
+  interactiveCardClass,
+  interactiveCardWrapperClass
+} from '@/components/card-styles'
 
 export function AnnouncementGrid() {
   const searchParams = useSearchParams()
@@ -40,46 +44,42 @@ export function AnnouncementGrid() {
           No announcements posted yet.
         </p>
       )}
-      <GridContainer>
-        {data.docs.map(ann => {
-          const {id, title, body, published_at, thumbnail} = ann
-          const html = sanitizeRichTextHTML(convertLexicalToHTML({data: body}))
+      <div className="pt-1">
+        <GridContainer>
+          {data.docs.map(ann => {
+            const {id, title, body, published_at, thumbnail} = ann
+            const html = sanitizeRichTextHTML(convertLexicalToHTML({data: body}))
 
-          return (
-            <div
-              className="group relative transition hover:-translate-y-1"
-              key={id}>
-              <Card className="h-full rounded-md border-gray-200 bg-white shadow-sm transition-shadow group-hover:shadow-md">
-                {isMedia(thumbnail) && thumbnail.url && (
-                  <CardImage
-                    src={thumbnail.url}
-                    alt={title}
-                    className="h-48 transition-transform duration-300 group-hover:scale-105"
-                  />
-                )}
-                <CardHeader className="p-5">
-                  <CardDescription className="font-medium">
-                    {formatDisplayDate(published_at)}
-                  </CardDescription>
-                  <CardTitle className="line-clamp-2 text-xl leading-7 text-gray-950 group-hover:text-brand-blue-default">
-                    {title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="px-5 pb-5">
-                  <div
-                    className="prose prose-sm line-clamp-3 max-w-none text-gray-600"
-                    dangerouslySetInnerHTML={{__html: html || ''}}
-                  />
-                </CardContent>
-              </Card>
-              <Link
-                href={`/announcements/${id}`}
-                className="absolute inset-0 z-10"
-              />
-            </div>
-          )
-        })}
-      </GridContainer>
+            return (
+              <article className={interactiveCardWrapperClass} key={id}>
+                <Card className={interactiveCardClass}>
+                  {isMedia(thumbnail) && thumbnail.url && (
+                    <CardImage src={thumbnail.url} alt={title} className="h-48" />
+                  )}
+                  <CardHeader className="p-5">
+                    <CardDescription className="font-medium">
+                      {formatDisplayDate(published_at)}
+                    </CardDescription>
+                    <CardTitle className="line-clamp-2 text-xl leading-7 text-gray-950">
+                      {title}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="px-5 pb-5">
+                    <div
+                      className="prose prose-sm line-clamp-3 max-w-none text-gray-600"
+                      dangerouslySetInnerHTML={{__html: html || ''}}
+                    />
+                  </CardContent>
+                </Card>
+                <Link
+                  href={`/announcements/${id}`}
+                  className="absolute inset-0 z-10"
+                />
+              </article>
+            )
+          })}
+        </GridContainer>
+      </div>
       <div className="mx-auto">
         <Pagination totalPages={data.totalPages} />
       </div>
