@@ -1,5 +1,9 @@
 import {OrganizationalChart} from '@/components/organizational-chart/Chart'
 import {Tabs, TabsContent, TabsList, TabsTrigger} from '@/components/ui/tabs'
+import {
+  mutedSurfaceCardClass,
+  surfaceCardClass
+} from '@/components/card-styles'
 import {fetchCachedMediaByName} from '@/lib/cached'
 import Image from 'next/image'
 
@@ -60,9 +64,6 @@ const studentServices = [
 ]
 
 const coreValues = ['Maka-Diyos', 'Maka-tao', 'Makakalikasan', 'Makabansa']
-
-const sectionCardClass = 'rounded-md border border-gray-200 bg-white shadow-sm'
-const infoCardClass = 'rounded-md border border-gray-200 bg-gray-50'
 
 function SectionEyebrow({children}: {children: React.ReactNode}) {
   return (
@@ -159,7 +160,7 @@ export default async function About() {
 
         <TabsContent value="history">
           <section
-            className={`${sectionCardClass} grid gap-8 p-6 md:grid-cols-[0.8fr_1.2fr] md:p-8`}>
+            className={`${surfaceCardClass} grid gap-8 p-6 md:grid-cols-[0.8fr_1.2fr] md:p-8`}>
             <div>
               <SectionEyebrow>Origin story</SectionEyebrow>
               <h2 className="mt-2 text-3xl font-bold text-gray-950">
@@ -188,9 +189,9 @@ export default async function About() {
 
         <TabsContent value="logo">
           <section
-            className={`${sectionCardClass} grid gap-8 p-6 lg:grid-cols-[0.7fr_1.3fr] lg:p-8`}>
+            className={`${surfaceCardClass} grid gap-8 p-6 lg:grid-cols-[0.7fr_1.3fr] lg:p-8`}>
             <div
-              className={`${infoCardClass} flex flex-col items-center justify-center p-8 text-center`}>
+              className={`${mutedSurfaceCardClass} flex flex-col items-center justify-center p-8 text-center`}>
               <Image
                 src={logoSrc}
                 alt="Santa Rosa Science and Technology High School Logo"
@@ -210,7 +211,7 @@ export default async function About() {
               {logoDetails.map(detail => (
                 <li
                   key={detail.title}
-                  className={`${infoCardClass} p-4 leading-7 text-gray-700`}>
+                  className={`${mutedSurfaceCardClass} p-4 leading-7 text-gray-700`}>
                   <strong className="block text-gray-950">
                     {detail.title}
                   </strong>
@@ -222,7 +223,7 @@ export default async function About() {
         </TabsContent>
 
         <TabsContent value="mission-vision">
-          <section className={`${sectionCardClass} p-6 md:p-8`}>
+          <section className={`${surfaceCardClass} p-6 md:p-8`}>
             <div className="mb-8 max-w-3xl">
               <SectionEyebrow>Direction</SectionEyebrow>
               <h2 className="mt-2 text-3xl font-bold text-gray-950">
@@ -230,7 +231,7 @@ export default async function About() {
               </h2>
             </div>
             <div className="grid gap-6 lg:grid-cols-2">
-              <div className={`${infoCardClass} p-6`}>
+              <div className={`${mutedSurfaceCardClass} p-6`}>
                 <h3 className="text-2xl font-bold text-gray-950">Vision</h3>
                 <p className="mt-4 leading-8 text-gray-700">
                   Santa Rosa Science and Technology High School envisions
@@ -244,7 +245,7 @@ export default async function About() {
                   stakeholders.
                 </p>
               </div>
-              <div className={`${infoCardClass} p-6`}>
+              <div className={`${mutedSurfaceCardClass} p-6`}>
                 <h3 className="text-2xl font-bold text-gray-950">Mission</h3>
                 <p className="mt-4 leading-8 text-gray-700">
                   Through the collaborative effort of all the internal and
@@ -261,7 +262,7 @@ export default async function About() {
         </TabsContent>
 
         <TabsContent value="deped-mission-vision">
-          <section className={`${sectionCardClass} p-6 md:p-8`}>
+          <section className={`${surfaceCardClass} p-6 md:p-8`}>
             <div className="mb-8 max-w-3xl">
               <SectionEyebrow>Department of Education</SectionEyebrow>
               <h2 className="mt-2 text-3xl font-bold text-gray-950">
@@ -298,7 +299,7 @@ export default async function About() {
                 </h3>
                 <PillList items={coreValues} />
               </div>
-              <div className={`${infoCardClass} p-6`}>
+              <div className={`${mutedSurfaceCardClass} p-6`}>
                 <h3 className="text-2xl font-bold text-gray-950">
                   Quality Policy Statement
                 </h3>
@@ -323,7 +324,7 @@ export default async function About() {
         </TabsContent>
 
         <TabsContent value="curriculum">
-          <section className={`${sectionCardClass} p-6 md:p-8`}>
+          <section className={`${surfaceCardClass} p-6 md:p-8`}>
             <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
               <div>
                 <SectionEyebrow>Academic program</SectionEyebrow>
@@ -348,7 +349,7 @@ export default async function About() {
         </TabsContent>
 
         <TabsContent value="facilities">
-          <section className={`${sectionCardClass} p-6 md:p-8`}>
+          <section className={`${surfaceCardClass} p-6 md:p-8`}>
             <div className="mb-8 max-w-3xl">
               <SectionEyebrow>Campus support</SectionEyebrow>
               <h2 className="mt-2 text-3xl font-bold text-gray-950">
@@ -378,7 +379,7 @@ export default async function About() {
         </TabsContent>
 
         <TabsContent value="organizational-chart">
-          <section className={`${sectionCardClass} p-6 md:p-8`}>
+          <section className={`${surfaceCardClass} p-6 md:p-8`}>
             <div className="mb-8 max-w-3xl">
               <SectionEyebrow>Leadership</SectionEyebrow>
               <h2 className="mt-2 text-3xl font-bold text-gray-950">

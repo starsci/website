@@ -4,6 +4,7 @@ import {News} from '@/payload-types'
 import Link from 'next/link'
 import type {Publication} from '@/lib/news-queries'
 import {ArticleCard} from '@/components/news/ArticleCard'
+import {surfaceCardClass} from '@/components/card-styles'
 
 interface PublicationGridProps {
   news: News[]
@@ -54,7 +55,7 @@ export function PublicationGrid({
       {sortedEntries.map(([category, articles]) => (
         <section
           key={category}
-          className="rounded-md border border-gray-200 bg-white p-6 shadow-sm">
+          className={`${surfaceCardClass} p-6`}>
           <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <p className="text-sm font-bold uppercase tracking-[0.2em] text-brand-blue-default">
