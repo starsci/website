@@ -72,7 +72,7 @@ export default async function PararayosCategoryPage({
         </p>
         <h1 className="text-4xl font-bold text-gray-950">{categoryName}</h1>
         <p className="mt-3 text-lg leading-8 text-gray-600">
-          Stories filed under {categoryName}.
+          Latest {categoryName} articles from Pararayos.
         </p>
       </section>
       <div className="grid grid-cols-1 gap-6 pt-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">

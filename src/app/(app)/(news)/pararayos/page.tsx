@@ -15,7 +15,7 @@ export const metadata = {
 }
 
 export default async function PararayosPage() {
-  const news = await queryNewsArticles({publication: 'pararayos', limit: 3})
+  const news = await queryNewsArticles({publication: 'pararayos'})
 
   return (
     <main className="space-y-8">

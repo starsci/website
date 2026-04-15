@@ -15,7 +15,7 @@ export const metadata = {
 }
 
 export default async function TheSatellitePage() {
-  const news = await queryNewsArticles({publication: 'the-satellite', limit: 3})
+  const news = await queryNewsArticles({publication: 'the-satellite'})
 
   return (
     <main className="space-y-8">
