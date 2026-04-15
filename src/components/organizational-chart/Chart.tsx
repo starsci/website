@@ -1,4 +1,5 @@
 import ExecutiveProfile from '@/components/ExecutiveProfile'
+import {surfaceCardClass} from '@/components/card-styles'
 import {fetchCachedCollection} from '@/lib/cached'
 import {getMedia} from '@/lib/media-server'
 import {OrganizationalChart as OrganizationalChartDoc} from '@/payload-types'
@@ -63,14 +64,9 @@ export async function OrganizationalChart() {
 
   return (
     <div className="space-y-8">
-      {visibleSections.map((section, index) => {
-        const rowClass =
-          index % 2 === 0
-            ? 'rounded-md border border-gray-200 bg-white p-5'
-            : 'rounded-md border border-gray-200 bg-gray-50 p-5'
-
+      {visibleSections.map(section => {
         return (
-          <div key={section.position} className={rowClass}>
+          <div key={section.position} className={`${surfaceCardClass} p-5`}>
             <h3 className="mb-5 text-center text-2xl font-bold text-gray-950">
               {section.title}
             </h3>

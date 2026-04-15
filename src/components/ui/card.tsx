@@ -85,8 +85,8 @@ const CardImage = React.forwardRef<
     ref={ref}
     alt={alt}
     className={cn('h-auto w-full object-cover', className)}
-    height={0}
-    width={0}
+    height={450}
+    width={800}
     sizes="100vw"
     {...props}
   />

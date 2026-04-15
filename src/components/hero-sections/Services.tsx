@@ -34,9 +34,9 @@ export async function Services() {
         <Image
           src={thumbnail.url}
           alt={title}
-          width={0}
-          height={0}
-          className="h-auto w-full rounded-md object-cover shadow-sm"
+          width={800}
+          height={450}
+          className="aspect-video h-auto w-full rounded-md object-cover shadow-sm"
           sizes="100vw"
         />
       )}
