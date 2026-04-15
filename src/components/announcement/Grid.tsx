@@ -21,7 +21,7 @@ import {sanitizeRichTextHTML} from '@/lib/sanitize'
 import {formatDisplayDate} from '@/lib/date-format'
 import {
   interactiveCardClass,
-  interactiveCardWrapperClass
+  interactiveLinkCardWrapperClass
 } from '@/components/card-styles'
 
 export function AnnouncementGrid() {
@@ -51,7 +51,10 @@ export function AnnouncementGrid() {
             const html = sanitizeRichTextHTML(convertLexicalToHTML({data: body}))
 
             return (
-              <article className={interactiveCardWrapperClass} key={id}>
+              <Link
+                className={interactiveLinkCardWrapperClass}
+                href={`/announcements/${id}`}
+                key={id}>
                 <Card className={interactiveCardClass}>
                   {isMedia(thumbnail) && thumbnail.url && (
                     <CardImage src={thumbnail.url} alt={title} className="h-48" />
@@ -71,11 +74,7 @@ export function AnnouncementGrid() {
                     />
                   </CardContent>
                 </Card>
-                <Link
-                  href={`/announcements/${id}`}
-                  className="absolute inset-0 z-10"
-                />
-              </article>
+              </Link>
             )
           })}
         </GridContainer>
