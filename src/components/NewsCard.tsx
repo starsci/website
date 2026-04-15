@@ -1,5 +1,4 @@
 import {ChevronRight} from 'lucide-react'
-import {ScrollArea} from '@/components/ui/scroll-area'
 import Image from 'next/image'
 import Link from 'next/link'
 import {News} from '@/payload-types'
@@ -22,49 +21,44 @@ export function NewsCard({news, href}: NewsCardProps) {
           No articles published yet.
         </p>
       )}
-      <ScrollArea className="max-h-[25rem] overflow-y-auto">
-        <div className="px-1 pb-1 pt-2">
-          {news.map((doc: News) => {
-            const {id, title, body, thumbnail, published_at} = doc
-            const bodyHTML = sanitizeRichTextHTML(convertLexicalToHTML({data: body}))
-            const publishedAt = formatDisplayDate(published_at)
+      <div className="space-y-4 pt-1">
+        {news.map((doc: News) => {
+          const {id, title, body, thumbnail, published_at} = doc
+          const bodyHTML = sanitizeRichTextHTML(convertLexicalToHTML({data: body}))
+          const publishedAt = formatDisplayDate(published_at)
 
-            return (
-              <div
-                key={id}
-                className={`${compactInteractiveCardClass} mb-4 grid gap-4 p-3 lg:grid-cols-[8rem_1fr]`}>
-                {isMedia(thumbnail) && thumbnail.url && (
-                  <div className="relative h-36 overflow-hidden rounded-md bg-gray-100 lg:h-full">
-                    <Image
-                      src={thumbnail.url}
-                      alt={title}
-                      fill
-                      className="object-cover"
-                      sizes="(min-width: 1024px) 8rem, 100vw"
-                    />
-                  </div>
-                )}
-                <div className="flex flex-col">
-                  <h3 className="text-lg leading-6">
-                    <Link
-                      className="font-bold text-gray-950 hover:text-brand-blue-default"
-                      href={`${href}/articles/${id}`}>
-                      {title}
-                    </Link>
-                  </h3>
-                  <small className="text-sm font-medium text-gray-500">
-                    {publishedAt}
-                  </small>
-                  <div
-                    className="prose prose-sm mt-2 line-clamp-2 max-w-none text-gray-600 md:line-clamp-3"
-                    dangerouslySetInnerHTML={{__html: bodyHTML || ''}}
+          return (
+            <Link
+              key={id}
+              href={`${href}/articles/${id}`}
+              className={`${compactInteractiveCardClass} grid gap-4 p-3 lg:grid-cols-[8rem_1fr]`}>
+              {isMedia(thumbnail) && thumbnail.url && (
+                <div className="relative h-36 overflow-hidden rounded-md bg-gray-100 lg:h-full">
+                  <Image
+                    src={thumbnail.url}
+                    alt={title}
+                    fill
+                    className="object-cover"
+                    sizes="(min-width: 1024px) 8rem, 100vw"
                   />
                 </div>
+              )}
+              <div className="flex flex-col">
+                <h3 className="text-lg font-bold leading-6 text-gray-950">
+                  {title}
+                </h3>
+                <small className="text-sm font-medium text-gray-500">
+                  {publishedAt}
+                </small>
+                <div
+                  className="prose prose-sm mt-2 line-clamp-2 max-w-none text-gray-600 md:line-clamp-3"
+                  dangerouslySetInnerHTML={{__html: bodyHTML || ''}}
+                />
               </div>
-            )
-          })}
-        </div>
-      </ScrollArea>
+            </Link>
+          )
+        })}
+      </div>
       <Link
         href={href}
         className="mt-2 flex items-center gap-x-2 text-sm font-bold text-brand-blue-default hover:underline">
