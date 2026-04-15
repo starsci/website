@@ -8,7 +8,7 @@ export async function Hero() {
   const heroImageSrc = await fetchCachedMediaByName('Hero image')
 
   return (
-    <section className="relative -mx-6 -mt-6 flex min-h-[62vh] w-[100vw] flex-shrink-0 flex-grow ml-[calc(50%-50vw)] overflow-hidden">
+    <section className="relative -mt-6 flex min-h-[62vh] flex-shrink-0 flex-grow overflow-hidden [margin-inline:calc(50%-50vw)]">
       <div
         className="absolute inset-0 -z-10 bg-cover bg-center"
         style={{backgroundImage: `url(${heroImageSrc})`}}
